@@ -2,6 +2,7 @@
 |-----|--------|
 |Apple|3       |
 |Egg  |12      |
+
 <p align="center">
   <img src="fig/common/logo_banner.png" width = "85%"/>
 </p>
