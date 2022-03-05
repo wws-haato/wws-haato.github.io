@@ -8,7 +8,7 @@
 </p>
 
 # WWS Haato Fan Group
-  - [Current Event](#Current Event)
+  - [Current Event](#current-event)
 
 ## Current Event
 Haachaama Birthday Project 2022
