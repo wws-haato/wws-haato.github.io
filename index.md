@@ -38,21 +38,9 @@
     alt="..." style="width:85%;" >
   </p>
   <div class="text-block">
-  <h3>Haachama Birthday Project 2022</h3>
-
-  - feature 1  
-  - feature 2  
-  - feature 3  
-
+    <h3>Haachama Birthday Project 2022</h3>
+    <h4 style="margin-left:10px">feature 1</h4>  
+    <h4 style="margin-left:10px">feature 2</h4>  
+    <h4 style="margin-left:10px">feature 3</h4>  
   </div>
 </div>
-
-  
-
-<p align="center">
-  <img src="todo" width = "40%"/>
-</p>
-
-<p align="center">
-      ⬆⬆⬆ click for more info! ⬆⬆⬆
-</p>
