@@ -1,5 +1,6 @@
 # WWS Haato Fan Group
 <link href="src/style.css" rel="stylesheet">
+<link href="src/image.css" rel="stylesheet">
 
 <!--language toggle/-->
 
@@ -32,7 +33,11 @@
 
 ## Current Event
 
-<div class="container" >
+  - feature 1
+  - feature 2 
+  - feature 3
+  
+<!--div class="container" >
   <p align="center">
     <img src="fig/common/place_holder.png" 
     alt="..." style="width:85%;" >
@@ -42,5 +47,13 @@
     <h4 style="margin-left:10px">feature 1</h4>  
     <h4 style="margin-left:10px">feature 2</h4>  
     <h4 style="margin-left:10px">feature 3</h4>  
+  </div>
+</div/-->
+
+
+<div class="img_container">
+  <img src="fig/common/place_holder.png" alt="..." class="img" style="width:100%">
+  <div class="img_middle">
+    <div class="img_hover_text">more information</div>
   </div>
 </div>
