@@ -13,7 +13,9 @@
   </section>
 
 
-
+  <element class="button" >
+    Home
+  </element>
   <element class="button" >
     Current Event
   </element>
@@ -21,35 +23,16 @@
     Previous Works
   </element>
   <element class="button" >
-    Contact
+    Contact Information
   </element>
 
 </section>
 
 
 
-
-
-<!--link icons/-->
-
-
-
 <p align="center">
   <img src="fig/common/logo_banner.png" width = "85%"/>
 </p>
-
-<details close>
-<summary>Menu</summary>
-
-  - [Current Event](#current-event)
-
-
-</details>
-
-<details>
-    <summary>Toggle Switch</summary>
-    Foldable Content[enter image description here][1]
-</details>
 
 ## Current Event
 Haachaama Birthday Project 2022

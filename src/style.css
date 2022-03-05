@@ -6,7 +6,7 @@
     background: #bb1411;
     color:#fff;
     z-index: 1000;
-    height: 60px;
+    height: 64px;
     overflow: hidden;
     -webkit-transition: height 0.3s;
     -moz-transition: height 0.3s;
@@ -37,7 +37,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 8px 2px;
+    margin: 10px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
     padding: 12px 12px;
