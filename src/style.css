@@ -65,8 +65,8 @@
     opacity: 0.85;
 }
 
-.text_container {
+.paragraph_container {
     text-align: justify;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 15%;
+    padding-right: 15%;
 }
