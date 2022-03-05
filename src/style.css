@@ -13,6 +13,7 @@
     transition: height 0.3s;
     display: table;
     padding-left: 60px;
+    background: linear-gradient(0deg, white 32px, #bb1411 32px);
 }
 
 
@@ -37,10 +38,10 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 20px 2px;
+    margin: 10px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
-    padding: 18px 12px;
+    padding: 10px 10px;
 }
 
 .button:hover{background-color: #ce3f3f}
