@@ -53,3 +53,16 @@
     margin-right: auto;
     border-radius: 50%;
 }
+
+.img_links {
+    width: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img_links:hover{
+    opacity: 0.3;
+}

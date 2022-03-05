@@ -26,7 +26,7 @@
 </p>
 
 ## Current Event
-<h3>Haachama Birthday Project 2022</h3>
+Haachama Birthday Project 2022
   
 <!--div class="container" >
   <p align="center">
@@ -51,22 +51,30 @@
 
 
 ## About Us
+
 <p align="center">
-<img src="fig/common/pfp.jpg" 
-    alt="..." class="img_circle" style="width:40%" >
+    <img src="fig/common/pfp.jpg" 
+        alt="..." class="img_circle" style="width:40%" >
 </p>
 
-<h3>World Wide Support for Haato, aka WWS Haato, is a non-profit project team mainly focusing on Haato projects that gather fans around the world. Our team has been set up since March, 2021, when Haato started her long break. ‍ 
+World Wide Support for Haato, aka WWS Haato, is a non-profit project team mainly focusing on Haato projects that gather fans around the world. Our team has been set up since March, 2021, when Haato started her long break. ‍ 
 
-We have so far produced our 1st project "World Wide Tour Guide" and 2nd project "Haato's Birthday Parade". We will be continuing to make more supportive projects for Haachama in the future.</h3>
+We have so far produced our 1st project "World Wide Tour Guide" and 2nd project "Haato's Birthday Parade". We will be continuing to make more supportive projects for Haachama in the future.
 
 ## Links 
 <p align="center">
-<img src="fig/common/pfp.jpg" 
-    alt="..." class="img_circle" style="width:40%" >
+<a href="https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA">
+    <img src="fig/common/icons/youtube.png" 
+        alt="..." class="img_links" style="width:20%" >
+</a>
+<a href="https://discord.gg/HqQ5n2cMBY">
+    <img src="fig/common/icons/discord.png" 
+        alt="..." class="img_links" style="width:20%" >
+</a>
+<a href="https://twitter.com/WWS_Haato">
+    <img src="fig/common/icons/twitter.png" 
+        alt="..." class="img_links" style="width:20%" >
+</a>
+    
 </p>
-
-<h3>World Wide Support for Haato, aka WWS Haato, is a non-profit project team mainly focusing on Haato projects that gather fans around the world. Our team has been set up since March, 2021, when Haato started her long break. ‍ 
-
-We have so far produced our 1st project "World Wide Tour Guide" and 2nd project "Haato's Birthday Parade". We will be continuing to make more supportive projects for Haachama in the future.</h3>
 
