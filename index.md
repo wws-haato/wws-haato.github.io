@@ -40,9 +40,9 @@
   <div class="text-block">
   <h3>Haachama Birthday Project 2022</h3>
 
-  - feature 1 
-  - feature 2
-  - feature 3
+  - feature 1  
+  - feature 2  
+  - feature 3  
 
   </div>
 </div>
