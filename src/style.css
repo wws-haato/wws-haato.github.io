@@ -6,48 +6,41 @@
     background: #bb1411;
     color:#fff;
     z-index: 1000;
-    height: 100px;
+    height: 60px;
     overflow: hidden;
     -webkit-transition: height 0.3s;
     -moz-transition: height 0.3s;
     transition: height 0.3s;
     display: table;
+    padding-left: 60px;
 }
 
-.header > .nav_bar{
-    display: table-cell;
-    text-align:right;
-    vertical-align: middle;
-}
 
-.header > .language_toggle{
-    display: table-cell;
-    text-align:right;
+.language_toggle{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #bb141100;
+    z-index: 10;
+    height: 20px;
+    overflow: hidden;
+    text-align: right;
     vertical-align: top;
 }
 
-.header > .link_icon{
-    display: table-cell;
-    text-align:left;
-    vertical-align: middle;
-    width: 80px;
-    height: 80px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 .button{
-    box-align: center;
-    vertical-align: bottom;
-    background-color: #ce3f3f; /* Green */
+    background-color: #bb1411; /* Green */
     border: none;
     color: white;
     border-radius: 8px;
-    padding: 16px 32px;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 14px;
+    margin: 8px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
+    padding: 12px 12px;
 }
+
+.button:hover{background-color: #ce3f3f}
