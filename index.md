@@ -3,12 +3,22 @@
 
 <!--language toggle/-->
 <section class="header">
-  <element class="language_toggle">
-  <a href="[url](https://virtualyoutuber.fandom.com/wiki/Akai_Haato)">🇯🇵 日本語 </a> 
+<element class="link_icon">
+  <a href="https://github.com/wws-haato/wws-haato.github.io"><img src="fig/common/icons/github.png"> </a> 
+</element>
+
+<element class="language_toggle">
+  <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇯🇵 日本語 </a> 
   | 
-  <a href="[url](https://virtualyoutuber.fandom.com/wiki/Akai_Haato)">🇺🇸 English </a> 
-  </element>
+  <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇺🇸 English </a> 
+</element>
+
+  
 </section>
+
+
+<!--link icons/-->
+
 
 
 <p align="center">
