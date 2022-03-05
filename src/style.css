@@ -11,7 +11,19 @@
     -webkit-transition: height 0.3s;
     -moz-transition: height 0.3s;
     transition: height 0.3s;
-    text-align:center;
-    line-height:160px;
+    display: table;
+    
 
+}
+
+.header > .nav_bar{
+    display: table-cell;
+    text-align:right;
+    vertical-align: middle;
+}
+
+.header > .language_toggle{
+    display: table-cell;
+    text-align:right;
+    vertical-align: top;
 }

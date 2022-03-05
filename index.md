@@ -1,8 +1,10 @@
 # WWS Haato Fan Group
 <link href="src/style.css" rel="stylesheet">
-<a class="header">
-
-</a>
+<section class="header">
+  <element class="language_toggle">
+    [🇯🇵 日本語](https://virtualyoutuber.fandom.com/wiki/Akai_Haato) | [🇺🇸 English]
+  </element>
+</section>
 
 <p align="center">
   <img src="fig/common/logo_banner.png" width = "85%"/>
