@@ -44,3 +44,20 @@
 }
 
 .button:hover{background-color: #ce3f3f}
+
+
+.container {
+    position: relative;
+  }
+  
+/* Bottom right text */
+.text-block {
+    position: absolute;
+    top: 4.5%;
+    left: 10%;
+    background-color: #bb1411;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+}

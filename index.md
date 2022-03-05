@@ -31,10 +31,23 @@
 </p>
 
 ## Current Event
-Haachaama Birthday Project 2022
+
+<div class="container" >
+  <p align="center">
+    <img src="fig/common/place_holder.png" 
+    alt="..." style="width:85%;" >
+  </p>
+  <div class="text-block">
+  <h3>Haachama Birthday Project 2022</h3>
+
   - feature 1 
   - feature 2
   - feature 3
+
+  </div>
+</div>
+
+  
 
 <p align="center">
   <img src="todo" width = "40%"/>
