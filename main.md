@@ -8,9 +8,9 @@
 </p>
 
 # WWS Haato Fan Group
-  - [Current Event](#Current Event)
-  - [Current Event](#Current Event)
-  - [Current Event](#Current Event)
+  - [Current Event](# Current Event)
+  - [Current Event](# Current Event)
+  - [Current Event](# Current Event)
   - [Current Event](#Current Event)
   - [Current Event](#Current Event)
   - [Current Event](#Current Event)
