@@ -1,3 +1,11 @@
+|Name |Quantity|
+|-----|--------|
+|Apple|3       |
+|Egg  |12      |
+<p align="center">
+  <img src="fig/common/logo_banner.png" width = "85%"/>
+</p>
+
 # WWS Haato Fan Group
   - [Current Event](#Current Event)
 
@@ -14,3 +22,8 @@
 <p align="center">
       ⬆⬆⬆ click for more info! ⬆⬆⬆
 </p>
+<details open>
+<summary>Want to ruin the surprise?</summary>
+<br>
+Well, you asked for it!
+</details>
