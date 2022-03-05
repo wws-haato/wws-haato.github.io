@@ -26,10 +26,7 @@
 </p>
 
 ## Current Event
-Haachama Birthday Project 2022
-  - feature 1
-  - feature 2 
-  - feature 3
+<h3>Haachama Birthday Project 2022</h3>
   
 <!--div class="container" >
   <p align="center">
@@ -56,9 +53,20 @@ Haachama Birthday Project 2022
 ## About Us
 <p align="center">
 <img src="fig/common/pfp.jpg" 
-    alt="..." class="img_circle" style="width:50%" >
+    alt="..." class="img_circle" style="width:40%" >
 </p>
 
-World Wide Support for Haato, aka WWS Haato, is a non-profit project team mainly focusing on Haato projects that gather fans around the world. Our team has been set up since March, 2021, when Haato started her long break. ‍ 
+<h3>World Wide Support for Haato, aka WWS Haato, is a non-profit project team mainly focusing on Haato projects that gather fans around the world. Our team has been set up since March, 2021, when Haato started her long break. ‍ 
 
-We have so far produced our 1st project "World Wide Tour Guide" and 2nd project "Haato's Birthday Parade". We will be continuing to make more supportive projects for Haachama in the future. 
+We have so far produced our 1st project "World Wide Tour Guide" and 2nd project "Haato's Birthday Parade". We will be continuing to make more supportive projects for Haachama in the future.</h3>
+
+## Links 
+<p align="center">
+<img src="fig/common/pfp.jpg" 
+    alt="..." class="img_circle" style="width:40%" >
+</p>
+
+<h3>World Wide Support for Haato, aka WWS Haato, is a non-profit project team mainly focusing on Haato projects that gather fans around the world. Our team has been set up since March, 2021, when Haato started her long break. ‍ 
+
+We have so far produced our 1st project "World Wide Tour Guide" and 2nd project "Haato's Birthday Parade". We will be continuing to make more supportive projects for Haachama in the future.</h3>
+
