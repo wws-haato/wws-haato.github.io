@@ -12,10 +12,6 @@
     <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇺🇸 English </a> 
   </section>
 
-
-  <element class="button" >
-    Home
-  </element>
   <element class="button" >
     Current Event
   </element>
@@ -23,7 +19,7 @@
     Previous Works
   </element>
   <element class="button" >
-    Contact Information
+    Contact
   </element>
 
 </section>
