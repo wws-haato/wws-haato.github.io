@@ -64,3 +64,9 @@
     border-radius: 8px;
     opacity: 0.85;
 }
+
+.text_container {
+    text-align: justify;
+    padding-left: 10%;
+    padding-right: 10%;
+}
