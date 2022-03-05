@@ -3,16 +3,27 @@
 
 <!--language toggle/-->
 <section class="header">
-<element class="link_icon">
+<!--element class="link_icon">
   <a href="https://discord.gg/HqQ5n2cMBY"><img src="fig/common/icons/discord.png" width = "40"> </a> 
   <a href="https://twitter.com/WWS_Haato"><img src="fig/common/icons/twitter.png" width = "40"> </a> 
-</element>
+</element-->
+
+
+<div id="buttoms" align="center">
+    <element class="button" >
+      <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">日本語 </a> 
+    </element>
+</div>
+
 
 <element class="language_toggle">
   <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇯🇵 日本語 </a> 
   | 
   <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇺🇸 English </a> 
 </element>
+
+
+
 
   
 </section>
