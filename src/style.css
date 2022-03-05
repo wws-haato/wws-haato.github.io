@@ -6,14 +6,13 @@
     background: #bb1411;
     color:#fff;
     z-index: 1000;
-    height: 96px;
+    height: 64px;
     overflow: hidden;
     -webkit-transition: height 0.3s;
     -moz-transition: height 0.3s;
     transition: height 0.3s;
     display: table;
     padding-left: 60px;
-    background: linear-gradient(0deg, white 32px, #bb1411 32px);
 }
 
 
