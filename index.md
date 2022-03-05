@@ -1,4 +1,9 @@
 # WWS Haato Fan Group
+<link href="src/style.css" rel="stylesheet">
+<a class="header">
+
+</a>
+
 <p align="center">
   <img src="fig/common/logo_banner.png" width = "85%"/>
 </p>
