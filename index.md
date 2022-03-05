@@ -4,7 +4,8 @@
 <!--language toggle/-->
 <section class="header">
 <element class="link_icon">
-  <a href="https://github.com/wws-haato/wws-haato.github.io"><img src="fig/common/icons/github.png"> </a> 
+  <a href="https://discord.gg/HqQ5n2cMBY"><img src="fig/common/icons/discord.png" width = "40"> </a> 
+  <a href="https://twitter.com/WWS_Haato"><img src="fig/common/icons/twitter.png" width = "40"> </a> 
 </element>
 
 <element class="language_toggle">
