@@ -13,15 +13,9 @@
     <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇺🇸 English </a> 
   </section>
 
-  <element class="button" >
-    Current Event
-  </element>
-  <element class="button" >
-    Previous Works
-  </element>
-  <element class="button" >
-    Contact
-  </element>
+  <element class="button">Current Event</element>
+  <element class="button">Previous Works</element>
+  <element class="button">Contact</element>
 
 </section>
 
@@ -32,7 +26,7 @@
 </p>
 
 ## Current Event
-
+Haachama Birthday Project 2022
   - feature 1
   - feature 2 
   - feature 3
@@ -54,6 +48,12 @@
 <div class="img_container">
   <img src="fig/common/place_holder.png" alt="..." class="img" style="width:100%">
   <div class="img_middle">
-    <div class="img_hover_text">more information</div>
+    <div class="img_hover_text">tap to join us!</div>
   </div>
 </div>
+
+
+## About Us
+
+        World Wide Support for Haato, aka WWS Haato, is a non-profit project team mainly focusing on Haato projects that gather fans around the world. Our team has been set up since March, 2021, when Haato started her long break. ‍　
+        We have so far produced our 1st project "World Wide Tour Guide" and 2nd project "Haato's Birthday Parade". We will be continuing to make more supportive projects for Haachama in the future. 
