@@ -1,6 +1,6 @@
-import "./styles.css";
+import "./css/header.css";
 
-export default function HeaderApp() {
+export default function CreateHeader() {
   return (
     <section class="header">
       <section class="language_toggle">
