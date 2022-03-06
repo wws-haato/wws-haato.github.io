@@ -29,6 +29,7 @@
     vertical-align: top;
 }
 
+
 .button{
     background-color: #bb1411; /* Green */
     border: none;
@@ -43,30 +44,7 @@
     padding: 13px 10px;
 }
 
-.button:hover{background-color: #ce3f3f}
 
-
-.container {
-    position: relative;
-  }
-  
-/* Bottom right text */
-.text-block {
-    position: absolute;
-    top: 4.5%;
-    left: 10%;
-    background-color: #bb1411;
-    color: white;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 25px;
-    padding-right: 25px;
-    border-radius: 8px;
-    opacity: 0.85;
-}
-
-.paragraph_container {
-    text-align: justify;
-    padding-left: 15%;
-    padding-right: 15%;
+.button:hover{
+    background-color: #ce3f3f
 }
