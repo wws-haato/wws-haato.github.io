@@ -29,3 +29,11 @@ export function CreateSubtitle(title) {
     </div>
   );
 }
+
+
+export function MergeObjects(... objs){
+    return (<>{
+        objs.map(function(x, i){return(<>{x}</>);})
+    }</>);
+
+}
