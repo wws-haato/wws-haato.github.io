@@ -53,7 +53,7 @@ export class Column{
         this.SetWidthRatios(colWidths);
     }
 
-    SetWidthRatios(ratios){
+    SetWidthRatios(...ratios){
         var sum = 0.0;
         for(var i = 0; i < this.itemsAndWidths.length; i++)
             sum+=ratios[i];

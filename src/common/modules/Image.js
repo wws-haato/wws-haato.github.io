@@ -24,14 +24,14 @@ export class Image{
     }
 
     SetCircle(){
-        SetCornerRadius("50%");
+        this.SetCornerRadius("50%");
     }
 
 
     get(path){
         var margin = this.marginTop.concat(" auto auto auto");
         return (<div class="centered_img" style={{width: this.width, margin: margin}}>
-            <img src={path} alt="..." class="centered_img"></img>
+            <img src={path} alt="..." class="centered_img" style={{borderRadius: this.cornerRadius}}></img>
         </div>);
     }
 

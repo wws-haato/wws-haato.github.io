@@ -18,7 +18,7 @@ export function CreateAboutAndBulletinColumns(){
 
     cols.SetRowWidth("95%");
     cols.SetRatiosEqually();
-    cols.SetWidthRatios([25, 40, 40]);
+    cols.SetWidthRatios(25, 40, 40);
     cols.SetMarginTop("20px");
 
     var bulletin = new Bulletin("500px");
@@ -37,6 +37,7 @@ function CreateAboutColumn(){
     components.push(CreateSubtitle("About"));
     var img = new Image();
     img.SetWidth("75%");
+    img.SetCircle();
 
     components.push(img.get("fig/common/pfp.jpg"));
     
