@@ -3,16 +3,20 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #bb1411;
+    background: royalblue;
     color:#fff;
     z-index: 1000;
-    height: 64px;
+    height: 54px;
     overflow: hidden;
     -webkit-transition: height 0.3s;
     -moz-transition: height 0.3s;
     transition: height 0.3s;
     display: table;
     padding-left: 60px;
+
+    border-bottom-style: solid;
+    border-bottom-color: skyblue;
+    border-width: 10px;
 }
 
 .page_title {
@@ -38,7 +42,7 @@
 
 
 .button{
-    background-color: #bb1411; /* Green */
+    background-color:royalblue; /* Green */
     border: none;
     color: white;
     border-radius: 8px;
@@ -53,5 +57,6 @@
 
 
 .button:hover{
-    background-color: #ce3f3f
+    background-color: skyblue;
+    opacity: 0.8;
 }

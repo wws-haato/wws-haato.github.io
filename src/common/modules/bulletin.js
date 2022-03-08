@@ -10,7 +10,7 @@ export class Bulletin{
     append(item){
         this.items.push(item);
     }
-S
+
     get(){
         return (<div class="scrollable_bulletin" style={{height: this.height}}>{
             this.items.map(function(x, i){

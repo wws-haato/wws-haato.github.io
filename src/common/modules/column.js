@@ -78,7 +78,8 @@ export class Column{
 
 
     get(){
-        return (<div class="row" style={{width: this.rowWidth, margin: this.marginTop.concat(" auto")}}>{
+        var margin = this.marginTop.concat(" auto auto auto");
+        return (<div class="row" style={{width: this.rowWidth, margin: margin}}>{
             this.itemsAndWidths.map(function(x, i){
                 return (<div class="column" 
                     style={{maxWidth: x.GetWidth("10px")}} key={i}> {x.GetItem()}

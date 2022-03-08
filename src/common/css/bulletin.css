@@ -5,10 +5,12 @@ div.scrollable_bulletin{
     overflow: scroll;
     border-radius: 5px;
     padding: 7.5px 5px;
+    box-shadow:  1.5px 1.5px 2.5px royalblue inset;
     
 }
 
 div.message{
+    cursor: pointer;
     background-color:royalblue;
     border-radius: 5px;
     width: 100%;
@@ -18,4 +20,8 @@ div.message{
     border-top-color: white;
     border-width: 5px;
     box-shadow: 0 2.5px 2.5px 0 rgba(0.2, 0.2, 0.2, 0.5), 0 5px 5px 0 rgba(0.2, 0.2, 0.2, 0.01);
+}
+
+.message:hover{
+    opacity: 0.65;
 }
