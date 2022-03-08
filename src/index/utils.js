@@ -1,7 +1,7 @@
 import "../common/css/image.css";
 
 import { Column } from "../common/modules/column";
-import { CreateSubtitle, merge} from "../common/object_creation";
+import { CreateSubtitle, merge} from "../common/utils";
 import { Bulletin } from "../common/modules/bulletin";
 import { Image } from "../common/modules/Image";
 

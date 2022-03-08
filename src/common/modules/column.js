@@ -1,5 +1,5 @@
 import "../css/column.css";
-import { merge } from "../object_creation";
+import { merge } from "../utils";
 
 
 class ItemWithWidth{
