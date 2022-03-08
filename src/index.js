@@ -4,7 +4,7 @@ import { Column } from "./modules/column";
 import { CreateSubtitle, CreateHeader, 
     CreateTopMarginedPageTitle, merge} from "./utils";
 import { Bulletin } from "./modules/bulletin";
-import { Image } from "./modules/Image";
+import Image from "./modules/Image";
 
 
 function CreatePage(){

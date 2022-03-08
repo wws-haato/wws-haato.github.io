@@ -1,10 +1,11 @@
 import "../css/image.css";
+import { Config, EdgeType } from "./config";
 
-
-export class Image{
+export default class Image extends Config{
     constructor(){
-        this.width = "0%";
-        this.marginTop = "0px";
+        super();
+        //this.width = "0%";
+        //this.marginTop = "0px";
         this.cornerRadius = "0px";
 
     }
@@ -15,7 +16,7 @@ export class Image{
 
 
     SetMarginTop(marginTop){
-        this.marginTop = marginTop;
+        this.setMargin(EdgeType.TOP, marginTop);
     }
 
 
@@ -29,8 +30,8 @@ export class Image{
 
 
     get(path){
-        var margin = this.marginTop.concat(" auto auto auto");
-        return (<div class="centered_img" style={{width: this.width, margin: margin}}>
+        console.log("style: ", this.getMarginStyle());
+        return (<div class="centered_img" style={{width: this.width, margin: this.getMarginStyle()}}>
             <img src={path} alt="..." class="centered_img" style={{borderRadius: this.cornerRadius}}></img>
         </div>);
     }
