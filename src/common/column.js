@@ -29,8 +29,7 @@ class ItemWithWidth{
 
 export class Column{
     constructor(nCols){
-        this.topPadding = "0px";
-        this.verticalPadding = "0px";
+        this.marginTop = "0px";
         this.rowWidth = "50%";
 
         this.itemsAndWidths = [];
@@ -69,17 +68,14 @@ export class Column{
         this.rowWidth = width;
     }
 
-    SetVerticalPadding(padding){
-        this.verticalPadding = padding;
-    }
 
-    SetTopPadding(padding){
-        this.topPadding = padding;
+    SetMarginTop(padding){
+        this.marginTop = padding;
     }
 
 
     GenerateColumns(){
-        return (<div class="row" style={{width: this.rowWidth}}>{
+        return (<div class="row" style={{width: this.rowWidth, margin: this.marginTop.concat(" 0px")}}>{
             this.itemsAndWidths.map(function(x, i){
                 return (<div class="column" 
                     style={{width: x.GetWidth()}} key={i}> {x.GetItem()}

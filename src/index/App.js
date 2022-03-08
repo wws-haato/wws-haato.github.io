@@ -14,7 +14,7 @@ export function CreateAboutAndBulletinColumns(){
     var cols = new Column(3);
     cols.SetRowWidth("100%");
     cols.SetRatiosEqually();
-    cols.SetWidthRatios([10, 50, 50]);
+    cols.SetMarginTop("10px");
     cols.InsertItem(0, "aaaa");
     cols.InsertItem(1, "b");
     cols.InsertItem(2, "aawwwaa");
