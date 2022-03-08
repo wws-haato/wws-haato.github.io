@@ -1,4 +1,5 @@
 import "./css/header.css";
+import "./css/subtitle.css";
 
 export function CreateHeader() {
   return (
@@ -19,3 +20,12 @@ export function CreateHeader() {
 export function CreateTopMarginedPageTitle(title){
     return <div class="page_title">{title}</div>
 } 
+
+
+export function CreateSubtitle(title) {
+  return (
+    <div id="subtitle">
+      <div id="child header" class="title">{title}</div>
+    </div>
+  );
+}

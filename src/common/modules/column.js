@@ -75,7 +75,7 @@ export class Column{
 
 
     GenerateColumns(){
-        return (<div class="row" style={{width: this.rowWidth, margin: this.marginTop.concat(" 0px")}}>{
+        return (<div class="row" style={{width: this.rowWidth, margin: this.marginTop.concat(" auto")}}>{
             this.itemsAndWidths.map(function(x, i){
                 return (<div class="column" 
                     style={{width: x.GetWidth()}} key={i}> {x.GetItem()}

@@ -1,5 +1,6 @@
 import "./css/styles.css";
 import { Column } from "../common/modules/column";
+import { CreateSubtitle } from "../common/object_creation";
 
 export function CreateLogoBanner() {
     return (
@@ -12,12 +13,14 @@ export function CreateLogoBanner() {
 
 export function CreateAboutAndBulletinColumns(){
     var cols = new Column(3);
-    cols.SetRowWidth("100%");
+    cols.SetRowWidth("95%");
     cols.SetRatiosEqually();
-    cols.SetMarginTop("10px");
-    cols.InsertItem(0, "aaaa");
-    cols.InsertItem(1, "b");
-    cols.InsertItem(2, "aawwwaa");
+    cols.SetWidthRatios([25, 40, 40]);
+    cols.SetMarginTop("25px");
+
+    cols.InsertItem(0, CreateSubtitle("About"));
+    cols.InsertItem(1, CreateSubtitle("Video Release"));
+    cols.InsertItem(2, CreateSubtitle("News"));
 
     return cols.GenerateColumns();
 }

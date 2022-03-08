@@ -1,0 +1,15 @@
+#subtitle{
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    /*text-decoration: underline;*/
+    border-bottom-style: solid;
+    border-bottom-color: crimson;
+    border-width: 2.5px;
+}
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    color: crimson;
+}
