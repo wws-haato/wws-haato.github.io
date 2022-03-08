@@ -1,4 +1,5 @@
 import "../css/column.css";
+import { merge } from "../object_creation";
 
 
 class ItemWithWidth{
@@ -62,8 +63,8 @@ export class Column{
         
     }
 
-    InsertItem(ind, item){
-        this.itemsAndWidths[ind].SetItem(item);
+    insert(ind, ...items){
+        this.itemsAndWidths[ind].SetItem(merge(items));
     }
     
     SetRowWidth(width){
@@ -76,7 +77,7 @@ export class Column{
     }
 
 
-    Generate(){
+    get(){
         return (<div class="row" style={{width: this.rowWidth, margin: this.marginTop.concat(" auto")}}>{
             this.itemsAndWidths.map(function(x, i){
                 return (<div class="column" 

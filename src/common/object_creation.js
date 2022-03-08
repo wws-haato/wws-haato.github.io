@@ -31,7 +31,7 @@ export function CreateSubtitle(title) {
 }
 
 
-export function MergeObjects(... objs){
+export function merge(... objs){
     return (<>{
         objs.map(function(x, i){return(<>{x}</>);})
     }</>);
