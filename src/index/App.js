@@ -1,6 +1,7 @@
 import "./css/styles.css";
 import { Column } from "../common/modules/column";
 import { CreateSubtitle, MergeObjects } from "../common/object_creation";
+import { Bulletin } from "../common/modules/bulletin";
 
 export function CreateLogoBanner() {
     return (
@@ -18,10 +19,12 @@ export function CreateAboutAndBulletinColumns(){
     cols.SetWidthRatios([25, 40, 40]);
     cols.SetMarginTop("25px");
 
-    cols.InsertItem(0, MergeObjects(CreateSubtitle("About"), CreateSubtitle("About")));
-    cols.InsertItem(1, CreateSubtitle("Video Release"));
-    cols.InsertItem(2, CreateSubtitle("Announcement"));
+    var bulletin = new Bulletin("200px");
 
-    return cols.GenerateColumns();
+    cols.InsertItem(0, MergeObjects(CreateSubtitle("About"), bulletin.Generate()));
+    cols.InsertItem(1, MergeObjects(CreateSubtitle("Video Release"), bulletin.Generate()));
+    cols.InsertItem(2, MergeObjects(CreateSubtitle("Announcement"), bulletin.Generate()));
+
+    return cols.Generate();
 }
   

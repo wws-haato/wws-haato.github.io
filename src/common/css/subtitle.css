@@ -1,11 +1,12 @@
 #subtitle{
     margin-left: auto;
     margin-right: auto;
-    width: 95%;
+    width: 100%;
     /*text-decoration: underline;*/
     border-bottom-style: solid;
     border-bottom-color: crimson;
     border-width: 2.5px;
+    margin-bottom: 10px;
 }
 
 .title {

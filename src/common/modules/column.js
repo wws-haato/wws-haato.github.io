@@ -19,9 +19,11 @@ class ItemWithWidth{
         return this.item; 
     }
 
-    GetWidth(){
-        var prefix = this.width.toString();
-        return prefix.concat("%");
+    GetWidth(suffix){
+        var prefix = "calc(";
+        return prefix.concat(this.width.toString(), 
+            "% - ", suffix, ")");
+        
     }
 
 }
@@ -74,11 +76,11 @@ export class Column{
     }
 
 
-    GenerateColumns(){
+    Generate(){
         return (<div class="row" style={{width: this.rowWidth, margin: this.marginTop.concat(" auto")}}>{
             this.itemsAndWidths.map(function(x, i){
                 return (<div class="column" 
-                    style={{width: x.GetWidth()}} key={i}> {x.GetItem()}
+                    style={{maxWidth: x.GetWidth("10px")}} key={i}> {x.GetItem()}
                 </div>);
             })
         }</div>);

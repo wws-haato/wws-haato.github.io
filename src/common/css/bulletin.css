@@ -3,4 +3,10 @@ div.scrollable_bulletin{
     width: 100%;
     height: 110px;
     overflow: auto;
+    border-radius: 5px;
+}
+
+div.message{
+    background-color:royalblue;
+    border-radius: 2.5px;
 }
