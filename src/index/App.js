@@ -1,5 +1,5 @@
 import "./css/styles.css";
-import { Column } from "../common/column";
+import { Column } from "../common/modules/column";
 
 export function CreateLogoBanner() {
     return (

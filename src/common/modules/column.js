@@ -1,4 +1,4 @@
-import "./css/column.css";
+import "../css/column.css";
 
 
 class ItemWithWidth{

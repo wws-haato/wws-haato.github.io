@@ -1,8 +1,6 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import CreateTitledBlock from "./common/create_titled_block";
-import CreateHeader from "./common/create_header";
-import { CreateTopMarginedPageTitle } from "./common/create_header";
+import { CreateTopMarginedPageTitle, CreateHeader } from "./common/object_creation";
 import { CreateLogoBanner, CreateAboutAndBulletinColumns } from "./index/App";
 
 

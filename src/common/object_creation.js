@@ -1,6 +1,6 @@
 import "./css/header.css";
 
-export default function CreateHeader() {
+export function CreateHeader() {
   return (
       <div class="header">
         <div class="language_toggle">
