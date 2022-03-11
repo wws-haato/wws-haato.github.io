@@ -5,6 +5,7 @@ import { CreateSubtitle, CreateHeader,
     CreateTopMarginedPageTitle, merge} from "./utils";
 import { Bulletin } from "./modules/bulletin";
 import Image from "./modules/Image";
+import { Edge } from "./modules/config";
 
 
 function CreatePage(){
@@ -28,8 +29,8 @@ ReactDOM.render(
 
 function CreateLogoBanner() {
     var img = new Image();
-    img.SetMarginTop("20px");
-    img.SetWidth("65%");
+    img.setMargin(Edge.TOP, "20px");
+    img.setWidth("65%");
 
     return img.get("fig/common/logo_banner.png");
 }
@@ -58,8 +59,8 @@ function CreateAboutColumn(){
     var components = [];
     components.push(CreateSubtitle("About"));
     var img = new Image();
-    img.SetWidth("75%");
-    img.SetCircle();
+    img.setWidth("75%");
+    img.setCircle();
 
     components.push(img.get("fig/common/pfp.jpg"));
     
