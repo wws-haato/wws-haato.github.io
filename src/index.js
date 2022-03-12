@@ -38,11 +38,11 @@ function createLogoBanner() {
 function createAboutAndBulletinColumns(){
     var cols = new Column(3);
     cols.setMargin(Boarder.TOP, "20px");
-    cols.setPadding(Boarder.LEFT, "20px");
-    cols.setPadding(Boarder.RIGHT, "20px");
+    cols.setPadding(Boarder.LEFT, "10px");
+    cols.setPadding(Boarder.RIGHT, "10px");
     
     cols.setRatios(25, 40, 40);
-    cols.setColumnInterval("20px");
+    cols.setColumnInterval("10px");
 
     var bulletin = new Bulletin("500px");
     for(var i = 0; i < 100; ++i)
@@ -58,11 +58,29 @@ function createAboutAndBulletinColumns(){
 function createAboutColumn(){
     var comps = [];
     comps.push(utils.createSubtitle("About"));
+
     var img = new Image();
     img.setWidth("75%");
     img.setCircle();
-
     comps.push(img.get("fig/common/pfp.jpg"));
+
+    var cols = new Column(3);
+    cols.setMargin(Boarder.TOP, "10px");
+    cols.setPadding(Boarder.LEFT, "15%");
+    cols.setPadding(Boarder.RIGHT, "15%");
+    
+    cols.setRatiosEqually();
+    cols.setColumnInterval("10px");
+
+    img = new Image();
+    img.setWidth("100%");
+    img.setCorner(Boarder.ALL, "0");
+    const prefix = "fig/common/icons/";
+    const filenames = ["youtube.png", "discord.png", "twitter.png"];
+    for(var i = 0; i < 3; i++)
+        cols.insert(i, img.get(prefix.concat(filenames[i])));
+
+    comps.push(cols.get());
     
 
     return comps;

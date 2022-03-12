@@ -29,9 +29,10 @@ export default class Image{
 
 
     get(path){
-        return (<div class="centered_img" style={{width: "100%"}}>
+        console.log(path);
+        return (<div className="centered_img" style={{width: "100%"}}>
             <img src={path} alt="..." class="centered_img" 
-            style={{width: this.width}}></img>
+            style={{width: this.width, borderRadius: this.corner.getStyle()}}></img>
         </div>);
     }
 

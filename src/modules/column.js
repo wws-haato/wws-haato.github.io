@@ -22,7 +22,7 @@ export default class Column{
     }
 
     setRatiosEqually(){
-        this.ratios.fill(1.0/this.nCols);
+        this.ratios.fill(100.0/this.nCols);
     }
 
     setColumnInterval(val){
@@ -56,21 +56,17 @@ export default class Column{
         const colInt = this.colInterval.concat(')');
         const preffix = "calc(";
         let items = this.items;
-        let nCols = this.nCols;
         return (
-            <div className="w3-container" style = {{width: "auto",
+            <div className="w3-container" style = {{maxWidth: "auto",
                 margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
-                <div className="row" style={{maxWidth: "100%"}}>{
+                <div className="row" style={{maxWidth: "auto"}}>{
                     this.ratios.map(function(r, i){
-                        const isExtern = i==0||i==nCols-1;
                         var colBorder = new Boarder();
-                        if(i!=0)
-                            colBorder.set(Boarder.LEFT, extInt);
-                        if(i!=nCols-1)
-                            colBorder.set(Boarder.RIGHT, extInt);
+                        colBorder.set(Boarder.LEFT, extInt);
+                        colBorder.set(Boarder.RIGHT, extInt);
                             
                         var width = preffix.concat(r.toString(), "% - ");
-                        width+=isExtern? extInt+')': colInt;
+                        width+=colInt;
                         
                         return (<div className="column" 
                         style={{maxWidth: width, margin: colBorder.getStyle()}} key={i}> {items[i]}</div>);
