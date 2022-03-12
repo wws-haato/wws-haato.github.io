@@ -76,7 +76,7 @@ export default class Column{
                         width+=colInt;
                         
                         return (<div className="column" 
-                        style={{maxWidth: width, margin: colBorder.getStyle(), 
+                        style={{width: width, margin: colBorder.getStyle(), 
                             textAlign: aligns[i]}} key={i}> {items[i]}</div>);
                     })
                 }</div>

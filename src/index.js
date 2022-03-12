@@ -14,7 +14,7 @@ import { VideoRelease } from "./modules/bulletin";
 function CreatePage(){
     return utils.merge(
         utils.createHeader(), 
-        utils.createTopMarginedPageTitle("WWS Haato Fangroup"), 
+        utils.createTopMarginedPageTitle("Device frame width: "+window.innerWidth.toString()), 
         createLogoBanner(), 
         createAboutAndBulletinColumns(), 
         utils.createFootNote()
@@ -41,27 +41,53 @@ function createLogoBanner() {
 
 
 function createAboutAndBulletinColumns(){
-    var cols = new Column(3);
-    cols.setMargin(Boarder.TOP, "20px");
-    cols.setPadding(Boarder.LEFT, "10px");
-    cols.setPadding(Boarder.RIGHT, "10px");
-    
-    cols.setRatios(25, 40, 40);
-    cols.setColumnInterval("10px");
+    if(utils.isCellphone()){
+        var cols = new Column(2);
+        cols.setMargin(Boarder.TOP, "20px");
+        cols.setPadding(Boarder.LEFT, "10px");
+        cols.setPadding(Boarder.RIGHT, "10px");
+        
+        cols.setColumnInterval("10px");
 
-    var bulletin = new Bulletin("550px");
-    var video = new VideoRelease();
-    video.setDate("23. 06, 2021");
-    video.setDescription("Song preview for Grand Birthday Chorus has been released!");
-    video.setYoutubeLink("https://youtu.be/EzELsQyLP2s");
-    for(var i = 0; i < 10; ++i)
-        bulletin.append(video.get());
+        var bulletin = new Bulletin("550px");
+        var video = new VideoRelease();
+        video.setDate("23. 06, 2021");
+        video.setDescription("Song preview for Grand Birthday Chorus has been released!");
+        video.setYoutubeLink("https://youtu.be/EzELsQyLP2s");
+        for(var i = 0; i < 10; ++i)
+            bulletin.append(video.get());
 
-    cols.insert(0, createAboutColumn());
-    cols.insert(1, utils.createSubtitle("Video Release"), bulletin.get());
-    cols.insert(2, utils.createSubtitle("Announcement"), bulletin.get());
+        cols.insert(0, utils.createSubtitle("Video Release"), bulletin.get());
+        cols.insert(1, utils.createSubtitle("Announcement"), bulletin.get());
 
-    return cols.get();
+        return utils.merge(
+            <div style = {{width: "50%", margin:"auto"}}>
+                {createAboutColumn()}
+            </div>, cols.get());
+    }
+    else{
+        var cols = new Column(3);
+        cols.setMargin(Boarder.TOP, "20px");
+        cols.setPadding(Boarder.LEFT, "10px");
+        cols.setPadding(Boarder.RIGHT, "10px");
+        
+        cols.setRatios(25, 40, 40);
+        cols.setColumnInterval("10px");
+
+        var bulletin = new Bulletin("550px");
+        var video = new VideoRelease();
+        video.setDate("23. 06, 2021");
+        video.setDescription("Song preview for Grand Birthday Chorus has been released!");
+        video.setYoutubeLink("https://youtu.be/EzELsQyLP2s");
+        for(var i = 0; i < 10; ++i)
+            bulletin.append(video.get());
+
+        cols.insert(0, createAboutColumn());
+        cols.insert(1, utils.createSubtitle("Video Release"), bulletin.get());
+        cols.insert(2, utils.createSubtitle("Announcement"), bulletin.get());
+
+        return cols.get();
+    }
 }
 
 function createAboutColumn(){
@@ -108,7 +134,7 @@ function createAboutColumn(){
 
 function getDescription(){
     return (
-        <div style = {{textAlign: "justify", color: "crimson", marginTop: "10px"}}>
+        <div style = {{textAlign: "justify", color: "crimson", marginTop: "10px", fontSize: "1.2VW"}}>
            {aboutArticle}
         </div>);
 }

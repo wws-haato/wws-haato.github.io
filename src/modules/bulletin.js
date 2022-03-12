@@ -53,8 +53,8 @@ export class VideoRelease{
     get(){
         var youtube = new Youtube();
         this.cols.insert(1, youtube.get(this.link));
-        const date = <div style = {{color: "white", margin: "7.5px auto", fontSize: "20px"}}>{this.date}</div>;
-        const desc = <div style = {{color: "white", fontSize: "15px", marginLeft: "5px"}}>{this.desc}</div>;
+        const date = <div style = {{color: "white", margin: "7.5px auto", fontSize: "1.5VW"}}>{this.date}</div>;
+        const desc = <div style = {{color: "white", fontSize: "1.2vw", marginLeft: "5px"}}>{this.desc}</div>;
         this.cols.insert(0, date, desc);
         return this.cols.get();
     }

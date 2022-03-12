@@ -22,7 +22,7 @@
 .page_title {
     text-align: center;
     margin-top: 72px;
-    font-size: 48px;
+    font-size: 5VW;
     color: crimson;
 }
 
@@ -45,13 +45,13 @@
     background-color:royalblue; /* Green */
     border: none;
     color: white;
-    border-radius: 8px;
+    border-radius: 5px;
     text-decoration: none;
     display: inline-block;
-    margin: 12px 2px;
+    margin: 0.5VW 0.5VW;
     transition-duration: 0.4s;
     cursor: pointer;
-    padding: 13px 10px;
+    padding: 0.5VW 1VW;
 }
 
 

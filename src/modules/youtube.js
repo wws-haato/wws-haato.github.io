@@ -39,6 +39,7 @@ export default class Youtube{
             link = link.substring(0, index).concat(
                 "/embed", link.substring(index, link.length));
         }
+        <link rel="preload" href={link} as="document"></link>
         return (
             <iframe style={{
                 width: this.width, 

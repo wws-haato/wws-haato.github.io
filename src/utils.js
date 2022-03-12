@@ -3,38 +3,43 @@ import "./css/subtitle.css";
 import "./css/footnote.css";
 import Column from "./modules/column";
 import Boarder from "./modules/border";
+import Image from "./modules/Image";
 
 export function createHeader() {
-  return (
-      <div class="header">
-        <div class="language_toggle">
-          <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇯🇵 日本語 </a> 
-              | 
-          <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇺🇸 English </a> 
-        </div>
+    return (
+        <div class="header">
+            <div class="language_toggle">
+            <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇯🇵 日本語 </a> 
+                | 
+            <a href="https://virtualyoutuber.fandom.com/wiki/Akai_Haato">🇺🇸 English </a> 
+            </div>
 
-        <div class="button">Current Event</div>
-        <div class="button">Previous Works</div>
-        <div class="button">Contact</div>
-      </div>
-  );
+            <div class="button">Current Event</div>
+            <div class="button">Previous Works</div>
+            <div class="button">Contact</div>
+        </div>
+    );
 }
 
 export function createFootNote(){
-    var cols = new Column(3);
-    //cols.setMargin(Boarder.LEFT, "15%");
-    //cols.setMargin(Boarder.RIGHT, "15%");
+    var cols = new Column(2);
+    const buttoms = ["HAACHAMA Ch. Akai Haato", "Contact us"];
+    cols.setColumnInterval("0%");
 
-    const buttoms = ["tweet", "contact", "contact"];
-    cols.setColumnInterval("10%");
+    var img = new Image();
+    img.setWidth("1.5VW");
+
+    const prefix = "fig/common/icons/";
+    const filenames = ["youtube.png", "contact.png"];
     for(var i = 0; i < buttoms.length; i++)
-        cols.insert(i, <div class="button" style={{fontSize: "120%"}}>{buttoms[i]}</div>);
+        cols.insert(i, <div class="button" style={{fontSize: "1.2VW"}}>
+            {img.get(prefix.concat(filenames[i]))}{buttoms[i]}</div>);
 
     return(
         <div className="footnote">
-            <div style = {{color: "white", margin: "7.5px auto", fontSize: "200%"}}>
+            <div style = {{color: "white", margin: "0.75VW auto", fontSize: "2.4VW"}}>
                 WWS Haato is a non-profit team </div>
-            <div style = {{color: "white", margin: "7.5px auto", fontSize: "170%"}}>
+            <div style = {{color: "white", margin: "0.75VW auto", fontSize: "1.8VW"}}>
                 none of our productions would ever be monetized </div>
             {cols.get()}
         </div>
@@ -74,4 +79,8 @@ export function getRawNumberAndSuffix(arg){
     iend++;
     return {suffix: arg.substring(iend, arg.length), 
         val: parseFloat(arg.substring(0, iend))};
+}
+
+export function isCellphone(){
+    return window.innerWidth < 900;
 }
