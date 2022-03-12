@@ -29,9 +29,14 @@ export default class Image{
 
 
     get(path){
-        return (<div className="centered_img" style={{width: "100%"}}>
-            <img src={path} alt="..." class="centered_img" 
-            style={{width: this.width, borderRadius: this.corner.getStyle()}}></img>
+        return (
+        <div className="w3-container" style = {{maxWidth: "auto",
+            margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
+            <div className="centered_img" style={{width: "100%"}}>
+                <img src={path} alt="..." class="centered_img" 
+                style={{width: this.width, 
+                borderRadius: this.corner.getStyle()}}></img>
+            </div>
         </div>);
     }
 

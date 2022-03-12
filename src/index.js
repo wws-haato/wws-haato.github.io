@@ -6,6 +6,8 @@ import Bulletin from "./modules/bulletin";
 import Image from "./modules/Image";
 import ImageLinked from "./modules/Image_linked";
 import Boarder from "./modules/border";
+import { aboutArticle } from "./articles";
+import Youtube from "./modules/youtube";
 
 
 function CreatePage(){
@@ -29,7 +31,7 @@ ReactDOM.render(
 
 function createLogoBanner() {
     var img = new Image();
-    img.setMargin(Boarder.TOP, "20px");
+    //img.setMargin(Boarder.TOP, "20px");
     img.setWidth("65%");
 
     return img.get("fig/common/logo_banner.png");
@@ -45,7 +47,7 @@ function createAboutAndBulletinColumns(){
     cols.setRatios(25, 40, 40);
     cols.setColumnInterval("10px");
 
-    var bulletin = new Bulletin("500px");
+    var bulletin = new Bulletin("550px");
     for(var i = 0; i < 100; ++i)
         bulletin.append(i.toString());
 
@@ -61,9 +63,11 @@ function createAboutColumn(){
     comps.push(utils.createSubtitle("About"));
 
     var img = new Image();
-    img.setWidth("75%");
-    img.setCircle();
-    comps.push(img.get("fig/common/pfp.jpg"));
+    img.setMargin(Boarder.TOP, "20px");
+    img.setMargin(Boarder.BOTTOM, "20px");
+    img.setWidth("85%");
+    img.setCorner(Boarder.ALL, "10px");
+    comps.push(img.get("fig/common/haato_pfp.jpg"));
 
     var cols = new Column(3);
     cols.setMargin(Boarder.TOP, "10px");
@@ -74,23 +78,36 @@ function createAboutColumn(){
     cols.setColumnInterval("10px");
 
     var imgLinked = new ImageLinked();
-    imgLinked.setWidth("100%");
-    imgLinked.setCorner(Boarder.ALL, "0");
-
     var waterMark = new Image();
+
     waterMark.setWidth("60%");
     imgLinked.setWaterMark(waterMark.get("fig/common/icons/ext_link.jpg"));
+
     const prefix = "fig/common/icons/";
     const filenames = ["youtube.png", "discord.png", "twitter.png"];
-    const links = ["https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA", 
-        "https://discord.gg/HqQ5n2cMBY", "https://twitter.com/WWS_Haato"];
+    var links = [];
+    links.push("https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA");
+    links.push("https://discord.gg/HqQ5n2cMBY");
+    links.push("https://twitter.com/WWS_Haato");
+
     for(var i = 0; i < 3; i++)
         cols.insert(i, imgLinked.get(prefix.concat(filenames[i]), links[i]));
 
     comps.push(cols.get());
-    
+    comps.push(getDescription());
 
+    var yt = new Youtube();
+    yt.setWidth("90%");
+    comps.push(yt.get("https://youtube.com/embed/4YvawcT3qaw"));
+    
     return comps;
+}
+
+function getDescription(){
+    return (
+        <div style = {{textAlign: "justify", color: "crimson", marginTop: "10px"}}>
+           {aboutArticle}
+        </div>);
 }
   
 
