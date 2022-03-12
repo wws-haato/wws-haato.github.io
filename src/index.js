@@ -4,6 +4,7 @@ import Column from "./modules/column";
 import * as utils from "./utils";
 import Bulletin from "./modules/bulletin";
 import Image from "./modules/Image";
+import ImageLinked from "./modules/Image_linked";
 import Boarder from "./modules/border";
 
 
@@ -72,13 +73,19 @@ function createAboutColumn(){
     cols.setRatiosEqually();
     cols.setColumnInterval("10px");
 
-    img = new Image();
-    img.setWidth("100%");
-    img.setCorner(Boarder.ALL, "0");
+    var imgLinked = new ImageLinked();
+    imgLinked.setWidth("100%");
+    imgLinked.setCorner(Boarder.ALL, "0");
+
+    var waterMark = new Image();
+    waterMark.setWidth("60%");
+    imgLinked.setWaterMark(waterMark.get("fig/common/icons/ext_link.jpg"));
     const prefix = "fig/common/icons/";
     const filenames = ["youtube.png", "discord.png", "twitter.png"];
+    const links = ["https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA", 
+        "https://discord.gg/HqQ5n2cMBY", "https://twitter.com/WWS_Haato"];
     for(var i = 0; i < 3; i++)
-        cols.insert(i, img.get(prefix.concat(filenames[i])));
+        cols.insert(i, imgLinked.get(prefix.concat(filenames[i]), links[i]));
 
     comps.push(cols.get());
     
