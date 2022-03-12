@@ -1,7 +1,7 @@
 import "../css/bulletin.css";
 
 
-export class Bulletin{
+export default class Bulletin{
     constructor(height){
         this.height = height;
         this.items = [];

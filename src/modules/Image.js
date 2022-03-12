@@ -1,28 +1,37 @@
 import "../css/image.css";
-import { Config, Corner } from "./config";
+import Boarder from "./border";
 
-export default class Image extends Config{
+export default class Image{
     constructor(){
-        super();
+        this.width = "100%";
+        this.margin =  new Boarder();
+        this.padding =  new Boarder();
+        this.corner = new Boarder();
 
     }
 
+    setMargin(ind, val){
+        this.margin.set(ind, val);
+    }
+    setPadding(ind ,val){
+        this.padding.set(ind, val);
+    }
+    setCorner(ind, val){
+        this.corner.set(ind, val);
+    }
+
     setCircle(){
-        this.setCornerRadius(Corner.ALL, "50%");
+        this.setCorner(Boarder.ALL, "50%");
+    }
+    setWidth(val){
+        this.width = val;
     }
 
 
     get(path){
-        var style = {};
-        if(this.widthModified)
-            style["width"] = this.width;
-        if(this.margins.isModified())
-            style["margin"] = this.margins.getStyle();
-        if(this.cornerRadius.isModified())
-            style["borderRadius"] = this.cornerRadius.getStyle();
-
         return (<div class="centered_img" style={{width: "100%"}}>
-            <img src={path} alt="..." class="centered_img" style={style}></img>
+            <img src={path} alt="..." class="centered_img" 
+            style={{width: this.width}}></img>
         </div>);
     }
 

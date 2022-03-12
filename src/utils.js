@@ -1,7 +1,7 @@
 import "./css/header.css";
 import "./css/subtitle.css";
 
-export function CreateHeader() {
+export function createHeader() {
   return (
       <div class="header">
         <div class="language_toggle">
@@ -17,12 +17,12 @@ export function CreateHeader() {
   );
 }
 
-export function CreateTopMarginedPageTitle(title){
+export function createTopMarginedPageTitle(title){
     return <div class="page_title">{title}</div>
 } 
 
 
-export function CreateSubtitle(title) {
+export function createSubtitle(title) {
   return (
     <div id="subtitle">
       <div id="child header" class="title">{title}</div>

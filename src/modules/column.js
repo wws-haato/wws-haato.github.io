@@ -71,7 +71,6 @@ export default class Column{
                             
                         var width = preffix.concat(r.toString(), "% - ");
                         width+=isExtern? extInt+')': colInt;
-                        console.log(width);
                         
                         return (<div className="column" 
                         style={{maxWidth: width, margin: colBorder.getStyle()}} key={i}> {items[i]}</div>);
