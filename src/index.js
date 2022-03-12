@@ -1,11 +1,12 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import { Column } from "./modules/column";
+import Column from "./modules/column";
 import { CreateSubtitle, CreateHeader, 
     CreateTopMarginedPageTitle, merge} from "./utils";
 import { Bulletin } from "./modules/bulletin";
 import Image from "./modules/Image";
 import { Edge } from "./modules/config";
+import Boarder from "./modules/border";
 
 
 function CreatePage(){
@@ -38,11 +39,12 @@ function CreateLogoBanner() {
 
 function CreateAboutAndBulletinColumns(){
     var cols = new Column(3);
-
-    cols.SetRowWidth("95%");
-    //cols.SetRatiosEqually();
-    cols.SetWidthRatios(25, 40, 40);
-    cols.SetMarginTop("20px");
+    cols.setMargin(Boarder.TOP, "20px");
+    cols.setPadding(Boarder.LEFT, "20px");
+    cols.setPadding(Boarder.RIGHT, "20px");
+    
+    cols.setRatios(25, 40, 40);
+    cols.setColumnInterval("20px");
 
     var bulletin = new Bulletin("500px");
     for(var i = 0; i < 100; ++i)

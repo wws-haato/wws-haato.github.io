@@ -37,3 +37,17 @@ export function merge(... objs){
     }</>);
 
 }
+
+/**
+* @param {string} arg val, suffixed by % or px
+*/
+export function getRawNumberAndSuffix(arg){
+    var numEnd = arg.length-1;
+    for(; numEnd > -1; numEnd--)
+        if(arg[numEnd] >= '0' && arg[numEnd] <= '9')
+            break;
+    
+    numEnd++;
+    return {suffix: arg.substring(numEnd, arg.length), 
+        val: parseFloat(arg.substring(0, numEnd))};
+}

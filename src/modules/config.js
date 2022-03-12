@@ -115,9 +115,9 @@ export const Corner = {
 class RectangularConfig{
     constructor(){
         this.modifided = false;
-        this.data = ["auto", "auto", "auto", "auto"];
+        this.data = ["0", "0", "0", "0"];
     }
-
+    
     set(edgeType, val){
         this.modifided = true;
         if(edgeType==4)

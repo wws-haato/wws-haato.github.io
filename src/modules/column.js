@@ -1,91 +1,84 @@
 import "../css/column.css";
 import { merge } from "../utils";
+import Boarder from "./border";
+import { getRawNumberAndSuffix } from "../utils";
 
 
-class ItemWithWidth{
-    constructor(){
-        this.item = 0;
-        this.width = 100;
-    }
-
-    SetItem(item){
-        this.item = item;
-    }
-
-    SetWidth(width){
-        this.width = width;
-    }
-
-    GetItem(){
-        return this.item; 
-    }
-
-    GetWidth(suffix){
-        var prefix = "calc(";
-        return prefix.concat(this.width.toString(), 
-            "% - ", suffix, ")");
-        
-    }
-
-}
-
-
-export class Column{
+export default class Column{
     constructor(nCols){
-        this.marginTop = "0px";
-        this.rowWidth = "50%";
-
-        this.itemsAndWidths = [];
+        this.nCols = nCols;
+        this.items = [];
+        this.ratios = [];
+        this.margin =  new Boarder();
+        this.padding =  new Boarder();
+        this.colInterval = "10px";
+        
+        const avg = 100.0/this.nCols;
         for(var i = 0; i < nCols; i++){
-            var itemWithWidth = new ItemWithWidth();
-            this.itemsAndWidths.push(itemWithWidth);
-
+            this.items.push(0);
+            this.ratios.push(avg);
         }
 
-        this.SetRatiosEqually();
     }
 
-    SetRatiosEqually(){
-        var colWidths = [];
-        for(var i = 0; i < this.itemsAndWidths.length; i++)
-            colWidths.push(1);
-
-        this.SetWidthRatios(colWidths);
+    setRatiosEqually(){
+        this.ratios.fill(1.0/this.nCols);
     }
 
-    SetWidthRatios(...ratios){
+    setColumnInterval(val){
+        this.colInterval = val;
+    }
+
+    setMargin(ind, val){
+        this.margin.set(ind, val);
+    }
+    setPadding(ind ,val){
+        this.padding.set(ind, val);
+    }
+
+    setRatios(...ratios){
         var sum = 0.0;
-        for(var i = 0; i < this.itemsAndWidths.length; i++)
-            sum+=ratios[i];
+        for(let r of ratios)
+            sum+=r;
         
-        for(var i = 0; i < this.itemsAndWidths.length; i++)
-            this.itemsAndWidths[i].SetWidth(100.0*ratios[i]/sum);
-        
+        for(var i = 0; i < this.nCols; i++)
+            this.ratios[i] = 100.0*ratios[i]/sum;
     }
 
     insert(ind, ...items){
-        this.itemsAndWidths[ind].SetItem(merge(items));
-    }
-    
-    SetRowWidth(width){
-        this.rowWidth = width;
-    }
-
-
-    SetMarginTop(padding){
-        this.marginTop = padding;
+        this.items[ind] = merge(items);
     }
 
 
     get(){
-        var margin = this.marginTop.concat(" auto auto auto");
-        return (<div class="row" style={{width: this.rowWidth, margin: margin}}>{
-            this.itemsAndWidths.map(function(x, i){
-                return (<div class="column" 
-                    style={{maxWidth: x.GetWidth("10px")}} key={i}> {x.GetItem()}
-                </div>);
-            })
-        }</div>);
+        const rawSuf = getRawNumberAndSuffix(this.colInterval);
+        const extInt = (rawSuf.val/2).toString().concat(rawSuf.suffix);
+        const colInt = this.colInterval.concat(')');
+        const preffix = "calc(";
+        let items = this.items;
+        let nCols = this.nCols;
+        return (
+            <div className="w3-container" style = {{width: "auto",
+                margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
+                <div className="row" style={{maxWidth: "100%"}}>{
+                    this.ratios.map(function(r, i){
+                        const isExtern = i==0||i==nCols-1;
+                        var colBorder = new Boarder();
+                        if(i!=0)
+                            colBorder.set(Boarder.LEFT, extInt);
+                        if(i!=nCols-1)
+                            colBorder.set(Boarder.RIGHT, extInt);
+                            
+                        var width = preffix.concat(r.toString(), "% - ");
+                        width+=isExtern? extInt+')': colInt;
+                        console.log(width);
+                        
+                        return (<div className="column" 
+                        style={{maxWidth: width, margin: colBorder.getStyle()}} key={i}> {items[i]}</div>);
+                    })
+                }</div>
+            </div>
+        );
     }
 
 }
