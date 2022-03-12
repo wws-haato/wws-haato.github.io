@@ -1,5 +1,8 @@
 import "./css/header.css";
 import "./css/subtitle.css";
+import "./css/footnote.css";
+import Column from "./modules/column";
+import Boarder from "./modules/border";
 
 export function createHeader() {
   return (
@@ -15,6 +18,27 @@ export function createHeader() {
         <div class="button">Contact</div>
       </div>
   );
+}
+
+export function createFootNote(){
+    var cols = new Column(3);
+    //cols.setMargin(Boarder.LEFT, "15%");
+    //cols.setMargin(Boarder.RIGHT, "15%");
+
+    const buttoms = ["tweet", "contact", "contact"];
+    cols.setColumnInterval("10%");
+    for(var i = 0; i < buttoms.length; i++)
+        cols.insert(i, <div class="button" style={{fontSize: "120%"}}>{buttoms[i]}</div>);
+
+    return(
+        <div className="footnote">
+            <div style = {{color: "white", margin: "7.5px auto", fontSize: "200%"}}>
+                WWS Haato is a non-profit team </div>
+            <div style = {{color: "white", margin: "7.5px auto", fontSize: "170%"}}>
+                none of our productions would ever be monetized </div>
+            {cols.get()}
+        </div>
+    );
 }
 
 export function createTopMarginedPageTitle(title){
@@ -33,7 +57,7 @@ export function createSubtitle(title) {
 
 export function merge(... objs){
     return (<>{
-        objs.map(function(x, i){return(<>{x}</>);})
+        objs.map(function(x){return(<>{x}</>);})
     }</>);
 
 }
@@ -42,12 +66,12 @@ export function merge(... objs){
 * @param {string} arg val, suffixed by % or px
 */
 export function getRawNumberAndSuffix(arg){
-    var numEnd = arg.length-1;
-    for(; numEnd > -1; numEnd--)
-        if(arg[numEnd] >= '0' && arg[numEnd] <= '9')
+    var iend = arg.length-1;
+    for(; iend > -1; iend--)
+        if(arg[iend] >= '0' && arg[iend] <= '9')
             break;
     
-    numEnd++;
-    return {suffix: arg.substring(numEnd, arg.length), 
-        val: parseFloat(arg.substring(0, numEnd))};
+    iend++;
+    return {suffix: arg.substring(iend, arg.length), 
+        val: parseFloat(arg.substring(0, iend))};
 }

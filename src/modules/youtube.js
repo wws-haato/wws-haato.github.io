@@ -13,7 +13,7 @@ export default class Youtube{
     setMargin(ind, val){
         this.margin.set(ind, val);
     }
-    setPadding(ind ,val){
+    setPadding(ind, val){
         this.padding.set(ind, val);
     }
     setCorner(ind, val){
@@ -24,10 +24,24 @@ export default class Youtube{
         this.width = val;
     }
 
-
+    /**
+     * @param {string} link youtube link
+     */
     get(link){
+        if(link.includes("youtu.be")){
+            const index = link.indexOf("youtu.be");
+            link = link.substring(0, index).concat(
+                "youtube.com", link.substring(index+"youtu.be".length, link.length));
+        }
+
+        if(!link.includes("embed")){
+            const index = link.lastIndexOf("/");
+            link = link.substring(0, index).concat(
+                "/embed", link.substring(index, link.length));
+        }
         return (
             <iframe style={{
+                width: this.width, 
                 margin: this.margin.getStyle(), 
                 padding: this.padding.getStyle()
             }} src={link}></iframe>

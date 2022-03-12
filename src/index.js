@@ -8,6 +8,7 @@ import ImageLinked from "./modules/Image_linked";
 import Boarder from "./modules/border";
 import { aboutArticle } from "./articles";
 import Youtube from "./modules/youtube";
+import { VideoRelease } from "./modules/bulletin";
 
 
 function CreatePage(){
@@ -15,7 +16,8 @@ function CreatePage(){
         utils.createHeader(), 
         utils.createTopMarginedPageTitle("WWS Haato Fangroup"), 
         createLogoBanner(), 
-        createAboutAndBulletinColumns()
+        createAboutAndBulletinColumns(), 
+        utils.createFootNote()
     );
 
 }
@@ -48,8 +50,12 @@ function createAboutAndBulletinColumns(){
     cols.setColumnInterval("10px");
 
     var bulletin = new Bulletin("550px");
-    for(var i = 0; i < 100; ++i)
-        bulletin.append(i.toString());
+    var video = new VideoRelease();
+    video.setDate("23. 06, 2021");
+    video.setDescription("Song preview for Grand Birthday Chorus has been released!");
+    video.setYoutubeLink("https://youtu.be/EzELsQyLP2s");
+    for(var i = 0; i < 10; ++i)
+        bulletin.append(video.get());
 
     cols.insert(0, createAboutColumn());
     cols.insert(1, utils.createSubtitle("Video Release"), bulletin.get());
@@ -85,8 +91,9 @@ function createAboutColumn(){
 
     const prefix = "fig/common/icons/";
     const filenames = ["youtube.png", "discord.png", "twitter.png"];
+
     var links = [];
-    links.push("https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA");
+    links.push("https://youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA");
     links.push("https://discord.gg/HqQ5n2cMBY");
     links.push("https://twitter.com/WWS_Haato");
 
@@ -96,10 +103,6 @@ function createAboutColumn(){
     comps.push(cols.get());
     comps.push(getDescription());
 
-    var yt = new Youtube();
-    yt.setWidth("90%");
-    comps.push(yt.get("https://youtube.com/embed/4YvawcT3qaw"));
-    
     return comps;
 }
 

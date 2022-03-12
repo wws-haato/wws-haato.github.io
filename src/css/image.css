@@ -14,7 +14,7 @@
 }
 
 .water_mark {
-    transition: .35s ease;
+    transition: .4s ease;
     opacity: 0;
     width: 100%;
     position: absolute;

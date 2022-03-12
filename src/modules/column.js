@@ -12,13 +12,19 @@ export default class Column{
         this.margin =  new Boarder();
         this.padding =  new Boarder();
         this.colInterval = "10px";
+        this.textAligns = [];
         
         const avg = 100.0/this.nCols;
         for(var i = 0; i < nCols; i++){
             this.items.push(0);
             this.ratios.push(avg);
+            this.textAligns.push("center");
         }
 
+    }
+
+    setTextAlignment(ind, align){
+        this.textAligns[ind] = align;
     }
 
     setRatiosEqually(){
@@ -56,6 +62,7 @@ export default class Column{
         const colInt = this.colInterval.concat(')');
         const preffix = "calc(";
         let items = this.items;
+        let aligns = this.textAligns;
         return (
             <div className="w3-container" style = {{maxWidth: "auto",
                 margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
@@ -69,7 +76,8 @@ export default class Column{
                         width+=colInt;
                         
                         return (<div className="column" 
-                        style={{maxWidth: width, margin: colBorder.getStyle()}} key={i}> {items[i]}</div>);
+                        style={{maxWidth: width, margin: colBorder.getStyle(), 
+                            textAlign: aligns[i]}} key={i}> {items[i]}</div>);
                     })
                 }</div>
             </div>
