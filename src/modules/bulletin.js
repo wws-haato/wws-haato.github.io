@@ -1,6 +1,8 @@
 import "../css/bulletin.css";
 import Column from "./column";
 import Youtube from "./youtube";
+import { isCellphone, merge } from "../utils";
+import Boarder from "./border";
 
 
 export default class Bulletin{
@@ -18,7 +20,7 @@ export default class Bulletin{
     }
 
     get(){
-        return (<div class="scrollable_bulletin" style={{height: this.height}}>{
+        return (<div class="scrollable_bulletin">{
             this.items.map(function(x, i){
                 return (<div class="message" key={i}> {x}
                 </div>);
@@ -33,9 +35,6 @@ export class VideoRelease{
         this.date = "";
         this.desc = "";
         this.link = "";
-        this.cols = new Column(2);
-        this.cols.setRatiosEqually();
-        this.cols.setTextAlignment(0, "left");
     }
 
     setDate(date){
@@ -49,14 +48,26 @@ export class VideoRelease{
     setYoutubeLink(link){
         this.link = link;
     }
-
+    
     get(){
         var youtube = new Youtube();
-        this.cols.insert(1, youtube.get(this.link));
-        const date = <div style = {{color: "white", margin: "7.5px auto", fontSize: "1.5VW"}}>{this.date}</div>;
-        const desc = <div style = {{color: "white", fontSize: "1.2vw", marginLeft: "5px"}}>{this.desc}</div>;
-        this.cols.insert(0, date, desc);
-        return this.cols.get();
+        const date = <div style = {{color: "white", margin: "auto auto",
+            marginLeft: isCellphone()? "1VW": "0.5VW", 
+            fontSize: isCellphone()? "2.5VW": "1.2VW"}}>{this.date}</div>;
+
+        const desc = <div style = {{color: "white", 
+            marginLeft: isCellphone()? "1VW": "0.5VW", 
+            fontSize:   isCellphone()? "2.0VW": "1VW"}}>{this.desc}</div>;
+
+        if(isCellphone())
+            return merge(date, desc, youtube.get(this.link));
+        
+        var cols = new Column(2);
+        cols.setRatiosEqually();
+        cols.setTextAlignment(0, "left");
+        cols.insert(1, youtube.get(this.link));
+        cols.insert(0, date, desc);
+        return cols.get();
     }
 
 }

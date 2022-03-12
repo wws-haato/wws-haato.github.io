@@ -9,12 +9,13 @@ import Boarder from "./modules/border";
 import { aboutArticle } from "./articles";
 import Youtube from "./modules/youtube";
 import { VideoRelease } from "./modules/bulletin";
+import { isCellphone } from "./utils";
 
 
 function CreatePage(){
     return utils.merge(
         utils.createHeader(), 
-        utils.createTopMarginedPageTitle("Device frame width: "+window.innerWidth.toString()), 
+        utils.createTopMarginedPageTitle("[Debug Info] width: "+window.innerWidth.toString()), 
         createLogoBanner(), 
         createAboutAndBulletinColumns(), 
         utils.createFootNote()
@@ -49,19 +50,19 @@ function createAboutAndBulletinColumns(){
         
         cols.setColumnInterval("10px");
 
-        var bulletin = new Bulletin("550px");
+        var bulletin = new Bulletin("2000px");
         var video = new VideoRelease();
         video.setDate("23. 06, 2021");
         video.setDescription("Song preview for Grand Birthday Chorus has been released!");
         video.setYoutubeLink("https://youtu.be/EzELsQyLP2s");
-        for(var i = 0; i < 10; ++i)
+        for(var i = 0; i < 5; ++i)
             bulletin.append(video.get());
 
         cols.insert(0, utils.createSubtitle("Video Release"), bulletin.get());
         cols.insert(1, utils.createSubtitle("Announcement"), bulletin.get());
 
         return utils.merge(
-            <div style = {{width: "50%", margin:"auto"}}>
+            <div style = {{width: "65%", margin:"auto"}}>
                 {createAboutColumn()}
             </div>, cols.get());
     }
@@ -133,8 +134,9 @@ function createAboutColumn(){
 }
 
 function getDescription(){
+    const fontSize = isCellphone()? "2.4VW": "1.05VW";
     return (
-        <div style = {{textAlign: "justify", color: "crimson", marginTop: "10px", fontSize: "1.2VW"}}>
+        <div style = {{textAlign: "justify", color: "crimson", marginTop: "10px", fontSize: fontSize}}>
            {aboutArticle}
         </div>);
 }

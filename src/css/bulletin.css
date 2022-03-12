@@ -1,7 +1,7 @@
 div.scrollable_bulletin{
     background-color:skyblue;
     width: 100%-10px;
-    height: 110px;
+    height: 85VH;
     overflow: scroll;
     border-radius: 10px;
     padding: 10px 10px;
