@@ -14,21 +14,15 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
-import { Observer } from "./modules/observer";
 import { EntranceEffect } from "./modules/entrance_effect";
 
-const keyFrames = [{opacity: "0(0%)" }, {opacity: "1(1000%)" }];
-const option = { duration: 3000, fill: 'forwards'};
 
-var obs = new Observer(keyFrames, option);
-var ids = [];
 
 const Home = () => {
     var logos = [];
-    for(var i = 0; i < 10; i++){
-        ids.push(i.toString());
+    for(var i = 0; i < 10; i++)
         logos.push(createLogoBanner(i));
-    }
+    
 
     return utils.merge(
         logos, 
@@ -51,7 +45,6 @@ function App() {
                 </Routes>
         </Router>
     );
-    obs.observeIDs(ids);
     return router;
 }
 
@@ -81,7 +74,11 @@ function createLogoBanner(id) {
     img.setMargin(Boarder.TOP, "60px");
     img.setWidth("75%");
 
-    var entEff = new EntranceEffect("fadein");
+    var entEff = new EntranceEffect(
+        [ {opacity: 0}, { opacity: 1}], 
+		{ duration: 1000, fill: 'forwards' }
+    );
+    
     entEff.setItem(img.get("fig/common/logo_banner.png"));
     return entEff.get();
 

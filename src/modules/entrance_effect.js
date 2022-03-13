@@ -1,29 +1,84 @@
 import { Mutex } from "async-mutex";
 
 
+export class ProtectedArray extends Array{
+	constructor(){
+		super();
+		this.mutex = new Mutex();
+	}
+
+	append(item){
+		this.mutex.acquire();
+		const id = this.length;
+		this.push(item);
+		this.mutex.runExclusive();
+
+		return id;
+	}
+
+}
+
+
+export class QueryData{
+	constructor(effectID){
+		this.effectID = effectID;
+		this.animated = false;
+	}
+
+	getID(){
+		return this.effectID;
+	}
+
+	isAnimated(){
+		return this.animated;
+	}
+
+	setAnimated(){
+		this.animated = true;
+	}
+
+}
+
 export class EntranceEffect{
-	static idToAnime = [];
-	static animeMutex = new Mutex();
-	static hasBeenAnimated = [];
+	static allEffects = new ProtectedArray();
+	static allQueries = new ProtectedArray();
 
-	/**
-	* @param {number} uid get the stringed uid
-	*/
-	static getID(uid){
-		return "entrance-effect-uid-"+uid.toString();
+	static getUniqueID(id){return "entrance-eff-"+id.toString();}
+	static animateQueries(){
+		const length = EntranceEffect.allQueries.length;
+		for(var i = 0; i < length; i++){
+			const query = EntranceEffect.allQueries[i];
+			if(query.isAnimated())
+				continue;
+			
+			var elem = document.getElementById(EntranceEffect.getUniqueID(i));
+			if(!elem)
+				continue;
+			
+			if(elem.getBoundingClientRect().top < window.innerHeight){
+				EntranceEffect.allQueries[i].setAnimated();
+				const effect = EntranceEffect.allEffects[query.getID()];
+				elem.animate(effect.keyframes, effect.options);
+				break;
+			}
+	
+		}
+
 	}
 
-	static getAllAnimes(){
-		var arr = [];
-		const len = EntranceEffect.idToAnime.length;
-		for(var i = 0; i < len; i++)
-			arr.push(EntranceEffect.idToAnime[i]);
-
-		return arr;
+	static stopFlag = false;
+	static timer = setInterval(EntranceEffect.animatePrimaryElements, 1);
+	static animatePrimaryElements(){
+		if(EntranceEffect.stopFlag)
+			clearInterval(EntranceEffect.timer);
+		else
+			EntranceEffect.animateQueries();
 	}
 
-	constructor(anime){
-		this.anime = anime;
+	constructor(keyframes, options){
+		this.effectID = EntranceEffect.allEffects.append(
+			{keyframes: keyframes, options: options});
+		
 		this.item = 0;
 	}
 
@@ -32,39 +87,16 @@ export class EntranceEffect{
 	}
 
 	get(){
-		EntranceEffect.animeMutex.acquire();
-		const id = EntranceEffect.getID(EntranceEffect.idToAnime.length);
-		EntranceEffect.idToAnime.push(this.anime);
-		EntranceEffect.hasBeenAnimated.push(false);
-		EntranceEffect.animeMutex.runExclusive();
+		const queryID = EntranceEffect.allQueries.append(new QueryData(this.effectID));
+		const uniqueID = EntranceEffect.getUniqueID(queryID);
 
-		return (<><div id ={id} className="entrance_block">{this.item}</div></>);
+		return (<><div id ={uniqueID} className="entrance_block">{this.item}</div></>);
 	}
 }
 
 
 document.addEventListener('scroll', function(e){
-	const allAnimes = EntranceEffect.getAllAnimes();
-	for(var id = 0; id < allAnimes.length; id++){
-		if(EntranceEffect.hasBeenAnimated[id])
-			continue;
-
-		var element = document.getElementById(EntranceEffect.getID(id));
-		if(!element)
-			continue;
+	EntranceEffect.stopFlag = true;
+	EntranceEffect.animateQueries();
 		
-		if(element.getBoundingClientRect().top < window.innerHeight){
-			element.style.display = "block";
-			EntranceEffect.hasBeenAnimated[id] = true;
-			element.animate(
-				[ {opacity: 0}, { opacity: 1}], 
-				{ duration: 1000, fill: 'forwards' }
-			);
-		}
-		
-			
-
-	}
-		
-}
-)
+})
