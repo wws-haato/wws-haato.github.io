@@ -80,12 +80,13 @@ function createLogoBanner(id) {
     var img = new Image();
     img.setMargin(Boarder.TOP, "60px");
     img.setWidth("75%");
-    img.setId(id.toString());
 
     var entEff = new EntranceEffect("fadein");
     entEff.setItem(img.get("fig/common/logo_banner.png"));
-
     return entEff.get();
+
+
+    
 }
 
 

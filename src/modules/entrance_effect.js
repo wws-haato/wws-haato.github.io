@@ -4,6 +4,7 @@ import { Mutex } from "async-mutex";
 export class EntranceEffect{
 	static idToAnime = [];
 	static animeMutex = new Mutex();
+	static hasBeenAnimated = [];
 
 	/**
 	* @param {number} uid get the stringed uid
@@ -34,6 +35,7 @@ export class EntranceEffect{
 		EntranceEffect.animeMutex.acquire();
 		const id = EntranceEffect.getID(EntranceEffect.idToAnime.length);
 		EntranceEffect.idToAnime.push(this.anime);
+		EntranceEffect.hasBeenAnimated.push(false);
 		EntranceEffect.animeMutex.runExclusive();
 
 		return (<><div id ={id} className="entrance_block">{this.item}</div></>);
@@ -44,14 +46,22 @@ export class EntranceEffect{
 document.addEventListener('scroll', function(e){
 	const allAnimes = EntranceEffect.getAllAnimes();
 	for(var id = 0; id < allAnimes.length; id++){
-		const uid = EntranceEffect.getID(id);
-		var element = document.getElementById(uid);
-		if(element){
+		if(EntranceEffect.hasBeenAnimated[id])
+			continue;
+
+		var element = document.getElementById(EntranceEffect.getID(id));
+		if(!element)
+			continue;
+		
+		if(element.getBoundingClientRect().top < window.innerHeight){
+			element.style.display = "block";
+			EntranceEffect.hasBeenAnimated[id] = true;
 			element.animate(
 				[ {opacity: 0}, { opacity: 1}], 
-				{ duration: 3000, fill: 'forwards' }
+				{ duration: 1000, fill: 'forwards' }
 			);
 		}
+		
 			
 
 	}
