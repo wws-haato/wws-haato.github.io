@@ -1,5 +1,6 @@
 import "../css/image.css";
 import Boarder from "./border";
+import { generateUniqueID } from "../utils";
 
 export default class Image{
     constructor(){
@@ -7,6 +8,7 @@ export default class Image{
         this.margin =  new Boarder();
         this.padding =  new Boarder();
         this.corner = new Boarder();
+        this.id = "";
 
     }
 
@@ -26,13 +28,20 @@ export default class Image{
     setWidth(val){
         this.width = val;
     }
+    setId(id){
+        this.id = id;
+    }
+
+    getId(){
+        return this.id;
+    }
 
 
     get(path){
         return (
         <div className="w3-container" style = {{maxWidth: "auto",
             margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
-            <div className="centered_img" style={{width: "100%"}}>
+            <div id ={this.getId()} className="centered_img" style={{width: "100%"}}>
                 <img src={path} alt="..." class="centered_img" 
                 style={{width: this.width, 
                 borderRadius: this.corner.getStyle()}}></img>

@@ -87,3 +87,11 @@ export function getRawNumberAndSuffix(arg){
 export function isCellphone(){
     return window.innerWidth < 900;
 }
+
+var uniqueID = 0;
+export function generateUniqueID(){
+    var uid = "";
+    uid = (uniqueID++).toString();
+    return uid;
+}
+

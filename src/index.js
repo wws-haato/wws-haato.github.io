@@ -14,18 +14,35 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
+import { Observer } from "./modules/observer";
+import { EntranceEffect } from "./modules/entrance_effect";
 
+const keyFrames = [{opacity: "0(0%)" }, {opacity: "1(1000%)" }];
+const option = { duration: 3000, fill: 'forwards'};
+
+var obs = new Observer(keyFrames, option);
+var ids = [];
 
 const Home = () => {
-    return (
-      <div>
-        <h1>Welcome to GeeksforGeeks</h1>
-      </div>
+    var logos = [];
+    for(var i = 0; i < 10; i++){
+        ids.push(i.toString());
+        logos.push(createLogoBanner(i));
+    }
+
+    return utils.merge(
+        logos, 
+        utils.createFootNote(), 
+        utils.createFootNote(), 
+        utils.createFootNote(), 
+        utils.createFootNote(), 
+        utils.createFootNote(), 
+        utils.createFootNote()
     );
   };
 
 function App() {
-    return (
+    const router = (
         <Router>
             <NavbarDropdown />
                 <Routes>
@@ -34,6 +51,8 @@ function App() {
                 </Routes>
         </Router>
     );
+    obs.observeIDs(ids);
+    return router;
 }
 
 function CreatePage(){
@@ -57,13 +76,19 @@ ReactDOM.render(
 
 
 
-function createLogoBanner() {
+function createLogoBanner(id) {
     var img = new Image();
-    //img.setMargin(Boarder.TOP, "20px");
-    img.setWidth("65%");
+    img.setMargin(Boarder.TOP, "60px");
+    img.setWidth("75%");
+    img.setId(id.toString());
 
-    return img.get("fig/common/logo_banner.png");
+    var entEff = new EntranceEffect("fadein");
+    entEff.setItem(img.get("fig/common/logo_banner.png"));
+
+    return entEff.get();
 }
+
+
 
 
 function createAboutAndBulletinColumns(){

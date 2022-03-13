@@ -4,6 +4,11 @@
     display: block;
 }
 
+@keyframes fadeinAnimation {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 .img_hover{
     position: relative;
     width: 100%;
