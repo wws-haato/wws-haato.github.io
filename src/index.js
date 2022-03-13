@@ -10,7 +10,31 @@ import { aboutArticle } from "./articles";
 import Youtube from "./modules/youtube";
 import { VideoRelease } from "./modules/bulletin";
 import { isCellphone } from "./utils";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import About from './pages/about';
+import { NavbarDropdown } from "./modules/navbar";
 
+
+const Home = () => {
+    return (
+      <div>
+        <h1>Welcome to GeeksforGeeks</h1>
+      </div>
+    );
+  };
+
+function App() {
+    return (
+        <Router>
+            <NavbarDropdown />
+                <Routes>
+                    <Route exact path='/' element={<Home />} />
+                    <Route path='/about' element={<About/>} />
+                </Routes>
+        </Router>
+    );
+}
 
 function CreatePage(){
     return utils.merge(
@@ -26,10 +50,11 @@ function CreatePage(){
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
-    <CreatePage/>
+    <App/>
   </StrictMode>,
   rootElement
 );
+
 
 
 function createLogoBanner() {
