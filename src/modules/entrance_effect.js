@@ -43,7 +43,10 @@ export class EntranceEffect{
 	static allEffects = new ProtectedArray();
 	static allQueries = new ProtectedArray();
 
-	static getUniqueID(id){return "entrance-eff-"+id.toString();}
+	static getUniqueID(id){
+		return "entrance-eff-"+id.toString();
+	}
+
 	static animateQueries(){
 		const length = EntranceEffect.allQueries.length;
 		for(var i = 0; i < length; i++){
@@ -67,7 +70,7 @@ export class EntranceEffect{
 	}
 
 	static stopFlag = false;
-	static timer = setInterval(EntranceEffect.animatePrimaryElements, 1);
+	static timer = setInterval(EntranceEffect.animatePrimaryElements, 0.1);
 	static animatePrimaryElements(){
 		if(EntranceEffect.stopFlag)
 			clearInterval(EntranceEffect.timer);
@@ -90,7 +93,7 @@ export class EntranceEffect{
 		const queryID = EntranceEffect.allQueries.append(new QueryData(this.effectID));
 		const uniqueID = EntranceEffect.getUniqueID(queryID);
 
-		return (<><div id ={uniqueID} className="entrance_block">{this.item}</div></>);
+		return (<><div id ={uniqueID} className="entrance_block" style={{opacity:"0"}}>{this.item}</div></>);
 	}
 }
 
@@ -99,4 +102,13 @@ document.addEventListener('scroll', function(e){
 	EntranceEffect.stopFlag = true;
 	EntranceEffect.animateQueries();
 		
+})
+
+
+document.addEventListener('click', function(event){
+	if(!event.target.matches(".button"))
+		return;
+
+	EntranceEffect.stopFlag = false;
+	EntranceEffect.timer = setInterval(EntranceEffect.animatePrimaryElements, 0.1);
 })
