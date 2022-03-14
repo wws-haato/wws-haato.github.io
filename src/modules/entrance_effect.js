@@ -95,7 +95,8 @@ export class EntranceEffect{
 		const queryID = EntranceEffect.allQueries.append(new QueryData(this.effectID));
 		const uniqueID = EntranceEffect.getUniqueID(queryID);
 
-		return (<><div id ={uniqueID} className="entrance_block" style={{opacity:"0"}}>{this.item}</div></>);
+		const initStyle = EntranceEffect.allEffects[this.effectID].keyframes[0];
+		return (<><div id ={uniqueID} className="entrance_block" style={initStyle}>{this.item}</div></>);
 	}
 }
 
@@ -118,11 +119,11 @@ document.addEventListener('click', function(event){
 
 export var fixedFadeinEntraceEffect = new EntranceEffect(
 	[ {opacity: 0}, { opacity: 1}], 
-	{ duration: 1000, fill: 'forwards' }
+	{ duration: 1000, fill: 'forwards', easing: 'ease-out'}
 );
 
 export var fadeInRightWardsEntraceEffect = new EntranceEffect(
-	[ {left: 0}, { left: "auto"}], 
-	{ duration: 1000, fill: 'forwards' }
+	[ { transform: 'translateX(-100px)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
+	{ duration: 1000, fill: 'forwards', easing: 'ease-out'}
 );
 
