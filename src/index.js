@@ -15,6 +15,8 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
 import { EntranceEffect } from "./modules/entrance_effect";
+import { fadeInRightWardsEntraceEffect } from "./modules/entrance_effect";
+import { fixedFadeinEntraceEffect } from "./modules/entrance_effect";
 
 
 
@@ -74,10 +76,9 @@ function createLogoBanner(id) {
     img.setMargin(Boarder.TOP, "60px");
     img.setWidth("75%");
 
-    var entEff = new EntranceEffect(
-        [ {opacity: 0}, { opacity: 1}], 
-		{ duration: 1000, fill: 'forwards' }
-    );
+    var entEff = fadeInRightWardsEntraceEffect;
+    if(id%2)
+        entEff = fixedFadeinEntraceEffect
     
     entEff.setItem(img.get("fig/common/logo_banner.png"));
     return entEff.get();

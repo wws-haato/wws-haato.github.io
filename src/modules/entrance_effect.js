@@ -1,6 +1,8 @@
 import { Mutex } from "async-mutex";
 
 
+/** internal stuff**/
+
 export class ProtectedArray extends Array{
 	constructor(){
 		super();
@@ -112,3 +114,15 @@ document.addEventListener('click', function(event){
 	EntranceEffect.stopFlag = false;
 	EntranceEffect.timer = setInterval(EntranceEffect.animatePrimaryElements, 0.1);
 })
+
+
+export var fixedFadeinEntraceEffect = new EntranceEffect(
+	[ {opacity: 0}, { opacity: 1}], 
+	{ duration: 1000, fill: 'forwards' }
+);
+
+export var fadeInRightWardsEntraceEffect = new EntranceEffect(
+	[ {left: 0}, { left: "auto"}], 
+	{ duration: 1000, fill: 'forwards' }
+);
+
