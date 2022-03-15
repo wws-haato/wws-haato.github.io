@@ -30,7 +30,9 @@ const Home = () => {
     invCols.insert(1, utils.createFootNote());
     invCols.setPadding(Boarder.LEFT, "10%");
     invCols.setPadding(Boarder.RIGHT, "10%");
-    const slider = (new Slider()).get();
+    var slider = new Slider();
+    slider.setClickWidth("20px");
+    slider.setWidth("65%");
     console.log(slider);
     return utils.merge(
         createLogoBanner(), 
@@ -38,7 +40,7 @@ const Home = () => {
         createAdvertisement(), 
         createDescription(), 
         createDescription(), 
-        slider,
+        slider.get(),
         invCols.get()
     );
 };
@@ -50,7 +52,7 @@ function createAdvertisement(){
     img.setWidth("65%");
     img.setCorner(Boarder.ALL, "10px");
 
-    infoBlock.setGraphic(img.get("fig/common/haato_pfp.jpg"));
+    infoBlock.setGraphic(img.get("fig/common/icons/slider_click.webp"));
     infoBlock.setTitle("Concept of World-wide");
     infoBlock.setParagraph("To show full support to Haachama, we always try our best gather fans all over the world. ");
     infoBlock.setPadding(Boarder.LEFT, "10%");

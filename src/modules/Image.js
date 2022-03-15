@@ -9,7 +9,11 @@ export default class Image{
         this.padding =  new Boarder();
         this.corner = new Boarder();
         this.id = "";
+        this.flip = 1;
 
+    }
+    setFlip(flip){
+        this.flip = flip? -1: 1;
     }
 
     setMargin(ind, val){
@@ -38,12 +42,13 @@ export default class Image{
 
 
     get(path){
+        const flip = this.flip
         return (
         <div className="w3-container" style = {{maxWidth: "auto",
             margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
             <div id ={this.getId()} className="centered_img" style={{width: "100%"}}>
                 <img src={path} alt="..." class="centered_img" 
-                style={{width: this.width, 
+                style={{width: this.width, transform: "scaleX("+this.flip.toString()+")", 
                 borderRadius: this.corner.getStyle()}} loading="eager"></img>
             </div>
         </div>);

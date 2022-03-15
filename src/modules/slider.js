@@ -1,30 +1,49 @@
 import "../css/slider.css";
+import Image from "./Image";
+import { getRawNumberAndSuffix } from "../utils";
 
 export default class Slider{
+    static imgPath = "fig/common/icons/slider_click.webp";
     constructor(){
         this.items = [];
+        this.imgWidth = "10px";
+        this.width = "100%"
     }
 
     append(item){
         this.items.push(item);
     }
 
+    setWidth(width){
+        this.width = width;
+    }
+
+    setClickWidth(width){
+        this.imgWidth=width;
+    }
+
+    getSliderClick(isLeftwards){
+        var img = new Image();
+        img.setWidth(this.imgWidth);
+        img.setFlip(isLeftwards);
+
+        var imgWidth = getRawNumberAndSuffix(this.imgWidth);
+        imgWidth.val/=2;
+        const shift = imgWidth.val.toString()+imgWidth.suffix;
+        
+        const marginTop = "calc(50% - "+shift+")";
+        console.log(marginTop);
+        return <div id = {"slider_click_"+isLeftwards.toString()} style={{marginTop: marginTop}}>
+            {img.get(Slider.imgPath)}
+        </div>
+    }
+
     get(){
         return(
-            <div class="slideshow-container">
-                <div class="mySlides">
-                <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
-                <p class="author">- John Keats</p>
-                </div>
-
-                <div class="mySlides">
-                <q>But man is not made for defeat. A man can be destroyed but not defeated.</q>
-                <p class="author">- Ernest Hemingway</p>
-                </div>
-
-                <div class="mySlides">
-                <q>I have not failed. I've just found 10,000 ways that won't work.</q>
-                <p class="author">- Thomas A. Edison</p>
+            <div style={{width: "100%", height: "200px"}}>
+            <div className="slideshow_container" style={{width: this.width}}>
+                <div className="slider_botton_container" style={{width: this.imgWidth, marginLeft: "0"}}>{this.getSliderClick(true)}</div>
+                <div className="slider_botton_container_right" style={{width: this.imgWidth, marginRight: "0"}}>{this.getSliderClick(false)}</div>
             </div></div>
         );
     }
