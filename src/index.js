@@ -32,16 +32,6 @@ const Home = () => {
     invCols.setPadding(Boarder.LEFT, "10%");
     invCols.setPadding(Boarder.RIGHT, "10%");
 
-    indexSlider.setClickWidth("5VW");
-    indexSlider.setWidth("65%"); 
-
-    var img = new Image();
-    img.setWidth("50%");
-    img.setCorner(Boarder.ALL, "10px");
-
-    indexSlider.append(img.get("fig/common/icons/github.png"));
-    indexSlider.append(img.get("fig/common/icons/twitter.png"));
-
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 

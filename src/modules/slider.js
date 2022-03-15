@@ -2,6 +2,7 @@ import "../css/slider.css";
 import Image from "./Image";
 import { getRawNumberAndSuffix } from "../utils";
 import { Mutex } from "async-mutex";
+import Boarder from "./border";
 
 export default class Slider{
     static idMutex = new Mutex();
@@ -66,9 +67,9 @@ export default class Slider{
             return;
         
         this.activeId=nextActiveId;
-        const tmp = currElem.style.visibility;
-        currElem.style.visibility = nextElem.style.visibility;
-        nextElem.style.visibility = tmp;
+        const tmp = currElem.style.display;
+        currElem.style.display = nextElem.style.display;
+        nextElem.style.display = tmp;
 
     }
 
@@ -86,9 +87,9 @@ export default class Slider{
             return;
         
         this.activeId = nextActiveId;
-        const tmp = currElem.style.visibility;
-        currElem.style.visibility = nextElem.style.visibility;
-        nextElem.style.visibility = tmp;
+        const tmp = currElem.style.display;
+        currElem.style.display = nextElem.style.display;
+        nextElem.style.display = tmp;
     }
 
     get(){
@@ -99,7 +100,7 @@ export default class Slider{
             <div className="slideshow_container" style={{width: this.width}}>
                 {this.items.map(function(x, i){
                     return (<div id={x.uid} className="slider_sides" 
-                    style={{visibility: i? "hidden": "visible"}}> {x.item}</div>);})}
+                    style={{display: i? "none": "block"}}> {x.item}</div>);})}
 
                 <div className="slider_botton_container" style={{width: this.imgWidth}}>{this.getSliderClick(true)}</div>
                 <div className="slider_botton_container_right" style={{width: this.imgWidth}}>{this.getSliderClick(false)}</div>
@@ -108,4 +109,20 @@ export default class Slider{
     }
 }
 
-export var indexSlider = new Slider();
+export var indexSlider = createIndexSlider();
+
+function createIndexSlider(){
+    var slider = new Slider();
+    var img = new Image();
+    img.setWidth("50%");
+    img.setCorner(Boarder.ALL, "10px");
+
+    slider.append(img.get("fig/common/icons/github.png"));
+    slider.append(img.get("fig/common/icons/twitter.png"));
+    slider.append(img.get("fig/common/icons/discord.png"));
+
+    slider.setClickWidth("5VW");
+    slider.setWidth("65%"); 
+
+    return slider;
+}

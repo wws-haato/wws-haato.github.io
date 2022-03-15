@@ -45,7 +45,7 @@
     text-align: center;
     transition: 500ms ease-out;
     opacity: 1;
-    visibility: hidden;
+    display: none;
 }
 
 
