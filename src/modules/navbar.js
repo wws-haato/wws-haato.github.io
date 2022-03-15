@@ -109,6 +109,9 @@ var navbarExpanded = false;
 * @param {MouseEvent} event the event
 */
 export function toggleNavbar(event) {
+	if(!navbarExpanded && !document.getElementById('menu_icon').contains(event.target))
+		return;
+	
 	var topBar = document.getElementById("top_bar");
 	if(!navbarExpanded)
 		topBar.animate(keyframes, { duration: 800, fill: 'forwards', easing: 'ease-out'});
