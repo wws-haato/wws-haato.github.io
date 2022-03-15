@@ -58,3 +58,18 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
+.prev_work_yt_slider_text{
+    background: transparent;
+    color:black;
+    display: inline-block;
+    text-align: center;
+    font-size: 4VW;
+    width: 100%;
+}
+
+@media screen and (max-width: 780px) {
+    .prev_work_yt_slider_text  {
+        font-size: 6VW;
+    }
+}

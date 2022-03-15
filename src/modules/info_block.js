@@ -20,7 +20,7 @@ export default class InformationBlock extends InvertableColumn{
     setTitle(title){
         this.title = title;
     }
-    setGraphic(graphic){
+    setGraphic(... graphic){
         this.insert(this.graphId, graphic);
     }
     setButtonText(button){
@@ -33,10 +33,8 @@ export default class InformationBlock extends InvertableColumn{
     getBlock(){
         const textBlock = 
         <div className="info_block_cell_container">
-
-                    <div className="info_block_title"> {this.title}  </div>
-                    <div className="info_block_paragraph"> {this.paragraph} </div>
-
+            <div className="info_block_title"> {this.title}  </div>
+            <div className="info_block_paragraph"> {this.paragraph} </div>
         </div>     
             
         this.insert(1-this.graphId, textBlock);

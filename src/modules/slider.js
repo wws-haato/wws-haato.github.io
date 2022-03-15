@@ -119,7 +119,7 @@ function createIndexSlider(){
     var slider = new Slider();
     var youtube = new Youtube();
 
-    youtube.setWidth("70%");
+    youtube.setWidth("85%");
     youtube.setCorner(Boarder.ALL, "10px");
 
 

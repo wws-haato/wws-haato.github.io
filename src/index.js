@@ -44,12 +44,8 @@ const Home = () => {
 
 function createAdvertisement(){
     var infoBlock = new InformationBlock(false);
-
-    var img = new Image();
-    img.setWidth("65%");
-    img.setCorner(Boarder.ALL, "10px");
-
-    infoBlock.setGraphic(indexSlider.get());
+    const graphicTitle = <div className="prev_work_yt_slider_text"> Previous works </div>;
+    infoBlock.setGraphic(graphicTitle, indexSlider.get());
     infoBlock.setTitle("Concept of World-wide");
     infoBlock.setParagraph("To show full support to Haachama, we always try our best gather fans all over the world. ");
     infoBlock.setPadding(Boarder.LEFT, "10%");
