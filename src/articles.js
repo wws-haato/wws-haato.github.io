@@ -8,7 +8,6 @@ export const aboutArticle = " \
 
 
 export const aboutParagraph = <>
-    We are WWS Haato, 
-    aka World Wide Support for Haato, 
-    a non-profit project team for Vtuber Akai Haato. 
+    WWS Haato team, aka World Wide Support for Haato, 
+    is a non-profit project team for Vtuber Akai Haato. 
 </>

@@ -23,11 +23,13 @@ export default class InvertableColumn{
 
     get(){
         return (
-            <div className="invertable_row" style = {{
+            <div className="w3-container" style = {{maxWidth: "auto",
                 margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
-                {this.items.map(function(x, i){
-                    return (<div className="invertable_columns" key={i}> {x}</div>);
-                })}
+                <div className="invertable_row">
+                    {this.items.map(function(x, i){
+                        return (<div className="invertable_columns" key={i}> {x}</div>);
+                    })}
+                </div>
             </div>
         );
 

@@ -40,3 +40,21 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.welcome_text{
+    padding-top: 15%;
+    background: transparent;
+    color:crimson;
+    display: inline-block;
+    text-align: center;
+    font-size: 4VW;
+    width: 100%;
+    text-decoration: underline;
+}
+.center_vert{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

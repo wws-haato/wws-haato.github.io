@@ -1,0 +1,56 @@
+.info_block{
+    width: 100%
+}
+
+.info_block_title{
+    font-size: 4VW;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.info_block_paragraph{
+    font-size: 2VW;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.info_block_button{
+    font-size: 2VW;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    background-color:blue; /* Green */
+    border: none;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.5s ease-out;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    opacity: 1;
+}
+
+.info_block_button :hover{
+    opacity: 0;
+}
+.info_block_cell_container{
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.info_block_cell{
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}

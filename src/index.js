@@ -17,30 +17,50 @@ import { NavbarDropdown } from "./modules/navbar";
 import { delayedExplosiveFadeIn300, EntranceEffect } from "./modules/entrance_effect";
 import { fadeInRightWardsEntraceEffect } from "./modules/entrance_effect";
 import { fixedFadeinEntraceEffect, delayedFadeInRightwards650 } from "./modules/entrance_effect";
-import { fadeInDownWardsEntraceEffect, explosiveFadeIn } from "./modules/entrance_effect";
+import { fadeInUpwards300, explosiveFadeIn } from "./modules/entrance_effect";
 import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
+import InformationBlock from "./modules/info_block";
 
 
 const Home = () => {
     var invCols = new InvertableColumn();
     invCols.insert(0, utils.createFootNote());
     invCols.insert(1, utils.createFootNote());
+    invCols.setPadding(Boarder.LEFT, "10%");
+    invCols.setPadding(Boarder.RIGHT, "10%");
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 
+        createAdvertisement(), 
         createDescription(), 
         createDescription(), 
         invCols.get()
     );
 };
 
+function createAdvertisement(){
+    var infoBlock = new InformationBlock(false);
+
+    var img = new Image();
+    img.setWidth("200px");
+    img.setCorner(Boarder.ALL, "10px");
+
+    infoBlock.setGraphic(img.get("fig/common/haato_pfp.jpg"));
+    infoBlock.setTitle("title");
+    infoBlock.setParagraph("gorigori");
+    infoBlock.setPadding(Boarder.LEFT, "10%");
+    infoBlock.setPadding(Boarder.RIGHT, "10%");
+    return infoBlock.getBlock();
+}
+
 function createDescription(){
     var cols = new Column(2);
 
-    cols.setMargin(Boarder.TOP, "40px");
+    cols.setMargin(Boarder.TOP, "2%");
     cols.setPadding(Boarder.LEFT, "10%");
     cols.setPadding(Boarder.RIGHT, "10%");
+    cols.setMargin(Boarder.BOTTOM, "60px");
 
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);
@@ -52,11 +72,13 @@ function createDescription(){
     //const animatedHaatoPfp = fixedFadeinEntraceEffect.get();
     const haatoPfp = img.get("fig/common/haato_pfp.jpg");
     const formattedAbout = <div className="intro_quote"> <q>{aboutParagraph}</q></div>
+    const formattedWelcome = <div className="welcome_text">
+        Hello from the WWS Haato community!</div>
 
     cols.insert(0, delayedExplosiveFadeIn300.get(haatoPfp));
     cols.insert(1, delayedFadeInRightwards650.get(formattedAbout));
 
-    return cols.get();
+    return utils.merge(fadeInUpwards300.get(formattedWelcome),  cols.get());
 
 }
 
