@@ -9,11 +9,23 @@
     text-align: center;
 }
 
+@media screen and (max-width: 780px) {
+    .info_block_title  {
+        font-size: 5VW;
+    }
+}
+
 .info_block_paragraph{
     font-size: 2VW;
     width: 100%;
     margin-top: 10px;
     text-align: justify;
+}
+
+@media screen and (max-width: 780px) {
+    .info_block_paragraph  {
+        font-size: 3VW;
+    }
 }
 
 .info_block_button{

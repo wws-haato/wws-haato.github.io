@@ -38,7 +38,6 @@ const Home = () => {
         createAdvertisement(), 
         createDescription(), 
         createDescription(), 
-        indexSlider.get(),
         invCols.get()
     );
 };
@@ -50,7 +49,7 @@ function createAdvertisement(){
     img.setWidth("65%");
     img.setCorner(Boarder.ALL, "10px");
 
-    infoBlock.setGraphic(img.get("fig/common/icons/slider_click.webp"));
+    infoBlock.setGraphic(indexSlider.get());
     infoBlock.setTitle("Concept of World-wide");
     infoBlock.setParagraph("To show full support to Haachama, we always try our best gather fans all over the world. ");
     infoBlock.setPadding(Boarder.LEFT, "10%");

@@ -3,6 +3,7 @@ import Image from "./Image";
 import { getRawNumberAndSuffix } from "../utils";
 import { Mutex } from "async-mutex";
 import Boarder from "./border";
+import Youtube from "./youtube";
 
 export default class Slider{
     static idMutex = new Mutex();
@@ -20,8 +21,6 @@ export default class Slider{
         this.imgWidth = "10px";
         this.width = "100%";
         this.items = [];
-        this.leftwardsId = Slider.getUniqueId();
-        this.rightwardsId = Slider.getUniqueId();
         this.activeId = 0;
     }
 
@@ -44,11 +43,10 @@ export default class Slider{
 
         var imgWidth = getRawNumberAndSuffix(this.imgWidth);
         imgWidth.val/=2;
+
         const shift = imgWidth.val.toString()+imgWidth.suffix;
-        
         const marginTop = "calc(50% - "+shift+")";
-        console.log(marginTop);
-        return <div id = {isLeftwards? this.leftwardsId: this.rightwardsId} style={{marginTop: marginTop}} 
+        return <div style={{marginTop: marginTop}} 
             onClick={isLeftwards? this.leftwardsCallBack.bind(this): this.rightwardsCallBack.bind(this)}>
                 {img.get(Slider.imgPath)} </div>;
     }
@@ -93,15 +91,21 @@ export default class Slider{
     }
 
     get(){
-        var img = new Image();
-        img.setWidth("50%");
         return(
-            <div style={{width: "100%", height: "100%"}}>
+            <div style={{width: "100%", height: "100%", position: "static"}}>
             <div className="slideshow_container" style={{width: this.width}}>
-                {this.items.map(function(x, i){
-                    return (<div id={x.uid} className="slider_sides" 
-                    style={{display: i? "none": "block"}}> {x.item}</div>);})}
-
+                {this.items.map(
+                    function(x, i){
+                        return (
+                            <div id={x.uid} className="slider_sides" 
+                            style={{display: i? "none": "block", margin: "auto"}}> {
+                                <div style={{width: "100%", margin: "auto"}}>
+                                {x.item}</div>
+                            }
+                            </div>
+                        );
+                    }
+                )}
                 <div className="slider_botton_container" style={{width: this.imgWidth}}>{this.getSliderClick(true)}</div>
                 <div className="slider_botton_container_right" style={{width: this.imgWidth}}>{this.getSliderClick(false)}</div>
             </div></div>
@@ -113,16 +117,18 @@ export var indexSlider = createIndexSlider();
 
 function createIndexSlider(){
     var slider = new Slider();
-    var img = new Image();
-    img.setWidth("50%");
-    img.setCorner(Boarder.ALL, "10px");
+    var youtube = new Youtube();
 
-    slider.append(img.get("fig/common/icons/github.png"));
-    slider.append(img.get("fig/common/icons/twitter.png"));
-    slider.append(img.get("fig/common/icons/discord.png"));
+    youtube.setWidth("70%");
+    youtube.setCorner(Boarder.ALL, "10px");
 
-    slider.setClickWidth("5VW");
-    slider.setWidth("65%"); 
+
+    slider.append(youtube.get("https://youtu.be/aHt-fGy5BYQ"));
+    slider.append(youtube.get("https://youtu.be/LLuqBMnfKJY"));
+    //slider.append(youtube.get("fig/common/icons/discord.png"));
+
+    slider.setClickWidth("4VW");
+    slider.setWidth("95%"); 
 
     return slider;
 }
