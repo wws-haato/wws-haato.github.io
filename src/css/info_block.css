@@ -3,7 +3,7 @@
 }
 
 .info_block_title{
-    font-size: 4VW;
+    font-size: 3VW;
     width: 100%;
     margin: auto;
     text-align: center;
@@ -12,8 +12,8 @@
 .info_block_paragraph{
     font-size: 2VW;
     width: 100%;
-    margin: auto;
-    text-align: center;
+    margin-top: 10px;
+    text-align: justify;
 }
 
 .info_block_button{
@@ -39,10 +39,17 @@
     opacity: 0;
 }
 .info_block_cell_container{
-    height: 200px;
     width: 100%;
-    margin: auto;
+    padding-top: 15%;
+    margin-left : auto;
+    margin-right : auto;
     position: relative;
+}
+
+@media screen and (max-width: 780px) {
+    .info_block_cell_container  {
+        padding-top: 2%;
+    }
 }
 
 .info_block_cell{

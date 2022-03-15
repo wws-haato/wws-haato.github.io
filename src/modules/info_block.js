@@ -1,5 +1,6 @@
 import "../css/info_block.css";
 import InvertableColumn from "./invertable_columns"; 
+import Column from "./column";
 import { merge } from "../utils";
 
 
@@ -32,10 +33,10 @@ export default class InformationBlock extends InvertableColumn{
     getBlock(){
         const textBlock = 
         <div className="info_block_cell_container">
-            <div className="info_block_cell">
+
                     <div className="info_block_title"> {this.title}  </div>
                     <div className="info_block_paragraph"> {this.paragraph} </div>
-            </div>
+
         </div>     
             
         this.insert(1-this.graphId, textBlock);

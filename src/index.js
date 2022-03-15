@@ -21,6 +21,7 @@ import { fadeInUpwards300, explosiveFadeIn } from "./modules/entrance_effect";
 import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
 import InformationBlock from "./modules/info_block";
+import Slider from "./modules/slider";
 
 
 const Home = () => {
@@ -29,12 +30,15 @@ const Home = () => {
     invCols.insert(1, utils.createFootNote());
     invCols.setPadding(Boarder.LEFT, "10%");
     invCols.setPadding(Boarder.RIGHT, "10%");
+    const slider = (new Slider()).get();
+    console.log(slider);
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 
         createAdvertisement(), 
         createDescription(), 
         createDescription(), 
+        slider,
         invCols.get()
     );
 };
@@ -43,12 +47,12 @@ function createAdvertisement(){
     var infoBlock = new InformationBlock(false);
 
     var img = new Image();
-    img.setWidth("200px");
+    img.setWidth("65%");
     img.setCorner(Boarder.ALL, "10px");
 
     infoBlock.setGraphic(img.get("fig/common/haato_pfp.jpg"));
-    infoBlock.setTitle("title");
-    infoBlock.setParagraph("gorigori");
+    infoBlock.setTitle("Concept of World-wide");
+    infoBlock.setParagraph("To show full support to Haachama, we always try our best gather fans all over the world. ");
     infoBlock.setPadding(Boarder.LEFT, "10%");
     infoBlock.setPadding(Boarder.RIGHT, "10%");
     return infoBlock.getBlock();
