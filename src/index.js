@@ -17,25 +17,19 @@ import { NavbarDropdown } from "./modules/navbar";
 import { EntranceEffect } from "./modules/entrance_effect";
 import { fadeInRightWardsEntraceEffect } from "./modules/entrance_effect";
 import { fixedFadeinEntraceEffect } from "./modules/entrance_effect";
-
+import { fadeInDownWardsEntraceEffect } from "./modules/entrance_effect";
+import InvertableColumn from "./modules/invertable_columns";
 
 
 const Home = () => {
-    var logos = [];
-    for(var i = 0; i < 10; i++)
-        logos.push(createLogoBanner(i));
-    
-
+    var invCols = new InvertableColumn();
+    invCols.insert(0, utils.createFootNote());
+    invCols.insert(1, utils.createFootNote());
     return utils.merge(
-        logos, 
-        utils.createFootNote(), 
-        utils.createFootNote(), 
-        utils.createFootNote(), 
-        utils.createFootNote(), 
-        utils.createFootNote(), 
-        utils.createFootNote()
+        createLogoBanner(),
+        invCols.get()
     );
-  };
+};
 
 function App() {
     const router = (
@@ -71,20 +65,13 @@ ReactDOM.render(
 
 
 
-function createLogoBanner(id) {
+function createLogoBanner(){
     var img = new Image();
     img.setMargin(Boarder.TOP, "60px");
     img.setWidth("75%");
 
-    var entEff = fadeInRightWardsEntraceEffect;
-    if(id%2)
-        entEff = fixedFadeinEntraceEffect
-    
-    entEff.setItem(img.get("fig/common/logo_banner.png"));
-    return entEff.get();
-
-
-    
+    fadeInDownWardsEntraceEffect.setItem(img.get("fig/common/logo_banner.png"));
+    return fadeInDownWardsEntraceEffect.get();
 }
 
 

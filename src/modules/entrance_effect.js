@@ -127,3 +127,8 @@ export var fadeInRightWardsEntraceEffect = new EntranceEffect(
 	{ duration: 1000, fill: 'forwards', easing: 'ease-out'}
 );
 
+export var fadeInDownWardsEntraceEffect = new EntranceEffect(
+	[ { transform: 'translateY(-20%)', opacity: 0}, { transform: 'translateY(0px)', opacity: 1}], 
+	{ duration: 1000, fill: 'forwards', easing: 'ease-out'}
+);
+
