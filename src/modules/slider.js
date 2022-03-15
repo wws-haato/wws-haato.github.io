@@ -128,7 +128,7 @@ function createIndexSlider(){
     //slider.append(youtube.get("fig/common/icons/discord.png"));
 
     slider.setClickWidth("4VW");
-    slider.setWidth("95%"); 
+    slider.setWidth("100%"); 
 
     return slider;
 }

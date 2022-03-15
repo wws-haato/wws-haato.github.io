@@ -25,32 +25,33 @@ import Slider from "./modules/slider";
 import { indexSlider } from "./modules/slider";
 
 
-const Home = () => {
-    var invCols = new InvertableColumn();
-    invCols.insert(0, utils.createFootNote());
-    invCols.insert(1, utils.createFootNote());
-    invCols.setPadding(Boarder.LEFT, "10%");
-    invCols.setPadding(Boarder.RIGHT, "10%");
-
+const Home = () => {``
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 
         createAdvertisement(), 
-        createDescription(), 
-        createDescription(), 
-        invCols.get()
+        utils.createFootNote()
     );
 };
 
 function createAdvertisement(){
     var infoBlock = new InformationBlock(false);
-    const graphicTitle = <div className="prev_work_yt_slider_text"> Previous works </div>;
+    const graphicTitle = <div className="prev_work_yt_slider_text"> Watch on YouTube </div>;
     infoBlock.setGraphic(graphicTitle, indexSlider.get());
-    infoBlock.setTitle("Concept of World-wide");
-    infoBlock.setParagraph("To show full support to Haachama, we always try our best gather fans all over the world. ");
-    infoBlock.setPadding(Boarder.LEFT, "10%");
-    infoBlock.setPadding(Boarder.RIGHT, "10%");
-    return infoBlock.getBlock();
+    infoBlock.setTitle("Two Projects with 200+ participants in 2021");
+    infoBlock.setParagraph(
+        "In the past year, we have been making great efforts to gather as many \
+        fans as we can. We hope to show our largest support towards, \
+        and will continue to further make supportive projects in 2022 as well! "
+    );
+    infoBlock.setPadding(Boarder.ALL, "20px");
+    infoBlock.setPadding(Boarder.BOTTOM, "30px");
+    //infoBlock.setPadding(Boarder.RIGHT, "10px");
+    infoBlock.setMargin(Boarder.BOTTOM, "20%");
+    infoBlock.setColour(65,105,255,1);
+    infoBlock.setCorner(Boarder.ALL, "20px");
+
+    return fadeInUpwards300.get(infoBlock.getBlock());
 }
 
 function createDescription(){
@@ -59,7 +60,7 @@ function createDescription(){
     cols.setMargin(Boarder.TOP, "2%");
     cols.setPadding(Boarder.LEFT, "10%");
     cols.setPadding(Boarder.RIGHT, "10%");
-    cols.setMargin(Boarder.BOTTOM, "60px");
+    cols.setMargin(Boarder.BOTTOM, "20%");
 
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);

@@ -27,7 +27,7 @@ export const NavbarDropdown = () =>{
 	);
 }
 
-class ColourRGBA{
+export class ColourRGBA{
 	/**
 	* @param {number} r
 	* @param {number} g

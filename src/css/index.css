@@ -42,7 +42,6 @@
 }
 
 .welcome_text{
-    padding-top: 15%;
     background: transparent;
     color:crimson;
     display: inline-block;
@@ -61,7 +60,7 @@
 
 .prev_work_yt_slider_text{
     background: transparent;
-    color:black;
+    color:white;
     display: inline-block;
     text-align: center;
     font-size: 4VW;
