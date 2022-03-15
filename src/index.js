@@ -22,6 +22,7 @@ import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
 import InformationBlock from "./modules/info_block";
 import Slider from "./modules/slider";
+import { indexSlider } from "./modules/slider";
 
 
 const Home = () => {
@@ -30,17 +31,24 @@ const Home = () => {
     invCols.insert(1, utils.createFootNote());
     invCols.setPadding(Boarder.LEFT, "10%");
     invCols.setPadding(Boarder.RIGHT, "10%");
-    var slider = new Slider();
-    slider.setClickWidth("5VW");
-    slider.setWidth("65%");
-    console.log(slider);
+
+    indexSlider.setClickWidth("5VW");
+    indexSlider.setWidth("65%"); 
+
+    var img = new Image();
+    img.setWidth("50%");
+    img.setCorner(Boarder.ALL, "10px");
+
+    indexSlider.append(img.get("fig/common/icons/github.png"));
+    indexSlider.append(img.get("fig/common/icons/twitter.png"));
+
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 
         createAdvertisement(), 
         createDescription(), 
         createDescription(), 
-        slider.get(),
+        indexSlider.get(),
         invCols.get()
     );
 };
