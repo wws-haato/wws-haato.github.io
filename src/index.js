@@ -31,7 +31,7 @@ const Home = () => {
     invCols.setPadding(Boarder.LEFT, "10%");
     invCols.setPadding(Boarder.RIGHT, "10%");
     var slider = new Slider();
-    slider.setClickWidth("20px");
+    slider.setClickWidth("5VW");
     slider.setWidth("65%");
     console.log(slider);
     return utils.merge(

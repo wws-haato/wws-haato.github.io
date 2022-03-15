@@ -40,6 +40,15 @@
     cursor: pointer;
 }
 
+.slider_sides{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transition: 500ms ease-out;
+    opacity: 1;
+}
 
 
 

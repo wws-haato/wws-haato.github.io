@@ -39,11 +39,14 @@ export default class Slider{
     }
 
     get(){
+        var img = new Image();
+        img.setWidth("50%");
         return(
-            <div style={{width: "100%", height: "200px"}}>
+            <div style={{width: "100%", height: "100%"}}>
             <div className="slideshow_container" style={{width: this.width}}>
-                <div className="slider_botton_container" style={{width: this.imgWidth, marginLeft: "0"}}>{this.getSliderClick(true)}</div>
-                <div className="slider_botton_container_right" style={{width: this.imgWidth, marginRight: "0"}}>{this.getSliderClick(false)}</div>
+                {img.get("fig/common/haato_pfp.jpg")}
+                <div className="slider_botton_container" style={{width: this.imgWidth}}>{this.getSliderClick(true)}</div>
+                <div className="slider_botton_container_right" style={{width: this.imgWidth}}>{this.getSliderClick(false)}</div>
             </div></div>
         );
     }
