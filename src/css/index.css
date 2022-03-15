@@ -2,9 +2,10 @@
     width: 100%;
     height: 100%;
     padding-left: 10%;
+    padding-top: 15%;
     margin-top: auto;
     margin-bottom: auto;
-    background: white;
+    background: transparent;
     color:crimson;
     display: inline-block;
     transition: 0.5s ease-out;

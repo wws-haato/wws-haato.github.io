@@ -14,10 +14,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
-import { delayedExplosiveFadeIn, EntranceEffect } from "./modules/entrance_effect";
+import { delayedExplosiveFadeIn300, EntranceEffect } from "./modules/entrance_effect";
 import { fadeInRightWardsEntraceEffect } from "./modules/entrance_effect";
-import { fixedFadeinEntraceEffect } from "./modules/entrance_effect";
-import { fadeInDownWardsEntraceEffec, explosiveFadeIn } from "./modules/entrance_effect";
+import { fixedFadeinEntraceEffect, delayedFadeInRightwards650 } from "./modules/entrance_effect";
+import { fadeInDownWardsEntraceEffect, explosiveFadeIn } from "./modules/entrance_effect";
 import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
 
@@ -51,9 +51,10 @@ function createDescription(){
 
     //const animatedHaatoPfp = fixedFadeinEntraceEffect.get();
     const haatoPfp = img.get("fig/common/haato_pfp.jpg");
+    const formattedAbout = <div className="intro_quote"> <q>{aboutParagraph}</q></div>
 
-    cols.insert(0, delayedExplosiveFadeIn.get(haatoPfp));
-    cols.insert(1, <div className="intro_quote"> <q>{aboutParagraph}</q></div>);
+    cols.insert(0, delayedExplosiveFadeIn300.get(haatoPfp));
+    cols.insert(1, delayedFadeInRightwards650.get(formattedAbout));
 
     return cols.get();
 
@@ -92,18 +93,17 @@ ReactDOM.render(
 );
 
 
-
 function createLogoBanner(){
     var img = new Image();
     img.setWidth("100%");
     const bannerImg = img.get("fig/common/logo_banner.png");
     const placeHolder = <div id = "place_holder_banner" 
         className="logo_banner_place_holder " style={{opacity: "0"}}>
-        <div className="logo_banner_inner_image">
+        <div id = "place_holder_img_id" className="logo_banner_inner_image">
         {bannerImg}</div>
     </div>;
     const logoBanner = <div id="logo_banner" className="logo_banner">
-        <div className="logo_banner_inner_image">
+        <div id = "img" className="logo_banner_inner_image">
         {explosiveFadeIn.get(bannerImg)}</div></div>;
 
     return utils.merge(placeHolder, logoBanner);
@@ -120,10 +120,13 @@ document.addEventListener('scroll', function(e){
         return;
 
     const ratio = 0.5+placeHolder.getBoundingClientRect().top/window.innerHeight;
-    console.log(ratio);
     logoBanner.style.opacity = ratio>0? ratio.toString(): "0";
-    if(ratio<=-0.5)
+    
+    var placeHolderImg = document.getElementById('place_holder_img_id');
+    if(placeHolderImg && placeHolderImg.getBoundingClientRect().bottom < 0){
+        logoBanner.removeChild(logoBanner.childNodes[0]);
         placeHolder.style.opacity="1";
+    }
 	
 })
 

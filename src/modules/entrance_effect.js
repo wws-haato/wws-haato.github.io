@@ -118,8 +118,13 @@ export var fixedFadeinEntraceEffect = new EntranceEffect(
 );
 
 export var fadeInRightWardsEntraceEffect = new EntranceEffect(
-	[ { transform: 'translateX(-100px)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
-	{ duration: 1000, fill: 'forwards', easing: 'ease-out'}
+	[ { transform: 'translateX(-100%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
+	{ duration: 1000, fill: 'forwards', easing: 'ease-out', delay: 850}
+);
+
+export var delayedFadeInRightwards650 = new EntranceEffect(
+	[ { transform: 'translateX(-100%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
+	{ duration: 1000, fill: 'forwards', easing: 'ease-out', delay: 650}
 );
 
 
@@ -134,8 +139,8 @@ export var explosiveFadeIn = new EntranceEffect(
 );
 
 
-export var delayedExplosiveFadeIn = new EntranceEffect(
+export var delayedExplosiveFadeIn300 = new EntranceEffect(
 	[ { transform: 'scale(0.5, 0.5)', opacity: 0}, { transform: 'scale(1, 1)', opacity: 1}], 
-	{ duration:600, fill: 'forwards', easing: 'ease-in', delay: 400}
+	{ duration:600, fill: 'forwards', easing: 'ease-in', delay: 300}
 );
 
