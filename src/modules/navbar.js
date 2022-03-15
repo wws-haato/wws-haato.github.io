@@ -100,7 +100,6 @@ function createNavbarKeyFrames(resolution){
 }
 
 const keyframes = createNavbarKeyFrames(200);
-console.log(keyframes);
 const invKeyframes = createNavbarKeyFrames(200).reverse();
 
 var navbarExpanded = false;

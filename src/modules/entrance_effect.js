@@ -84,19 +84,14 @@ export class EntranceEffect{
 		this.effectID = EntranceEffect.allEffects.append(
 			{keyframes: keyframes, options: options});
 		
-		this.item = 0;
 	}
 
-	setItem(item){
-		this.item = item;
-	}
-
-	get(){
+	get(item){
 		const queryID = EntranceEffect.allQueries.append(new QueryData(this.effectID));
 		const uniqueID = EntranceEffect.getUniqueID(queryID);
 
 		const initStyle = EntranceEffect.allEffects[this.effectID].keyframes[0];
-		return (<><div id ={uniqueID} className="entrance_block" style={initStyle}>{this.item}</div></>);
+		return (<><div id ={uniqueID} className="entrance_block" style={initStyle}>{item}</div></>);
 	}
 }
 
@@ -127,8 +122,20 @@ export var fadeInRightWardsEntraceEffect = new EntranceEffect(
 	{ duration: 1000, fill: 'forwards', easing: 'ease-out'}
 );
 
+
 export var fadeInDownWardsEntraceEffect = new EntranceEffect(
 	[ { transform: 'translateY(-20%)', opacity: 0}, { transform: 'translateY(0px)', opacity: 1}], 
 	{ duration: 1000, fill: 'forwards', easing: 'ease-out'}
+);
+
+export var explosiveFadeIn = new EntranceEffect(
+	[ { transform: 'scale(0.5, 0.5)', opacity: 0}, { transform: 'scale(1, 1)', opacity: 1}], 
+	{ duration:600, fill: 'forwards', easing: 'ease-in'}
+);
+
+
+export var delayedExplosiveFadeIn = new EntranceEffect(
+	[ { transform: 'scale(0.5, 0.5)', opacity: 0}, { transform: 'scale(1, 1)', opacity: 1}], 
+	{ duration:600, fill: 'forwards', easing: 'ease-in', delay: 400}
 );
 

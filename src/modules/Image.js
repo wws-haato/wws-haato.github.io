@@ -44,7 +44,7 @@ export default class Image{
             <div id ={this.getId()} className="centered_img" style={{width: "100%"}}>
                 <img src={path} alt="..." class="centered_img" 
                 style={{width: this.width, 
-                borderRadius: this.corner.getStyle()}}></img>
+                borderRadius: this.corner.getStyle()}} loading="eager"></img>
             </div>
         </div>);
     }

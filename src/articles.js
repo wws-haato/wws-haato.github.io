@@ -5,3 +5,10 @@ export const aboutArticle = " \
     We have so far produced our 1st project \"World Wide Tour Guide\" and 2nd \"Haato's Birthday Parade\". \
     We will be continuing to make more supportive projects for Haachama in the future. \
 ";
+
+
+export const aboutParagraph = <>
+    We are WWS Haato, 
+    aka World Wide Support for Haato, 
+    a non-profit project team for Vtuber Akai Haato. 
+</>

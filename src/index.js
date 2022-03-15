@@ -6,7 +6,7 @@ import Bulletin from "./modules/bulletin";
 import Image from "./modules/Image";
 import ImageLinked from "./modules/Image_linked";
 import Boarder from "./modules/border";
-import { aboutArticle } from "./articles";
+import { aboutArticle, aboutParagraph} from "./articles";
 import Youtube from "./modules/youtube";
 import { VideoRelease } from "./modules/bulletin";
 import { isCellphone } from "./utils";
@@ -14,11 +14,12 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
-import { EntranceEffect } from "./modules/entrance_effect";
+import { delayedExplosiveFadeIn, EntranceEffect } from "./modules/entrance_effect";
 import { fadeInRightWardsEntraceEffect } from "./modules/entrance_effect";
 import { fixedFadeinEntraceEffect } from "./modules/entrance_effect";
-import { fadeInDownWardsEntraceEffect } from "./modules/entrance_effect";
+import { fadeInDownWardsEntraceEffec, explosiveFadeIn } from "./modules/entrance_effect";
 import InvertableColumn from "./modules/invertable_columns";
+import "./css/index.css";
 
 
 const Home = () => {
@@ -26,10 +27,37 @@ const Home = () => {
     invCols.insert(0, utils.createFootNote());
     invCols.insert(1, utils.createFootNote());
     return utils.merge(
-        createLogoBanner(),
+        createLogoBanner(), 
+        createDescription(), 
+        createDescription(), 
+        createDescription(), 
         invCols.get()
     );
 };
+
+function createDescription(){
+    var cols = new Column(2);
+
+    cols.setMargin(Boarder.TOP, "40px");
+    cols.setPadding(Boarder.LEFT, "10%");
+    cols.setPadding(Boarder.RIGHT, "10%");
+
+    cols.setColumnInterval("0px");
+    cols.setRatios(35, 65);
+
+    var img = new Image();
+    img.setWidth("100%");
+    img.setCorner(Boarder.ALL, "10px");
+
+    //const animatedHaatoPfp = fixedFadeinEntraceEffect.get();
+    const haatoPfp = img.get("fig/common/haato_pfp.jpg");
+
+    cols.insert(0, delayedExplosiveFadeIn.get(haatoPfp));
+    cols.insert(1, <div className="intro_quote"> <q>{aboutParagraph}</q></div>);
+
+    return cols.get();
+
+}
 
 function App() {
     const router = (
@@ -67,13 +95,37 @@ ReactDOM.render(
 
 function createLogoBanner(){
     var img = new Image();
-    img.setMargin(Boarder.TOP, "60px");
-    img.setWidth("75%");
+    img.setWidth("100%");
+    const bannerImg = img.get("fig/common/logo_banner.png");
+    const placeHolder = <div id = "place_holder_banner" 
+        className="logo_banner_place_holder " style={{opacity: "0"}}>
+        <div className="logo_banner_inner_image">
+        {bannerImg}</div>
+    </div>;
+    const logoBanner = <div id="logo_banner" className="logo_banner">
+        <div className="logo_banner_inner_image">
+        {explosiveFadeIn.get(bannerImg)}</div></div>;
 
-    fadeInDownWardsEntraceEffect.setItem(img.get("fig/common/logo_banner.png"));
-    return fadeInDownWardsEntraceEffect.get();
+    return utils.merge(placeHolder, logoBanner);
 }
 
+
+document.addEventListener('scroll', function(e){
+    var logoBanner = document.getElementById('logo_banner');
+    if(!logoBanner)
+        return;
+
+    var placeHolder = document.getElementById('place_holder_banner');
+    if(!placeHolder || placeHolder.style.opacity=="1")
+        return;
+
+    const ratio = 0.5+placeHolder.getBoundingClientRect().top/window.innerHeight;
+    console.log(ratio);
+    logoBanner.style.opacity = ratio>0? ratio.toString(): "0";
+    if(ratio<=-0.5)
+        placeHolder.style.opacity="1";
+	
+})
 
 
 

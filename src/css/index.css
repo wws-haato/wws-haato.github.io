@@ -1,0 +1,41 @@
+.intro_quote{
+    width: 100%;
+    height: 100%;
+    padding-left: 10%;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: white;
+    color:crimson;
+    display: inline-block;
+    transition: 0.5s ease-out;
+    text-align: left;
+    font-size: 2VW;
+}
+
+@media screen and (max-width: 780px) {
+    .intro_quote  {
+        padding-left: 5%;
+        font-size: 2.5VW;
+    }
+}
+
+.logo_banner {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100VH;
+}
+
+.logo_banner_place_holder {
+    height: 100VH;
+    width: 100%;
+}
+
+.logo_banner_inner_image{
+    position: absolute;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
