@@ -11,14 +11,14 @@ export default class InformationBlock extends InvertableColumn{
     constructor(reversed){
         super();
         this.graphId = reversed? 1: 0;
-        this.title = "";
+        this.subtitle = "";
         this.paragraph = "";
         this.graphic = 0;
         this.button = "";
     }
 
-    setTitle(title){
-        this.title = title;
+    setSubtitle(title){
+        this.subtitle = title;
     }
     setGraphic(... graphic){
         this.insert(this.graphId, graphic);
@@ -33,7 +33,7 @@ export default class InformationBlock extends InvertableColumn{
     getBlock(){
         const textBlock = 
         <div className="info_block_cell_container">
-            <div className="info_block_title"> {this.title}  </div>
+            <div className="info_block_title"> {this.subtitle}  </div>
             <div className="info_block_paragraph"> {this.paragraph} </div>
         </div>     
             

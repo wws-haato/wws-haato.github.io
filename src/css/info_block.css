@@ -77,3 +77,15 @@
     transform: translateY(-50%);
     text-align: center;
 }
+
+
+.info_block_top_banner{
+    background: skyblue;
+    color:white;
+    text-align: center;
+    font-size: 4VW;
+    width: 50%;
+    z-index: 900;
+    position: relative;
+    margin-bottom: -10px;
+}

@@ -15,7 +15,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
 
-import * as entEffect from "./modules/default/entrance_effect";
+import * as entEffect from "./modules/defaults/entrance_effect";
 
 import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
@@ -24,10 +24,20 @@ import Slider from "./modules/slider";
 import { indexSlider } from "./modules/slider";
 
 
-const Home = () => {``
+const Home = () => {
+    var img = new Image();
+    img.setWidth("100%");
+    img.setCorner(Boarder.ALL, "10px");
+
+    //const animatedHaatoPfp = fixedFadeinEntraceEffect.get();
+    //img.setMargin(Boarder.BOTTOM, "-100px");
+    var imgElem = img.get("fig/common/haato_pfp.jpg");
+    const float = <div className="info_block_top_banner" style={{zIndex: "1000000"}}>AASDA</div>;
+    
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 
+        float,
         createAdvertisement(), 
         utils.createFootNote()
     );
@@ -37,10 +47,10 @@ function createAdvertisement(){
     var infoBlock = new InformationBlock(false);
     const graphicTitle = <div className="prev_work_yt_slider_text"> Watch on YouTube </div>;
     infoBlock.setGraphic(graphicTitle, indexSlider.get());
-    infoBlock.setTitle("Two Projects with 200+ participants in 2021");
+    infoBlock.setSubtitle("Two Projects with 200+ participants in 2021");
     infoBlock.setParagraph(
         "In the past year, we have been making great efforts to gather as many \
-        fans as we can. We hope to show our largest support towards, \
+        fans as we can. We hope to show our largest support for Haachama, \
         and will continue to further make supportive projects in 2022 as well! "
     );
     infoBlock.setPadding(Boarder.ALL, "20px");
@@ -49,6 +59,8 @@ function createAdvertisement(){
     infoBlock.setMargin(Boarder.BOTTOM, "20%");
     infoBlock.setColour(65,105,255,1);
     infoBlock.setCorner(Boarder.ALL, "20px");
+
+    
 
     return entEffect.fadeInUpwardsDelayed.get(infoBlock.getBlock());
 }
