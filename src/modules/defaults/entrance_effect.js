@@ -7,6 +7,11 @@ export var fixedFadeFixed = new EntranceEffect(
 );
 
 
+export var fadeInRightwards = new EntranceEffect(
+	[ { transform: 'translateX(-50%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
+	{ duration: 1000, fill: 'forwards'}
+);
+
 export var fadeInRightwardsDelayed = new EntranceEffect(
 	[ { transform: 'translateX(-50%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
 	{ duration: 1000, fill: 'forwards', easing: 'ease-out', delay: 300}

@@ -1,9 +1,8 @@
 import "../css/info_block.css";
 import InvertableColumn from "./invertable_columns"; 
-import Column from "./column";
-import { merge } from "../utils";
+import { merge, wrapDiv} from "../utils";
 import Boarder from "./config/border";
-
+import { fadeInRightwards } from "./defaults/entrance_effect";
 
 export default class InformationBlock extends InvertableColumn{
     /**
@@ -42,17 +41,15 @@ export default class InformationBlock extends InvertableColumn{
     }
 
     getBlock(){
-        const textBlock = 
-            <div className="info_block_cell_container">
-                <div className="info_block_title"> {this.subtitle}  </div>
-                <div className="info_block_paragraph"> {this.paragraph} </div>
-            </div>     
-        this.insert(this.graphId, <div className="info_block_graphic_title">
-            {this.graphicTitle}</div>, this.graphic);
+        const subtitle = wrapDiv("info_block_title", this.subtitle);
+        const paragraph = wrapDiv("info_block_paragraph", this.paragraph);
+        const textBlock = wrapDiv("info_block_cell_container", subtitle, paragraph);
+        const graphtitle = wrapDiv("info_block_graphic_title", this.graphicTitle);
 
+        this.insert(this.graphId, graphtitle, this.graphic);
         this.insert(1-this.graphId,  textBlock);
 
-        const title = <div className="info_block_top_banner">{this.title}</div>;
+        const title = wrapDiv("info_block_top_banner", this.title);
         return merge(title, <div style={{width: "100%"}}>{this.get()}</div>);
     }
 }

@@ -87,3 +87,8 @@ export function getRawNumberAndSuffix(arg){
 export function isCellphone(){
     return window.innerWidth < 900;
 }
+
+
+export function wrapDiv(name, ... obj){
+    return <div className={name}>{merge(obj)}</div>;
+}

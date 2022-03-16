@@ -62,7 +62,7 @@ function createAdvertisement(){
 
     
 
-    return entEffect.fadeInUpwardsDelayed.get(infoBlock.getBlock());
+    return infoBlock.getBlock();
 }
 
 function createDescription(){

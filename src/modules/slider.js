@@ -1,6 +1,6 @@
 import "../css/slider.css";
 import Image from "./Image";
-import { getRawNumberAndSuffix, swap} from "../utils";
+import { getRawNumberAndSuffix} from "../utils";
 import { Mutex } from "async-mutex";
 import Boarder from "./config/border";
 import Youtube from "./youtube";

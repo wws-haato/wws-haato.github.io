@@ -90,6 +90,7 @@
     margin-bottom: -40px;
     padding: 10px 80px;
     border-radius: 5px 30px 30px 5px;
+    box-shadow: 2.5px 2.5px 5px darkblue;
 }
 
 @media screen and (max-width: 780px) {
