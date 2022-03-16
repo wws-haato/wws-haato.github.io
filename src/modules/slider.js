@@ -1,8 +1,8 @@
 import "../css/slider.css";
 import Image from "./Image";
-import { getRawNumberAndSuffix } from "../utils";
+import { getRawNumberAndSuffix, swap} from "../utils";
 import { Mutex } from "async-mutex";
-import Boarder from "./border";
+import Boarder from "./config/border";
 import Youtube from "./youtube";
 
 export default class Slider{
@@ -46,17 +46,20 @@ export default class Slider{
 
         const shift = imgWidth.val.toString()+imgWidth.suffix;
         const marginTop = "calc(50% - "+shift+")";
-        return <div style={{marginTop: marginTop}} 
-            onClick={isLeftwards? this.leftwardsCallBack.bind(this): this.rightwardsCallBack.bind(this)}>
-                {img.get(Slider.imgPath)} </div>;
+
+        return <div style={{marginTop: marginTop}}  onClick={
+            this.callBack.bind(this, isLeftwards? -1:1)}>{img.get(Slider.imgPath)} </div>;
     }
 
-    leftwardsCallBack(){
-        var nextActiveId = this.activeId-1;
-
-        if(nextActiveId < 0)
+    callBack(inc){
+        console.log(inc);
+        var nextActiveId = this.activeId+inc;
+        while(nextActiveId < 0)
             nextActiveId+=this.items.length;
-        
+
+        while(nextActiveId >= this.items.length)
+            nextActiveId-=this.items.length;
+
         let currUid = this.items[this.activeId].uid;
         let nextUid = this.items[nextActiveId].uid;
         let currElem = document.getElementById(currUid);
@@ -65,26 +68,7 @@ export default class Slider{
             return;
         
         this.activeId=nextActiveId;
-        const tmp = currElem.style.display;
-        currElem.style.display = nextElem.style.display;
-        nextElem.style.display = tmp;
 
-    }
-
-
-    rightwardsCallBack(){
-        var nextActiveId = this.activeId+1;
-        if(nextActiveId == this.items.length)
-            nextActiveId=0;
-
-        let currUid = this.items[this.activeId].uid;
-        let nextUid = this.items[nextActiveId].uid;
-        let currElem = document.getElementById(currUid);
-        let nextElem = document.getElementById(nextUid);
-        if(!currElem || !nextElem)
-            return;
-        
-        this.activeId = nextActiveId;
         const tmp = currElem.style.display;
         currElem.style.display = nextElem.style.display;
         nextElem.style.display = tmp;
@@ -106,8 +90,10 @@ export default class Slider{
                         );
                     }
                 )}
-                <div className="slider_botton_container" style={{width: this.imgWidth}}>{this.getSliderClick(true)}</div>
-                <div className="slider_botton_container_right" style={{width: this.imgWidth}}>{this.getSliderClick(false)}</div>
+                <div className="slider_botton_container" style={
+                    {width: this.imgWidth}}>{this.getSliderClick(true)}</div>
+                <div className="slider_botton_container_right" style={
+                    {width: this.imgWidth}}>{this.getSliderClick(false)}</div>
             </div></div>
         );
     }

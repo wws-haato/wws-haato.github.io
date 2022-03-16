@@ -1,6 +1,6 @@
 import "../css/column.css";
 import { merge } from "../utils";
-import Boarder from "./border";
+import Boarder from "./config/border";
 import { getRawNumberAndSuffix } from "../utils";
 
 

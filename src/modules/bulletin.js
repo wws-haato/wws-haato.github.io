@@ -2,7 +2,7 @@ import "../css/bulletin.css";
 import Column from "./column";
 import Youtube from "./youtube";
 import { isCellphone, merge } from "../utils";
-import Boarder from "./border";
+import Boarder from "./config/border";
 
 
 export default class Bulletin{

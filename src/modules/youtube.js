@@ -1,6 +1,6 @@
 import "../css/image.css";
 import "../css/youtube.css";
-import Boarder from "./border";
+import Boarder from "./config/border";
 
 export default class Youtube{
     constructor(){

@@ -5,7 +5,7 @@ import * as utils from "./utils";
 import Bulletin from "./modules/bulletin";
 import Image from "./modules/Image";
 import ImageLinked from "./modules/Image_linked";
-import Boarder from "./modules/border";
+import Boarder from "./modules/config/border";
 import { aboutArticle, aboutParagraph} from "./articles";
 import Youtube from "./modules/youtube";
 import { VideoRelease } from "./modules/bulletin";
@@ -14,10 +14,9 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
-import { delayedExplosiveFadeIn300, EntranceEffect } from "./modules/entrance_effect";
-import { fadeInRightWardsEntraceEffect } from "./modules/entrance_effect";
-import { fixedFadeinEntraceEffect, delayedFadeInRightwards650 } from "./modules/entrance_effect";
-import { fadeInUpwards300, explosiveFadeIn } from "./modules/entrance_effect";
+
+import * as entEffect from "./modules/default/entrance_effect";
+
 import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
 import InformationBlock from "./modules/info_block";
@@ -51,7 +50,7 @@ function createAdvertisement(){
     infoBlock.setColour(65,105,255,1);
     infoBlock.setCorner(Boarder.ALL, "20px");
 
-    return fadeInUpwards300.get(infoBlock.getBlock());
+    return entEffect.fadeInUpwardsDelayed.get(infoBlock.getBlock());
 }
 
 function createDescription(){
@@ -75,10 +74,10 @@ function createDescription(){
     const formattedWelcome = <div className="welcome_text">
         Hello from the WWS Haato community!</div>
 
-    cols.insert(0, delayedExplosiveFadeIn300.get(haatoPfp));
-    cols.insert(1, delayedFadeInRightwards650.get(formattedAbout));
+    cols.insert(0, entEffect.fadeInExplosiveDelayed.get(haatoPfp));
+    cols.insert(1, entEffect.fadeInRightwardsLatched.get(formattedAbout));
 
-    return utils.merge(fadeInUpwards300.get(formattedWelcome),  cols.get());
+    return utils.merge(entEffect.fadeInUpwardsDelayed.get(formattedWelcome),  cols.get());
 
 }
 
@@ -115,7 +114,7 @@ function createLogoBanner(){
     </div>;
     const logoBanner = <div id="logo_banner" className="logo_banner">
         <div id = "img" className="logo_banner_inner_image">
-        {explosiveFadeIn.get(bannerImg)}</div></div>;
+        {entEffect.fadeInExplosive.get(bannerImg)}</div></div>;
 
     return utils.merge(placeHolder, logoBanner);
 }

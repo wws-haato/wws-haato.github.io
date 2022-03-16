@@ -1,6 +1,5 @@
 import "../css/image.css";
-import Boarder from "./border";
-import { generateUniqueID } from "../utils";
+import Boarder from "./config/border";
 
 export default class Image{
     constructor(){

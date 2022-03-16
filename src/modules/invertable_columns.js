@@ -1,7 +1,7 @@
-import Boarder from "./border";
+import Boarder from "./config/border";
 import "../css/invertable_columns.css";
 import { merge, getRawNumberAndSuffix} from "../utils";
-import { ColourRGBA } from "./navbar";
+import ColourRGBA from "./config/colour_rgba";
 
 export default class InvertableColumn{
     constructor(){

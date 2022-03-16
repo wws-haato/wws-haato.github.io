@@ -2,7 +2,7 @@ import "./css/header.css";
 import "./css/subtitle.css";
 import "./css/footnote.css";
 import Column from "./modules/column";
-import Boarder from "./modules/border";
+import Boarder from "./modules/config/border";
 import Image from "./modules/Image";
 
 export function createHeader() {
@@ -86,11 +86,4 @@ export function getRawNumberAndSuffix(arg){
 
 export function isCellphone(){
     return window.innerWidth < 900;
-}
-
-var uniqueID = 0;
-export function generateUniqueID(){
-    var uid = "";
-    uid = (uniqueID++).toString();
-    return uid;
 }

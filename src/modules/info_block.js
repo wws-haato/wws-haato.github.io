@@ -39,6 +39,5 @@ export default class InformationBlock extends InvertableColumn{
             
         this.insert(1-this.graphId, textBlock);
         return <div style={{width: "100%"}}>{this.get()}</div>;
-        return textBlock;
     }
 }

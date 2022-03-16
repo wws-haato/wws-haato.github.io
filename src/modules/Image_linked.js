@@ -1,4 +1,3 @@
-import { decodedTextSpanIntersectsWith } from "typescript";
 import "../css/image.css";
 import Image from "./Image";
 
