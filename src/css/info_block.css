@@ -1,5 +1,5 @@
 .info_block{
-    width: 100%
+    width: 100%;
 }
 
 .info_block_title{
@@ -82,10 +82,39 @@
 .info_block_top_banner{
     background: skyblue;
     color:white;
-    text-align: center;
-    font-size: 4VW;
+    text-align: left;
+    font-size: 5VW;
     width: 50%;
     z-index: 900;
     position: relative;
-    margin-bottom: -10px;
+    margin-bottom: -40px;
+    padding: 10px 80px;
+    border-radius: 5px 30px 30px 5px;
+}
+
+@media screen and (max-width: 780px) {
+    .info_block_top_banner  {
+        width: 75%;
+        font-size: 7.5VW;
+        padding: 10px 40px;
+        margin-bottom: -20px;
+    }
+}
+
+
+.info_block_graphic_title{
+    margin-top: 40px;
+    background: transparent;
+    color:white;
+    display: inline-block;
+    text-align: center;
+    font-size: 3VW;
+    width: 100%;
+}
+
+@media screen and (max-width: 780px) {
+    .info_block_graphic_title  {
+        margin-top: 20px;
+        font-size: 5VW;
+    }
 }

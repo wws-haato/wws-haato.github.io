@@ -31,13 +31,12 @@ const Home = () => {
 
     //const animatedHaatoPfp = fixedFadeinEntraceEffect.get();
     //img.setMargin(Boarder.BOTTOM, "-100px");
-    var imgElem = img.get("fig/common/haato_pfp.jpg");
-    const float = <div className="info_block_top_banner" style={{zIndex: "1000000"}}>AASDA</div>;
+    //const float = <div className="info_block_top_banner">Previous Works</div>;
     
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 
-        float,
+        //float,
         createAdvertisement(), 
         utils.createFootNote()
     );
@@ -45,8 +44,9 @@ const Home = () => {
 
 function createAdvertisement(){
     var infoBlock = new InformationBlock(false);
-    const graphicTitle = <div className="prev_work_yt_slider_text"> Watch on YouTube </div>;
-    infoBlock.setGraphic(graphicTitle, indexSlider.get());
+    infoBlock.setTitle("Previous Works");
+    infoBlock.setGraphic(indexSlider.get());
+    infoBlock.setGraphicTitle("Watch on YouTube");
     infoBlock.setSubtitle("Two Projects with 200+ participants in 2021");
     infoBlock.setParagraph(
         "In the past year, we have been making great efforts to gather as many \

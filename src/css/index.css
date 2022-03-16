@@ -59,6 +59,7 @@
 }
 
 .prev_work_yt_slider_text{
+    margin-top: 40px;
     background: transparent;
     color:white;
     display: inline-block;
@@ -69,6 +70,7 @@
 
 @media screen and (max-width: 780px) {
     .prev_work_yt_slider_text  {
+        margin-top: 20px;
         font-size: 6VW;
     }
 }
