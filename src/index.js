@@ -21,6 +21,8 @@ import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
 import InformationBlock from "./modules/info_block";
 import Slider from "./modules/slider";
+import { wrapDiv, wrapDivStyled } from "./utils";
+import { fadeInExplosiveDelayed } from "./modules/defaults/entrance_effect";
 
 
 const Home = () => {
@@ -66,7 +68,6 @@ function createCurrentEvent(){
     infoBlock.setTextColour(255, 255, 255,1);
     infoBlock.setLightColour(205, 92, 92, 1);
     infoBlock.setDarkColour(165, 42, 42,1);
-    infoBlock.setCorner(Boarder.ALL, "20px");
     infoBlock.setButton("Join us!", "/current-event");
     //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
 
@@ -100,12 +101,11 @@ function createPreviousWorks(){
     infoBlock.setPadding(Boarder.ALL, "20px");
     infoBlock.setPadding(Boarder.BOTTOM, "30px");
     //infoBlock.setPadding(Boarder.RIGHT, "10px");
-    infoBlock.setMargin(Boarder.BOTTOM, "50VH");
+    infoBlock.setMargin(Boarder.BOTTOM, "20%");
     //infoBlock.setColour(65,105,255,1);
     infoBlock.setTextColour(255,255,255,1);
     infoBlock.setLightColour(135,206,235,1);
     infoBlock.setDarkColour(65,105,255,1);
-    infoBlock.setCorner(Boarder.ALL, "20px");
     infoBlock.setButton("View all", "/about");
     //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
 
@@ -120,7 +120,7 @@ function createDescription(){
     cols.setMargin(Boarder.TOP, "2%");
     cols.setPadding(Boarder.LEFT, "10%");
     cols.setPadding(Boarder.RIGHT, "10%");
-    cols.setMargin(Boarder.BOTTOM, "50VH");
+    cols.setMargin(Boarder.BOTTOM, "20%");
 
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);
@@ -131,12 +131,13 @@ function createDescription(){
 
     //const animatedHaatoPfp = fixedFadeinEntraceEffect.get();
     const haatoPfp = img.get("fig/common/haato_pfp.jpg");
-    const formattedAbout = <div className="intro_quote"> <q>{aboutParagraph}</q></div>
-    const formattedWelcome = <div className="welcome_text">
-        Hello from the WWS Haato community!</div>
+    const formattedAbout = wrapDiv("intro_quote", aboutParagraph);
+    const formattedWelcome =  wrapDiv("welcome_text", "Hello from the WWS Haato community!");
+    const button = fadeInExplosiveDelayed.get(InformationBlock.createButton(
+        "About", "/about", {background: "crimson", marginTop: "10%"}));
 
     cols.insert(0, entEffect.fadeInExplosiveDelayed.get(haatoPfp));
-    cols.insert(1, entEffect.fadeInRightwardsLatched.get(formattedAbout));
+    cols.insert(1, entEffect.fadeInRightwardsLatched.get(formattedAbout), button);
 
     return utils.merge(entEffect.fadeInUpwardsDelayed.get(formattedWelcome),  cols.get());
 

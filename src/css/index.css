@@ -1,21 +1,21 @@
 .intro_quote{
-    width: 100%;
+    width: 80%;
     height: 100%;
-    padding-left: 10%;
-    padding-top: 15%;
-    margin-top: auto;
+    margin: auto 10%;
+    padding-top: 10%;
     margin-bottom: auto;
     background: transparent;
     color:crimson;
     display: inline-block;
     transition: 0.5s ease-out;
-    text-align: left;
+    text-align: justify;
     font-size: 2VW;
 }
 
 @media screen and (max-width: 780px) {
     .intro_quote  {
-        padding-left: 5%;
+        margin: auto 5%;
+        width: 90%;
         font-size: 2.5VW;
     }
 }

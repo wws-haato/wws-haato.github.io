@@ -9,10 +9,17 @@ import { fadeInRightwards, fadeInDelayed,
 
 import ColourRGBA from "./config/colour_rgba";
 
+
 export default class InformationBlock extends InvertableColumn{
     /**
     * @param {boolean} reversed true to set fig at 1, otherwise 0
     */
+    static createButton(text, link, style){
+        const button = <div style={{marginLeft: "15%", marginRight: "15%"}}>{
+            wrapDivStyled("info_block_button", style, text)}</div>
+        
+       return <a href={link}>{button}</a>;
+    }
     constructor(reversed){
         super();
         this.graphId = reversed? 1: 0;
@@ -22,8 +29,9 @@ export default class InformationBlock extends InvertableColumn{
         this.buttonText = "";
         this.title = "";
         this.graphicTitle = "";
-        this.setCorner(Boarder.ALL, "30px");
+        this.setCorner(Boarder.ALL, "20px");
         this.setMargin(reversed? Boarder.RIGHT: Boarder.LEFT, "10%");
+
         this.link = "";
         this.textColour = new ColourRGBA(255,255,255,1);
         this.darkColour = new ColourRGBA(65,105,255,1); 
@@ -72,12 +80,10 @@ export default class InformationBlock extends InvertableColumn{
 
         var textCol = [fadeInDelayed.get(subtitle), fadeInExplosiveDelayed.get(paragraph)];
         if(this.buttonText){
-            const button = <div style={{marginLeft: "15%", marginRight: "15%"}}>{
-                wrapDivStyled("info_block_button", {color: this.textColour.get(), 
-                background: this.lightColour.get(), }, this.buttonText)}</div>
+            const style = {color: this.textColour.get(), background: this.lightColour.get()};
             
             const anime = this.graphId? fadeInRightwardsLatched: fadeInLeftwardsLatched;
-            textCol.push( <a href={this.link}>{anime.get(button)}</a>);
+            textCol.push(anime.get(InformationBlock.createButton(this.buttonText, this.link, style)));
         }
             
         
@@ -97,7 +103,7 @@ export default class InformationBlock extends InvertableColumn{
             topBannerStyle.marginLeft = "0";
             
 
-        const title = wrapDivStyled("info_block_top_banner",topBannerStyle, this.title);
+        const title = wrapDivStyled("info_block_top_banner", topBannerStyle, this.title);
         //style.background = this.lightColour.get();
         const anime = this.graphId? fadeInLeftwards: fadeInRightwards;
         return merge(anime.get(title), <div style={{width: "100%"}}>{thisGet}</div>);

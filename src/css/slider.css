@@ -14,7 +14,7 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     text-align: center;
-    transition: 500ms ease-out;
+    transition: 1500ms ease-out;
     opacity: 1;
 }
 
@@ -26,17 +26,17 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     text-align: center;
-    transition: 500ms ease-out;
+    transition: 1500ms ease-in;
     opacity: 1;
 }
 
 .slider_botton_container_right :hover{
-    opacity: 0.65;
+    transform: scale(1.05, 1.05);
     cursor: pointer;
 }
 
 .slider_botton_container :hover{
-    opacity: 0.65;
+    transform: scale(1.05, 1.05);
     cursor: pointer;
 }
 
