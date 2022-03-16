@@ -21,7 +21,6 @@ import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
 import InformationBlock from "./modules/info_block";
 import Slider from "./modules/slider";
-import { indexSlider } from "./modules/slider";
 
 
 const Home = () => {
@@ -36,17 +35,61 @@ const Home = () => {
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 
-        //float,
-        createPreviousWorks(), 
+        createCurrentEvent(), 
         createPreviousWorks(), 
         utils.createFootNote()
     );
 };
 
+function createCurrentEvent(){
+    var infoBlock = new InformationBlock(true);
+    var slider = new Slider();
+    var img = new Image();
+    img.setWidth("85%");
+
+    for(var i = 0; i < 3; ++i)
+        slider.append(img.get("fig/common/place_holder.png"));
+
+    slider.setClickWidth("4VW");
+    slider.setWidth("100%"); 
+    infoBlock.setTitle("Current Event");
+    infoBlock.setGraphic(slider.get());
+    infoBlock.setGraphicTitle("Name of the project");
+    infoBlock.setSubtitle("Haachama Birthday Project 2022");
+
+    infoBlock.setParagraph("[descriptions]");
+    infoBlock.setPadding(Boarder.ALL, "20px");
+    infoBlock.setPadding(Boarder.BOTTOM, "30px");
+    //infoBlock.setPadding(Boarder.RIGHT, "10px");
+    infoBlock.setMargin(Boarder.BOTTOM, "20%");
+    //infoBlock.setColour(65,105,255,1);
+    infoBlock.setTextColour(255, 255, 255,1);
+    infoBlock.setLightColour(205, 92, 92, 1);
+    infoBlock.setDarkColour(165, 42, 42,1);
+    infoBlock.setCorner(Boarder.ALL, "20px");
+    infoBlock.setButton("Join us!", "/current-event");
+    //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
+
+    
+
+    return infoBlock.getBlock();
+}
+
 function createPreviousWorks(){
     var infoBlock = new InformationBlock(false);
+    var slider = new Slider();
+    var youtube = new Youtube();
+
+    youtube.setWidth("85%");
+    youtube.setCorner(Boarder.ALL, "10px");
+
+    slider.append(youtube.get("https://youtu.be/aHt-fGy5BYQ"));
+    slider.append(youtube.get("https://youtu.be/LLuqBMnfKJY"));
+
+    slider.setClickWidth("4VW");
+    slider.setWidth("100%"); 
     infoBlock.setTitle("Previous Works");
-    infoBlock.setGraphic(indexSlider.get());
+    infoBlock.setGraphic(slider.get());
     infoBlock.setGraphicTitle("Watch on YouTube");
     infoBlock.setSubtitle("Two Projects with 200+ participants in 2021");
     infoBlock.setParagraph(
@@ -57,13 +100,13 @@ function createPreviousWorks(){
     infoBlock.setPadding(Boarder.ALL, "20px");
     infoBlock.setPadding(Boarder.BOTTOM, "30px");
     //infoBlock.setPadding(Boarder.RIGHT, "10px");
-    infoBlock.setMargin(Boarder.BOTTOM, "20%");
+    infoBlock.setMargin(Boarder.BOTTOM, "50VH");
     //infoBlock.setColour(65,105,255,1);
     infoBlock.setTextColour(255,255,255,1);
     infoBlock.setLightColour(135,206,235,1);
     infoBlock.setDarkColour(65,105,255,1);
     infoBlock.setCorner(Boarder.ALL, "20px");
-    infoBlock.setButton("view all", "/about");
+    infoBlock.setButton("View all", "/about");
     //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
 
     
@@ -77,7 +120,7 @@ function createDescription(){
     cols.setMargin(Boarder.TOP, "2%");
     cols.setPadding(Boarder.LEFT, "10%");
     cols.setPadding(Boarder.RIGHT, "10%");
-    cols.setMargin(Boarder.BOTTOM, "20%");
+    cols.setMargin(Boarder.BOTTOM, "50VH");
 
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);
@@ -112,7 +155,9 @@ function App() {
     return router;
 }
 
-const rootElement = document.getElementById("root");
+var rootElement = document.getElementById("root");
+rootElement.style.overflow = "hidden";
+
 ReactDOM.render(
   <StrictMode>
     <App/>

@@ -2,8 +2,7 @@ import "../css/slider.css";
 import Image from "./Image";
 import { getRawNumberAndSuffix} from "../utils";
 import { Mutex } from "async-mutex";
-import Boarder from "./config/border";
-import Youtube from "./youtube";
+
 
 export default class Slider{
     static idMutex = new Mutex();
@@ -52,7 +51,6 @@ export default class Slider{
     }
 
     callBack(inc){
-        console.log(inc);
         var nextActiveId = this.activeId+inc;
         while(nextActiveId < 0)
             nextActiveId+=this.items.length;
@@ -97,24 +95,4 @@ export default class Slider{
             </div></div>
         );
     }
-}
-
-export var indexSlider = createIndexSlider();
-
-function createIndexSlider(){
-    var slider = new Slider();
-    var youtube = new Youtube();
-
-    youtube.setWidth("85%");
-    youtube.setCorner(Boarder.ALL, "10px");
-
-
-    slider.append(youtube.get("https://youtu.be/aHt-fGy5BYQ"));
-    slider.append(youtube.get("https://youtu.be/LLuqBMnfKJY"));
-    //slider.append(youtube.get("fig/common/icons/discord.png"));
-
-    slider.setClickWidth("4VW");
-    slider.setWidth("100%"); 
-
-    return slider;
 }

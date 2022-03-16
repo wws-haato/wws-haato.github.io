@@ -3,7 +3,8 @@ import InvertableColumn from "./invertable_columns";
 import { merge, wrapDiv, wrapDivStyled} from "../utils";
 import Boarder from "./config/border";
 import { fadeInRightwards, fadeInDelayed, 
-    fadeInExplosiveDelayed, fadeInLeftwardsLatched
+    fadeInExplosiveDelayed, fadeInLeftwardsLatched,
+    fadeInLeftwards, fadeInRightwardsLatched
 } from "./defaults/entrance_effect";
 
 import ColourRGBA from "./config/colour_rgba";
@@ -21,7 +22,8 @@ export default class InformationBlock extends InvertableColumn{
         this.buttonText = "";
         this.title = "";
         this.graphicTitle = "";
-        this.setMargin(Boarder.LEFT, "10%");
+        this.setCorner(Boarder.ALL, "30px");
+        this.setMargin(reversed? Boarder.RIGHT: Boarder.LEFT, "10%");
         this.link = "";
         this.textColour = new ColourRGBA(255,255,255,1);
         this.darkColour = new ColourRGBA(65,105,255,1); 
@@ -74,7 +76,8 @@ export default class InformationBlock extends InvertableColumn{
                 wrapDivStyled("info_block_button", {color: this.textColour.get(), 
                 background: this.lightColour.get(), }, this.buttonText)}</div>
             
-            textCol.push( <a href={this.link}>{fadeInLeftwardsLatched.get(button)}</a>);
+            const anime = this.graphId? fadeInRightwardsLatched: fadeInLeftwardsLatched;
+            textCol.push( <a href={this.link}>{anime.get(button)}</a>);
         }
             
         
@@ -84,10 +87,19 @@ export default class InformationBlock extends InvertableColumn{
         const thisGet = this.get();
 
         const shadow = this.darkColour.divide(2).add(new ColourRGBA(0,0,0,0.5));
-        const title = wrapDivStyled("info_block_top_banner", {color: this.textColour.get(), 
-            background: this.lightColour.get(), boxShadow:  "2.5px 2.5px 5px "+shadow.get()}, this.title);
-        //style.background = this.lightColour.get();
+        var topBannerStyle = {color: this.textColour.get(), 
+            background: this.lightColour.get(), boxShadow: "2.5px 2.5px 5px "+shadow.get(), 
+            borderRadius: this.corners.getStyle()};
         
-        return merge(fadeInRightwards.get(title), <div style={{width: "100%"}}>{thisGet}</div>);
+        if(this.graphId)
+            topBannerStyle.marginRight = "0";
+        else
+            topBannerStyle.marginLeft = "0";
+            
+
+        const title = wrapDivStyled("info_block_top_banner",topBannerStyle, this.title);
+        //style.background = this.lightColour.get();
+        const anime = this.graphId? fadeInLeftwards: fadeInRightwards;
+        return merge(anime.get(title), <div style={{width: "100%"}}>{thisGet}</div>);
     }
 }
