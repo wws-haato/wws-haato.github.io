@@ -37,12 +37,13 @@ const Home = () => {
         createLogoBanner(), 
         createDescription(), 
         //float,
-        createAdvertisement(), 
+        createPreviousWorks(), 
+        createPreviousWorks(), 
         utils.createFootNote()
     );
 };
 
-function createAdvertisement(){
+function createPreviousWorks(){
     var infoBlock = new InformationBlock(false);
     infoBlock.setTitle("Previous Works");
     infoBlock.setGraphic(indexSlider.get());
@@ -57,8 +58,13 @@ function createAdvertisement(){
     infoBlock.setPadding(Boarder.BOTTOM, "30px");
     //infoBlock.setPadding(Boarder.RIGHT, "10px");
     infoBlock.setMargin(Boarder.BOTTOM, "20%");
-    infoBlock.setColour(65,105,255,1);
+    //infoBlock.setColour(65,105,255,1);
+    infoBlock.setTextColour(255,255,255,1);
+    infoBlock.setLightColour(135,206,235,1);
+    infoBlock.setDarkColour(65,105,255,1);
     infoBlock.setCorner(Boarder.ALL, "20px");
+    infoBlock.setButton("view all", "/about");
+    //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
 
     
 

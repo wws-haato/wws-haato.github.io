@@ -92,3 +92,7 @@ export function isCellphone(){
 export function wrapDiv(name, ... obj){
     return <div className={name}>{merge(obj)}</div>;
 }
+
+export function wrapDivStyled(name, style,  ... obj){
+    return <div className={name} style={style}>{merge(obj)}</div>;
+}

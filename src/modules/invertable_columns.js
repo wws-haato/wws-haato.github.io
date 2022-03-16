@@ -10,6 +10,7 @@ export default class InvertableColumn{
         this.padding =  new Boarder();
         this.corners = new Boarder();
         this.colour = new ColourRGBA(0, 0, 0, 0);
+        this.imgBackground = "none";
 
     }
 
@@ -32,11 +33,17 @@ export default class InvertableColumn{
     }
 
 
+    setBackgroundImage(path){
+        this.imgBackground = "url("+path+")";
+    }
+
+
     get(){
         return (
-            <div className="w3-container" style = {{maxWidth: "auto",
+            <div className="w3-container" style = {{maxWidth: "auto", backgroundImage: this.imgBackground, 
                 margin: this.margin.getStyle(), padding: this.padding.getStyle(), 
-                backgroundColor: this.colour.get(), borderRadius: this.corners.getStyle()}}>
+                backgroundColor: this.colour.get(), borderRadius: this.corners.getStyle(), 
+                backgroundSize: "contain", backgroundRepeat: "no-repeat"}}>
                 <div className="invertable_row">
                     {this.items.map(function(x, i){
                         return (<div className="invertable_columns" key={i}> {x}</div>);
