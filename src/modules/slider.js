@@ -24,7 +24,6 @@ export default class Slider{
         this.activeId = 0;
         this.barColor = new ColourRGBA(0, 0, 255, 1);
         this.dotColor = new ColourRGBA(255, 255, 255, 1);
-        this.shadeColor = new ColourRGBA(0, 0, 255, 1);
     }
 
     append(item){
@@ -74,22 +73,15 @@ export default class Slider{
         return wrapDivStyled("dot-bar", {color: bar, background: bar}, dots);
     }
 
-    getTransformDot(){
-        const preffix = "2.5px 2.5px 5px "+this.shadeColor.get();
-        return preffix;
-    }
-
     callBackJump(id){
-        var nextActiveId = id;
-        
         let currUid = this.items[this.activeId].uid;
-        let nextUid = this.items[nextActiveId].uid;
+        let nextUid = this.items[id].uid;
         let currElem = document.getElementById(currUid);
         let nextElem = document.getElementById(nextUid);
         if(!currElem || !nextElem)
             return;
         
-        this.activeId=nextActiveId;
+        this.activeId=id;
 
         var tmp = currElem.style.display;
         currElem.style.display = nextElem.style.display;
@@ -113,27 +105,7 @@ export default class Slider{
         while(nextActiveId >= this.items.length)
             nextActiveId-=this.items.length;
 
-        let currUid = this.items[this.activeId].uid;
-        let nextUid = this.items[nextActiveId].uid;
-        let currElem = document.getElementById(currUid);
-        let nextElem = document.getElementById(nextUid);
-        if(!currElem || !nextElem)
-            return;
-        
-        this.activeId=nextActiveId;
-
-        var tmp = currElem.style.display;
-        currElem.style.display = nextElem.style.display;
-        nextElem.style.display = tmp;
-
-        let currDot = document.getElementById(currUid+"-dot");
-        let nextDot = document.getElementById(nextUid+"-dot");
-        if(!currDot || !nextDot)
-            return;
-
-        tmp = currDot.style.opacity;
-        currDot.style.opacity = nextDot.style.opacity;
-        nextDot.style.opacity = tmp;
+        this.callBackJump(nextActiveId);
     }
 
 

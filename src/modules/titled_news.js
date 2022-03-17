@@ -16,7 +16,7 @@ import { Mutex } from "async-mutex";
 export class MediaNews extends Column{
     static createImageLoader(){
         var img = new Image();
-        img.setWidth("100%");
+        img.setWidth("75%");
         img.setCorner(Boarder.ALL, "10px");
         return img;
     }
@@ -28,6 +28,7 @@ export class MediaNews extends Column{
         this.setRatios(30, 70);
         this.config = 0;
         this.setMargin(Boarder.BOTTOM, "10px");
+        this.setMargin(Boarder.LEFT, "5%");
     }
 
 
