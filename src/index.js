@@ -22,6 +22,7 @@ import Slider from "./modules/slider";
 import { wrapDiv, wrapDivStyled } from "./utils";
 import { fadeInExplosiveDelayed } from "./modules/defaults/entrance_effect";
 import TitledMediaText from "./modules/titled_media_text";
+import TitledNews from "./modules/titled_news";
 
 
 const Home = () => {
@@ -30,10 +31,26 @@ const Home = () => {
         createDescription(), 
         createCurrentEvent(), 
         createPreviousWorks(), 
+        createNews(), 
         utils.createFootNote()
     );
 };
 
+function createNews(){
+    var news = new TitledNews(5);
+    news.setTitle("News");
+    news.setFontColor(255, 255, 255,1);
+    news.setTitleColor(205, 92, 92, 1);
+    news.setBodyColor(165, 42, 42,1);
+
+    var img = new Image();
+    img.setWidth("50%");
+
+    for(var i = 0; i < 200; ++i)
+        news.append("text: "+i.toString());
+
+    return news.get();
+}
 function createCurrentEvent(){
     var slider = new Slider();
     var img = new Image();

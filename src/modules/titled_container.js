@@ -50,8 +50,6 @@ export default class TitledContainer{
         const body = wrapDivRecursive([{className: "body-container"}, {className: suffix, style: bodystyle}], item);
         const anime = this.isLeft? fadeInLeftwards: fadeInRightwards;
 
-        console.log(title, body);
-
         return wrapDiv("titled-container", anime.get(title), body);
     }
 

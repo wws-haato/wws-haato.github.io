@@ -13,7 +13,6 @@ export default class TitledMediaText extends TitledContainer{
     */
     static createButton(text, link, style){
         style = {className:"button", style:style};
-        console.log(style);
         const button = wrapDivRecursive([{className: "titled-media-text"}, style], text);
         
        return <a href={link}>{button}</a>;

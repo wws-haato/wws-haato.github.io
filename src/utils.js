@@ -109,7 +109,6 @@ export function toDivBlock(arg, ... obj){
 
 
 export function wrapDivRecursive(args, ... objs){
-    console.log(args, objs);
     if(!args.length)
         return merge(objs);
 
@@ -122,6 +121,5 @@ export function wrapDivRecursive(args, ... objs){
     else
         objs = <div style={baseArg.style}>{objs}</div>;
 
-    console.log(args, objs);
     return wrapDivRecursive(args, objs);
 }
