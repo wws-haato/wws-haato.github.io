@@ -40,8 +40,8 @@ function createNews(){
     var news = new TitledNews(5);
     news.setTitle("News");
     news.setFontColor(255, 255, 255,1);
-    news.setTitleColor(205, 92, 92, 1);
-    news.setBodyColor(165, 42, 42,1);
+    news.setTitleColor(135,206,235,1);
+    news.setBodyColor(65,105,255,1);
 
     var img = new Image();
     img.setWidth("50%");
@@ -68,8 +68,8 @@ function createCurrentEvent(){
     mediaText.setPassage("Haachama Birthday Project 2022", "[descriptions]");
 
     mediaText.setFontColor(255, 255, 255,1);
-    mediaText.setTitleColor(205, 92, 92, 1);
-    mediaText.setBodyColor(165, 42, 42,1);
+    mediaText.setTitleColor(135,206,235,1);
+    mediaText.setBodyColor(65,105,255,1);
     mediaText.setButton("Join us!", "#current-event");
     mediaText.setLeft();
 
@@ -97,9 +97,10 @@ function createPreviousWorks(){
         fans as we can. We hope to show our largest support for Haachama, \
         and will continue to further make supportive projects in 2022 as well! ");
 
+    
     mediaText.setFontColor(255, 255, 255,1);
-    mediaText.setTitleColor(135,206,235,1);
-    mediaText.setBodyColor(65,105,255,1);
+    mediaText.setTitleColor(205, 92, 92, 1);
+    mediaText.setBodyColor(165, 42, 42,1);
     mediaText.setButton("View all", "/#/about");
     mediaText.setRight();
 
