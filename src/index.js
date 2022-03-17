@@ -11,7 +11,7 @@ import Youtube from "./modules/youtube";
 import { VideoRelease } from "./modules/bulletin";
 import { isCellphone } from "./utils";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { HashRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
 
@@ -70,7 +70,7 @@ function createCurrentEvent(){
     mediaText.setFontColor(255, 255, 255,1);
     mediaText.setTitleColor(205, 92, 92, 1);
     mediaText.setBodyColor(165, 42, 42,1);
-    mediaText.setButton("Join us!", "/current-event");
+    mediaText.setButton("Join us!", "#current-event");
     mediaText.setLeft();
 
     return mediaText.get();
@@ -100,7 +100,7 @@ function createPreviousWorks(){
     mediaText.setFontColor(255, 255, 255,1);
     mediaText.setTitleColor(135,206,235,1);
     mediaText.setBodyColor(65,105,255,1);
-    mediaText.setButton("View all", "/about");
+    mediaText.setButton("View all", "/#/about");
     mediaText.setRight();
 
     return mediaText.get();
@@ -126,7 +126,7 @@ function createDescription(){
     const formattedAbout = wrapDiv("intro_quote", aboutParagraph);
     const formattedWelcome =  wrapDiv("welcome_text", "Hello from the WWS Haato community!");
     const button = fadeInExplosiveDelayed.get(TitledMediaText.createButton(
-        "About", "/about", {background: "crimson", marginTop: "10%"}));
+        "About", "/#/about", {background: "crimson", marginTop: "10%"}));
 
     cols.insert(0, entEffect.fadeInExplosiveDelayed.get(haatoPfp));
     cols.insert(1, entEffect.fadeInRightwardsLatched.get(formattedAbout), button);
