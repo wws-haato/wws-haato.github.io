@@ -11,7 +11,7 @@ import Youtube from "./modules/youtube";
 import { VideoRelease } from "./modules/bulletin";
 import { isCellphone } from "./utils";
 import React from "react";
-import { HashRouter as Router, Routes, Route} from 'react-router-dom';
+import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
 
