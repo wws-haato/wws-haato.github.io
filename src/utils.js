@@ -96,3 +96,32 @@ export function wrapDiv(name, ... obj){
 export function wrapDivStyled(name, style,  ... obj){
     return <div className={name} style={style}>{merge(obj)}</div>;
 }
+
+export function toDivBlock(arg, ... obj){
+    if(!arg.style)
+        arg.style = {};
+
+    if(arg.className)
+        return  <div className={arg.className} style={style}>{merge(obj)}</div>;
+
+    return <div style={style}>{merge(obj)}</div>;
+}
+
+
+export function wrapDivRecursive(args, ... objs){
+    console.log(args, objs);
+    if(!args.length)
+        return merge(objs);
+
+    var baseArg = args.pop();
+    if(!baseArg.style)
+        baseArg.style = {};
+
+    if(baseArg.className)
+        objs = <div className={baseArg.className} style={baseArg.style}>{objs}</div>;
+    else
+        objs = <div style={baseArg.style}>{objs}</div>;
+
+    console.log(args, objs);
+    return wrapDivRecursive(args, objs);
+}

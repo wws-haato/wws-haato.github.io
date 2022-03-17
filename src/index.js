@@ -23,17 +23,10 @@ import InformationBlock from "./modules/info_block";
 import Slider from "./modules/slider";
 import { wrapDiv, wrapDivStyled } from "./utils";
 import { fadeInExplosiveDelayed } from "./modules/defaults/entrance_effect";
+import TitledContainer from "./modules/titled_container";
 
 
 const Home = () => {
-    var img = new Image();
-    img.setWidth("100%");
-    img.setCorner(Boarder.ALL, "10px");
-
-    //const animatedHaatoPfp = fixedFadeinEntraceEffect.get();
-    //img.setMargin(Boarder.BOTTOM, "-100px");
-    //const float = <div className="info_block_top_banner">Previous Works</div>;
-    
     return utils.merge(
         createLogoBanner(), 
         createDescription(), 
@@ -47,7 +40,7 @@ function createCurrentEvent(){
     var infoBlock = new InformationBlock(true);
     var slider = new Slider();
     var img = new Image();
-    img.setWidth("85%");
+    img.setWidth("50%");
 
     for(var i = 0; i < 3; ++i)
         slider.append(img.get("fig/common/place_holder.png"));
@@ -65,15 +58,26 @@ function createCurrentEvent(){
     //infoBlock.setPadding(Boarder.RIGHT, "10px");
     infoBlock.setMargin(Boarder.BOTTOM, "20%");
     //infoBlock.setColour(65,105,255,1);
-    infoBlock.setTextColour(255, 255, 255,1);
+    infoBlock.setTextColour(0, 0, 255,1);
     infoBlock.setLightColour(205, 92, 92, 1);
     infoBlock.setDarkColour(165, 42, 42,1);
     infoBlock.setButton("Join us!", "/current-event");
     //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
 
+    var titledContainer = new TitledContainer();
+    titledContainer.setFontColor(0, 0, 255,1);
+    titledContainer.setBodyColor(255, 255, 0,1);
+    titledContainer.setTitleColor(165, 42, 42,1);
+    titledContainer.setTitle("aaaaaa");
+    titledContainer.setRight();
+    const a = titledContainer.get(img.get("fig/common/place_holder.png"));
+    titledContainer.setLeft();
+    const b = titledContainer.get(img.get("fig/common/place_holder.png"));
     
 
-    return infoBlock.getBlock();
+    
+
+    return utils.merge(a, b);
 }
 
 function createPreviousWorks(){
