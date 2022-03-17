@@ -16,14 +16,11 @@ import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
 
 import * as entEffect from "./modules/defaults/entrance_effect";
-
-import InvertableColumn from "./modules/invertable_columns";
 import "./css/index.css";
-import InformationBlock from "./modules/info_block";
+
 import Slider from "./modules/slider";
 import { wrapDiv, wrapDivStyled } from "./utils";
 import { fadeInExplosiveDelayed } from "./modules/defaults/entrance_effect";
-import TitledContainer from "./modules/titled_container";
 import TitledMediaText from "./modules/titled_media_text";
 
 
@@ -38,7 +35,6 @@ const Home = () => {
 };
 
 function createCurrentEvent(){
-    var infoBlock = new TitledMediaText();
     var slider = new Slider();
     var img = new Image();
     img.setWidth("50%");
@@ -48,34 +44,22 @@ function createCurrentEvent(){
 
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
-    infoBlock.setTitle("Current Event");
-    infoBlock.setGraphic("Name of the project", slider.get());
-    infoBlock.setPassage("Haachama Birthday Project 2022", "[descriptions]");
 
-    infoBlock.setFontColor(255, 255, 255,1);
-    infoBlock.setTitleColor(205, 92, 92, 1);
-    infoBlock.setBodyColor(165, 42, 42,1);
-    infoBlock.setButton("Join us!", "/current-event");
-    //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
+    var mediaText = new TitledMediaText();
+    mediaText.setTitle("Current Event");
+    mediaText.setGraphic("Name of the project", slider.get());
+    mediaText.setPassage("Haachama Birthday Project 2022", "[descriptions]");
 
-    /*var titledContainer = new TitledContainer();
-    titledContainer.setFontColor(0, 0, 255,1);
-    titledContainer.setBodyColor(255, 255, 0,1);
-    titledContainer.setTitleColor(165, 42, 42,1);
-    titledContainer.setTitle("aaaaaa");
-    titledContainer.setRight();
-    const a = titledContainer.get(img.get("fig/common/place_holder.png"));
-    titledContainer.setLeft();
-    const b = titledContainer.get(img.get("fig/common/place_holder.png"));*/
-    
+    mediaText.setFontColor(255, 255, 255,1);
+    mediaText.setTitleColor(205, 92, 92, 1);
+    mediaText.setBodyColor(165, 42, 42,1);
+    mediaText.setButton("Join us!", "/current-event");
+    mediaText.setLeft();
 
-    
-
-    return infoBlock.get();
+    return mediaText.get();
 }
 
 function createPreviousWorks(){
-    var infoBlock = new InformationBlock(false);
     var slider = new Slider();
     var youtube = new Youtube();
 
@@ -87,29 +71,23 @@ function createPreviousWorks(){
 
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
-    infoBlock.setTitle("Previous Works");
-    infoBlock.setGraphic(slider.get());
-    infoBlock.setGraphicTitle("Watch on YouTube");
-    infoBlock.setSubtitle("Two Projects with 200+ participants in 2021");
-    infoBlock.setParagraph(
+
+    var mediaText = new TitledMediaText();
+    mediaText.setTitle("Previous Works");
+    mediaText.setGraphic("Watch on YouTube", slider.get());
+    mediaText.setPassage("Two Projects with 200+ participants in 2021", 
         "In the past year, we have been making great efforts to gather as many \
         fans as we can. We hope to show our largest support for Haachama, \
-        and will continue to further make supportive projects in 2022 as well! "
-    );
-    infoBlock.setPadding(Boarder.ALL, "20px");
-    infoBlock.setPadding(Boarder.BOTTOM, "30px");
-    //infoBlock.setPadding(Boarder.RIGHT, "10px");
-    infoBlock.setMargin(Boarder.BOTTOM, "20%");
-    //infoBlock.setColour(65,105,255,1);
-    infoBlock.setTextColour(255,255,255,1);
-    infoBlock.setLightColour(135,206,235,1);
-    infoBlock.setDarkColour(65,105,255,1);
-    infoBlock.setButton("View all", "/about");
-    //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
+        and will continue to further make supportive projects in 2022 as well! ");
 
+    mediaText.setFontColor(255, 255, 255,1);
+    mediaText.setTitleColor(135,206,235,1);
+    mediaText.setBodyColor(65,105,255,1);
+    mediaText.setButton("View all", "/about");
+    mediaText.setRight();
+
+    return mediaText.get();
     
-
-    return infoBlock.getBlock();
 }
 
 function createDescription(){
@@ -127,18 +105,16 @@ function createDescription(){
     img.setWidth("100%");
     img.setCorner(Boarder.ALL, "10px");
 
-    //const animatedHaatoPfp = fixedFadeinEntraceEffect.get();
     const haatoPfp = img.get("fig/common/haato_pfp.jpg");
     const formattedAbout = wrapDiv("intro_quote", aboutParagraph);
     const formattedWelcome =  wrapDiv("welcome_text", "Hello from the WWS Haato community!");
-    const button = fadeInExplosiveDelayed.get(InformationBlock.createButton(
+    const button = fadeInExplosiveDelayed.get(TitledMediaText.createButton(
         "About", "/about", {background: "crimson", marginTop: "10%"}));
 
     cols.insert(0, entEffect.fadeInExplosiveDelayed.get(haatoPfp));
     cols.insert(1, entEffect.fadeInRightwardsLatched.get(formattedAbout), button);
 
     return utils.merge(entEffect.fadeInUpwardsDelayed.get(formattedWelcome),  cols.get());
-
 }
 
 function App() {
