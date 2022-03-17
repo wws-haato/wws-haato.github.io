@@ -6,6 +6,28 @@
     margin: auto;
 }
 
+
+
+.slideshow_container .dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    margin: 5px;
+}
+
+.slideshow_container .dot-bar{
+    padding: 5px;
+    text-align: center;
+    background-color: black;
+    opacity: 1;
+    margin-top: 10px;
+    margin-left: 0%;
+    margin-right: 0%;
+    border-radius: 10px;
+}
+
 .slider_botton_container {
     width: 100%;
     position: absolute;

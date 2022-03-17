@@ -69,6 +69,5 @@ export default class TitledMediaText extends TitledContainer{
         this.cols.insert(1-this.getGraphID(), passages);
 
         return super.get(this.cols.get());
-        this.TitledContainer.get(this.cols.get());
     }
 }

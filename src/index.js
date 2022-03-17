@@ -23,6 +23,7 @@ import { wrapDiv, wrapDivStyled } from "./utils";
 import { fadeInExplosiveDelayed } from "./modules/defaults/entrance_effect";
 import TitledMediaText from "./modules/titled_media_text";
 import TitledNews from "./modules/titled_news";
+import { NewsConfig } from "./modules/titled_news";
 
 
 const Home = () => {
@@ -37,7 +38,7 @@ const Home = () => {
 };
 
 function createNews(){
-    var news = new TitledNews(5);
+    var news = new TitledNews(3);
     news.setTitle("News");
     news.setFontColor(255, 255, 255,1);
     news.setTitleColor(135,206,235,1);
@@ -46,8 +47,8 @@ function createNews(){
     var img = new Image();
     img.setWidth("50%");
 
-    for(var i = 0; i < 200; ++i)
-        news.append("text: "+i.toString());
+    for(var i = 0; i < 20; ++i)
+        news.append(new NewsConfig("2022/01/01", "title"+i.toString(), "fig/common/place_holder.png", "para"));
 
     return news.get();
 }
@@ -61,6 +62,8 @@ function createCurrentEvent(){
 
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
+    slider.setBarColor(135,206,235,1);
+    slider.setDotColor(255,255,255,1);
 
     var mediaText = new TitledMediaText();
     mediaText.setTitle("Current Event");
@@ -88,6 +91,8 @@ function createPreviousWorks(){
 
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
+    slider.setBarColor(205,92,92,1);
+    slider.setDotColor(255,255,255,1);
 
     var mediaText = new TitledMediaText();
     mediaText.setTitle("Previous Works");
@@ -102,6 +107,8 @@ function createPreviousWorks(){
     mediaText.setBodyColor(165, 42, 42,1);
     mediaText.setButton("View all", "/#/about");
     mediaText.setRight();
+
+    
 
     return mediaText.get();
     

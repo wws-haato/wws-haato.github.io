@@ -1,7 +1,8 @@
 import "../css/slider.css";
 import Image from "./Image";
-import { getRawNumberAndSuffix} from "../utils";
+import { getRawNumberAndSuffix, wrapDivStyled} from "../utils";
 import { Mutex } from "async-mutex";
+import ColourRGBA from "./config/colour_rgba";
 
 
 export default class Slider{
@@ -21,6 +22,8 @@ export default class Slider{
         this.width = "100%";
         this.items = [];
         this.activeId = 0;
+        this.barColor = new ColourRGBA(0, 0, 255, 1);
+        this.dotColor = new ColourRGBA(255, 255, 255, 1);
     }
 
     append(item){
@@ -29,6 +32,14 @@ export default class Slider{
 
     setWidth(width){
         this.width = width;
+    }
+
+    setBarColor(r, g, b, a){
+        this.barColor = new ColourRGBA(r, g, b, a);
+    }
+
+    setDotColor(r, g, b, a){
+        this.dotColor = new ColourRGBA(r, g, b, a);
     }
 
     setClickWidth(width){
@@ -72,6 +83,16 @@ export default class Slider{
         nextElem.style.display = tmp;
     }
 
+    createDotBar(){
+        var dotArr = [];
+        const dot = this.dotColor.get();
+        const bar = this.barColor.get();
+        for(var i = 0; i < this.items.length; ++i)
+            dotArr.push(<span className="dot" style={{color: dot, background: dot}}></span>);
+        
+        return wrapDivStyled("dot-bar", {color: bar, background: bar}, dotArr);
+    }
+
     get(){
         return(
             <div style={{width: "100%", height: "100%", position: "static"}}>
@@ -92,6 +113,7 @@ export default class Slider{
                     {width: this.imgWidth}}>{this.getSliderClick(true)}</div>
                 <div className="slider_botton_container_right" style={
                     {width: this.imgWidth}}>{this.getSliderClick(false)}</div>
+                {this.createDotBar()}
             </div></div>
         );
     }
