@@ -69,7 +69,7 @@ function createContact(){
 
 
     //"titled-media-text"
-    const passage = fadeInDelayed.get(wrapDiv("paragraph", 
+    const passage = fadeInDelayed.get(wrapDiv("passage", 
         "All staffs are available in the Discord server. \
         Please consider Discord as your preferred contact platform"));
 
