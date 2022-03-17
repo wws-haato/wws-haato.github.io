@@ -12,6 +12,8 @@ export default class ImageLinked extends Image{
     }
 
     get(path, link){
+        var img = new Image();
+        img.setWidth("50%");
         return(
             <a href={link}>
                 <div className="img_hover">
@@ -20,7 +22,7 @@ export default class ImageLinked extends Image{
                         style={{width: this.width, borderRadius: this.corner.getStyle()}}></img>
                     </div>
                     <div class="water_mark">
-                        {this.waterMark}
+                        {img.get(this.waterMark)}
                     </div>
                 </div>
             </a>

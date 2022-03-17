@@ -24,6 +24,9 @@ import { fadeInExplosiveDelayed } from "./modules/defaults/entrance_effect";
 import TitledMediaText from "./modules/titled_media_text";
 import TitledNews from "./modules/titled_news";
 import { NewsConfig } from "./modules/titled_news";
+import TitledContainer from "./modules/titled_container";
+import InvertableColumn from "./modules/invertable_columns";
+import { fadeInDelayed } from "./modules/defaults/entrance_effect";
 
 
 const Home = () => {
@@ -33,9 +36,67 @@ const Home = () => {
         createCurrentEvent(), 
         createPreviousWorks(), 
         createNews(), 
+        createContact(), 
         utils.createFootNote()
     );
 };
+
+function createContact(){
+    var titledContainer = new TitledContainer();
+    titledContainer.setTitle("Contact");
+    titledContainer.setFontColor(255, 255, 255,1);
+    titledContainer.setTitleColor(205, 92, 92, 1);
+    titledContainer.setBodyColor(165, 42, 42,1);
+    titledContainer.setRight();
+    
+    var cols = new InvertableColumn();
+    var img = new ImageLinked();
+    img.setWidth("100%");
+    img.setWaterMark("fig/common/icons/ext_link.png");
+
+    var iconHolder = new Column(3);
+    iconHolder.setMargin(Boarder.ALL, "20px");
+    iconHolder.setMargin(Boarder.TOP, "40px");
+
+    const preffix = "fig/common/icons/";
+    const paths = ["youtube.png", "discord.png", "twitter.png"];
+    var links = [];
+    links.push("https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA");
+    links.push("https://discord.gg/HqQ5n2cMBY");
+    links.push("https://twitter.com/WWS_Haato");
+    for(var i = 0; i < 3; i++)
+        iconHolder.insert(i, img.get(preffix+paths[i], links[i]));
+
+
+    //"titled-media-text"
+    const passage = fadeInDelayed.get(wrapDiv("paragraph", 
+        "All staffs are available in the Discord server. \
+        Please consider Discord as your preferred contact platform"));
+
+    const subtitle = fadeInDelayed.get(wrapDiv("title", "SNS"));
+    const passages = [subtitle, fadeInExplosiveDelayed.get(iconHolder.get()), passage];
+    
+    cols.insert(1, wrapDiv("titled-media-text", passages));
+
+
+    var slider = new Slider();
+    var imgPlaceholder = new Image();
+    imgPlaceholder.setWidth("100%");
+
+    for(var i = 0; i < 5; ++i)
+        slider.append(imgPlaceholder.get("fig/common/place_holder.png"));
+
+    slider.setClickWidth("4VW");
+    slider.setBarColor(205, 92, 92,1);
+    slider.setDotColor(255,255,255,1);
+    slider.setWidth("85%");
+
+    const leftTitle = fadeInDelayed.get(wrapDiv("title", "Staff Informations"));
+    const leftContent = fadeInExplosiveDelayed.get(slider.get());
+    cols.insert(0, wrapDiv("titled-media-text", leftTitle), leftContent);
+
+    return titledContainer.get(cols.get());
+}
 
 function createNews(){
     var news = new TitledNews(3);

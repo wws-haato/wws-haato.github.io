@@ -1,8 +1,4 @@
 import TitledContainer from "./titled_container";
-
-import {fadeInDelayed, fadeInExplosiveDelayed, 
-    fadeInLeftwardsLatched, fadeInRightwardsLatched
-} from "./defaults/entrance_effect";
 import { merge, wrapDiv, wrapDivStyled, wrapDivRecursive} from "../utils";
 import "../css/titled_news.css";
 import Slider from "./slider";
@@ -10,6 +6,8 @@ import Column from "./column";
 import Image from "./Image";
 import Boarder from "./config/border";
 import { Mutex } from "async-mutex";
+import { fadeInExplosive } from "./defaults/entrance_effect";
+import { fadeInRightwards } from "./defaults/entrance_effect";
 
 
 
@@ -37,11 +35,12 @@ export class MediaNews extends Column{
     }
 
     get(fontColor){
-        super.insert(0, MediaNews.imgLoader.get(this.config.imgPath));
+        var img = MediaNews.imgLoader.get(this.config.imgPath);
+        super.insert(0, fadeInExplosive.get(img));
         
         const title = wrapDivStyled("title", {color: fontColor}, this.config.title);
         const date = wrapDivStyled("date", {color: fontColor}, this.config.date);
-        super.insert(1, date, title);
+        super.insert(1, fadeInRightwards.get(date), fadeInRightwards.get(title));
 
         return wrapDiv("titled-news", super.get());
     }
