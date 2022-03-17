@@ -96,7 +96,6 @@ function createPreviousWorks(){
         "In the past year, we have been making great efforts to gather as many \
         fans as we can. We hope to show our largest support for Haachama, \
         and will continue to further make supportive projects in 2022 as well! ");
-
     
     mediaText.setFontColor(255, 255, 255,1);
     mediaText.setTitleColor(205, 92, 92, 1);
