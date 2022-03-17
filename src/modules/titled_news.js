@@ -27,6 +27,7 @@ export class MediaNews extends Column{
         super(2);
         this.setRatios(30, 70);
         this.config = 0;
+        this.setMargin(Boarder.BOTTOM, "10px");
     }
 
 

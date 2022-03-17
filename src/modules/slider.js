@@ -24,6 +24,7 @@ export default class Slider{
         this.activeId = 0;
         this.barColor = new ColourRGBA(0, 0, 255, 1);
         this.dotColor = new ColourRGBA(255, 255, 255, 1);
+        this.shadeColor = new ColourRGBA(0, 0, 255, 1);
     }
 
     append(item){
@@ -61,6 +62,49 @@ export default class Slider{
             this.callBack.bind(this, isLeftwards? -1:1)}>{img.get(Slider.imgPath)} </div>;
     }
 
+    createDotBar(){
+        const dot = this.dotColor.get();
+        const bar = this.barColor.get();
+        var dots = [];
+        for(var i = 0; i < this.items.length; ++i)
+            dots.push(<span id ={this.items[i].uid+"-dot"} className="dot" style={
+                {color: dot, background: dot, opacity: i? "0.5": "1"}}
+                onClick={this.callBackJump.bind(this, i)}></span>);
+        
+        return wrapDivStyled("dot-bar", {color: bar, background: bar}, dots);
+    }
+
+    getTransformDot(){
+        const preffix = "2.5px 2.5px 5px "+this.shadeColor.get();
+        return preffix;
+    }
+
+    callBackJump(id){
+        var nextActiveId = id;
+        
+        let currUid = this.items[this.activeId].uid;
+        let nextUid = this.items[nextActiveId].uid;
+        let currElem = document.getElementById(currUid);
+        let nextElem = document.getElementById(nextUid);
+        if(!currElem || !nextElem)
+            return;
+        
+        this.activeId=nextActiveId;
+
+        var tmp = currElem.style.display;
+        currElem.style.display = nextElem.style.display;
+        nextElem.style.display = tmp;
+
+        let currDot = document.getElementById(currUid+"-dot");
+        let nextDot = document.getElementById(nextUid+"-dot");
+        if(!currDot || !nextDot)
+            return;
+
+        tmp = currDot.style.opacity;
+        currDot.style.opacity = nextDot.style.opacity;
+        nextDot.style.opacity = tmp;
+    }
+
     callBack(inc){
         var nextActiveId = this.activeId+inc;
         while(nextActiveId < 0)
@@ -78,20 +122,20 @@ export default class Slider{
         
         this.activeId=nextActiveId;
 
-        const tmp = currElem.style.display;
+        var tmp = currElem.style.display;
         currElem.style.display = nextElem.style.display;
         nextElem.style.display = tmp;
+
+        let currDot = document.getElementById(currUid+"-dot");
+        let nextDot = document.getElementById(nextUid+"-dot");
+        if(!currDot || !nextDot)
+            return;
+
+        tmp = currDot.style.opacity;
+        currDot.style.opacity = nextDot.style.opacity;
+        nextDot.style.opacity = tmp;
     }
 
-    createDotBar(){
-        var dotArr = [];
-        const dot = this.dotColor.get();
-        const bar = this.barColor.get();
-        for(var i = 0; i < this.items.length; ++i)
-            dotArr.push(<span className="dot" style={{color: dot, background: dot}}></span>);
-        
-        return wrapDivStyled("dot-bar", {color: bar, background: bar}, dotArr);
-    }
 
     get(){
         return(

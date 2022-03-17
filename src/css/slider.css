@@ -15,6 +15,13 @@
     display: inline-block;
     background-color: white;
     margin: 5px;
+    animation: 650ms ease-out;
+}
+
+.slideshow_container .dot:hover {
+    opacity: 0.85;
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .slideshow_container .dot-bar{
@@ -22,9 +29,7 @@
     text-align: center;
     background-color: black;
     opacity: 1;
-    margin-top: 10px;
-    margin-left: 0%;
-    margin-right: 0%;
+    margin: 10px auto;
     border-radius: 10px;
 }
 
