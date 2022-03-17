@@ -28,7 +28,7 @@
 
 
 .titled-container .title .left{
-    border-radius: 30px 5px 5px 30px;
+    border-radius: 20px 10px 10px 20px;
 
     margin-right: 0;
     margin-left: auto;
@@ -42,7 +42,7 @@
 
 
 .titled-container .title .right{
-    border-radius: 5px 30px 30px 5px;
+    border-radius: 10px 20px 20px 10px;
 
     margin-left: 0;
     margin-right: auto;
@@ -66,7 +66,7 @@
 .titled-container .body-container .left{
     margin-right: 10%;
     margin-left: auto;
-    padding: 50px 20px 30px 20px;
+    padding: 40px 20px 30px 20px;
     margin-bottom: 20%;
     border-radius: 20px;
     background: royalblue;
@@ -77,7 +77,7 @@
 .titled-container .body-container .right{
     margin-left: 10%;
     margin-right: auto;
-    padding: 50px 20px 30px 20px;
+    padding: 40px 20px 30px 20px;
     margin-bottom: 20%;
     border-radius: 20px;
     background: royalblue;
@@ -85,9 +85,11 @@
 
 @media screen and (max-width: 780px) {
     .titled-container .body-container .left{
-        padding: 40px 20px 20px 20px;
+        padding: 30px 20px 30px 20px;
     }
     .titled-container .body-container .right{
-        padding: 40px 20px 20px 20px;
+        padding: 30px 20px 30px 20px;
     }
 }
+
+

@@ -24,6 +24,7 @@ import Slider from "./modules/slider";
 import { wrapDiv, wrapDivStyled } from "./utils";
 import { fadeInExplosiveDelayed } from "./modules/defaults/entrance_effect";
 import TitledContainer from "./modules/titled_container";
+import TitledMediaText from "./modules/titled_media_text";
 
 
 const Home = () => {
@@ -37,7 +38,7 @@ const Home = () => {
 };
 
 function createCurrentEvent(){
-    var infoBlock = new InformationBlock(true);
+    var infoBlock = new TitledMediaText();
     var slider = new Slider();
     var img = new Image();
     img.setWidth("50%");
@@ -48,23 +49,16 @@ function createCurrentEvent(){
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
     infoBlock.setTitle("Current Event");
-    infoBlock.setGraphic(slider.get());
-    infoBlock.setGraphicTitle("Name of the project");
-    infoBlock.setSubtitle("Haachama Birthday Project 2022");
+    infoBlock.setGraphic("Name of the project", slider.get());
+    infoBlock.setPassage("Haachama Birthday Project 2022", "[descriptions]");
 
-    infoBlock.setParagraph("[descriptions]");
-    infoBlock.setPadding(Boarder.ALL, "20px");
-    infoBlock.setPadding(Boarder.BOTTOM, "30px");
-    //infoBlock.setPadding(Boarder.RIGHT, "10px");
-    infoBlock.setMargin(Boarder.BOTTOM, "20%");
-    //infoBlock.setColour(65,105,255,1);
-    infoBlock.setTextColour(0, 0, 255,1);
-    infoBlock.setLightColour(205, 92, 92, 1);
-    infoBlock.setDarkColour(165, 42, 42,1);
+    infoBlock.setFontColor(255, 255, 255,1);
+    infoBlock.setTitleColor(205, 92, 92, 1);
+    infoBlock.setBodyColor(165, 42, 42,1);
     infoBlock.setButton("Join us!", "/current-event");
     //infoBlock.setBackgroundImage("fig/common/patterns/filmtape.png");
 
-    var titledContainer = new TitledContainer();
+    /*var titledContainer = new TitledContainer();
     titledContainer.setFontColor(0, 0, 255,1);
     titledContainer.setBodyColor(255, 255, 0,1);
     titledContainer.setTitleColor(165, 42, 42,1);
@@ -72,12 +66,12 @@ function createCurrentEvent(){
     titledContainer.setRight();
     const a = titledContainer.get(img.get("fig/common/place_holder.png"));
     titledContainer.setLeft();
-    const b = titledContainer.get(img.get("fig/common/place_holder.png"));
+    const b = titledContainer.get(img.get("fig/common/place_holder.png"));*/
     
 
     
 
-    return utils.merge(a, b);
+    return infoBlock.get();
 }
 
 function createPreviousWorks(){
