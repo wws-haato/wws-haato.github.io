@@ -4,7 +4,7 @@
 
 .titled-media-text .button{
     font-size: 2VW;
-    margin-top: 2VW;
+    margin-top: 4VW;
     margin-left: 15%;
     text-align: center;
     background-color:skyblue; /* Green */
@@ -23,7 +23,7 @@
 
 @media screen and (max-width: 780px) {
     .titled-media-text .button{
-        font-size: 3.5VW;
+        font-size: 4VW;
         padding-top: 1.2VW;
         padding-bottom: 1.2VW;
     }
@@ -46,14 +46,13 @@ a:hover, a:visited, a:link, a:active
 .titled-media-text .passage{
     font-size: 2VW;
     width: 100%;
-    margin-top: 10px;
     text-align: justify;
     color: white;
 }
 
 @media screen and (max-width: 780px) {
     .titled-media-text .passage{
-        font-size: 3VW;
+        font-size: 4VW;
     }
 }
 
@@ -66,10 +65,12 @@ a:hover, a:visited, a:link, a:active
     text-align: center;
     font-size: 3VW;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 780px) {
     .titled-media-text .title{
         font-size: 5VW;
+        margin-top: 20px;
     }
 }

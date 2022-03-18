@@ -20,6 +20,22 @@
     }
 }
 
+
+.haachama-channel-text{
+    font-size: 1.2VW;
+    opacity: 0.65;
+    color: crimson;
+}
+
+
+@media screen and (max-width: 780px) {
+    .haachama-channel-text{
+        font-size: 1.7VW;
+        opacity: 0.65;
+        color: crimson;
+    }
+}
+
 .logo_banner {
     top: 0;
     left: 0;

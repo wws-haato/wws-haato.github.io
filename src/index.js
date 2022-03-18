@@ -32,7 +32,7 @@ import { fadeInDelayed } from "./modules/defaults/entrance_effect";
 const Home = () => {
     return utils.merge(
         createLogoBanner(), 
-        createDescription(), 
+        createAbout(), 
         createCurrentEvent(), 
         createPreviousWorks(), 
         createNews(), 
@@ -51,12 +51,15 @@ function createContact(){
     
     var cols = new InvertableColumn();
     var img = new ImageLinked();
+    var waterMark = new Image();
+    waterMark.setWidth("50%");
+
     img.setWidth("100%");
-    img.setWaterMark("fig/common/icons/ext_link.png");
+    img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
 
     var iconHolder = new Column(3);
     iconHolder.setMargin(Boarder.ALL, "20px");
-    iconHolder.setMargin(Boarder.TOP, "40px");
+    
 
     const preffix = "fig/common/icons/";
     const paths = ["youtube.png", "discord.png", "twitter.png"];
@@ -73,7 +76,7 @@ function createContact(){
         "All staffs are available in the Discord server. \
         Please consider Discord as your preferred contact platform"));
 
-    const subtitle = fadeInDelayed.get(wrapDiv("title", "SNS"));
+    const subtitle = fadeInDelayed.get(wrapDiv("title", "Social Media"));
     const passages = [subtitle, fadeInExplosiveDelayed.get(iconHolder.get()), passage];
     
     cols.insert(1, wrapDiv("titled-media-text", passages));
@@ -175,7 +178,7 @@ function createPreviousWorks(){
     
 }
 
-function createDescription(){
+function createAbout(){
     var cols = new Column(2);
 
     cols.setMargin(Boarder.TOP, "2%");
@@ -186,15 +189,21 @@ function createDescription(){
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);
 
-    var img = new Image();
-    img.setWidth("100%");
-    img.setCorner(Boarder.ALL, "10px");
+    var imgLinked = new ImageLinked();
+    imgLinked.setWidth("100%");
+    imgLinked.setCorner(Boarder.ALL, "10px");
 
-    const haatoPfp = img.get("fig/common/haato_pfp.jpg");
+    var waterMark = new Image();
+    waterMark.setWidth("35%");
+    const yotubeIcon = waterMark.get("fig/common/icons/youtube.png");
+    imgLinked.setWaterMark(utils.merge(yotubeIcon, wrapDiv("haachama-channel-text", "HAACHAMA Ch 赤井はあと")));
+
+    const haatoPfp = imgLinked.get("fig/common/haato_pfp.jpg", 
+        "https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg");
     const formattedAbout = wrapDiv("intro_quote", aboutParagraph);
     const formattedWelcome =  wrapDiv("welcome_text", "Hello from the WWS Haato community!");
     const button = fadeInExplosiveDelayed.get(TitledMediaText.createButton(
-        "About", "/#/about", {background: "crimson", marginTop: "10%"}));
+        "About us", "/#/about", {background: "crimson", marginTop: "10%"}));
 
     cols.insert(0, entEffect.fadeInExplosiveDelayed.get(haatoPfp));
     cols.insert(1, entEffect.fadeInRightwardsLatched.get(formattedAbout), button);
