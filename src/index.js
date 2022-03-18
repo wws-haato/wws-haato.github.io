@@ -102,7 +102,7 @@ function createContact(){
 }
 
 function createNews(){
-    var news = new TitledNews(3);
+    var news = new TitledNews(4);
     news.setTitle("News");
     news.setFontColor(255, 255, 255,1);
     news.setTitleColor(135,206,235,1);
@@ -111,7 +111,7 @@ function createNews(){
     var img = new Image();
     img.setWidth("50%");
 
-    for(var i = 0; i < 20; ++i)
+    for(var i = 0; i < 21; ++i)
         news.append(new NewsConfig("2022/01/01", "title"+i.toString(), "fig/common/place_holder.png", "para"));
 
     return news.get();

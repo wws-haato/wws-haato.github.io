@@ -8,13 +8,15 @@ import Boarder from "./config/border";
 import { Mutex } from "async-mutex";
 import { fadeInExplosive } from "./defaults/entrance_effect";
 import { fadeInRightwards } from "./defaults/entrance_effect";
+import InvertableColumn from "./invertable_columns";
 
 
 
 export class MediaNews extends Column{
     static createImageLoader(){
         var img = new Image();
-        img.setWidth("75%");
+        img.setWidth("100%");
+        img.setMargin(Boarder.TOP, "10px")
         img.setCorner(Boarder.ALL, "10px");
         return img;
     }
@@ -23,7 +25,7 @@ export class MediaNews extends Column{
 
     constructor(){
         super(2);
-        this.setRatios(30, 70);
+        this.setRatiosEqually();
         this.config = 0;
         this.setMargin(Boarder.BOTTOM, "10px");
         this.setMargin(Boarder.LEFT, "5%");
@@ -58,25 +60,53 @@ export default class TitledNews extends TitledContainer{
         super();
         this.nDisp = nDisp;
         this.items = [];
-        this.slider = new Slider();
-        this.slider.setClickWidth("5VW");
     }
 
     append(item){
-        var mediaNews = new MediaNews();
-        mediaNews.setConfig(item);
-        this.items.push(mediaNews.get(this.fontColor.get(), !this.slider.items.length));
-        if(this.items.length == this.nDisp){
-            this.slider.append(this.items);
-            this.items = new Array();
-        }
+        if(!this.items.length%this.nDisp)
+            this.items.push(new Array());
+
+        this.items[this.items.length-1].push(item);
     }
 
 
     get(){
-        this.slider.setDotColor(this.fontColor.r, this.fontColor.g, this.fontColor.b, this.fontColor.a);
-        this.slider.setBarColor(this.titleColor.r, this.titleColor.g, this.titleColor.b, this.titleColor.a);
-        return super.get(this.slider.get());
+        const fontStyle = this.fontColor.get();
+        
+        var slider = new Slider();
+        var mediaNews = new MediaNews();
+        var invCols = new InvertableColumn();
+
+        var elems = [];
+        var colId = 0;
+        while(this.items[this.items.length-1].length%this.nDisp)
+            this.items[this.items.length-1].push(0);
+            
+        for(let items of this.items){
+            for(let item of items){
+                if(item){
+                    mediaNews.setConfig(item);
+                    item = mediaNews.get(fontStyle, slider.items.length==0);
+                }
+                else
+                    item = wrapDivStyled("", {opacity:0}, mediaNews.get(fontStyle, slider.items.length==0));
+                
+                elems.push(item);
+                if(elems.length < this.nDisp/2)
+                    continue;
+
+                invCols.insert(colId, elems);
+                if(colId)
+                    slider.append(invCols.get());
+
+                elems = [];
+                colId = 1-colId;
+            }
+        }
+        slider.setClickWidth("5VW");
+        slider.setDotColor(this.fontColor.r, this.fontColor.g, this.fontColor.b, this.fontColor.a);
+        slider.setBarColor(this.titleColor.r, this.titleColor.g, this.titleColor.b, this.titleColor.a);
+        return super.get(slider.get());
     }
 }
 
