@@ -34,13 +34,19 @@ export class MediaNews extends Column{
         this.config = config;
     }
 
-    get(fontColor){
+    get(fontColor, animate){
         var img = MediaNews.imgLoader.get(this.config.imgPath);
-        super.insert(0, fadeInExplosive.get(img));
-        
-        const title = wrapDivStyled("title", {color: fontColor}, this.config.title);
-        const date = wrapDivStyled("date", {color: fontColor}, this.config.date);
-        super.insert(1, fadeInRightwards.get(date), fadeInRightwards.get(title));
+        var date = wrapDivStyled("date", {color: fontColor}, this.config.date);
+        var title = wrapDivStyled("title", {color: fontColor}, this.config.title);
+
+        if(animate){
+            img = fadeInExplosive.get(img);
+            date = fadeInRightwards.get(date);
+            title = fadeInRightwards.get(title);
+        }
+
+        super.insert(0, img);
+        super.insert(1, date, title);
 
         return wrapDiv("titled-news", super.get());
     }
@@ -59,7 +65,7 @@ export default class TitledNews extends TitledContainer{
     append(item){
         var mediaNews = new MediaNews();
         mediaNews.setConfig(item);
-        this.items.push(mediaNews.get(this.fontColor.get()));
+        this.items.push(mediaNews.get(this.fontColor.get(), !this.slider.items.length));
         if(this.items.length == this.nDisp){
             this.slider.append(this.items);
             this.items = new Array();
