@@ -49,17 +49,22 @@ export default class StaffInformation extends Column{
         var img = new Image();
         img.setWidth("50%");
         var imgLinked = new ImageLinked();
-        imgLinked.setWidth("30%");
+        imgLinked.setWidth("100%");
         imgLinked.setWaterMark(img.get("fig/common/icons/ext_link.png"));
+
         var socialPfps = new Column(this.socialMedias.length);
+        const margin = (100-30*this.socialMedias.length)/2;
+
         socialPfps.setColumnInterval("5px");
+        socialPfps.setMargin(Boarder.LEFT, margin.toString()+'%');
+        socialPfps.setMargin(Boarder.RIGHT, margin.toString()+'%');
         var colID = 0;
         for(let sns of this.socialMedias)
             socialPfps.insert(colID++, imgLinked.get(sns.path, sns.link));
-
-        img.setWidth("85%");
+        
+        img.setWidth("75%");
         img.setCircle();
-        img.setMargin(Boarder.BOTTOM, "10px");
+        img.setMargin(Boarder.BOTTOM, "5px");
         this.insert(0, img.get(this.imgPath), socialPfps.get());
 
         var textInfos = [];
@@ -80,9 +85,92 @@ export default class StaffInformation extends Column{
         }
             
         textInfos.push(wrapDiv("passage", languages));
-        this.insert(1, wrapDiv("staff-information", textInfos));
+        this.insert(1, textInfos);
 
-        return super.get();
+        return wrapDiv("staff-information", super.get());
         
     }
 }
+
+function getStaffInformationLeo(){
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("Leo Hsieh#0227");
+    staffInfo.setTimeZone(8);
+    staffInfo.setImagePath("fig/pfp/leo.jpg");
+    staffInfo.appendLanguage("Chinese");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendLanguage("Japanese");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
+        "https://twitter.com/LeoHsieh57");
+
+    return staffInfo.get();
+}
+
+function getStaffInformationZhadar(){
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("Zhadar#9618");
+    staffInfo.setTimeZone(1);
+    staffInfo.setImagePath("fig/pfp/zhadar.jpg");
+    staffInfo.appendLanguage("German");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
+        "https://twitter.com/HaatonZhadi");
+    staffInfo.appendSocialMedia("fig/common/icons/reddit.png", 
+        "https://www.reddit.com/user/HaatonZhadi");
+
+    return staffInfo.get();
+}
+
+function getStaffInformationSakazuki(){
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("羽の觴#4204");
+    staffInfo.setTimeZone(8);
+    staffInfo.setImagePath("fig/pfp/saka.png");
+    staffInfo.appendLanguage("Chinese");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendLanguage("Japanese");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
+        "https://twitter.com/henry4204aaa");
+
+    return staffInfo.get();
+}
+
+
+function getStaffInformationAbner(){
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("UltimateAbRod#0949");
+    staffInfo.setTimeZone(-6);
+    staffInfo.setImagePath("fig/pfp/abner.jpg");
+    staffInfo.appendLanguage("Spanish");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
+        "https://twitter.com/UltimateAbrod");
+    staffInfo.appendSocialMedia("fig/common/icons/youtube.png", 
+        "https://www.youtube.com/channel/UCmX9DnmswDnujsDXWnMyOhw");
+
+    return staffInfo.get();
+}
+
+
+function getStaffInformationSteve(){
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("števe#0456");
+    staffInfo.setTimeZone(7);
+    staffInfo.setImagePath("fig/pfp/steve.jpg");
+    staffInfo.appendLanguage("Vietnamese");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
+        "https://twitter.com/le_hoang_dung");
+    staffInfo.appendSocialMedia("fig/common/icons/reddit.png", 
+        "https://www.reddit.com/user/HoangDung007");
+
+    return staffInfo.get();
+}
+
+
+
+export const staffInformationLeo = getStaffInformationLeo();
+export const staffInformationZhadar = getStaffInformationZhadar();
+export const staffInformationSakazuki = getStaffInformationSakazuki();
+export const staffInformationAbner = getStaffInformationAbner();
+export const staffInformationSteve = getStaffInformationSteve();
