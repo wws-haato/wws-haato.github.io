@@ -1,6 +1,3 @@
-import React from "react";
-import "../css/navbar.css";
-  
 const About = () => {
   return (
     <div>

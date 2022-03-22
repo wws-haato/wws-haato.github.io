@@ -34,7 +34,6 @@
     visibility: hidden;
     position: absolute;
     
-    background-color: royalblue; 
     background: linear-gradient(
         180deg, rgba(65, 105, 255, 1) 0%, 
         rgba(165, 42, 42, 1) 100%
@@ -60,8 +59,6 @@
     text-align: center;
     
 }
-
-
 
 
 .show {

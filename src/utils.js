@@ -1,9 +1,5 @@
-import "./css/header.css";
 import "./css/subtitle.css";
 import "./css/footnote.css";
-import Column from "./modules/column";
-import Boarder from "./modules/config/border";
-import Image from "./modules/Image";
 
 
 export function merge(... objs){
