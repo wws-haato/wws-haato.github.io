@@ -1,5 +1,6 @@
 import "../css/image.css";
 import Image from "./Image";
+import { wrapDiv, wrapDivStyled } from "../utils";
 
 export default class ImageLinked extends Image{
     constructor(){
@@ -17,10 +18,10 @@ export default class ImageLinked extends Image{
                 <div className="img_hover">
                     <div className="centered_img" style={{width: "100%"}}>
                         <img src={path} alt="..." class="centered_img" 
-                        style={{width: this.width, borderRadius: this.corner.getStyle()}}></img>
-                    </div>
-                    <div class="water_mark">
-                        {this.waterMark}
+                        style={{width: this.width, borderRadius: this.corner.getStyle()}}>
+                            
+                        </img>
+                        {wrapDivStyled("water_mark", {width: this.width}, this.waterMark)}
                     </div>
                 </div>
             </a>

@@ -29,6 +29,7 @@ import InvertableColumn from "./modules/invertable_columns";
 import { fadeInDelayed } from "./modules/defaults/entrance_effect";
 import createFootNote from "./footnote";
 import PreviousWorks from "./pages/previous_projects";
+import StaffInformation from "./modules/staff_information";
 
 
 const Home = () => {
@@ -115,13 +116,23 @@ function createContact(){
     var imgPlaceholder = new Image();
     imgPlaceholder.setWidth("100%");
 
+
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("Leo Hsieh#0227");
+    staffInfo.setTimeZone(8);
+    staffInfo.setImagePath("fig/pfp/leo.jpg");
+    staffInfo.appendLanguage("Chinese");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendLanguage("Japanese");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", "https://twitter.com/LeoHsieh57");
+
     for(var i = 0; i < 5; ++i)
-        slider.append(imgPlaceholder.get("fig/common/place_holder.png"));
+        slider.append(staffInfo.get());
 
     slider.setClickWidth("4VW");
     slider.setBarColor(205, 92, 92,1);
     slider.setDotColor(255,255,255,1);
-    slider.setWidth("85%");
+    slider.setWidth("95%");
 
     const leftTitle = fadeInDelayed.get(wrapDiv("title", "Staff Informations"));
     const leftContent = fadeInExplosiveDelayed.get(slider.get());

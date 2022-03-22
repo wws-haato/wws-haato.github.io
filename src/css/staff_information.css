@@ -1,0 +1,19 @@
+.staff-information{
+    width: 100%;
+    transition: 0.3s ease-out;
+    font-size: 4VW;
+    text-align: left;
+    margin: 20px;
+}
+
+.staff-information .passage{
+    font-size: 1.2VW;
+    text-align: left;
+    margin-bottom: 5px;
+    
+}
+
+.staff-information .title{
+    font-size: 1.8VW;
+    text-align: left;
+}
