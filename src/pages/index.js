@@ -7,7 +7,6 @@ import Boarder from "../modules/config/border";
 import {aboutParagraph} from "../articles";
 import Youtube from "../modules/youtube";
 
-
 import * as entEffect from "../modules/defaults/entrance_effect";
 import "../css/index.css";
 
