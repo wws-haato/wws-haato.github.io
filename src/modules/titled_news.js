@@ -27,8 +27,7 @@ export class MediaNews extends Column{
         super(2);
         this.setRatiosEqually();
         this.config = 0;
-        this.setMargin(Boarder.BOTTOM, "10px");
-        this.setMargin(Boarder.LEFT, "5%");
+        //this.setMargin(Boarder.LEFT, "5%");
     }
 
 

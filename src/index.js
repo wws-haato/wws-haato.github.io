@@ -27,6 +27,7 @@ import { NewsConfig } from "./modules/titled_news";
 import TitledContainer from "./modules/titled_container";
 import InvertableColumn from "./modules/invertable_columns";
 import { fadeInDelayed } from "./modules/defaults/entrance_effect";
+import createFootNote from "./footnote";
 
 
 const Home = () => {
@@ -37,7 +38,7 @@ const Home = () => {
         createPreviousWorks(), 
         createNews(), 
         createContact(), 
-        utils.createFootNote()
+        createFootNote()
     );
 };
 
