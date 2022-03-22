@@ -21,7 +21,9 @@ export const NavbarDropdown = () =>{
 				<NavLink to="/about" activeStyle>
 					<div className="button">About</div>
 				</NavLink>
-				<a href="#"><div className="button">Contact</div></a>
+				<NavLink to="/previous-works" activeStyle>
+					<div className="button">Previous Works</div>
+				</NavLink>
 			</div>
 		</nav>
 		</>

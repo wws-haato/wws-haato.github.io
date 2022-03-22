@@ -28,6 +28,7 @@ import TitledContainer from "./modules/titled_container";
 import InvertableColumn from "./modules/invertable_columns";
 import { fadeInDelayed } from "./modules/defaults/entrance_effect";
 import createFootNote from "./footnote";
+import PreviousWorks from "./pages/previous_projects";
 
 
 const Home = () => {
@@ -41,6 +42,33 @@ const Home = () => {
         createFootNote()
     );
 };
+
+
+var rootElement = document.getElementById("root");
+rootElement.style.overflow = "hidden";
+
+ReactDOM.render(
+  <StrictMode>
+    <App/>
+  </StrictMode>,
+  rootElement
+);
+
+
+function App() {
+    const router = (
+        <Router>
+            <NavbarDropdown />
+                <Routes>
+                    <Route exact path='/' element={<Home />} />
+                    <Route exact path='/about' element={<About/>} />
+                    <Route exact path='/previous-works' element={<PreviousWorks />} />
+                </Routes>
+        </Router>
+    );
+    return router;
+}
+
 
 function createContact(){
     var titledContainer = new TitledContainer();
@@ -170,7 +198,7 @@ function createPreviousWorks(){
     mediaText.setFontColor(255, 255, 255,1);
     mediaText.setTitleColor(205, 92, 92, 1);
     mediaText.setBodyColor(165, 42, 42,1);
-    mediaText.setButton("View all", "/#/about");
+    mediaText.setButton("View all", "/#/previous-works");
     mediaText.setRight();
 
     
@@ -212,28 +240,6 @@ function createAbout(){
     return utils.merge(entEffect.fadeInUpwardsDelayed.get(formattedWelcome),  cols.get());
 }
 
-function App() {
-    const router = (
-        <Router>
-            <NavbarDropdown />
-                <Routes>
-                    <Route exact path='/' element={<Home />} />
-                    <Route exact path='/about' element={<About/>} />
-                </Routes>
-        </Router>
-    );
-    return router;
-}
-
-var rootElement = document.getElementById("root");
-rootElement.style.overflow = "hidden";
-
-ReactDOM.render(
-  <StrictMode>
-    <App/>
-  </StrictMode>,
-  rootElement
-);
 
 
 function createLogoBanner(){

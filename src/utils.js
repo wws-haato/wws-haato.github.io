@@ -6,34 +6,6 @@ import Boarder from "./modules/config/border";
 import Image from "./modules/Image";
 
 
-export function createFootNote(){
-    var cols = new Column(2);
-    const buttoms = ["HAACHAMA Ch. Akai Haato", "Contact us"];
-    cols.setColumnInterval("0%");
-    cols.setMargin(Boarder.TOP, isCellphone() ? "3.2VW": "1.92VW");
-
-    var img = new Image();
-    img.setWidth(isCellphone() ? "2.5VW":"1.5VW");
-
-    const prefix = "fig/common/icons/";
-    const filenames = ["youtube.png", "contact.png"];
-    for(var i = 0; i < buttoms.length; i++)
-        cols.insert(i, <div class="button" style={{fontSize: isCellphone() ? "2VW":"1.2VW"}}>
-            {img.get(prefix.concat(filenames[i]))}{buttoms[i]}</div>);
-
-    const marg = isCellphone() ? "1.25VW":"0.75VW"
-    return(
-        <div className="footnote">
-            <div style = {{color: "white", margin: marg+" auto", fontSize: isCellphone() ? "4VW":"2.4VW"}}>
-                WWS Haato is a non-profit team </div>
-            <div style = {{color: "white", margin: marg+" auto", fontSize: isCellphone() ? "3VW":"1.8VW"}}>
-                none of our productions would ever be monetized </div>
-            {cols.get()}
-        </div>
-    );
-}
-
-
 export function merge(... objs){
     return (<>{
         objs.map(function(x){return(<>{x}</>);})
