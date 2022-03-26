@@ -36,8 +36,8 @@ export default class TitledMediaText extends TitledContainer{
         this.graphic = {title: title, content: content};
     }
 
-    setPassage(title, content){
-        this.passage = {title: title, content: content};
+    setPassage(title, ... contents){
+        this.passage = {title: title, content: contents};
     }
 
     setButton(text, link){
@@ -56,7 +56,12 @@ export default class TitledMediaText extends TitledContainer{
         graphics.push(fadeInExplosiveDelayed.get(this.graphic.content));
         this.cols.insert(this.getGraphID(), wrapDiv("titled-media-text", graphics));
         
-        const passage = wrapDiv("titled-media-text", wrapDivStyled("passage", style, this.passage.content));
+        var content = this.passage.content;
+        if(!content.length)
+            content = [content];
+    
+        content = content.map(function(x){return wrapDivStyled("passage", style, x);});
+        const passage = wrapDiv("titled-media-text", content);
         const subtitle = wrapDiv("titled-media-text", wrapDivStyled("title", style, this.passage.title));
        
         var passages = [fadeInDelayed.get(subtitle), fadeInExplosiveDelayed.get(passage)];

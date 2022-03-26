@@ -35,9 +35,8 @@ export default class TimeLine extends Array{
 
     get(){
         var events = [];
-        var args = ["container ", "", "content"];
         for(var i = 0; i < this.length; i++){
-            args[1] = i%2==0? "left":"right";
+            const args = ["container ", i%2==0? "left":"right", "content"];
             
             var content = [];
             content.push(fadeIn.get(wrapDiv("date", this.at(i).date)));

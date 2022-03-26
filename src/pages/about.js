@@ -1,6 +1,6 @@
 import TimeLine from '../modules/timeline';
 import createFootNote from "../footnote";
-import { merge } from '../utils';
+import { merge, wrapDiv } from '../utils';
 import Image from '../modules/Image';
 import Boarder from '../modules/config/border';
 import TitledMediaText from '../modules/titled_media_text';
@@ -11,7 +11,7 @@ const About = () => {
   var timeline = new TimeLine(json);
   return (
     merge(
-      createPreviousWorks(), 
+      createAboutUs(), 
       TimeLine.getTitle("Timeline"), 
       timeline.get(), 
       createFootNote()
@@ -21,19 +21,25 @@ const About = () => {
   
 export default About;
 
-function createPreviousWorks(){
+function createAboutUs(){
   var img = new Image();
 
-  img.setWidth("65%");
+  img.setWidth("50%");
   img.setCircle();
 
   var mediaText = new TitledMediaText();
-  mediaText.setTitle("Previous Works");
-  mediaText.setGraphic("WWS Haato", img.get("fig/common/pfp.jpg"));
-  mediaText.setPassage("Two Projects with 200+ participants in 2021", 
-      "In the past year, we have been making great efforts to gather as many \
-      fans as we can. We hope to show our largest support for Haachama, \
-      and will continue to further make supportive projects in 2022 as well! ");
+  mediaText.setTitle("About Us");
+  mediaText.setGraphic("", img.get("fig/common/pfp.jpg"));
+  mediaText.setPassage("World Wide Support for Haato", 
+      "World Wide Support for Haato, aka WWS Haato, \
+      is a non-profit project team mainly focusing on Haato projects that \
+      gather fans around the world. Our team has been set up since March, 2021, \
+      when Haato started her long break. ", 
+
+      "We have so far produced our first project \"World Wide Tour Guide\" \
+      and second project \"Haato's Birthday Parade\" \
+      will be continuing to make more supportive projects for Haachama in the future."
+  );
   
   mediaText.setFontColor(255, 255, 255,1);
   mediaText.setTitleColor(205, 92, 92, 1);
@@ -43,6 +49,6 @@ function createPreviousWorks(){
 
   
 
-  return mediaText.get();
+  return wrapDiv({style: {marginTop: "60px"}}, mediaText.get());
 
 }

@@ -57,10 +57,11 @@ export function wrapDivRecursive(args, ... objs){
     if(!args.length)
         return merge(objs);
 
-    if(typeof(args[0])=="string")
-        args = args.map(function(x){return {className: x};});
-
     var baseArg = args.pop();
+    if(typeof(baseArg)=="string"){
+        baseArg = {className: baseArg};
+    }
+
     if(!baseArg.style)
         baseArg.style = {};
 

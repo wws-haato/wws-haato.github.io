@@ -48,6 +48,7 @@ a:hover, a:visited, a:link, a:active
     width: 100%;
     text-align: justify;
     color: white;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 780px) {

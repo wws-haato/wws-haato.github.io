@@ -172,4 +172,13 @@
         border-radius: 2.5px;
         padding: 2.5px;
     }
+
+    .timeline .container .left {
+        padding-left: 0px;
+      }
+      
+      /* Place the container to the right */
+      .timeline .container .right {
+        padding-right: 0px;
+      }
 }
