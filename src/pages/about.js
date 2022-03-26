@@ -49,6 +49,6 @@ function createAboutUs(){
 
   
 
-  return wrapDiv({style: {marginTop: "60px"}}, mediaText.get());
+  return wrapDiv({style: {marginTop: "20%"}}, mediaText.get());
 
 }
