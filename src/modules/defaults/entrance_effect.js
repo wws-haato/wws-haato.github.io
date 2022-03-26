@@ -65,3 +65,7 @@ export var fadeInExplosiveDelayed = new EntranceEffect(
 	[ { transform: 'scale(0.5, 0.5)', opacity: 0}, { transform: 'scale(1, 1)', opacity: 1}], 
 	{ duration:600, fill: 'forwards', easing: 'ease-out', delay: 300}
 );
+export var fadeInExplosiveLatched = new EntranceEffect(
+	[ { transform: 'scale(0.5, 0.5)', opacity: 0}, { transform: 'scale(1, 1)', opacity: 1}], 
+	{ duration:600, fill: 'forwards', easing: 'ease-out', delay: 650}
+);

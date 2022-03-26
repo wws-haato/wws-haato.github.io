@@ -44,7 +44,6 @@ function createAboutUs(){
   mediaText.setFontColor(255, 255, 255,1);
   mediaText.setTitleColor(205, 92, 92, 1);
   mediaText.setBodyColor(165, 42, 42,1);
-  //mediaText.setButton("View all", "/#/previous-works");
   mediaText.setRight();
 
   

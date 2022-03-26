@@ -1,0 +1,26 @@
+.page-container{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.page-container .thumbnail-container{
+    width: 100%;
+    background-color: transparent;
+
+}
+
+.page-container .thumbnail-container .button{
+    width: 95%;
+    transition: 0.5s ease-out;
+    background-color: transparent;
+}
+
+.page-container .thumbnail-container .button:hover{
+    opacity: 0.65;
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+}
+
