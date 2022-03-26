@@ -28,8 +28,14 @@ export function isCellphone(){
 }
 
 
-export function wrapDiv(name, ... obj){
-    return <div className={name}>{merge(obj)}</div>;
+export function wrapDiv(args, ... obj){
+    if(typeof(args) == "string")
+        return <div className={args}>{merge(obj)}</div>;
+
+    else if(typeof(args)=="Array")
+        return wrapDivRecursive(args, obj);
+
+    return <div className={args.className} style = {args.style}>{merge(obj)}</div>;
 }
 
 export function wrapDivStyled(name, style,  ... obj){
@@ -50,6 +56,9 @@ export function toDivBlock(arg, ... obj){
 export function wrapDivRecursive(args, ... objs){
     if(!args.length)
         return merge(objs);
+
+    if(typeof(args[0])=="string")
+        args = args.map(function(x){return {className: x};});
 
     var baseArg = args.pop();
     if(!baseArg.style)

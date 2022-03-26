@@ -1,8 +1,6 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import React from "react";
-import { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";

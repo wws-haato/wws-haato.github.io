@@ -1,8 +1,22 @@
 .timeline {
     position: relative;
     width: 100%;
-    margin-bottom: 100px;
+    margin-bottom: 20%;
+    padding-top: 40px;
+   
     
+}
+
+.timeline-banner{
+    width: 65%;
+    font-size: 5VW;
+    text-align: center;
+    background-color: rgba(65, 105, 255, 1);
+    color: white;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2.5px 2.5px 5px darkblue;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -100,6 +114,7 @@
   background-color: rgb(65, 105, 255);
   position: relative;
   border-radius: 10px;
+  box-shadow: 4px 4px 6px darkblue;
 }
 
 .timeline .container .right .content {
@@ -107,6 +122,7 @@
     background-color: rgb(165, 42, 42);
     position: relative;
     border-radius: 10px;
+    box-shadow: 4px 4px 6px rgb(105, 27, 27);
   }
 
 
@@ -114,6 +130,7 @@
     font-size: 3.5VW;
     color: white;
     background-color: rgb(135,206,235);
+    box-shadow: 2px 2px 3px darkblue inset;
     text-align: center;
     margin: 10px;
     padding: 5px;
@@ -122,6 +139,7 @@
 }
 .timeline .container .right .date{
     background-color: rgb(205, 92, 92);
+    box-shadow: 2px 2px 3px rgb(105, 27, 27) inset;
     
 }
 .timeline .container .title{

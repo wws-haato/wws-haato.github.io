@@ -4,7 +4,6 @@ import * as utils from "../utils";
 import Image from "../modules/Image";
 import ImageLinked from "../modules/Image_linked";
 import Boarder from "../modules/config/border";
-import {aboutParagraph} from "../articles";
 import Youtube from "../modules/youtube";
 
 import * as entEffect from "../modules/defaults/entrance_effect";
@@ -205,7 +204,10 @@ function createAbout(){
 
     const haatoPfp = imgLinked.get("fig/common/haato_pfp.jpg", 
         "https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg");
-    const formattedAbout = wrapDiv("intro_quote", aboutParagraph);
+    const formattedAbout = wrapDiv("intro_quote", 
+        "WWS Haato team, aka World Wide Support for Haato, \
+        is a non-profit project team for vtuber Akai Haato. "
+    );
     const formattedWelcome =  wrapDiv("welcome_text", "Hello from the WWS Haato community!");
     const button = fadeInExplosiveDelayed.get(TitledMediaText.createButton(
         "About us", "/#/about", {background: "crimson", marginTop: "10%"}));

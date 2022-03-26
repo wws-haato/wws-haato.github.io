@@ -18,19 +18,6 @@ function createFootNoteBotton(text, link, imgPath){
 
 export default function createFootNote(){
     var cols = new Column(2);
-    const buttoms = ["HAACHAMA Ch. Akai Haato", "Contact us"];
-    //cols.setColumnInterval("0%");
-
-    /*var img = new Image();
-    img.setWidth("2.5VW");
-
-    const prefix = "fig/common/icons/";
-    const filenames = ["youtube.png", "contact.png"];
-    for(var i = 0; i < buttoms.length; i++){
-        const icon = img.get(prefix.concat(filenames[i]));
-        cols.insert(i, wrapDiv("button", fadeInExplosiveDelayed.get(icon), 
-            fadeInExplosiveDelayed.get(buttoms[i])));
-    }*/
     cols.insert(0, createFootNoteBotton("HAACHAMA Ch. Akai Haato", 
         "https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA", 
         "fig/common/icons/youtube.png"));
