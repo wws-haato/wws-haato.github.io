@@ -24,10 +24,11 @@ function createTabs(){
 
   const preffix = "fig/common/";
   const filenames = ["place_holder.png", "place_holder.png"];
+  const link = "#/previous-works/proj";
 
   for(var i = 0; i < 2; i++){
     const image = wrapDivRecursive(["thumbnail-container", "button"], img.get(preffix+filenames[i]));
-    cols.insert(i, fadeInExplosiveLatched.get(image));
+    cols.insert(i, <a href={link+(i+1).toString()}>{fadeInExplosiveLatched.get(image)}</a>);
   }
   
   var titledContainer = new TitledContainer();
