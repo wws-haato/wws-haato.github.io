@@ -31,7 +31,7 @@ function createTabs(){
   for(var i = 0; i < 2; i++){
     const fig = img.get(preffix+filenames[i]);
     const image = wrapDivRecursive(["thumbnail-container", "button"],projNames[i], fig);
-    cols.insert(i, <a href={link+(i+1).toString()}>{fadeInExplosiveLatched.get(image)}</a>);
+    cols.insert(i, <a href={link+(i+1).toString()}>{image}</a>);
   }
   
   var titledContainer = new TitledContainer();
@@ -42,7 +42,7 @@ function createTabs(){
   titledContainer.setRight();
   const title = wrapDivRecursive(["title-container","title"], "Previous Works");
   //return fadeInExplosiveLatched.get(wrapDiv("thumbnail-container", "aaa"));
-  return wrapDiv("page-container", fadeInDelayed.get(title), cols.get());
+  return wrapDiv("page-container", title, cols.get());
 }
 
 
