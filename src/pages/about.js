@@ -5,8 +5,9 @@ const About = () => {
   var timeline = new TimeLine(json);
   return (
     <div>
-      <h1>Welcome to About</h1>
+      {timeline.get()}
     </div>
+
   );
 };
   

@@ -1,3 +1,5 @@
+import "../css/timeline.css";
+import { wrapDiv, wrapDivRecursive } from "../utils";
 
 export default class TimeLine extends Array{
     static toMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -26,4 +28,19 @@ export default class TimeLine extends Array{
 		
         console.log(this);
 	}
+
+    get(){
+        var events = [];
+        for(var i = 0; i < this.length; i++){
+            var args = ["container ", i%2==0? "left":"right", "content"];
+            args = args.map(function(y){return {className: y};});
+            var content = [];
+            content.push(wrapDiv("date", this.at(i).date));
+            content.push(wrapDiv("title", this.at(i).title));
+            content.push(wrapDiv("passage", this.at(i).passage));
+            events.push(wrapDivRecursive(args, content));
+        }
+
+        return wrapDiv("timeline", events);
+    }
 }
