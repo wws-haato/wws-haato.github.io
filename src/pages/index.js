@@ -25,6 +25,7 @@ import { staffInformationLeo, staffInformationZhadar,
 from "../modules/staff_information";
 
 const Home = () => {
+    window.scrollTo(0, 0);
     return utils.merge(
         createLogoBanner(), 
         createAbout(), 

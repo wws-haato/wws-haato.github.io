@@ -1,5 +1,6 @@
 import "../css/timeline.css";
 import { wrapDiv, wrapDivRecursive } from "../utils";
+import { fadeIn, fadeInExplosiveDelayed } from "./defaults/entrance_effect";
 
 export default class TimeLine extends Array{
     static toMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -35,9 +36,9 @@ export default class TimeLine extends Array{
             var args = ["container ", i%2==0? "left":"right", "content"];
             args = args.map(function(y){return {className: y};});
             var content = [];
-            content.push(wrapDiv("date", this.at(i).date));
-            content.push(wrapDiv("title", this.at(i).title));
-            content.push(wrapDiv("passage", this.at(i).passage));
+            content.push(fadeIn.get(wrapDiv("date", this.at(i).date)));
+            content.push(fadeIn.get(wrapDiv("title", this.at(i).title)));
+            content.push(fadeInExplosiveDelayed.get(wrapDiv("passage", this.at(i).passage)));
             events.push(wrapDivRecursive(args, content));
         }
 
