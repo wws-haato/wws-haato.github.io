@@ -1,0 +1,42 @@
+{
+    "timeline":[
+        {
+            "date": {"year": 2021, "month": 3, "day": 8}, 
+            "title": "WWS project initiated by Leo", 
+            "passages": [
+                "To support Haachama the World Wide Support for SAIKYO Idol group was founded. ",
+                "The goal was to show Haachama that fans from all over the world support her. ", 
+                "Haachama should know she is never alone. "
+            ]
+            
+        }, 
+        { 
+            "date": {"year": 2021, "month": 3, "day": 9}, 
+            "title": "Sakazuki joins WWS", 
+            "passages": [
+                "To support Leo with his idea Sakazuki joined the WWS team as a staff member. ",
+                "He is working on graphics and also the contact person for JP Haatons. "
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 3, "day": 3}, 
+            "title": "Haachama hiatus", 
+            "passages": [
+                "As a result of new rules Haachama had to private videos of her Haachama x Haato series", 
+                "and announced later that she is taking a break for a while."
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 3, "day": 12}, 
+            "title": "M.A.S.S. Collab", 
+            "passages": [
+                "The WWS team reached out to the Manotomo Alliance Support Squad discord server. ", 
+                "It is known for helping with various fan support projects. ",
+                "The collab consisted of gathering fan messages and portraying them on a website. "
+            ]
+            
+        }
+    ]
+}

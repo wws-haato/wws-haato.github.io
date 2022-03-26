@@ -1,10 +1,11 @@
+//date has to be YY/MM/DD
 export const mileStones = 
-    "3rd March \
+    "[Date]: 2021/03/03\
     Haachama hiatus \
     As a result of new rules Haachama had to private videos of her Haachama x Haato series \
     and announced later that she is taking a break for a while. \
     \
-    <--NewPassage-->\
+    <!--NewPassage-->\
     \
     8th March \
     WWS project initiated by Leo \
