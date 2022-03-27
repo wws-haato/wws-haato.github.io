@@ -18,7 +18,7 @@ export default class ProjectTopBanner extends Slider{
         //this.setBarColor(0, 0, 0, 1);
         this.setBackgroundColor(218,165,32,1);
         this.setClickWidth("3VW");
-        this.setPadding(Border.ALL, "5px");
+        this.setPadding(Border.ALL, "10px");
         this.setPadding(Border.TOP, "15px");
         this.setCorner(Border.ALL, "20px");
         this.setPeriod(3000);
