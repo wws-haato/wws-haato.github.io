@@ -1,14 +1,32 @@
 /* Slideshow container */
-.slideshow_container {
+.slideshow-container {
     position: relative;
     width: 100%;
     height: 100%;
     margin: auto;
 }
 
+.slideshow-container .bar{
+    padding: 5px;
+    text-align: center;
+    background-color: black;
+    opacity: 1;
+    margin: 10px 20%;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 780px) {
+    .slideshow-container .bar{
+        padding: 3px;
+        text-align: center;
+        background-color: black;
+        opacity: 1;
+        border-radius: 7px;
+    }
+}
 
 
-.slideshow_container .dot {
+.slideshow-container .bar .dot{
     height: 15px;
     width: 15px;
     border-radius: 50%;
@@ -18,8 +36,8 @@
     animation: 650ms ease-out;
 }
 
-@media screen and (max-width: 780px) {
-    .slideshow_container .dot {
+@media screen and (max-width: 780px){
+    .slideshow-container .bar .dot{
         height: 12px;
         width: 12px;
         border-radius: 50%;
@@ -30,32 +48,15 @@
     }
 }
 
-.slideshow_container .dot:hover {
+.slideshow-container .bar .dot:hover {
     opacity: 0.85;
     transform: scale(1.2);
     cursor: pointer;
 }
 
-.slideshow_container .dot-bar{
-    padding: 5px;
-    text-align: center;
-    background-color: black;
-    opacity: 1;
-    margin: 10px 20%;
-    border-radius: 10px;
-}
 
-@media screen and (max-width: 780px) {
-.slideshow_container .dot-bar{
-    padding: 3px;
-    text-align: center;
-    background-color: black;
-    opacity: 1;
-    border-radius: 7px;
-}
-}
 
-.slider_botton_container {
+.slideshow-container .left-button {
     width: 100%;
     position: absolute;
     top: 50%;
@@ -67,7 +68,7 @@
     opacity: 1;
 }
 
-.slider_botton_container_right {
+.slideshow-container .right-button {
     width: 100%;
     position: absolute;
     top: 50%;
@@ -79,17 +80,17 @@
     opacity: 1;
 }
 
-.slider_botton_container_right :hover{
+.slideshow-container .right-button :hover{
     transform: scale(1.05, 1.05);
     cursor: pointer;
 }
 
-.slider_botton_container :hover{
+.slideshow-container .left-button  :hover{
     transform: scale(1.05, 1.05);
     cursor: pointer;
 }
 
-.slider_sides{
+.slideshow-container .slide{
     width: 100%;
     margin: auto;
     text-align: center;

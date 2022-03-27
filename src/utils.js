@@ -42,19 +42,19 @@ export function wrapDivRecursive(args, ... objs){
     if(!args.length)
         return merge(objs);
 
-    var baseArg = args.pop();
-    if(typeof(baseArg)=="string"){
-        baseArg = {className: baseArg};
-    }
+    var arg = args.pop();
+    if(typeof(arg)=="string")
+        arg = {className: arg};
+    else if(!arg.className)
+        arg.className = "";
 
-    if(!baseArg.style)
-        baseArg.style = {};
+    if(!arg.style)
+        arg.style = {};
 
-    if(baseArg.className)
-        objs = <div className={baseArg.className} style={baseArg.style}>{objs}</div>;
-    else
-        objs = <div style={baseArg.style}>{objs}</div>;
+    if(!arg.id)
+        arg.id = "";
 
+    objs = <div id={arg.id} className={arg.className} style={arg.style}>{objs}</div>;
     return wrapDivRecursive(args, objs);
 }
 

@@ -1,6 +1,6 @@
 import "../css/slider.css";
 import Image from "./Image";
-import { getRawNumberAndSuffix, scrolledIntoView, wrapDivStyled} from "../utils";
+import { getRawNumberAndSuffix, scrolledIntoView, wrapDiv, wrapDivStyled} from "../utils";
 import { Mutex } from "async-mutex";
 import ColourRGBA from "../config/colour_rgba";
 
@@ -91,7 +91,7 @@ export default class Slider{
                 {color: dot, background: dot, opacity: i? "0.5": "1"}}
                 onClick={this.callBackJump.bind(this, i)}></span>);
         
-        return wrapDivStyled("dot-bar", {color: bar, background: bar}, dots);
+        return wrapDivStyled("bar", {color: bar, background: bar}, dots);
     }
 
     callBackTimer(){
@@ -155,28 +155,51 @@ export default class Slider{
     get(){
         if(this.period > 0)
             Slider.timers.push(setInterval(this.callBackTimer.bind(this), 1));
-        
-        return(
-            <div style={{width: "100%", height: "100%", position: "static"}}>
-            <div id={this.uid} className="slideshow_container" style={{width: this.width}}>
-                {this.items.map(
-                    function(x, i){
-                        return (
-                            <div id={x.uid} className="slider_sides" 
-                            style={{display: i? "none": "block", margin: "auto"}}> {
-                                <div style={{width: "100%", margin: "auto"}}>
-                                {x.item}</div>
-                            }
-                            </div>
-                        );
+
+        var items = [];
+        for(var i = 0; i < this.items.length; i++){
+            const divArgs = [
+                {
+                    className: "slide", 
+                    style: {
+                        display: i? "none": "block", 
+                        margin: "auto"
+                    }, 
+                    id: this.items[i].uid
+                }, 
+                {
+                    style: {
+                        width: "100%", 
+                        margin: "auto"
                     }
-                )}
-                <div className="slider_botton_container" style={
-                    {width: this.imgWidth}}>{this.getSliderClick(true)}</div>
-                <div className="slider_botton_container_right" style={
-                    {width: this.imgWidth}}>{this.getSliderClick(false)}</div>
-                {this.createDotBar()}
-            </div></div>
-        );
+                }
+            ];
+            items.push(wrapDiv(divArgs, this.items[i].item));
+        }
+
+        const buttonStyle = {width: this.imgWidth};
+        items.push(wrapDivStyled("left-button", buttonStyle, this.getSliderClick(1)));
+        items.push(wrapDivStyled("right-button", buttonStyle, this.getSliderClick(0)));
+        items.push(this.createDotBar());
+
+        const divArgs = [
+            {
+                style:{
+                    width:"100%", 
+                    height:"100%", 
+                    position:"static"
+                }
+            },
+            {
+                id:this.uid, 
+                className:"slideshow-container", 
+                style:{
+                    width: this.width
+                }
+            }
+        ];
+        
+
+        return(wrapDiv(divArgs, items));
     }
 }
