@@ -13,6 +13,7 @@ import Slider from "../modules/slider";
 
 
 export default function PreviousWorksProject1(){
+    window.scrollTo(0, 0);
     return merge(
         createDescription(), 
         createFeatures()

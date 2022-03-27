@@ -1,14 +1,8 @@
-import TitledContainer from "./titled_container";
-import { merge, wrapDiv, wrapDivStyled, wrapDivRecursive} from "../utils";
+import {wrapDiv} from "../utils";
 import "../css/staff_information.css";
-import Slider from "./slider";
 import Column from "./column";
 import Image from "./Image";
 import Border from "../config/border";
-import { Mutex } from "async-mutex";
-import { fadeInExplosive } from "./defaults/entrance_effect";
-import { fadeInRightwards } from "./defaults/entrance_effect";
-import InvertableColumn from "./invertable_columns";
 import ImageLinked from "./Image_linked";
 
 

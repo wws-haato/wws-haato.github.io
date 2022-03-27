@@ -1,6 +1,4 @@
-import "./css/subtitle.css";
 import "./css/footnote.css";
-
 
 export function merge(... objs){
     return (<>{

@@ -3,6 +3,18 @@ import "../css/youtube.css";
 import Border from "../config/border";
 
 export default class Youtube{
+     /**
+     * @param {string} link youtube link
+     */
+    static resolveYoutubeLink(link){
+        link = link.replace("youtu.be", "youtube.com");
+        if(!link.includes("embed")){
+            const index = link.lastIndexOf("/");
+            link = link.substring(0, index).concat(
+                "/embed", link.substring(index, link.length));
+        }
+        return link;
+    }
     constructor(){
         this.width = "100%";
         this.margin =  new Border();
@@ -29,17 +41,7 @@ export default class Youtube{
      * @param {string} link youtube link
      */
     get(link){
-        if(link.includes("youtu.be")){
-            const index = link.indexOf("youtu.be");
-            link = link.substring(0, index).concat(
-                "youtube.com", link.substring(index+"youtu.be".length, link.length));
-        }
-
-        if(!link.includes("embed")){
-            const index = link.lastIndexOf("/");
-            link = link.substring(0, index).concat(
-                "/embed", link.substring(index, link.length));
-        }
+        link = Youtube.resolveYoutubeLink(link);
         <link rel="preload" href={link} as="document"></link>
         return (
             <div className="w3-container" style={{width:this.width, margin: "auto", position: "static"}}>
