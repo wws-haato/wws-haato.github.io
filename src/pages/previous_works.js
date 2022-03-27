@@ -8,6 +8,7 @@ import { fadeInExplosiveLatched, fadeInDelayed } from "../modules/defaults/entra
 import createFootNote from "../footnote";
 import TitledMediaText from "../modules/titled_media_text";
 import Boarder from "../modules/config/border";
+import { wrapLink } from "../utils";
 
 const PreviousWorks= () => {
     //window.scrollTo(0, 0);
@@ -31,7 +32,7 @@ function createTabs(){
   for(var i = 0; i < 2; i++){
     const fig = img.get(preffix+filenames[i]);
     const image = wrapDiv(["thumbnail-container", "button"], projNames[i], fig);
-    cols.insert(i, <a href={link+(i+1).toString()}>{image}</a>);
+    cols.insert(i, wrapLink(link+(i+1).toString(), image));
   }
   
   const title = wrapDivRecursive(["title-container","title"], "Previous Works");

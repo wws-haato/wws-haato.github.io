@@ -59,3 +59,7 @@ export function wrapDivRecursive(args, ... objs){
 
     return wrapDivRecursive(args, objs);
 }
+
+export function wrapLink(link, item){
+    return <a href={link}>{item}</a>
+}
