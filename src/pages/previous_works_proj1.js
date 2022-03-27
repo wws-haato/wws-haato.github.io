@@ -18,9 +18,9 @@ const PreviousWorksProject1 = () => {
     window.scrollTo(0, 0);
     return merge(
         createTopBanner(), 
-        createDetails(), 
-        createDescription(), 
-        createFeatures()
+        createDetails()
+        //createDescription(), 
+        //createFeatures()
     );
 
 }
@@ -61,6 +61,7 @@ function createDetails(){
 
     const dir = "fig/previous_works/proj1/";
     var details = new ProjectDetails();
+    details.setSuptitle("Video");
     details.emplace(ProjectDetails.DUAL);
     details.append("Description", img.get(dir+"desc_img.png"),
         "This project features spot photos all around the world.", 
@@ -72,16 +73,14 @@ function createDetails(){
         "We wanted to emphasize the word \"World-Wide.\"", 
         "We clustered photos continent-wise to show that Haachama's fanbase uniformly distributes \
         over the world, featuring some supportive messages from the corresponding continents.", 
-        "The world wide strongest idol deserves our world wide support!"
+        "The strongest idol deserves our world wide support!"
     );
     details.emplace(ProjectDetails.SINGLE);
-    details.append("title", 0, "a", "b", "c");
 
-    details.emplace(ProjectDetails.DUAL);
-    details.append("title", 0, "a", "b", "c");
-    details.append("title", 0, "a", "b", "c");
-    details.emplace(ProjectDetails.SINGLE);
-    details.append("title", 0, "a", "b", "c");
+    var youtube = new Youtube();
+    youtube.setWidth("65%");
+    youtube.setCorner(Border.ALL, "10px");
+    details.append("Watch on Youtube", youtube.get("https://youtu.be/LLuqBMnfKJY"));
 
     return details.get();
 }

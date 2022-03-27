@@ -3,7 +3,7 @@ import "../css/previous_works.css";
 import { merge, wrapDiv, wrapDivStyled } from "../utils";
 import Column from "./column";
 import {fadeInDelayed, fadeInExplosiveLatched, 
-    fadeInRightwards, fadeInLatched } 
+    fadeInRightwards, fadeInLatched, fadeInExplosive, fadeInExplosiveDelayed } 
 from "./defaults/entrance_effect";
 import InvertableColumn from "./invertable_columns";
 import Slider from "./slider";
@@ -35,10 +35,17 @@ export default class ProjectDetails{
         this.items.push(obj);
     }
 
+    setSuptitle(title){
+        this.title = title;
+    }
+
 
     get(){
         var i = 0;
         var items = [];
+        if(this.title)
+            items.push(fadeInExplosive.get(wrapDiv("suptitle", this.title)));
+
         var cols = new InvertableColumn();
         const classNames = ["left-block", "right-block"];
         for(let duality of this.blockDualities){
@@ -47,13 +54,13 @@ export default class ProjectDetails{
                 var objs = [];
                 const item = this.items[i];
                 if(item.title)
-                    objs.push(wrapDiv("title", item.title));
+                    objs.push(fadeInExplosiveDelayed.get(wrapDiv("title", item.title)));
                 if(item.passages)
                     objs.push(item.passages.map(function(x){
-                        return wrapDiv("passage", x);}));
+                        return fadeInLatched.get(wrapDiv("passage", x));}));
                        
                 if(item.graphic)
-                    objs.push(item.graphic);
+                    objs.push(fadeInExplosiveDelayed.get(item.graphic));
 
                 mergedObjs.push(merge(objs));
             }
