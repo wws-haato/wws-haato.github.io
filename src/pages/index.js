@@ -22,6 +22,7 @@ import createFootNote from "../footnote";
 import { staffInformationLeo, staffInformationZhadar, 
     staffInformationSakazuki, staffInformationAbner, staffInformationSteve} 
 from "../modules/staff_information";
+import Border from '../config/border';
 
 const Home = () => {
     window.scrollTo(0, 0);
@@ -88,6 +89,9 @@ function createContact(){
     slider.append(staffInformationSakazuki);
     slider.append(staffInformationAbner);
     slider.append(staffInformationSteve);
+    slider.setBackgroundColor(0, 0, 0, 1);
+    slider.setCorner(Border.ALL, "20px");
+    //slider.setPadding(Border.ALL, "60px");
 
     slider.setClickWidth("4VW");
     slider.setBarColor(205, 92, 92,1);

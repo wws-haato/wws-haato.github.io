@@ -3,6 +3,7 @@ import Image from "./Image";
 import { getRawNumberAndSuffix, scrolledIntoView, wrapDiv, wrapDivStyled} from "../utils";
 import { Mutex } from "async-mutex";
 import ColourRGBA from "../config/colour_rgba";
+import Border from "../config/border";
 
 
 export default class Slider{
@@ -37,6 +38,22 @@ export default class Slider{
         this.period = -1;
         this.lastAnimatedTime = -1;
         this.uid = Slider.getUniqueId();
+    }
+
+
+    setPadding(i ,val){
+        if(!this.padding)
+            this.padding = new Border();
+
+        this.padding.set(i, val);
+    }
+
+
+    setCorner(i, val){
+        if(!this.corners)
+            this.corners = new Border();
+
+        this.corners.set(i, val);
     }
 
     append(item){
@@ -182,7 +199,7 @@ export default class Slider{
         items.push(wrapDivStyled("right-button", buttonStyle, this.getClick(0)));
         items.push(this.createDotBar());
 
-        const divArgs = [
+        var divArgs = [
             {
                 style:{
                     width:"100%", 
@@ -198,7 +215,19 @@ export default class Slider{
                 }
             }
         ];
-        
+
+        if(this.backgroundColor)
+            divArgs[1].style.background = this.backgroundColor.get();
+
+        if(this.corners)
+            divArgs[1].style.borderRadius = this.corners.get();
+
+        if(this.padding)
+            divArgs[1].style.padding = this.padding.get();
+
+        //if(this.margins)
+            //divArgs[1].style.margin = this.margins.get();
+
 
         return(wrapDiv(divArgs, items));
     }
