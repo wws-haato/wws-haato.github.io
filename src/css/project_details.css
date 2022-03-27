@@ -6,48 +6,84 @@
     text-align: center;
     background-repeat: repeat;
     background-size: 100%;
+    color: white;
+    text-shadow: 2px 2px 4px rgb(39, 38, 38);
 }
 
 .project-details .left-block{
     width: calc(100% - 15px);
-    background-color: rgba(255, 255, 255, 0.65);
-    border-left: 10px solid rgba(65, 105, 255, 0.65);
-    border-top: 10px solid rgba(65, 105, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 10px solid rgba(65, 105, 255, 0.65);
     border-right: 5px solid rgba(65, 105, 255, 0.65);
-    border-bottom: 10px solid rgba(65, 105, 255, 0.65);
     border-radius: 5px 0 0 5px;
     margin-bottom: 5VW;
 }
 
 .project-details .right-block{
     width: calc(100% - 15px);
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 10px solid rgba(65, 105, 255, 0.65);
     border-left: 5px solid rgba(65, 105, 255, 0.65);
-    border-top: 10px solid rgba(65, 105, 255, 0.65);
-    border-right: 10px solid rgba(65, 105, 255, 0.65);
-    border-bottom: 10px solid rgba(65, 105, 255, 0.65);
     border-radius: 0 5px 5px 0;
     margin-bottom: 5VW;
 }
 
 .project-details .single-block{
     width: calc(85% - 20px);
-    background-color: rgba(255, 255, 255, 0.65);
-    border-left: 10px solid rgba(65, 105, 255, 0.65);
-    border-top: 10px solid rgba(65, 105, 255, 0.65);
-    border-right: 10px solid rgba(65, 105, 255, 0.65);
-    border-bottom: 10px solid rgba(65, 105, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 10px solid rgba(65, 105, 255, 0.65);
     border-radius: 5px;
     margin-bottom: 5VW;
     margin-left: 7.5%;
 }
 
 .project-details .title{
-    font-size: 5VW;
+    margin-top: 1VW;
+    font-size: 3.6VW;
     text-align: center;
 }
 
 .project-details .passage{
-    font-size: 3.6VW;
+    font-size: 1.8VW;
     text-align: center;
+    margin-top: 1VW;
+}
+
+
+@media screen and (max-width: 780px) {
+    .project-details .left-block{
+        width: calc(100% - 10px);
+        background-color: rgba(255, 255, 255, 0.65);
+        border-left: 5px solid rgba(65, 105, 255, 0.65);
+        border-top: 5px solid rgba(65, 105, 255, 0.65);
+        border-right: 5px solid rgba(65, 105, 255, 0.65);
+        border-bottom: 2.5px solid rgba(65, 105, 255, 0.65);
+        border-radius: 5px 5px 0 0;
+        margin-bottom: 0VW;
+    }
+
+    .project-details .right-block{
+        width: calc(100% - 10px);
+        background-color: rgba(255, 255, 255, 0.65);
+        border-left: 5px solid rgba(65, 105, 255, 0.65);
+        border-top: 2.5px solid rgba(65, 105, 255, 0.65);
+        border-right: 5px solid rgba(65, 105, 255, 0.65);
+        border-bottom: 5px solid rgba(65, 105, 255, 0.65);
+        border-radius: 0 0 5px 5px;
+        margin-bottom: 5VW;
+    }
+
+    .project-details .single-block{
+        width: calc(85% - 10px);
+        background-color: rgba(255, 255, 255, 0.65);
+        border: 5px solid rgba(65, 105, 255, 0.65);
+        
+        border-radius: 5px;
+        margin-bottom: 5VW;
+        margin-left: 7.5%;
+    }
+
+    .project-details{
+        padding: 5px;
+    }
 }

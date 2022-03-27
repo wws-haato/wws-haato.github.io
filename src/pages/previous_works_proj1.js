@@ -56,10 +56,24 @@ function createTopBanner(){
 
 
 function createDetails(){
+    var img = new Image();
+    img.setWidth("50%");
+
+    const dir = "fig/previous_works/proj1/";
     var details = new ProjectDetails();
     details.emplace(ProjectDetails.DUAL);
-    details.append("title", 0, "a", "b", "c");
-    details.append("title", 0, "a", "b", "c");
+    details.append("Description", img.get(dir+"desc_img.png"),
+        "This project features spot photos all around the world.", 
+        "Participant joins as the local tour guide to show Haachama around their hometown.", 
+        "We PhotoShoped Haachama and haaton with participant's name \
+         written on the wooden board onto the photos."
+    );
+    details.append("Concept of World Wide", img.get(dir+"earth.png"), 
+        "We wanted to emphasize the word \"World-Wide.\"", 
+        "We clustered photos continent-wise to show that Haachama's fanbase uniformly distributes \
+        over the world, featuring some supportive messages from the corresponding continents.", 
+        "The world wide strongest idol deserves our world wide support!"
+    );
     details.emplace(ProjectDetails.SINGLE);
     details.append("title", 0, "a", "b", "c");
 
