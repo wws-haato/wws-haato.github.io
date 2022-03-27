@@ -42,16 +42,6 @@ export function wrapDivStyled(name, style,  ... obj){
     return <div className={name} style={style}>{merge(obj)}</div>;
 }
 
-export function toDivBlock(arg, ... obj){
-    if(!arg.style)
-        arg.style = {};
-
-    if(arg.className)
-        return  <div className={arg.className} style={style}>{merge(obj)}</div>;
-
-    return <div style={style}>{merge(obj)}</div>;
-}
-
 
 export function wrapDivRecursive(args, ... objs){
     if(!args.length)

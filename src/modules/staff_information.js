@@ -72,7 +72,7 @@ export default class StaffInformation extends Column{
         textInfos.push(wrapDiv("passage", this.discord));
         textInfos.push(wrapDiv("title", "Time Zone"));
         textInfos.push(wrapDiv("passage", "UTC"+(this.utc < 0? '':'+')+ this.utc.toString()));
-        textInfos.push(wrapDiv("title", "Langauges"));
+        textInfos.push(wrapDiv("title", "Languages"));
 
         var languages = "";
         for(var i = 0; i < this.languages.length; ++i){
