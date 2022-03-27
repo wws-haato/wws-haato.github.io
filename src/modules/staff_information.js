@@ -4,7 +4,7 @@ import "../css/staff_information.css";
 import Slider from "./slider";
 import Column from "./column";
 import Image from "./Image";
-import Boarder from "./config/border";
+import Border from "../config/border";
 import { Mutex } from "async-mutex";
 import { fadeInExplosive } from "./defaults/entrance_effect";
 import { fadeInRightwards } from "./defaults/entrance_effect";
@@ -56,15 +56,15 @@ export default class StaffInformation extends Column{
         const margin = (100-30*this.socialMedias.length)/2;
 
         socialPfps.setColumnInterval("5px");
-        socialPfps.setMargin(Boarder.LEFT, margin.toString()+'%');
-        socialPfps.setMargin(Boarder.RIGHT, margin.toString()+'%');
+        socialPfps.setMargin(Border.LEFT, margin.toString()+'%');
+        socialPfps.setMargin(Border.RIGHT, margin.toString()+'%');
         var colID = 0;
         for(let sns of this.socialMedias)
             socialPfps.insert(colID++, imgLinked.get(sns.path, sns.link));
         
         img.setWidth("75%");
         img.setCircle();
-        img.setMargin(Boarder.BOTTOM, "5px");
+        img.setMargin(Border.BOTTOM, "5px");
         this.insert(0, img.get(this.imgPath), socialPfps.get());
 
         var textInfos = [];

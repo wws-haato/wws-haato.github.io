@@ -1,6 +1,6 @@
 import "./css/footnote.css";
 import Column from "./modules/column";
-import Boarder from "./modules/config/border";
+import Border from "./config/border";
 import Image from "./modules/Image";
 import InvertableColumn from "./modules/invertable_columns";
 import { wrapDiv } from "./utils";

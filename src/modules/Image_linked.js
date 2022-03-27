@@ -18,7 +18,7 @@ export default class ImageLinked extends Image{
                 <div className="img_hover">
                     <div className="centered_img" style={{width: "100%"}}>
                         <img src={path} alt="..." class="centered_img" 
-                        style={{width: this.width, borderRadius: this.corner.getStyle()}}>
+                        style={{width: this.width, borderRadius: this.corner.get()}}>
                             
                         </img>
                         {wrapDivStyled("water_mark", {width: this.width}, this.waterMark)}

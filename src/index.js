@@ -13,10 +13,10 @@ var rootElement = document.getElementById("root");
 rootElement.style.overflow = "hidden";
 
 ReactDOM.render(
-  <StrictMode>
-    <App/>
-  </StrictMode>,
-  rootElement
+    <StrictMode>
+        <App/>
+    </StrictMode>,
+    rootElement
 );
 
 

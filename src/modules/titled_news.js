@@ -4,7 +4,7 @@ import "../css/titled_news.css";
 import Slider from "./slider";
 import Column from "./column";
 import Image from "./Image";
-import Boarder from "./config/border";
+import Border from "../config/border";
 import { Mutex } from "async-mutex";
 import { fadeInExplosive } from "./defaults/entrance_effect";
 import { fadeInRightwards } from "./defaults/entrance_effect";
@@ -16,8 +16,8 @@ export class MediaNews extends Column{
     static createImageLoader(){
         var img = new Image();
         img.setWidth("100%");
-        img.setMargin(Boarder.TOP, "10px")
-        img.setCorner(Boarder.ALL, "10px");
+        img.setMargin(Border.TOP, "10px")
+        img.setCorner(Border.ALL, "10px");
         return img;
     }
 

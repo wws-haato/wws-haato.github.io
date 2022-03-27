@@ -1,7 +1,6 @@
 import "../css/column.css";
 import { merge, wrapDiv } from "../utils";
-import Boarder from "./config/border";
-import { getRawNumberAndSuffix } from "../utils";
+import Boarder from "../config/border";
 import NumberSuffix from "../config/number_suffix";
 
 export default class Column{
@@ -72,7 +71,7 @@ export default class Column{
             const divArgs = {
                 className: "column", 
                 style: {
-                    margin: colBorder.getStyle(), 
+                    margin: colBorder.get(), 
                     textAlign: this.textAligns[i],
                     width: ratioSuffix.calc('-', colInt)
                 }
@@ -86,8 +85,8 @@ export default class Column{
                 className: "w3-container", 
                 style: {
                     maxWidth: "auto", 
-                    margin: this.margin.getStyle(),
-                    padding: this.padding.getStyle()
+                    margin: this.margin.get(),
+                    padding: this.padding.get()
                 }
             }, 
             {

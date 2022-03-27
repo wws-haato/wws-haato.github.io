@@ -7,7 +7,7 @@ import Youtube from "../modules/youtube";
 import { merge, wrapDiv, wrapDivRecursive, wrapDivStyled } from "../utils";
 import { fadeInExplosiveLatched, fadeInDelayed } from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
-import Boarder from "../modules/config/border";
+import Border from "../config/border";
 import Slider from "../modules/slider";
 
 
@@ -25,7 +25,7 @@ function createDescription(){
     var youtube = new Youtube();
 
     youtube.setWidth("85%");
-    youtube.setCorner(Boarder.ALL, "10px");
+    youtube.setCorner(Border.ALL, "10px");
 
 
     var mediaText = new TitledMediaText();
@@ -51,7 +51,7 @@ function createFeatures(){
     var youtube = new Youtube();
 
     youtube.setWidth("85%");
-    youtube.setCorner(Boarder.ALL, "10px");
+    youtube.setCorner(Border.ALL, "10px");
 
     slider.append(youtube.get("https://youtu.be/aHt-fGy5BYQ"));
     slider.append(youtube.get("https://youtu.be/LLuqBMnfKJY"));

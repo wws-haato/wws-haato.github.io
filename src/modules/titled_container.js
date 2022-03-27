@@ -1,5 +1,5 @@
 import "../css/titled_container.css";
-import ColourRGBA from "./config/colour_rgba";
+import ColourRGBA from "../config/colour_rgba";
 import { merge, wrapDivRecursive, wrapDiv} from "../utils";
 import { fadeInLeftwards, fadeInRightwards } from "./defaults/entrance_effect";
 

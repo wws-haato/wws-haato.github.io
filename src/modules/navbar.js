@@ -1,7 +1,7 @@
 import "../css/navbar.css";
 import Image from "./Image";
 import {NavLink} from "react-router-dom";
-import ColourRGBA from "./config/colour_rgba";
+import ColourRGBA from "../config/colour_rgba";
 
 
 export const NavbarDropdown = () =>{

@@ -1,4 +1,4 @@
-export default class Boarder{
+export default class Border{
     static TOP=0;
     static RIGHT=1;
     static BOTTOM=2; 
@@ -16,13 +16,13 @@ export default class Boarder{
     
     set(edgeType, val){
         this.modified = true;
-        if(edgeType==Boarder.ALL)
+        if(edgeType==Border.ALL)
             this.data.fill(val);
         else
             this.data[edgeType]=val;
     }
 
-    getStyle(){
+    get(){
         var style = "";
         for(let val of this.data)
             style = style.concat(val, " ");

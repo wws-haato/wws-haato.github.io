@@ -3,7 +3,7 @@ import Column from "../modules/column";
 import * as utils from "../utils";
 import Image from "../modules/Image";
 import ImageLinked from "../modules/Image_linked";
-import Boarder from "../modules/config/border";
+import Boarder from "../config/border";
 import Youtube from "../modules/youtube";
 
 import * as entEffect from "../modules/defaults/entrance_effect";

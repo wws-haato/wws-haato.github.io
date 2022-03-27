@@ -2,7 +2,7 @@ import "../css/slider.css";
 import Image from "./Image";
 import { getRawNumberAndSuffix, wrapDivStyled} from "../utils";
 import { Mutex } from "async-mutex";
-import ColourRGBA from "./config/colour_rgba";
+import ColourRGBA from "../config/colour_rgba";
 
 
 export default class Slider{

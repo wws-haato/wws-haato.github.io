@@ -1,13 +1,13 @@
 import "../css/image.css";
 import "../css/youtube.css";
-import Boarder from "./config/border";
+import Border from "../config/border";
 
 export default class Youtube{
     constructor(){
         this.width = "100%";
-        this.margin =  new Boarder();
-        this.padding =  new Boarder();
-        this.corner = new Boarder();
+        this.margin =  new Border();
+        this.padding =  new Border();
+        this.corner = new Border();
 
     }
 
@@ -46,9 +46,9 @@ export default class Youtube{
             <div className="video_wrapper" style={{width:"100%"}}>
                 <iframe style={{
                     width: "100%", 
-                    margin: this.margin.getStyle(), 
-                    padding: this.padding.getStyle(), 
-                    borderRadius: this.corner.getStyle()
+                    margin: this.margin.get(), 
+                    padding: this.padding.get(), 
+                    borderRadius: this.corner.get()
                 }} src={link}></iframe>
             </div>
             </div>

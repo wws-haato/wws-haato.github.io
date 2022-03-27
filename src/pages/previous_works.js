@@ -7,7 +7,7 @@ import { merge, wrapDiv, wrapDivRecursive, wrapDivStyled } from "../utils";
 import { fadeInExplosiveLatched, fadeInDelayed } from "../modules/defaults/entrance_effect";
 import createFootNote from "../footnote";
 import TitledMediaText from "../modules/titled_media_text";
-import Boarder from "../modules/config/border";
+import Border from "../config/border";
 import { wrapLink } from "../utils";
 
 const PreviousWorks= () => {
@@ -23,7 +23,7 @@ function createTabs(){
   var cols = new InvertableColumn();
   var img = new Image();
   img.setWidth("65%");
-  img.setCorner(Boarder.ALL, "15px");
+  img.setCorner(Border.ALL, "15px");
 
   const preffix = "fig/previous_works/";
   const filenames = ["proj1.jpg", "proj2.jpg"];

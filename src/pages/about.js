@@ -2,7 +2,7 @@ import TimeLine from '../modules/timeline';
 import createFootNote from "../footnote";
 import { merge, wrapDiv } from '../utils';
 import Image from '../modules/Image';
-import Boarder from '../modules/config/border';
+import Border from '../config/border';
 import TitledMediaText from '../modules/titled_media_text';
 import TitledContainer from '../modules/titled_container';
 const About = () => {

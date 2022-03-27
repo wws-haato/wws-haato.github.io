@@ -1,12 +1,12 @@
 import "../css/image.css";
-import Boarder from "./config/border";
+import Border from "../config/border";
 
 export default class Image{
     constructor(){
         this.width = "100%";
-        this.margin =  new Boarder();
-        this.padding =  new Boarder();
-        this.corner = new Boarder();
+        this.margin =  new Border();
+        this.padding =  new Border();
+        this.corner = new Border();
         this.id = "";
         this.flip = 1;
 
@@ -26,7 +26,7 @@ export default class Image{
     }
 
     setCircle(){
-        this.setCorner(Boarder.ALL, "50%");
+        this.setCorner(Border.ALL, "50%");
     }
     setWidth(val){
         this.width = val;
@@ -44,11 +44,11 @@ export default class Image{
         const flip = this.flip
         return (
         <div className="w3-container" style = {{maxWidth: "auto",
-            margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
+            margin: this.margin.get(), padding: this.padding.get()}}>
             <div id ={this.getId()} className="centered_img" style={{width: "100%"}}>
                 <img src={path} alt="..." class="centered_img" 
                 style={{width: this.width, transform: "scaleX("+this.flip.toString()+")", 
-                borderRadius: this.corner.getStyle()}} loading="eager"></img>
+                borderRadius: this.corner.get()}} loading="eager"></img>
             </div>
         </div>);
     }
