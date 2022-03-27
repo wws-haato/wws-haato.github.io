@@ -18,6 +18,15 @@ export default class Slider{
     }
 
     static timers = [];
+
+    static fadeIn = {
+        keyframes: [{opacity: 0}, {opacity: 1}], 
+        options:  {duration: 500, fill: 'forwards', easing: 'ease-out'}
+    };
+    static fadeOut = {
+        keyframes: [{opacity: 1}, {opacity: 0}], 
+        options:  {duration: 500, fill: 'forwards', easing: 'ease-out'}
+    };
     constructor(){
         this.imgWidth = "10px";
         this.width = "100%";
@@ -26,6 +35,7 @@ export default class Slider{
         this.barColor = new ColourRGBA(0, 0, 255, 1);
         this.dotColor = new ColourRGBA(255, 255, 255, 1);
         this.period = -1;
+        this.lastAnimatedTime = -1;
         this.uid = Slider.getUniqueId();
     }
 
@@ -82,9 +92,20 @@ export default class Slider{
 
     callBackTimer(){
 		var elem = document.getElementById(this.uid);
+        const now = Date.now();
 		if(!elem || !scrolledIntoView(elem))
 			return; 
 
+        if(this.lastAnimatedTime < 0){
+            //never been animated
+            this.lastAnimatedTime = now
+            return;
+        }
+
+        if(now-this.lastAnimatedTime < this.period)
+            return;
+
+        this.lastAnimatedTime = now;
         this.callBack(1);
     }
 
@@ -103,6 +124,8 @@ export default class Slider{
         currElem.style.display = nextElem.style.display;
         nextElem.style.display = tmp;
 
+        nextElem.animate(Slider.fadeIn.keyframes, Slider.fadeIn.options);
+        currElem.animate(Slider.fadeOut.keyframes, Slider.fadeOut.options);
         let currDot = document.getElementById(currUid+"-dot");
         let nextDot = document.getElementById(nextUid+"-dot");
         if(!currDot || !nextDot)
@@ -127,7 +150,7 @@ export default class Slider{
 
     get(){
         if(this.period > 0)
-            Slider.timers.push(setInterval(this.callBackTimer.bind(this), this.period));
+            Slider.timers.push(setInterval(this.callBackTimer.bind(this), 1));
         
         return(
             <div style={{width: "100%", height: "100%", position: "static"}}>
