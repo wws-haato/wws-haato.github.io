@@ -45,7 +45,7 @@ export default class Youtube{
         <link rel="preload" href={link} as="document"></link>
         return (
             <div className="w3-container" style={{width:this.width, margin: "auto", position: "static"}}>
-            <div className="video_wrapper" style={{width:"100%"}}>
+            <div className="video-wrapper" style={{width:"100%"}}>
                 <iframe style={{
                     width: "100%", 
                     margin: this.margin.get(), 

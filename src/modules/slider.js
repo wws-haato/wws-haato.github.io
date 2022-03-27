@@ -51,6 +51,10 @@ export default class Slider{
         this.width = width;
     }
 
+    setBackgroundColor(r,g,b,a){
+        this.backgroundColor = new ColourRGBA(r, g, b, a);
+    }
+
     setBarColor(r, g, b, a){
         this.barColor = new ColourRGBA(r, g, b, a);
     }
