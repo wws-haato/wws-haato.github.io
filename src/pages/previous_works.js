@@ -1,11 +1,9 @@
 import React from "react";
-import TitledContainer from '../modules/titled_container';
 import InvertableColumn from "../modules/invertable_columns";
 import "../css/previous_works.css";
 import Image from "../modules/Image";
 import { merge, wrapDiv, wrapDivRecursive, wrapDivStyled } from "../utils";
 import { fadeInExplosiveLatched, fadeInDelayed } from "../modules/defaults/entrance_effect";
-import createFootNote from "../footnote";
 import TitledMediaText from "../modules/titled_media_text";
 import Border from "../config/border";
 import { wrapLink } from "../utils";

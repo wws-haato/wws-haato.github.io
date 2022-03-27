@@ -61,3 +61,7 @@ export function wrapDivRecursive(args, ... objs){
 export function wrapLink(link, item){
     return <a href={link}>{item}</a>
 }
+
+export function scrolledIntoView(elem){
+    return elem.getBoundingClientRect().top < window.innerHeight;
+}

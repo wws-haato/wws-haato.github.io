@@ -160,6 +160,7 @@ function createPreviousWorks(){
     slider.setWidth("100%"); 
     slider.setBarColor(205,92,92,1);
     slider.setDotColor(255,255,255,1);
+    slider.setPeriod(3000);
 
     var mediaText = new TitledMediaText();
     mediaText.setTitle("Previous Works");

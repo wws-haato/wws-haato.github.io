@@ -1,6 +1,6 @@
 import "../css/slider.css";
 import Image from "./Image";
-import { getRawNumberAndSuffix, wrapDivStyled} from "../utils";
+import { getRawNumberAndSuffix, scrolledIntoView, wrapDivStyled} from "../utils";
 import { Mutex } from "async-mutex";
 import ColourRGBA from "../config/colour_rgba";
 
@@ -17,6 +17,7 @@ export default class Slider{
         return "slider-uid-"+uid.toString();
     }
 
+    static timers = [];
     constructor(){
         this.imgWidth = "10px";
         this.width = "100%";
@@ -24,10 +25,16 @@ export default class Slider{
         this.activeId = 0;
         this.barColor = new ColourRGBA(0, 0, 255, 1);
         this.dotColor = new ColourRGBA(255, 255, 255, 1);
+        this.period = -1;
+        this.uid = Slider.getUniqueId();
     }
 
     append(item){
         this.items.push({uid: Slider.getUniqueId(), item:item});
+    }
+
+    setPeriod(period){
+        this.period = period;
     }
 
     setWidth(width){
@@ -73,6 +80,15 @@ export default class Slider{
         return wrapDivStyled("dot-bar", {color: bar, background: bar}, dots);
     }
 
+    callBackTimer(){
+		var elem = document.getElementById(this.uid);
+		if(!elem || !scrolledIntoView(elem))
+			return; 
+
+        this.callBack(1);
+    }
+
+
     callBackJump(id){
         let currUid = this.items[this.activeId].uid;
         let nextUid = this.items[id].uid;
@@ -110,9 +126,12 @@ export default class Slider{
 
 
     get(){
+        if(this.period > 0)
+            Slider.timers.push(setInterval(this.callBackTimer.bind(this), this.period));
+        
         return(
             <div style={{width: "100%", height: "100%", position: "static"}}>
-            <div className="slideshow_container" style={{width: this.width}}>
+            <div id={this.uid} className="slideshow_container" style={{width: this.width}}>
                 {this.items.map(
                     function(x, i){
                         return (

@@ -1,8 +1,6 @@
 import "./css/footnote.css";
 import Column from "./modules/column";
-import Border from "./config/border";
 import Image from "./modules/Image";
-import InvertableColumn from "./modules/invertable_columns";
 import { wrapDiv } from "./utils";
 import { fadeIn, fadeInExplosiveDelayed} from "./modules/defaults/entrance_effect";
 
