@@ -1,0 +1,53 @@
+.project-details{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 5VW;
+    text-align: center;
+    background-repeat: repeat;
+    background-size: 100%;
+}
+
+.project-details .left-block{
+    width: calc(100% - 15px);
+    background-color: rgba(255, 255, 255, 0.65);
+    border-left: 10px solid rgba(65, 105, 255, 0.65);
+    border-top: 10px solid rgba(65, 105, 255, 0.65);
+    border-right: 5px solid rgba(65, 105, 255, 0.65);
+    border-bottom: 10px solid rgba(65, 105, 255, 0.65);
+    border-radius: 5px 0 0 5px;
+    margin-bottom: 5VW;
+}
+
+.project-details .right-block{
+    width: calc(100% - 15px);
+    background-color: rgba(255, 255, 255, 0.65);
+    border-left: 5px solid rgba(65, 105, 255, 0.65);
+    border-top: 10px solid rgba(65, 105, 255, 0.65);
+    border-right: 10px solid rgba(65, 105, 255, 0.65);
+    border-bottom: 10px solid rgba(65, 105, 255, 0.65);
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 5VW;
+}
+
+.project-details .single-block{
+    width: calc(85% - 20px);
+    background-color: rgba(255, 255, 255, 0.65);
+    border-left: 10px solid rgba(65, 105, 255, 0.65);
+    border-top: 10px solid rgba(65, 105, 255, 0.65);
+    border-right: 10px solid rgba(65, 105, 255, 0.65);
+    border-bottom: 10px solid rgba(65, 105, 255, 0.65);
+    border-radius: 5px;
+    margin-bottom: 5VW;
+    margin-left: 7.5%;
+}
+
+.project-details .title{
+    font-size: 5VW;
+    text-align: center;
+}
+
+.project-details .passage{
+    font-size: 3.6VW;
+    text-align: center;
+}

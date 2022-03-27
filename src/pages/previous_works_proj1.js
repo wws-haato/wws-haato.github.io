@@ -10,6 +10,7 @@ import TitledMediaText from "../modules/titled_media_text";
 import Border from "../config/border";
 import Slider from "../modules/slider";
 import ProjectTopBanner from "../modules/project_top_banner";
+import ProjectDetails from "../modules/project_details";
 
 
 
@@ -17,6 +18,7 @@ const PreviousWorksProject1 = () => {
     window.scrollTo(0, 0);
     return merge(
         createTopBanner(), 
+        createDetails(), 
         createDescription(), 
         createFeatures()
     );
@@ -50,6 +52,24 @@ function createTopBanner(){
     topBanner.appendTitledPassage("09. 03, 2021", 
         "WWS Haato teamed up to support Haato while on her break");
     return topBanner.get();
+}
+
+
+function createDetails(){
+    var details = new ProjectDetails();
+    details.emplace(ProjectDetails.DUAL);
+    details.append("title", 0, "a", "b", "c");
+    details.append("title", 0, "a", "b", "c");
+    details.emplace(ProjectDetails.SINGLE);
+    details.append("title", 0, "a", "b", "c");
+
+    details.emplace(ProjectDetails.DUAL);
+    details.append("title", 0, "a", "b", "c");
+    details.append("title", 0, "a", "b", "c");
+    details.emplace(ProjectDetails.SINGLE);
+    details.append("title", 0, "a", "b", "c");
+
+    return details.get();
 }
 
 

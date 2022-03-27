@@ -1,5 +1,5 @@
 import Border from "../config/border";
-import "../css/previous_works.css";
+import "../css/project_top_banner.css";
 import { merge, wrapDiv, wrapDivStyled } from "../utils";
 import Column from "./column";
 import {fadeInDelayed, fadeInExplosiveLatched, 
