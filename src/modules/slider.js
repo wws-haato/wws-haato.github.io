@@ -67,7 +67,7 @@ export default class Slider{
         this.imgWidth=width;
     }
 
-    getSliderClick(isLeftwards){
+    getClick(isLeftwards){
         var img = new Image();
         img.setWidth(this.imgWidth);
         img.setFlip(isLeftwards);
@@ -178,8 +178,8 @@ export default class Slider{
         }
 
         const buttonStyle = {width: this.imgWidth};
-        items.push(wrapDivStyled("left-button", buttonStyle, this.getSliderClick(1)));
-        items.push(wrapDivStyled("right-button", buttonStyle, this.getSliderClick(0)));
+        items.push(wrapDivStyled("left-button", buttonStyle, this.getClick(1)));
+        items.push(wrapDivStyled("right-button", buttonStyle, this.getClick(0)));
         items.push(this.createDotBar());
 
         const divArgs = [

@@ -12,7 +12,7 @@ import Slider from "../modules/slider";
 
 
 
-export default function PreviousWorksProject1(){
+const PreviousWorksProject1 = () => {
     window.scrollTo(0, 0);
     return merge(
         createDescription(), 
@@ -20,6 +20,8 @@ export default function PreviousWorksProject1(){
     );
 
 }
+
+export default PreviousWorksProject1;
 
 
 function createDescription(){

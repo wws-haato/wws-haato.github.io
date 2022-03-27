@@ -45,8 +45,8 @@ export default class Image{
         return (
         <div className="w3-container" style = {{maxWidth: "auto",
             margin: this.margin.get(), padding: this.padding.get()}}>
-            <div id ={this.getId()} className="centered_img" style={{width: "100%"}}>
-                <img src={path} alt="..." class="centered_img" 
+            <div id ={this.getId()} className="centered-img" style={{width: "100%"}}>
+                <img src={path} alt="..." class="centered-img" 
                 style={{width: this.width, transform: "scaleX("+this.flip.toString()+")", 
                 borderRadius: this.corner.get()}} loading="eager"></img>
             </div>

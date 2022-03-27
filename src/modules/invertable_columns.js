@@ -1,6 +1,6 @@
 import Border from "../config/border";
 import "../css/invertable_columns.css";
-import { merge, getRawNumberAndSuffix} from "../utils";
+import { merge} from "../utils";
 import ColourRGBA from "../config/colour_rgba";
 
 

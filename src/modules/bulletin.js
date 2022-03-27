@@ -1,8 +1,7 @@
 import "../css/bulletin.css";
 import Column from "./column";
 import Youtube from "./youtube";
-import { isCellphone, merge } from "../utils";
-import Boarder from "./config/border";
+import {merge } from "../utils";
 
 
 export default class Bulletin{

@@ -1,15 +1,10 @@
-.centered_img img{
+.centered-img img{
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
-@keyframes fadeinAnimation {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-.img_hover{
+.img-hover{
     position: relative;
     width: 100%;
     margin-left: auto;
@@ -18,7 +13,7 @@
     cursor: pointer;
 }
 
-.water_mark {
+.img-hover .water-mark {
     transition: .4s ease;
     opacity: 0;
     width: 100%;
@@ -29,12 +24,16 @@
     -ms-transform: translate(-50%, -50%);
     text-align: center;
 }
+
+.img-hover .centered-img {
+    transition: .4s ease;
+}
   
-.img_hover:hover .centered_img{
+.img-hover:hover .centered-img{
     opacity: 0.65;
 }
 
 
-.img_hover:hover .water_mark{
+.img-hover:hover .water-mark{
     opacity: 1;
 }

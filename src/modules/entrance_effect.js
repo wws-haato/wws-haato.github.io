@@ -91,7 +91,7 @@ export class EntranceEffect{
 		const uniqueID = EntranceEffect.getUniqueID(queryID);
 
 		const initStyle = EntranceEffect.allEffects[this.effectID].keyframes[0];
-		return (<><div id ={uniqueID} className="entrance_block" style={initStyle}>{item}</div></>);
+		return (<><div id ={uniqueID} className="entrance-block" style={initStyle}>{item}</div></>);
 	}
 }
 
