@@ -9,12 +9,14 @@ import { fadeInExplosiveLatched, fadeInDelayed } from "../modules/defaults/entra
 import TitledMediaText from "../modules/titled_media_text";
 import Border from "../config/border";
 import Slider from "../modules/slider";
+import ProjectTopBanner from "../modules/project_top_banner";
 
 
 
 const PreviousWorksProject1 = () => {
     window.scrollTo(0, 0);
     return merge(
+        createTopBanner(), 
         createDescription(), 
         createFeatures()
     );
@@ -22,6 +24,33 @@ const PreviousWorksProject1 = () => {
 }
 
 export default PreviousWorksProject1;
+
+
+function createTopBanner(){
+    var img = new Image();
+    var topBanner = new ProjectTopBanner();
+
+    const imgPathPreffix = "fig/previous_works/proj1/";
+    topBanner.append("Supportive Messages", 
+        img.get(imgPathPreffix+"supportive_msgs.png"), 
+        "We collected messages from people in order to show \
+        support to Haachama while on her leave. \
+        Over 200 of supportive messages are received at the end of the project! "
+    );
+    topBanner.append("Spot Photos", 
+        img.get(imgPathPreffix+"camera.png"), 
+        "More then 300 photos taken from 46 countries have been received. \
+        Hope Haachama would enjoy the trip as well!"
+    );
+
+    topBanner.setSuptitle("WWS Haato Project 1");
+    topBanner.setTitle("World Wide Tour Guide");
+    topBanner.appendTitledPassage("03. 03, 2021", 
+        "Haachama went on her journey of self-discovery");
+    topBanner.appendTitledPassage("09. 03, 2021", 
+        "WWS Haato teamed up to support Haato while on her break");
+    return topBanner.get();
+}
 
 
 function createDescription(){

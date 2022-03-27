@@ -132,6 +132,7 @@ export default class Slider{
 
 
     callBackJump(id){
+        const now = Date.now();
         let currUid = this.items[this.activeId].uid;
         let nextUid = this.items[id].uid;
         let currElem = document.getElementById(currUid);
@@ -155,6 +156,8 @@ export default class Slider{
         tmp = currDot.style.opacity;
         currDot.style.opacity = nextDot.style.opacity;
         nextDot.style.opacity = tmp;
+
+        this.lastAnimatedTime = now;
     }
 
     callBack(inc){
@@ -171,7 +174,7 @@ export default class Slider{
 
     get(){
         if(this.period > 0)
-            Slider.timers.push(setInterval(this.callBackTimer.bind(this), 1));
+            Slider.timers.push(setInterval(this.callBackTimer.bind(this), 0.1));
 
         var items = [];
         for(var i = 0; i < this.items.length; i++){

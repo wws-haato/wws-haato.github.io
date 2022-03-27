@@ -37,7 +37,7 @@ export default class Column{
     setMargin(ind, val){
         this.margin.set(ind, val);
     }
-    setPadding(ind ,val){
+    setPadding(ind, val){
         this.padding.set(ind, val);
     }
 
@@ -66,7 +66,6 @@ export default class Column{
         for(var i = 0; i < this.items.length; ++i){
             colBorder.set(Boarder.LEFT, extInt.get());
             colBorder.set(Boarder.RIGHT, extInt.get());
-
             ratioSuffix.setVal(this.ratios[i]);
             const divArgs = {
                 className: "column", 
