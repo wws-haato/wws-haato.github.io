@@ -1,8 +1,8 @@
 import "../css/column.css";
-import { merge } from "../utils";
+import { merge, wrapDiv } from "../utils";
 import Boarder from "./config/border";
 import { getRawNumberAndSuffix } from "../utils";
-
+import NumberSuffix from "../config/number_suffix";
 
 export default class Column{
     constructor(nCols){
@@ -57,31 +57,45 @@ export default class Column{
 
 
     get(){
-        const rawSuf = getRawNumberAndSuffix(this.colInterval);
-        const extInt = (rawSuf.val/2).toString().concat(rawSuf.suffix);
-        const colInt = this.colInterval.concat(')');
-        const preffix = "calc(";
-        let items = this.items;
-        let aligns = this.textAligns;
-        return (
-            <div className="w3-container" style = {{maxWidth: "auto",
-                margin: this.margin.getStyle(), padding: this.padding.getStyle()}}>
-                <div className="row" style={{maxWidth: "auto"}}>{
-                    this.ratios.map(function(r, i){
-                        var colBorder = new Boarder();
-                        colBorder.set(Boarder.LEFT, extInt);
-                        colBorder.set(Boarder.RIGHT, extInt);
-                            
-                        var width = preffix.concat(r.toString(), "% - ");
-                        width+=colInt;
-                        
-                        return (<div className="column" 
-                        style={{width: width, margin: colBorder.getStyle(), 
-                            textAlign: aligns[i]}} key={i}> {items[i]}</div>);
-                    })
-                }</div>
-            </div>
-        );
+        var colInt = new NumberSuffix(this.colInterval);
+        var extInt = colInt.clone();
+        extInt.val/=2;
+
+        var colItems = [];
+        var colBorder = new Boarder();
+        var ratioSuffix = new NumberSuffix("0%");
+        for(var i = 0; i < this.items.length; ++i){
+            colBorder.set(Boarder.LEFT, extInt.get());
+            colBorder.set(Boarder.RIGHT, extInt.get());
+
+            ratioSuffix.setVal(this.ratios[i]);
+            const divArgs = {
+                className: "column", 
+                style: {
+                    margin: colBorder.getStyle(), 
+                    textAlign: this.textAligns[i],
+                    width: ratioSuffix.calc('-', colInt)
+                }
+            };
+
+            colItems.push(wrapDiv(divArgs, this.items[i]));
+        }
+
+        const divArgs = [
+            {
+                className: "w3-container", 
+                style: {
+                    maxWidth: "auto", 
+                    margin: this.margin.getStyle(),
+                    padding: this.padding.getStyle()
+                }
+            }, 
+            {
+                className: "row", 
+                style: {maxWidth: "auto"}
+            }
+        ];
+        return wrapDiv(divArgs, colItems);
     }
 
 }

@@ -10,10 +10,10 @@ import TitledMediaText from "../modules/titled_media_text";
 import Boarder from "../modules/config/border";
 
 const PreviousWorks= () => {
-  window.scrollTo(0, 0);
-  return merge(
-    createTabs()
-  )
+    //window.scrollTo(0, 0);
+    return merge(
+        createTabs()
+    )
 };
   
 export default PreviousWorks;
@@ -30,7 +30,7 @@ function createTabs(){
   const projNames = ["World Wide Tour Guide", "Haato's Birthday Parade"];
   for(var i = 0; i < 2; i++){
     const fig = img.get(preffix+filenames[i]);
-    const image = wrapDivRecursive(["thumbnail-container", "button"], projNames[i], fig);
+    const image = wrapDiv(["thumbnail-container", "button"], projNames[i], fig);
     cols.insert(i, <a href={link+(i+1).toString()}>{image}</a>);
   }
   

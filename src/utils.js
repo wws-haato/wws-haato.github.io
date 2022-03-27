@@ -23,16 +23,13 @@ export function getRawNumberAndSuffix(arg){
         val: parseFloat(arg.substring(0, iend))};
 }
 
-export function isCellphone(){
-    return window.innerWidth < 900;
-}
 
 
 export function wrapDiv(args, ... obj){
     if(typeof(args) == "string")
         return <div className={args}>{merge(obj)}</div>;
 
-    else if(typeof(args)=="Array")
+    else if(args.length)
         return wrapDivRecursive(args, obj);
 
     return <div className={args.className} style = {args.style}>{merge(obj)}</div>;
