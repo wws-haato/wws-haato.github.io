@@ -11,6 +11,7 @@ import PreviousWorksProject1 from "./pages/previous_works_proj1";
 
 var rootElement = document.getElementById("root");
 rootElement.style.overflow = "hidden";
+//rootElement.style.backgroundColor = "black";
 
 ReactDOM.render(
     <StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.render(
 
 
 function App() {
+    document.body.style.backgroundColor = "black";
     const router = (
         <Router>
             <NavbarDropdown />
