@@ -19,7 +19,7 @@
     padding-bottom: 10px;
     margin-left: 10%;
     margin-right: 10%;
-    background-color: rgba(65, 105, 255, 0.4);
+    background-color: rgba(65, 105, 255, 0.2);
     border: 5px solid rgba(255, 255, 255, 0.6);
     border-radius: 5px;
 }
@@ -27,11 +27,12 @@
 .project-details .block-container{
     box-shadow: 2px 2px 3px rgb(39, 38, 38);
     margin-bottom: 5VW;
+    border: 10px solid rgba(65, 105, 255, 0.65);
 }
 
 .project-details .left-block{
     width: calc(100% - 15px);
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
     border: 10px solid rgba(65, 105, 255, 0.65);
     border-right: 5px solid rgba(65, 105, 255, 0.65);
     border-radius: 5px 0 0 5px;
@@ -42,7 +43,7 @@
 
 .project-details .right-block{
     width: calc(100% - 15px);
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
     border: 10px solid rgba(65, 105, 255, 0.65);
     border-left: 5px solid rgba(65, 105, 255, 0.65);
     border-radius: 0 5px 5px 0;
@@ -52,7 +53,7 @@
 
 .project-details .single-block{
     width: calc(85% - 20px);
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
     border: 10px solid rgba(65, 105, 255, 0.65);
     border-radius: 5px;
     margin-bottom: 5VW;
