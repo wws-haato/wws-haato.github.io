@@ -98,6 +98,7 @@
         font-size: 3.6VW;
         text-align: center;
         margin-top: 2.4VW;
+        text-shadow: 2px 2px 3px rgb(0, 0, 0);
     }
 
     .project-details .suptitle{

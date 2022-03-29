@@ -1,13 +1,18 @@
 .footnote {
-    background: royalblue;
+    background: linear-gradient(
+        120deg, rgba(181, 38, 59, 1) 0%, 
+        rgba(60, 112, 185, 1) 100%
+    );
     color: white;
     border-radius: 10px;
     width: 100%;
     text-align: center;
-    padding: 2.4VW 0;
+    padding-top: 2.4VW;
+    padding-bottom: 1.8VW;
     margin: 0;
     margin-bottom: 60px;
     font-size: 3.8VW;
+    text-shadow: 2px 2px 4px rgb(39, 38, 38);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
@@ -22,7 +27,6 @@
 
 .footnote .button{
     font-size: 2VW;
-    margin-top: 1.2VW;
     margin-left: 15%;
     text-align: center;
     color: white;
@@ -38,10 +42,10 @@
 }
 
 .footnote .button:hover{
-    opacity: 0.65;
+    opacity: 0.4;
     cursor: pointer;
     transform: scale(1.2, 1.2);
-    color: royalblue;
+    background-color: aliceblue;
 }
 
 @media screen and (max-width: 780px) {

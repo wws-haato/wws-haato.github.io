@@ -67,6 +67,6 @@ export default class ProjectTopBanner extends Slider{
             objs.push(fadeInDelayed.get(wrapDiv("title", this.title))); 
         
         objs.push(cols.get());
-        return wrapDivStyled("project-top-banner", {marginTop: "20%"}, objs);
+        return wrapDivStyled("project-top-banner", {marginTop: "5%"}, objs);
     }
 }

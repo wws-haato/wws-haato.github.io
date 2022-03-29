@@ -30,14 +30,14 @@ export const NavbarDropdown = () =>{
 
 function createNavbarKeyFrames(resolution){
 	var keyframes = [];
-	var skyBlue = new ColourRGBA(165, 42, 42,1);
+	var skyBlue = new ColourRGBA(181, 38, 59,1);
 	for(var i = 0; i < resolution; ++i){
 		skyBlue.setA(i/resolution);
 		keyframes.push({background: ColourRGBA.getGradient(
 			"90deg", [0, 100], [skyBlue, skyBlue])});
 	}
 		
-	const royalBlue = new ColourRGBA(65,105,255,1);
+	const royalBlue = new ColourRGBA(60, 112, 185,1);
 	resolution*=3;
 	const increment = royalBlue.substract(skyBlue).divide(resolution);
 	for(var i = 0; i < resolution; ++i){

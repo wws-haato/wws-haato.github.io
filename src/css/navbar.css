@@ -35,8 +35,8 @@
     position: absolute;
     
     background: linear-gradient(
-        180deg, rgba(65, 105, 255, 1) 0%, 
-        rgba(165, 42, 42, 1) 100%
+        180deg, rgba(60, 112, 185, 1) 0%, 
+        rgba(181, 38, 59, 1) 100%
     );
     width: 100%;
     height: calc(100VH - 60px);

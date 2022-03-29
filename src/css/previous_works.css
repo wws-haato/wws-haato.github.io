@@ -4,7 +4,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(165, 42, 42, 1);
+    background-color: rgba(181, 38, 59, 1);
     overflow: hidden;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -16,7 +16,7 @@
 }
 
 .page-container .title-container .title{
-    background: rgb(205, 92, 92);
+    background: rgb(229, 49, 76);
     color:white;
     display: inline-block;
     text-align: center;
@@ -39,6 +39,8 @@
 .page-container .thumbnail-container .button{
     transition: 0.5s ease-out;
     font-size: 3VW;
+    color:white;
+    text-align: center;
     background-color: transparent;
 }
 

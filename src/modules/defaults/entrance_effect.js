@@ -18,30 +18,30 @@ export var fadeInLatched = new EntranceEffect(
 
 export var fadeInRightwards = new EntranceEffect(
 	[ { transform: 'translateX(-20%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
-	{ duration: 400, fill: 'forwards'}
+	{ duration: 600, fill: 'forwards'}
 );
 export var fadeInRightwardsDelayed = new EntranceEffect(
 	[ { transform: 'translateX(-20%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
-	{ duration: 400, fill: 'forwards', easing: 'ease-out', delay: 300}
+	{ duration: 600, fill: 'forwards', easing: 'ease-out', delay: 300}
 );
 export var fadeInRightwardsLatched = new EntranceEffect(
 	[ { transform: 'translateX(-20%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
-	{ duration: 400, fill: 'forwards', easing: 'ease-out', delay: 650}
+	{ duration: 600, fill: 'forwards', easing: 'ease-out', delay: 650}
 );
 
 
 
 export var fadeInLeftwards = new EntranceEffect(
 	[ { transform: 'translateX(20%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
-	{ duration: 400, fill: 'forwards'}
+	{ duration: 600, fill: 'forwards'}
 );
 export var fadeInLeftwardsDelayed = new EntranceEffect(
 	[ { transform: 'translateX(20%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
-	{ duration: 400, fill: 'forwards', easing: 'ease-out', delay: 300}
+	{ duration: 600, fill: 'forwards', easing: 'ease-out', delay: 300}
 );
 export var fadeInLeftwardsLatched = new EntranceEffect(
 	[ { transform: 'translateX(20%)', opacity: 0}, { transform: 'translateX(0px)', opacity: 1}], 
-	{ duration: 400, fill: 'forwards', easing: 'ease-out', delay: 650}
+	{ duration: 600, fill: 'forwards', easing: 'ease-out', delay: 650}
 );
 
 

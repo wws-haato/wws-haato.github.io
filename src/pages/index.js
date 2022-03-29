@@ -160,7 +160,7 @@ function createPreviousWorks(){
 
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
-    slider.setBarColor(205,92,92,1);
+    slider.setBarColor(229, 49, 76, 1);
     slider.setDotColor(255,255,255,1);
     slider.setPeriod(3000);
 
@@ -173,8 +173,8 @@ function createPreviousWorks(){
         and will continue to further make supportive projects in 2022 as well! ");
     
     mediaText.setFontColor(255, 255, 255,1);
-    mediaText.setTitleColor(205, 92, 92, 1);
-    mediaText.setBodyColor(165, 42, 42,1);
+    mediaText.setTitleColor(229, 49, 76, 1);
+    mediaText.setBodyColor(181, 38, 59, 1);
     mediaText.setButton("View all", "/#/previous-works");
     mediaText.setRight();
 
