@@ -17,7 +17,7 @@ import ImageLinked from "../modules/Image_linked";
 
 
 
-const PreviousWorksProject1 = () => {
+const PreviousWorksProject2 = () => {
     window.scrollTo(0, 0);
     return merge(
         createTopBanner(), 
@@ -31,28 +31,24 @@ const PreviousWorksProject1 = () => {
 
 }
 
-export default PreviousWorksProject1;
+export default PreviousWorksProject2;
 
 
 function createTopBanner(){
     var img = new Image();
     var topBanner = new ProjectTopBanner();
 
-    const imgPathPreffix = "fig/previous_works/proj1/";
-    topBanner.append("Supportive Messages", 
-        img.get(imgPathPreffix+"supportive_msgs.png"), 
+    const dir = "fig/previous_works/proj2/";
+    topBanner.append("Original Music", 
+        img.get(dir+"supportive_msgs.png"), 
         "We collected messages from people in order to show \
         support to Haachama while on her leave. \
         Over 200 of supportive messages are received at the end of the project! "
     );
-    topBanner.append("Spot Photos", 
-        img.get(imgPathPreffix+"camera.png"), 
-        "More then 300 photos taken from 46 countries have been received. \
-        Hope Haachama would enjoy the trip as well!"
-    );
+    
 
-    topBanner.setSuptitle("WWS Haato Project 1");
-    topBanner.setTitle("World Wide Tour Guide");
+    topBanner.setSuptitle("WWS Haato Project 2");
+    topBanner.setTitle("Haato's Birthday Parade ❤");
     topBanner.appendTitledPassage("03. 03, 2021", 
         "Haachama went on her journey of self-discovery");
     topBanner.appendTitledPassage("09. 03, 2021", 

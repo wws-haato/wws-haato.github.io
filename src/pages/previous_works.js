@@ -26,7 +26,7 @@ function createTabs(){
   const preffix = "fig/previous_works/";
   const filenames = ["proj1.jpg", "proj2.jpg"];
   const link = "#/previous-works/proj";
-  const projNames = ["World Wide Tour Guide", "Haato's Birthday Parade"];
+  const projNames = ["World Wide Tour Guide", "Haato's Birthday Parade ❤"];
   for(var i = 0; i < 2; i++){
     const fig = img.get(preffix+filenames[i]);
     const image = wrapDiv(["thumbnail-container", "button"], projNames[i], fig);
@@ -36,8 +36,3 @@ function createTabs(){
   const title = wrapDivRecursive(["title-container","title"], "Previous Works");
   return wrapDiv("page-container", title, cols.get());
 }
-
-
-export const PreviousWorksProject2= () => {
-  return <div>proj2</div>;
-};

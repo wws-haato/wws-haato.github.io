@@ -1,6 +1,6 @@
 .project-details{
     width: 100%;
-    padding: 20px;
+    padding: 40px;
     box-sizing: border-box;
     font-size: 5VW;
     text-align: center;
@@ -14,20 +14,25 @@
 
 .project-details .suptitle{
     font-size: 5VW;
-    margin: 2.5VW;
+    margin-bottom: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-left: 10%;
     margin-right: 10%;
     background-color: rgba(65, 105, 255, 0.2);
-    border: 5px solid rgba(255, 255, 255, 0.6);
+    border: 10px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
+    overflow:hidden;
+    box-shadow: 2px 2px 3px rgb(39, 38, 38) inset,  2px 2px 3px rgb(39, 38, 38);
+
 }
 
 .project-details .block-container{
+    overflow:hidden;
+    backdrop-filter: blur(3px);
     box-shadow: 2px 2px 3px rgb(39, 38, 38);
     margin-bottom: 5VW;
-    border: 10px solid rgba(65, 105, 255, 0.65);
+    border: 20px solid rgba(65, 105, 255, 0.65);
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 2px 2px 3px rgb(39, 38, 38) inset,  2px 2px 3px rgb(39, 38, 38);
 }
@@ -44,8 +49,10 @@
 
 .project-details .single-block{
     width: calc(85% - 20px);
+    overflow:hidden;
+    backdrop-filter: blur(3px);
     background-color: rgba(255, 255, 255, 0.2);
-    border: 10px solid rgba(65, 105, 255, 0.65);
+    border: 20px solid rgba(65, 105, 255, 0.65);
     border-radius: 5px;
     margin-bottom: 5VW;
     padding-bottom: 10px;
@@ -65,7 +72,7 @@
     margin: 20px;
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
-    backdrop-filter: blur(6px);
+    
 }
 
 .project-details .passage .line{

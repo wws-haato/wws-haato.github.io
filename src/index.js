@@ -5,9 +5,10 @@ import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 import About from './pages/about';
 import { NavbarDropdown } from "./modules/navbar";
 import PreviousWorks from "./pages/previous_works";
-import {PreviousWorksProject2 } from "./pages/previous_works";
+
 import Home from "./pages";
 import PreviousWorksProject1 from "./pages/previous_works_proj1";
+import PreviousWorksProject2 from "./pages/previous_works_proj2";
 
 var rootElement = document.getElementById("root");
 rootElement.style.overflow = "hidden";

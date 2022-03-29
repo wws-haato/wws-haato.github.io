@@ -43,9 +43,12 @@ export default Home;
 function createContact(){
     var titledContainer = new TitledContainer();
     titledContainer.setTitle("Contact");
+    //titledContainer.setFontColor(255, 255, 255,1);
+    //titledContainer.setTitleColor(205, 92, 92, 1);
+    //titledContainer.setBodyColor(165, 42, 42,1);
     titledContainer.setFontColor(255, 255, 255,1);
-    titledContainer.setTitleColor(205, 92, 92, 1);
-    titledContainer.setBodyColor(165, 42, 42,1);
+    titledContainer.setTitleColor(229, 49, 76, 1);
+    titledContainer.setBodyColor(181, 38, 59, 1);
     titledContainer.setRight();
     
     var cols = new InvertableColumn();
@@ -87,9 +90,9 @@ function createContact(){
     slider.append(staffInformationSakazuki);
     slider.append(staffInformationAbner);
     slider.append(staffInformationSteve);
-    
+
     slider.setClickWidth("4VW");
-    slider.setBarColor(205, 92, 92,1);
+    slider.setBarColor(229, 49, 76, 1);
     slider.setDotColor(255,255,255,1);
     slider.setWidth("95%");
 
@@ -103,9 +106,12 @@ function createContact(){
 function createNews(){
     var news = new TitledNews(4);
     news.setTitle("News");
-    news.setFontColor(255, 255, 255,1);
-    news.setTitleColor(135,206,235,1);
-    news.setBodyColor(65,105,255,1);
+    //news.setFontColor(255, 255, 255,1);
+    //news.setTitleColor(135,206,235,1);
+    //news.setBodyColor(65,105,255,1);
+    news.setFontColor(255, 255, 255, 1);
+    news.setTitleColor(70, 132, 219, 1);
+    news.setBodyColor(60, 112, 185, 1);
 
     var img = new Image();
     img.setWidth("50%");
