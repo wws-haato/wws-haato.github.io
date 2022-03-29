@@ -19,6 +19,7 @@
     opacity: 1;
     z-index: 901;
     width: 70%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 @media screen and (max-width: 780px) {
@@ -53,7 +54,7 @@ a:hover, a:visited, a:link, a:active
 
 @media screen and (max-width: 780px) {
     .titled-media-text .passage{
-        font-size: 4VW;
+        font-size: 3VW;
     }
 }
 
@@ -71,7 +72,7 @@ a:hover, a:visited, a:link, a:active
 
 @media screen and (max-width: 780px) {
     .titled-media-text .title{
-        font-size: 5VW;
+        font-size: 4VW;
         margin-top: 20px;
     }
 }

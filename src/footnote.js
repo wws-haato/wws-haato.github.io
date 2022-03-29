@@ -23,8 +23,27 @@ export default function createFootNote(){
     cols.insert(1, createFootNoteBotton("Contact us", 
         "https://discord.gg/HqQ5n2cMBY", "fig/common/icons/contact.png"));
 
-    const title = wrapDiv("", "WWS Haato is a non-profit team");
-    const subtitle = wrapDiv("subtitle", "none of our productions would ever be monetized");
-    return wrapDiv("footnote", fadeIn.get(title), fadeIn.get(subtitle), cols.get());
+    const title = fadeIn.get(wrapDiv("", "WWS Haato is a non-profit team"));
+    const notes = [
+        [
+            "We don't have an official business relationship with Cover Corp. ", 
+            "We are not representing Haachama or other parts of Hololive", 
+        ], 
+        [
+            "All our projects are the works of fans"
+        ], 
+        [
+            "We allow Haachama to use our works for her streams and own projects", 
+            "This may include her own monetization"
+        ]
+    ];
+
+    var passages = [];
+    for(let lines of notes)
+        passages.push(wrapDiv("passage", lines.map(function(x){
+            return wrapDiv("line", x);})));
+    
+    
+    return wrapDiv("footnote", title, passages, cols.get());
        
 }

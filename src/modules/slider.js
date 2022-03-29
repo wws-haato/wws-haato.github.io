@@ -9,7 +9,7 @@ import Border from "../config/border";
 export default class Slider{
     static idMutex = new Mutex();
     static uid = 0;
-    static imgPath = "fig/common/icons/slider_click.webp";
+    static imgPath = "fig/common/icons/slider_click.png";
 
     static getUniqueId(){
         Slider.idMutex.acquire();

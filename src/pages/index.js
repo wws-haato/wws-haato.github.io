@@ -130,17 +130,17 @@ function createCurrentEvent(){
 
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
-    slider.setBarColor(135,206,235,1);
-    slider.setDotColor(255,255,255,1);
+    slider.setBarColor(70, 132, 219, 1);
+    slider.setDotColor(255, 255, 255, 1);
 
     var mediaText = new TitledMediaText();
     mediaText.setTitle("Current Event");
     mediaText.setGraphic("Name of the project", slider.get());
     mediaText.setPassage("Haachama Birthday Project 2022", "[descriptions]");
 
-    mediaText.setFontColor(255, 255, 255,1);
-    mediaText.setTitleColor(135,206,235,1);
-    mediaText.setBodyColor(65,105,255,1);
+    mediaText.setFontColor(255, 255, 255, 1);
+    mediaText.setTitleColor(70, 132, 219, 1);
+    mediaText.setBodyColor(60, 112, 185, 1);
     mediaText.setButton("Join us!", "#current-event");
     mediaText.setLeft();
 
@@ -203,7 +203,7 @@ function createAbout(){
     var waterMark = new Image();
     waterMark.setWidth("35%");
     const yotubeIcon = waterMark.get("fig/common/icons/youtube.png");
-    imgLinked.setWaterMark(utils.merge(yotubeIcon, wrapDiv("haachama-channel-text", "HAACHAMA Ch 赤井はあと")));
+    imgLinked.setWaterMark(utils.merge(yotubeIcon, wrapDiv("haachama-channel-text", "HAACHAMA Ch. Akai Haato")));
 
     const haatoPfp = imgLinked.get("fig/common/haato_pfp.jpg", 
         "https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg");
