@@ -71,8 +71,8 @@ function createTopBanner(){
         "More then 300 photos taken from 46 countries have been received. \
         Hope Haachama would enjoy the trip as well!")
     );
-    
-    topBanner.setGraphic(slider.get());
+
+    topBanner.setGraphic(fadeInExplosiveLatched.get(slider.get()));
     topBanner.setSuptitle("WWS Haato Project 1");
     topBanner.setTitle("World Wide Tour Guide");
     topBanner.appendTitledPassage("03. 03, 2021", 

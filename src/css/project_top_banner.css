@@ -44,6 +44,7 @@
 .project-top-banner .desc-title{
     margin-left: 2.4VW;
     font-size: 2.8VW;
+    margin-bottom: 1.2VW;
 }
 
 
@@ -69,7 +70,6 @@
     .project-top-banner .description{
         font-size: 3.2VW;
         margin-left: 0;
-        margin-bottom: 0;
         text-align: center;
     
     }

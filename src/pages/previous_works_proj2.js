@@ -14,6 +14,7 @@ import ProjectDetails from "../modules/project_details";
 import createFootNote from "../footnote";
 import ColourRGBA from "../config/colour_rgba";
 import ImageLinked from "../modules/Image_linked";
+import Column from "../modules/column";
 
 
 
@@ -22,7 +23,7 @@ const PreviousWorksProject2 = () => {
     return merge(
         createTopBanner(), 
         createVideoDetails(), 
-        createWebsiteDetails(), 
+        createStaffDetails(), 
         wrapDiv({style:{marginTop:"70px"}}, createFootNote())
         
         //createDescription(), 
@@ -36,23 +37,18 @@ export default PreviousWorksProject2;
 
 function createTopBanner(){
     var img = new Image();
+    img.setCorner(Border.ALL, "10px");
     var topBanner = new ProjectTopBanner();
 
     const dir = "fig/previous_works/proj2/";
-    topBanner.append("Original Music", 
-        img.get(dir+"supportive_msgs.png"), 
-        "We collected messages from people in order to show \
-        support to Haachama while on her leave. \
-        Over 200 of supportive messages are received at the end of the project! "
-    );
-    
+    topBanner.setGraphic(img.get(dir+"final_cut.gif"));
 
     topBanner.setSuptitle("WWS Haato Project 2");
     topBanner.setTitle("Haato's Birthday Parade ❤");
-    topBanner.appendTitledPassage("03. 03, 2021", 
-        "Haachama went on her journey of self-discovery");
-    topBanner.appendTitledPassage("09. 03, 2021", 
-        "WWS Haato teamed up to support Haato while on her break");
+    topBanner.appendTitledPassage("Haachama Birthday Project 2021", "");
+    topBanner.appendTitledPassage("", "Original Song");
+    topBanner.appendTitledPassage("", "Original MV");
+    topBanner.appendTitledPassage("", "Over 100 Singing Haatons");
     return topBanner.get();
 }
 
@@ -60,32 +56,19 @@ function createTopBanner(){
 function createVideoDetails(){
     var img = new Image();
     img.setWidth("50%");
-
-    const dir = "fig/previous_works/proj1/";
     var details = new ProjectDetails();
 
-    details.setContourColor(0, 102, 204, 0.6);
+    details.setContourColor(255, 255, 255, 0.2);
     details.setSuptitle("Video");
-    details.setBackgroundImage("fig/background/3c.jpg");
+    details.setBackgroundImage("fig/background/video.jpg");
     details.emplace(ProjectDetails.SINGLE);
 
     var youtube = new Youtube();
     youtube.setWidth("65%");
     youtube.setCorner(Border.ALL, "10px");
-    details.append("Watch on Youtube", youtube.get("https://youtu.be/LLuqBMnfKJY"));
-
-    details.emplace(ProjectDetails.DUAL);
-    details.append("Description", img.get(dir+"desc_img.png"),
-        "This project features spot photos all around the world.", 
-        "Participants joined as the local tour guide to show Haachama around their hometown.", 
-        "We added Haachama and Haaton with the participant's name \
-        onto the photos and alligned them thematically."
-    );
-    details.append("Concept of World Wide", img.get(dir+"earth.png"), 
-        "We wanted to emphasize the word \"World-Wide.\"", 
-        "We clustered photos continent-wise to show that Haachama's fanbase uniformly distributes \
-        over the world, featuring some supportive messages from the corresponding continents.", 
-        "The strongest idol deserves our world wide support!"
+    details.append("Watch on Youtube", 
+        youtube.get("https://youtu.be/aHt-fGy5BYQ"), 
+        "Happy birthday to our lovely Haato, Here's a gift with our blessing for you"
     );
     
 
@@ -93,35 +76,98 @@ function createVideoDetails(){
 }
 
 
-function createWebsiteDetails(){
+function createStaffGraphic(imgPath, ...snsList){
+    var img = new Image();
+    img.setCircle();
+    img.setWidth("25%");
+    img.setMargin(Border.ALL, "10px");
+    const pfp = img.get(imgPath);
+    console.log(snsList);
+
+    var cols = new Column(snsList.length);
+    cols.setRatiosEqually();
+
+    const margin = (100-30*snsList.length)/2;
+    cols.setMargin(Border.LEFT, margin.toString()+"%");
+    cols.setMargin(Border.RIGHT, margin.toString()+"%");
+    cols.setColumnInterval("5px");
+    
+    img = new Image();
+    img.setWidth("50%");
+    var snsIcon = new ImageLinked();
+    snsIcon.setWaterMark(img.get("fig/common/icons/ext_link.png"));
+
+    var colID = 0;
+    for(let sns of snsList)
+        cols.insert(colID++, snsIcon.get(sns.path, sns.link));
+    
+    return merge(pfp, wrapDiv({style:{width:"35%", margin: "5px auto"}}, cols.get()));
+}
+
+function createStaffDetails(){
     var details = new ProjectDetails();
 
     //details.setContourColor(35,93,58, 0.4);
-    details.setContourColor(23, 81, 185, 0.8);
-    details.setSuptitle("Website");
-    details.setBackgroundImage("fig/background/web.jpg");
+    details.setContourColor(255,20,147, 0.6);
+    details.setSuptitle("Staff");
+    details.setBackgroundImage("fig/background/heart.webp");
+
+    //var iconHolder = new Column(3);
+    //iconHolder.setMargin(Boarder.ALL, "20px");
+    
+    const dir = "fig/common/icons/";
+    details.emplace(ProjectDetails.DUAL);
+    details.append("Leo Hsieh",  createStaffGraphic("fig/pfp/leo.jpg", 
+        {path:dir+"twitter.png", link:"https://twitter.com/LeoHsieh57"}
+    ));
+    details.append("Project Initiator",  0, 
+        "Leo Hsieh is the initiator of WWS Haato. ",
+        "He is mainly in charge of website maintainance \
+        and general coordinate affairs. ", 
+        "In this project, he also worked as the lyricist. ");
+
     
     details.emplace(ProjectDetails.DUAL);
-    details.append("Description",  TitledMediaText.createButton(
-        "Visit website", "https://haatotabi.tk/home", 
-        {background: "crimson", marginTop: "10%", marginBottom: "7%"}),
-        "This part of the project is done by MASS and make sure to check out their latest project!", 
-        "We present the supportive messages on the website"
-    );
+    details.append("Zhadar",  createStaffGraphic("fig/pfp/zhadar.jpg", 
+        {path:dir+"twitter.png", link:"https://twitter.com/HaatonZhadi"}, 
+        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HaatonZhadi"}
+    ));
+    details.append("Social Media",  0, 
+        "Zhadar is mainly in charge of social media advertisement. ", 
+        "He also works on the overall coordination of the projects.");
 
-    var img = new ImageLinked();
-    var waterMark = new Image();
-    waterMark.setWidth("50%");
 
-    img.setWidth("25%");
-    img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
-    details.append("MASS", img.get("fig/common/icons/mass.png", 
-        "https://twitter.com/ManoSquad"), 
-        "Manotomo Alliance Support Squad, aka MASS, \
-        is a community focused on supporting Hololivers from around the globe.", 
-    );
+    details.emplace(ProjectDetails.DUAL);
+    details.append("Sakazuki",  createStaffGraphic("fig/pfp/saka.png", 
+        {path:dir+"twitter.png", link:"https://twitter.com/henry4204aaa"}, 
+    ));
+    details.append("Translation Team Lead",  0, 
+        "Sakazuki is the contact person for JP Haatons.", 
+        "He also works on graphic effects and animations");
+
+
+    details.emplace(ProjectDetails.DUAL);
+    details.append("Abner",  createStaffGraphic("fig/pfp/abner.jpg", 
+        {path:dir+"twitter.png", link:"https://twitter.com/UltimateAbrod"}, 
+        {path:dir+"youtube.png", link:"https://www.youtube.com/channel/UCmX9DnmswDnujsDXWnMyOhw"}
+        
+    ));
+    details.append("Animation Team Lead",  0, 
+        "Abner joined the animation team to give technical supports. ", 
+        "Since then he has been the head of the graphic team.");
+
+
+    details.emplace(ProjectDetails.DUAL);
+    details.append("Steve",  createStaffGraphic("fig/pfp/steve.jpg", 
+        {path:dir+"twitter.png", link:"https://twitter.com/le_hoang_dung"}, 
+        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HoangDung007"}
+            
+    ));
+
+    details.append("Discord Server Manager",  0, 
+        "As a means to assist Abner on the video Steve joined the staff team. ", 
+        "Besides his work on graphics he is supervising the WWS discord server.");
     
-
     return details.get();
 }
 

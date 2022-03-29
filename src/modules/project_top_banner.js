@@ -56,7 +56,7 @@ export default class ProjectTopBanner extends InvertableColumn{
     }
 
     get(){
-        this.insert(0, fadeInExplosiveLatched.get(this.graphic));
+        this.insert(0, this.graphic);
         this.insert(1, this.titledPassages.map(function(x){
             var objs = [];
             if(x.title)
