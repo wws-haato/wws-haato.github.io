@@ -5,6 +5,7 @@ import {fadeInDelayed, fadeInExplosiveDelayed,
 } from "./defaults/entrance_effect";
 import { merge, wrapDiv, wrapDivStyled, wrapDivRecursive, wrapLink} from "../utils";
 import "../css/titled_media_text.css";
+import "../css/titled_container.css";
 
 
 export default class TitledMediaText extends TitledContainer{

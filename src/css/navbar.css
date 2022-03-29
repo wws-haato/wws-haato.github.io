@@ -68,7 +68,10 @@
     transition-delay: 500ms;
 }
 
-.button{
+
+
+
+.dropdown .button{
     background-color:transparent; /* Green */
     border: none;
     color: white;
@@ -87,8 +90,13 @@
     padding-right: 0%;
 }
 
-.button:hover{
+.dropdown .button:hover{
     color: royalblue;
     background-color: white;
     opacity: 0.65;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
 }

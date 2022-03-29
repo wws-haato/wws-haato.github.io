@@ -103,6 +103,11 @@
     text-align: center;
 }
 
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
 .intro .passage{
     font-size: 2VW;
     text-align: justify;
