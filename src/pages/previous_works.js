@@ -9,7 +9,7 @@ import Border from "../config/border";
 import { wrapLink } from "../utils";
 
 const PreviousWorks= () => {
-    //window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     return merge(
         createTabs()
     )

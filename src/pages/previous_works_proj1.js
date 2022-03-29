@@ -61,7 +61,21 @@ function createDetails(){
 
     const dir = "fig/previous_works/proj1/";
     var details = new ProjectDetails();
+
+    //news.setFontColor(255, 255, 255,1);
+    //news.setTitleColor(135,206,235,1);
+
+    details.setContourColor(0,102,204, 0.4);
+    //details.setContentColor(135,206,235, 0.6);
     details.setSuptitle("Video");
+    details.setBackgroundImage("fig/background/3c.jpg");
+    details.emplace(ProjectDetails.SINGLE);
+
+    var youtube = new Youtube();
+    youtube.setWidth("65%");
+    youtube.setCorner(Border.ALL, "10px");
+    details.append("Watch on Youtube", youtube.get("https://youtu.be/LLuqBMnfKJY"));
+
     details.emplace(ProjectDetails.DUAL);
     details.append("Description", img.get(dir+"desc_img.png"),
         "This project features spot photos all around the world.", 
@@ -75,6 +89,21 @@ function createDetails(){
         over the world, featuring some supportive messages from the corresponding continents.", 
         "The strongest idol deserves our world wide support!"
     );
+    
+
+    return details.get();
+}
+
+function createDetailsBackup(){
+    var img = new Image();
+    img.setWidth("50%");
+
+    const dir = "fig/previous_works/proj1/";
+    var details = new ProjectDetails();
+    details.setContourColor(181, 38, 59, 0.8);
+    details.setContentColor(245, 245, 220, 0.6);
+    details.setSuptitle("Video");
+    details.setBackgroundImage("fig/background/3c.jpg");
     details.emplace(ProjectDetails.SINGLE);
 
     var youtube = new Youtube();
@@ -82,65 +111,20 @@ function createDetails(){
     youtube.setCorner(Border.ALL, "10px");
     details.append("Watch on Youtube", youtube.get("https://youtu.be/LLuqBMnfKJY"));
 
-    return details.get();
-}
-
-
-function createDescription(){
-    var youtube = new Youtube();
-
-    youtube.setWidth("85%");
-    youtube.setCorner(Border.ALL, "10px");
-
-
-    var mediaText = new TitledMediaText();
-    mediaText.setTitle("World Wide Tour Guide");
-    mediaText.setGraphic("Final Video", youtube.get("https://youtu.be/LLuqBMnfKJY"));
-    mediaText.setPassage("Haachama Supportive Project", 
-        "This project features spot photos all around the world. \
-        Participant joins as the local tour guide to show Haachama around their hometown. ",
-        "We PhotoShoped Haachama and haaton with participant's \
-        name written on the wooden board onto the photos.", 
+    details.emplace(ProjectDetails.DUAL);
+    details.append("Description", img.get(dir+"desc_img.png"),
+        "This project features spot photos all around the world.", 
+        "Participant joins as the local tour guide to show Haachama around their hometown.", 
+        "We PhotoShoped Haachama and haaton with participant's name \
+         written on the wooden board onto the photos."
+    );
+    details.append("Concept of World Wide", img.get(dir+"earth.png"), 
+        "We wanted to emphasize the word \"World-Wide.\"", 
+        "We clustered photos continent-wise to show that Haachama's fanbase uniformly distributes \
+        over the world, featuring some supportive messages from the corresponding continents.", 
+        "The strongest idol deserves our world wide support!"
     );
     
-    mediaText.setFontColor(255, 255, 255,1);
-    mediaText.setTitleColor(135,206,235, 1);
-    mediaText.setBodyColor(65,105,255,1);
-    mediaText.setLeft();
 
-    return wrapDiv({style: {marginTop: "20%"}}, mediaText.get());
-}
-
-function createFeatures(){
-    var slider = new Slider();
-    var youtube = new Youtube();
-
-    youtube.setWidth("85%");
-    youtube.setCorner(Border.ALL, "10px");
-
-    slider.append(youtube.get("https://youtu.be/aHt-fGy5BYQ"));
-    slider.append(youtube.get("https://youtu.be/LLuqBMnfKJY"));
-
-    slider.setClickWidth("4VW");
-    slider.setWidth("100%"); 
-    slider.setBarColor(205,92,92,1);
-    slider.setDotColor(255,255,255,1);
-
-    var mediaText = new TitledMediaText();
-    mediaText.setTitle("Features");
-    mediaText.setGraphic("Watch on YouTube", slider.get());
-    mediaText.setPassage("Two Projects with 200+ participants in 2021", 
-        "In the past year, we have been making great efforts to gather as many \
-        fans as we can. We hope to show our largest support for Haachama, \
-        and will continue to further make supportive projects in 2022 as well! ");
-    
-    mediaText.setFontColor(255, 255, 255,1);
-    mediaText.setTitleColor(205, 92, 92, 1);
-    mediaText.setBodyColor(165, 42, 42,1);
-    mediaText.setButton("View all", "/#/previous-works");
-    mediaText.setRight();
-
-    
-
-    return mediaText.get();
+    return details.get();
 }

@@ -26,8 +26,8 @@ export default function createFootNote(){
     const title = fadeIn.get(wrapDiv("", "WWS Haato is a non-profit team"));
     const notes = [
         [
-            "We don't have an official business relationship with Cover Corp. ", 
-            "We are not representing Haachama or other parts of Hololive", 
+            "We do NOT have an official business relationship with Cover Corp. ", 
+            "We are NOT representing Haachama or other parts of Hololive", 
         ], 
         [
             "All our projects are the works of fans"
