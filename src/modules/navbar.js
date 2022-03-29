@@ -9,10 +9,9 @@ export const NavbarDropdown = () =>{
 	img.setWidth("60px");
 
 	return(
-		<>
 		<nav id = "top_bar" className="dropdown">
 			<button id = "menu_icon" className="dropbtn">
-				{img.get("fig/common/menu.png")}
+				{img.get("fig/common/menu_white.png")}
 			</button>
 			<div id="nav_dropdown" className="dropdown-content">
 				<NavLink to="/" activeStyle>
@@ -26,7 +25,6 @@ export const NavbarDropdown = () =>{
 				</NavLink>
 			</div>
 		</nav>
-		</>
 	);
 }
 

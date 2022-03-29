@@ -90,3 +90,24 @@
         font-size: 6VW;
     }
 }
+
+.intro {
+    text-align: center;
+    text-shadow: 0px 0px 2VW #eeff00;
+    color: white;
+    font-style: Georgia;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.intro .title{
+    font-size: 4VW;
+    text-align: center;
+}
+
+.intro .passage{
+    font-size: 2VW;
+    text-align: justify;
+    font-style: Arial;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5VW;
+}

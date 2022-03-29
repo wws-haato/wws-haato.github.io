@@ -6,12 +6,11 @@ import ImageLinked from "../modules/Image_linked";
 import Boarder from "../config/border";
 import Youtube from "../modules/youtube";
 
-import * as entEffect from "../modules/defaults/entrance_effect";
 import "../css/index.css";
 
 import Slider from "../modules/slider";
 import { wrapDiv} from "../utils";
-import { fadeInExplosiveDelayed } from "../modules/defaults/entrance_effect";
+import { fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched, fadeInUpwards, fadeInUpwardsDelayed } from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
 import TitledNews from "../modules/titled_news";
 import { NewsConfig } from "../modules/titled_news";
@@ -22,7 +21,6 @@ import createFootNote from "../footnote";
 import { staffInformationLeo, staffInformationZhadar, 
     staffInformationSakazuki, staffInformationAbner, staffInformationSteve} 
 from "../modules/staff_information";
-import Border from '../config/border';
 
 const Home = () => {
     window.scrollTo(0, 0);
@@ -209,18 +207,19 @@ function createAbout(){
 
     const haatoPfp = imgLinked.get("fig/common/haato_pfp.jpg", 
         "https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg");
-    const formattedAbout = wrapDiv("intro_quote", 
+   
+    const title = wrapDiv("title", "Hello from the WWS Haato community!");
+    const passage = wrapDiv("passage", 
         "WWS Haato team, aka World Wide Support for Haato, \
-        is a non-profit project team for vtuber Akai Haato. "
-    );
-    const formattedWelcome =  wrapDiv("welcome_text", "Hello from the WWS Haato community!");
-    const button = fadeInExplosiveDelayed.get(TitledMediaText.createButton(
-        "About us", "/#/about", {background: "crimson", marginTop: "10%"}));
+        is a non-profit project team for vtuber Akai Haato. ");
+    
+    const button = TitledMediaText.createButton("About us", "/#/about", 
+        {background: "crimson", marginTop: "10%"});
 
-    cols.insert(0, entEffect.fadeInExplosiveDelayed.get(haatoPfp));
-    cols.insert(1, entEffect.fadeInRightwardsLatched.get(formattedAbout), button);
+    cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));
+    cols.insert(1, fadeInDelayed.get(passage), fadeInExplosiveLatched.get(button));
 
-    return utils.merge(entEffect.fadeInUpwardsDelayed.get(formattedWelcome),  cols.get());
+    return wrapDiv("intro", fadeInUpwards.get(title),  cols.get());
 }
 
 
@@ -236,7 +235,7 @@ function createLogoBanner(){
     </div>;
     const logoBanner = <div id="logo_banner" className="logo_banner">
         <div id = "img" className="logo_banner_inner_image">
-        {entEffect.fadeInExplosive.get(bannerImg)}</div></div>;
+        {fadeInExplosive.get(bannerImg)}</div></div>;
 
     return utils.merge(placeHolder, logoBanner);
 }

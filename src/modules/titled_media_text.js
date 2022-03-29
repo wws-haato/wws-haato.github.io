@@ -3,7 +3,7 @@ import InvertableColumn from "./invertable_columns";
 import {fadeInDelayed, fadeInExplosiveDelayed, 
     fadeInLeftwardsLatched, fadeInRightwardsLatched
 } from "./defaults/entrance_effect";
-import { merge, wrapDiv, wrapDivStyled, wrapDivRecursive} from "../utils";
+import { merge, wrapDiv, wrapDivStyled, wrapDivRecursive, wrapLink} from "../utils";
 import "../css/titled_media_text.css";
 
 
@@ -13,9 +13,9 @@ export default class TitledMediaText extends TitledContainer{
     */
     static createButton(text, link, style){
         style = {className:"button", style:style};
-        const button = wrapDivRecursive([{className: "titled-media-text"}, style], text);
+        const button = wrapDiv(["titled-media-text", style], text);
         
-       return <a href={link}>{button}</a>;
+       return wrapLink(link, button);
     }
 
     constructor(isLeft){
