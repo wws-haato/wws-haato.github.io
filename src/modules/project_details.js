@@ -72,6 +72,9 @@ export default class ProjectDetails{
                 if(item.title)
                     objs.push(fadeInExplosiveDelayed.get(wrapDiv("title", item.title)));
                 
+                if(item.graphic)
+                    objs.push(fadeInExplosiveDelayed.get(item.graphic));
+
                 if(item.passages){
                     const lines = item.passages.map(function(x){
                         return fadeInLatched.get(wrapDiv("line", x));});
@@ -84,8 +87,7 @@ export default class ProjectDetails{
                 }
                     
                        
-                if(item.graphic)
-                    objs.push(fadeInExplosiveDelayed.get(item.graphic));
+                
 
                 mergedObjs.push(merge(objs));
             }
@@ -102,8 +104,8 @@ export default class ProjectDetails{
                     cols.insert(j, wrapDiv(args, mergedObjs[j]));
                 }
                     
-
-                items.push(wrapDiv("block-container", cols.get()));
+                args.className = "block-container";
+                items.push(wrapDiv(args, cols.get()));
             }
 
         }

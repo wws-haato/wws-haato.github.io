@@ -11,6 +11,9 @@ import Border from "../config/border";
 import Slider from "../modules/slider";
 import ProjectTopBanner from "../modules/project_top_banner";
 import ProjectDetails from "../modules/project_details";
+import createFootNote from "../footnote";
+import ColourRGBA from "../config/colour_rgba";
+import ImageLinked from "../modules/Image_linked";
 
 
 
@@ -19,7 +22,9 @@ const PreviousWorksProject1 = () => {
     return merge(
         createTopBanner(), 
         createVideoDetails(), 
-        createWebsiteDetails()
+        createWebsiteDetails(), 
+        wrapDiv({style:{marginTop:"10%"}}, createFootNote())
+        
         //createDescription(), 
         //createFeatures()
     );
@@ -76,9 +81,9 @@ function createVideoDetails(){
     details.emplace(ProjectDetails.DUAL);
     details.append("Description", img.get(dir+"desc_img.png"),
         "This project features spot photos all around the world.", 
-        "Participant joins as the local tour guide to show Haachama around their hometown.", 
-        "We PhotoShoped Haachama and haaton with participant's name \
-         written on the wooden board onto the photos."
+        "Participants joined as the local tour guide to show Haachama around their hometown.", 
+        "We added Haachama and Haaton with the participant's name \
+        onto the photos and alligned them thematically."
     );
     details.append("Concept of World Wide", img.get(dir+"earth.png"), 
         "We wanted to emphasize the word \"World-Wide.\"", 
@@ -93,34 +98,30 @@ function createVideoDetails(){
 
 
 function createWebsiteDetails(){
-    var img = new Image();
-    img.setWidth("50%");
-
-    const dir = "fig/previous_works/proj1/";
     var details = new ProjectDetails();
 
     details.setContourColor(35,93,58, 0.4);
     details.setSuptitle("Website");
     details.setBackgroundImage("fig/background/green.png");
-    details.emplace(ProjectDetails.SINGLE);
-
-    var youtube = new Youtube();
-    youtube.setWidth("65%");
-    youtube.setCorner(Border.ALL, "10px");
-    details.append("Watch on Youtube", youtube.get("https://youtu.be/LLuqBMnfKJY"));
-
+    
     details.emplace(ProjectDetails.DUAL);
-    details.append("Description", img.get(dir+"desc_img.png"),
-        "This project features spot photos all around the world.", 
-        "Participant joins as the local tour guide to show Haachama around their hometown.", 
-        "We PhotoShoped Haachama and haaton with participant's name \
-         written on the wooden board onto the photos."
+    details.append("Description",  TitledMediaText.createButton(
+        "Visit website", "https://haatotabi.tk/home", 
+        {background: "crimson", marginTop: "10%", marginBottom: "7%"}),
+        "This part of the project is done by MASS and make sure to check out their latest project!", 
+        "We present the supportive messages on the website"
     );
-    details.append("Concept of World Wide", img.get(dir+"earth.png"), 
-        "We wanted to emphasize the word \"World-Wide.\"", 
-        "We clustered photos continent-wise to show that Haachama's fanbase uniformly distributes \
-        over the world, featuring some supportive messages from the corresponding continents.", 
-        "The strongest idol deserves our world wide support!"
+
+    var img = new ImageLinked();
+    var waterMark = new Image();
+    waterMark.setWidth("50%");
+
+    img.setWidth("25%");
+    img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
+    details.append("MASS", img.get("fig/common/icons/mass.png", 
+        "https://twitter.com/ManoSquad"), 
+        "Manotomo Alliance Support Squad, aka MASS, \
+        is a community focused on supporting Hololivers from around the globe.", 
     );
     
 

@@ -87,10 +87,7 @@ function createContact(){
     slider.append(staffInformationSakazuki);
     slider.append(staffInformationAbner);
     slider.append(staffInformationSteve);
-    //slider.setBackgroundColor(0, 0, 0, 1);
-    //slider.setCorner(Border.ALL, "20px");
-    //slider.setPadding(Border.ALL, "60px");
-
+    
     slider.setClickWidth("4VW");
     slider.setBarColor(205, 92, 92,1);
     slider.setDotColor(255,255,255,1);
