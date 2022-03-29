@@ -14,6 +14,7 @@ import ProjectDetails from "../modules/project_details";
 import createFootNote from "../footnote";
 import ColourRGBA from "../config/colour_rgba";
 import ImageLinked from "../modules/Image_linked";
+import Column from "../modules/column";
 
 
 
@@ -34,23 +35,44 @@ const PreviousWorksProject1 = () => {
 export default PreviousWorksProject1;
 
 
+function createSlide(title, imgPath, passage){
+    var img = new Image();
+    var cols = new Column(2);
+    cols.setRatios(35, 65);
+
+    const titleItem = wrapDiv("subtitle", title);
+    cols.insert(0, img.get(imgPath));
+    cols.insert(1, wrapDiv("passage", passage));
+        
+    return merge(titleItem, cols.get());
+}
+
 function createTopBanner(){
     var img = new Image();
     var topBanner = new ProjectTopBanner();
+    var slider = new Slider();
 
-    const imgPathPreffix = "fig/previous_works/proj1/";
-    topBanner.append("Supportive Messages", 
-        img.get(imgPathPreffix+"supportive_msgs.png"), 
+    slider.setWidth("100%");
+    slider.setBarColor(165, 42, 42, 1);
+    slider.setBackgroundColor(218,165,32,1);
+    slider.setClickWidth("3VW");
+    slider.setPadding(Border.ALL, "10px");
+    slider.setPadding(Border.TOP, "15px");
+    slider.setCorner(Border.ALL, "20px");
+    slider.setPeriod(3000);
+
+    const dir = "fig/previous_works/proj1/";
+    slider.append(createSlide("Supportive Messages", dir+"supportive_msgs.png", 
         "We collected messages from people in order to show \
         support to Haachama while on her leave. \
-        Over 200 of supportive messages are received at the end of the project! "
+        Over 200 of supportive messages are received at the end of the project! ")
     );
-    topBanner.append("Spot Photos", 
-        img.get(imgPathPreffix+"camera.png"), 
+    slider.append(createSlide("Spot Photos", dir+"camera.png", 
         "More then 300 photos taken from 46 countries have been received. \
-        Hope Haachama would enjoy the trip as well!"
+        Hope Haachama would enjoy the trip as well!")
     );
-
+    
+    topBanner.setGraphic(slider.get());
     topBanner.setSuptitle("WWS Haato Project 1");
     topBanner.setTitle("World Wide Tour Guide");
     topBanner.appendTitledPassage("03. 03, 2021", 

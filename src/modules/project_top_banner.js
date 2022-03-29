@@ -9,11 +9,12 @@ import InvertableColumn from "./invertable_columns";
 import Slider from "./slider";
 
 
-export default class ProjectTopBanner extends Slider{
+export default class ProjectTopBanner extends InvertableColumn{
     constructor(){
         super();
         this.titledPassages = [];
-        this.setWidth("100%");
+        this.graphic = 0;
+        /*this.setWidth("100%");
         this.setBarColor(165, 42, 42, 1);
         //this.setBarColor(0, 0, 0, 1);
         this.setBackgroundColor(218,165,32,1);
@@ -21,10 +22,13 @@ export default class ProjectTopBanner extends Slider{
         this.setPadding(Border.ALL, "10px");
         this.setPadding(Border.TOP, "15px");
         this.setCorner(Border.ALL, "20px");
-        this.setPeriod(3000);
+        this.setPeriod(3000);*/
+    }
+    append(a, b, c){
+
     }
 
-    append(title, img, passage){
+    /*append(title, img, passage){
         var cols = new Column(2);
         cols.setRatios(35, 65);
 
@@ -33,6 +37,10 @@ export default class ProjectTopBanner extends Slider{
         cols.insert(1, wrapDiv("passage", passage));
         
         super.append(merge(titleItem, cols.get()));
+    }*/
+
+    setGraphic(graphic){
+        this.graphic = graphic;
     }
 
     setTitle(title){
@@ -48,9 +56,8 @@ export default class ProjectTopBanner extends Slider{
     }
 
     get(){
-        var cols = new InvertableColumn();
-        cols.insert(0, fadeInExplosiveLatched.get(super.get()));
-        cols.insert(1, this.titledPassages.map(function(x){
+        this.insert(0, fadeInExplosiveLatched.get(this.graphic));
+        this.insert(1, this.titledPassages.map(function(x){
             var objs = [];
             if(x.title)
                 objs.push(fadeInLatched.get(wrapDiv("desc-title", x.title)));
@@ -66,7 +73,7 @@ export default class ProjectTopBanner extends Slider{
         if(this.title)
             objs.push(fadeInDelayed.get(wrapDiv("title", this.title))); 
         
-        objs.push(cols.get());
+        objs.push(super.get());
         return wrapDivStyled("project-top-banner", {marginTop: "10%"}, objs);
     }
 }
