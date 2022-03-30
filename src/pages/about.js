@@ -6,16 +6,17 @@ import Border from '../config/border';
 import TitledMediaText from '../modules/titled_media_text';
 import TitledContainer from '../modules/titled_container';
 import { EntranceEffect } from '../modules/entrance_effect';
+import RawParagraph from '../modules/raw_paragraph';
 const About = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
     
-    var json = require('../json/timeline.json');
-    var timeline = new TimeLine(json);
+    //var json = require('../json/timeline.json');
+    //var timeline = new TimeLine(json);
     const App = merge(
         createAboutUs(), 
-        TimeLine.getTitle("Timeline"), 
-        timeline.get(), 
+        //TimeLine.getTitle("Timeline"), 
+        //timeline.get(), 
         createFootNote()
     );
 
@@ -27,7 +28,26 @@ const About = () => {
   
 export default About;
 
+
 function createAboutUs(){
+    var paragraph = new RawParagraph();
+    paragraph.setSuptitle("About Us");
+    paragraph.setTitle("World Wide Support for Haato");
+    paragraph.setPassage(
+        "World Wide Support for Haato, aka WWS Haato, \
+        is a non-profit project team mainly focusing on Haato projects that \
+        gather fans around the world. Our team has been set up since March, 2021, \
+        when Haato started her long break. ", 
+
+        "We have so far produced our first project \"World Wide Tour Guide\" \
+        and second project \"Haato's Birthday Parade\" \
+        will be continuing to make more supportive projects for Haachama in the future."
+    );
+    return paragraph.get();
+}
+
+
+function createAboutUsBackup(){
   var img = new Image();
 
   img.setWidth("50%");

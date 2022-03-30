@@ -174,7 +174,7 @@ export default class Slider{
 
     get(){
         if(this.period > 0)
-            Slider.timers.push(setInterval(this.callBackTimer.bind(this), 0.1));
+            Slider.timers.push(setInterval(this.callBackTimer.bind(this), 10));
 
         var items = [];
         for(var i = 0; i < this.items.length; i++){
@@ -227,9 +227,6 @@ export default class Slider{
 
         if(this.padding)
             divArgs[1].style.padding = this.padding.get();
-
-        //if(this.margins)
-            //divArgs[1].style.margin = this.margins.get();
 
 
         return(wrapDiv(divArgs, items));

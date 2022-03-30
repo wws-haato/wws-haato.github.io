@@ -1,5 +1,5 @@
 import TitledContainer from "./titled_container";
-import { merge, wrapDiv, wrapDivStyled, wrapDivRecursive} from "../utils";
+import { merge, wrapDiv, wrapDivStyled} from "../utils";
 import "../css/titled_news.css";
 import Slider from "./slider";
 import Column from "./column";
