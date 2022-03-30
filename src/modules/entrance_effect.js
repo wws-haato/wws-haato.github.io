@@ -33,6 +33,28 @@ export class EntranceEffect{
 	static stopFlag = false;
 	static stopMutices = [new Mutex(), new Mutex()];
 
+	static timerCallBack(isPrimary){
+		EntranceEffect.stopMutices[isPrimary].acquire();
+		for(let [uid, effID] of EntranceEffect.allQueries[isPrimary]){
+			if(EntranceEffect.stopFlag)
+				break;
+	
+			var elem = document.getElementById(uid);
+			if(!elem)
+				continue;
+	
+			if(isPrimary || scrolledIntoView(elem)){
+				let effect = EntranceEffect.allEffects[effID];
+				elem.animate(effect.keyframes, effect.options);
+				EntranceEffect.allQueries[isPrimary].delete(uid);
+			}
+	
+		}
+	
+		EntranceEffect.stopMutices[isPrimary].runExclusive();
+	
+	}
+
 	static stopAllRequest(){
 		EntranceEffect.stopFlag = true;
 
@@ -66,8 +88,8 @@ export class EntranceEffect{
 
 	
 	static timers = [
-		setInterval(timerCallBack, 1, 0), 
-		setInterval(timerCallBack, 1, 1) 
+		setInterval(EntranceEffect.timerCallBack, 10,  EntranceEffect.PRIMARY), 
+		setInterval(EntranceEffect.timerCallBack, 10, EntranceEffect.SCROLL) 
 	];
 	
 	constructor(keyframes, options){
@@ -77,42 +99,18 @@ export class EntranceEffect{
 	}
 
 	get(... args){
-		if(args.length == 1)
-			args.push(0);
+		if(args.length == 1){
+			args.push(args[0]);
+			args[0] = EntranceEffect.SCROLL;
+		}
 			
 		const uid = EntranceEffect.getUniqueId();
-		EntranceEffect.allQueries[args[1]].set(uid, this.effectID);
+		EntranceEffect.allQueries[args[0]].set(uid, this.effectID);
 
 		const initStyle = EntranceEffect.allEffects[this.effectID].keyframes[0];
-		return <div id ={uid} className="entrance-block" style={initStyle}>{args[0]}</div>;
+		return <div id ={uid} className="entrance-block" style={initStyle}>{args[1]}</div>;
 	}
 }
 
 
-function timerCallBack(isPrimary){
-	console.log('aaaa1');
-	EntranceEffect.stopMutices[isPrimary].acquire();
-	console.log('aaaa2');
-	for(let [uid, effID] of EntranceEffect.allQueries[isPrimary]){
-		console.log('sss');
-		if(EntranceEffect.stopFlag)
-			break;
 
-		console.log('c');
-		var elem = document.getElementById(uid);
-		if(!elem)
-			continue;
-
-		console.log('bbb');
-		if(isPrimary || scrolledIntoView(elem)){
-			console.log('aaa');
-			let effect = EntranceEffect.allEffects[effID];
-			elem.animate(effect.keyframes, effect.options);
-			EntranceEffect.allQueries[isPrimary].delete(uid);
-		}
-
-	}
-	console.log('aaaa3');
-	EntranceEffect.stopMutices[isPrimary].runExclusive();
-	console.log('aaaa4');
-}
