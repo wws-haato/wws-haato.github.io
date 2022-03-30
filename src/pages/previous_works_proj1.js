@@ -109,9 +109,9 @@ function createVideoDetails(){
     );
     details.append("Concept of World Wide", img.get(dir+"earth.png"), 
         "We wanted to emphasize the word \"World-Wide.\"", 
-        "We clustered photos continent-wise to show that Haachama's fanbase uniformly distributes \
-        over the world, featuring some supportive messages from the corresponding continents.", 
-        "The strongest idol deserves our world wide support!"
+        "We clustered photos continent-wise to show that Haachama is \
+        truly a World Wide Idol and has fans everywhere. ", 
+        "In the end of the video we showed supportive messages collected from different continents."
     );
     
 

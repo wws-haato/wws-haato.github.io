@@ -2,7 +2,7 @@ import "./css/footnote.css";
 import Column from "./modules/column";
 import Image from "./modules/Image";
 import { wrapDiv } from "./utils";
-import { fadeIn, fadeInExplosiveDelayed} from "./modules/defaults/entrance_effect";
+import {fadeInDelayed, fadeInExplosive, fadeInExplosiveDelayed} from "./modules/defaults/entrance_effect";
 
 
 function createFootNoteBotton(text, link, imgPath){
@@ -23,7 +23,7 @@ export default function createFootNote(){
     cols.insert(1, createFootNoteBotton("Contact us", 
         "https://discord.gg/HqQ5n2cMBY", "fig/common/icons/contact.png"));
 
-    const title = fadeIn.get(wrapDiv("", "WWS Haato is a non-profit team"));
+    const title = fadeInExplosive.get(wrapDiv("", "WWS Haato is a non-profit team"));
     const notes = [
         [
             "We do NOT have an official business relationship with Cover Corp. ", 
@@ -39,9 +39,15 @@ export default function createFootNote(){
     ];
 
     var passages = [];
-    for(let lines of notes)
-        passages.push(wrapDiv("passage", lines.map(function(x){
-            return wrapDiv("line", x);})));
+    
+    for(let lines of notes){
+        var args = {className: "passage"}; 
+        if(passages.length == 1)
+            args.style = {fontWeight: "bold"};
+            
+        passages.push(wrapDiv(args, lines.map(function(x){
+            return fadeInDelayed.get(wrapDiv("line", x));})));
+    }
     
     
     return wrapDiv("footnote", title, passages, cols.get());
