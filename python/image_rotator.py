@@ -16,21 +16,15 @@ def outputName(fn: str):
 parser = ArgumentParser(description="change color of monochrome pictures")
 parser.add_argument('input', type=inputDir, help='path to input image')
 parser.add_argument('output', type=outputName, help='raw output filename')
-parser.add_argument('rgb', type=float, nargs=3, help='new color (rgb:[0, 255])')
+parser.add_argument('degree', type=float, help='ccw rotate degrees')
 
 
 
 if __name__ == "__main__": 
     args = parser.parse_args()
-    img = Image.open(args.input) 
-    data = np.array(img.convert('RGBA'))  
+    img = Image.open(args.input).rotate(args.degree, Image.NEAREST, expand = 1)
 
-    visible_areas = data[:,:,3] != 0
-    data[:,:,:3][visible_areas] = args.rgb
-
-    img = Image.fromarray(data)
     dir = os.path.dirname(args.input)
     output = os.path.join(dir, args.output)
-    
     img.save(output)
     print('file saved as %s' % output)

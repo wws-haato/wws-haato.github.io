@@ -27,7 +27,9 @@ const Home = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
 
+    var arrow = new ScrollIndicator();
     const App = utils.merge(
+        arrow.get(), 
         createLogoBanner(), 
         createAbout(), 
         createCurrentEvent(), 
@@ -271,3 +273,46 @@ document.addEventListener('scroll', function(e){
     }
 
 })
+
+
+class ScrollIndicator extends Image{
+    static uid = "index-scoll-indicator";
+    static duration = 850;
+    static keyframes = [
+        {transform: 'translateY(-20%)', opacity: 0.65}, 
+        {transform: 'translateY(10%)', opacity: 0}
+    ];
+    static options = {duration: ScrollIndicator.duration, 
+        fill:'forwards', easing: 'ease-out'};
+
+    static timer = 0; 
+    constructor(){
+        super();
+        this.setWidth("50%");
+        this.item = super.get("fig/index/arrow1.png");
+    }
+
+    timerCallBack(){
+        var elem = document.getElementById(ScrollIndicator.uid);
+        if(!elem)
+            return;
+
+        if(utils.isScrolled()){
+            clearInterval(ScrollIndicator.timer);
+            elem.remove();
+        }
+        else
+            elem.animate(ScrollIndicator.keyframes, ScrollIndicator.options);
+    }
+
+    get(){
+        var args = {};
+        args.className="image-container";
+        args.id = ScrollIndicator.uid;
+        args.style = ScrollIndicator.keyframes[1];
+
+        ScrollIndicator.timer = setInterval(this.timerCallBack.bind(this), ScrollIndicator.duration);
+
+        return wrapDiv(["scroll-indicator", args], this.item);
+    }
+}

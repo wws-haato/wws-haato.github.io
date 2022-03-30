@@ -30,8 +30,10 @@ export function wrapDiv(args, ... obj){
 
     else if(args.length)
         return wrapDivRecursive(args, obj);
+    if(!args.id)
+        args.id = {};
 
-    return <div className={args.className} style = {args.style}>{merge(obj)}</div>;
+    return <div id={args.id} className={args.className} style = {args.style}>{merge(obj)}</div>;
 }
 
 export function wrapDivStyled(name, style,  ... obj){
@@ -65,4 +67,9 @@ export function wrapLink(link, item){
 
 export function scrolledIntoView(elem){
     return elem.getBoundingClientRect().top < window.innerHeight;
+}
+
+export function isScrolled(){
+    var root = document.getElementById("root");
+    return root && root.getBoundingClientRect().top < 0;
 }

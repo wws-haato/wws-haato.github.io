@@ -122,3 +122,21 @@ a:hover, a:visited, a:link, a:active
         margin: 3.6VW;
     }
 }
+
+.scroll-indicator{
+    position: fixed;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.scroll-indicator .image-container{
+    position: static;
+    width: 100%;
+}
