@@ -9,6 +9,7 @@ import PreviousWorks from "./pages/previous_works";
 import Home from "./pages";
 import PreviousWorksProject1 from "./pages/previous_works_proj1";
 import PreviousWorksProject2 from "./pages/previous_works_proj2";
+import { merge } from "./utils";
 
 var rootElement = document.getElementById("root");
 rootElement.style.overflow = "hidden";
@@ -22,11 +23,15 @@ ReactDOM.render(
 );
 
 
+
+
 function App() {
     document.body.style.backgroundColor = "black";
+
+    //const pages = merge(prevPages.get(0), prevPages.get(1));
     const router = (
         <Router>
-            <NavbarDropdown />
+            <NavbarDropdown/>
                 <Routes>
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/about' element={<About/>} />
@@ -36,6 +41,6 @@ function App() {
                 </Routes>
         </Router>
     );
+    console.log(router);
     return router;
 }
-

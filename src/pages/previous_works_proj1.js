@@ -4,8 +4,8 @@ import InvertableColumn from "../modules/invertable_columns";
 import "../css/previous_works.css";
 import Image from "../modules/Image";
 import Youtube from "../modules/youtube";
-import { displayAnimationQueries, merge, wrapDiv, wrapDivRecursive, wrapDivStyled } from "../utils";
-import { fadeInExplosiveLatched, fadeInDelayed } from "../modules/defaults/entrance_effect";
+import { displayAnimationQueries, merge, wrapDiv, wrapDivRecursive, wrapDivStyled, wrapLink } from "../utils";
+import { fadeInExplosiveLatched, fadeInDelayed, fadeInExplosive } from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
 import Border from "../config/border";
 import Slider from "../modules/slider";
@@ -16,6 +16,8 @@ import ColourRGBA from "../config/colour_rgba";
 import ImageLinked from "../modules/Image_linked";
 import Column from "../modules/column";
 import { EntranceEffect } from "../modules/entrance_effect";
+import "../css/page_switcher.css";
+import PageSwithcer from "../modules/page_switcher";
 
 
 
@@ -27,6 +29,7 @@ const PreviousWorksProject1 = () => {
         createTopBanner(), 
         createVideoDetails(), 
         createWebsiteDetails(), 
+        createPageSwithcer(), 
         wrapDiv({style:{marginTop:"70px"}}, createFootNote())
     );
 
@@ -37,6 +40,25 @@ const PreviousWorksProject1 = () => {
 }
 
 export default PreviousWorksProject1;
+
+
+function createPageSwithcer(){
+    var img = new Image();
+    img.setWidth("25%");
+    img.setCorner(Border.ALL, "15px");
+    img.setMargin(Border.ALL, "5px");
+
+    var switcher = new PageSwithcer(
+        "/#/previous-works/proj2", 
+        img.get("fig/previous_works/proj2.jpg"), 
+        "►See Haato's Birthday Parade ❤");
+
+    switcher.setBackground(181, 38, 59, 1);
+    return wrapDivStyled("page-switcher", {marginTop: "70px"}, 
+        fadeInExplosive.get(switcher.get()));
+}
+
+
 function createSlide(title, imgPath, passage){
     var img = new Image();
     var cols = new Column(2);
