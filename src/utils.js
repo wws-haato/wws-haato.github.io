@@ -1,4 +1,5 @@
 import "./css/footnote.css";
+import { EntranceEffect } from "./modules/entrance_effect";
 
 export function merge(... objs){
     return (<>{

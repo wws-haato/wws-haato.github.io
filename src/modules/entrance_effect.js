@@ -1,4 +1,5 @@
 import { Mutex } from "async-mutex";
+import { scrolledIntoView } from "../utils";
 
 
 /** internal stuff**/
@@ -21,92 +22,97 @@ export class ProtectedArray extends Array{
 }
 
 
-export class QueryData{
-	constructor(effectID){
-		this.effectID = effectID;
-		this.animated = false;
-	}
-
-	getID(){
-		return this.effectID;
-	}
-
-	isAnimated(){
-		return this.animated;
-	}
-
-	setAnimated(){
-		this.animated = true;
-	}
-
-}
-
 export class EntranceEffect{
+	static idMutex = new Mutex();
+	static uid = 0;
 	static allEffects = new ProtectedArray();
-	static allQueries = new ProtectedArray();
-
-	static getUniqueID(id){
-		return "entrance-eff-"+id.toString();
-	}
-
-	static animateQueries(){
-		const length = EntranceEffect.allQueries.length;
-		for(var i = 0; i < length; i++){
-			const query = EntranceEffect.allQueries[i];
-			if(query.isAnimated())
-				continue;
-			
-			var elem = document.getElementById(EntranceEffect.getUniqueID(i));
-			if(!elem)
-				continue;
-			
-			if(elem.getBoundingClientRect().top < window.innerHeight){
-				EntranceEffect.allQueries[i].setAnimated();
-				const effect = EntranceEffect.allEffects[query.getID()];
-				elem.animate(effect.keyframes, effect.options);
-				break;
-			}
-	
-		}
-
-	}
+	static PRIMARY = 1;
+	static SCROLL = 0;
+	static allQueries = [new Map(), new Map()];
 
 	static stopFlag = false;
-	static timer = setInterval(EntranceEffect.animatePrimaryElements, 0.1);
-	static animatePrimaryElements(){
-		if(EntranceEffect.stopFlag)
-			clearInterval(EntranceEffect.timer);
-		else
-			EntranceEffect.animateQueries();
+	static stopMutices = [new Mutex(), new Mutex()];
+
+	static stopAllRequest(){
+		EntranceEffect.stopFlag = true;
+
+		//wait until callback ended
+		EntranceEffect.stopMutices[1].acquire();
+		EntranceEffect.stopMutices[0].acquire();
+
+		EntranceEffect.allQueries[1].clear();
+		EntranceEffect.allQueries[0].clear();
+
+		EntranceEffect.stopMutices[1].runExclusive();
+		EntranceEffect.stopMutices[0].runExclusive();
+
 	}
 
+	static startAllRequest(){
+		EntranceEffect.stopFlag = false;
+	}
+
+	static debug(){
+		console.log("primary:\t"+EntranceEffect.allQueries[1].size.toString());
+		console.log("scroll:\t"+EntranceEffect.allQueries[0].size.toString());
+	}
+
+	static getUniqueId(){
+        EntranceEffect.idMutex.acquire();
+        const uid = EntranceEffect.uid++;
+        EntranceEffect.idMutex.runExclusive();
+        return "entrance-query-"+uid.toString();
+    }
+
+	
+	static timers = [
+		setInterval(timerCallBack, 1, 0), 
+		setInterval(timerCallBack, 1, 1) 
+	];
+	
 	constructor(keyframes, options){
 		this.effectID = EntranceEffect.allEffects.append(
 			{keyframes: keyframes, options: options});
 		
 	}
 
-	get(item){
-		const queryID = EntranceEffect.allQueries.append(new QueryData(this.effectID));
-		const uniqueID = EntranceEffect.getUniqueID(queryID);
+	get(... args){
+		if(args.length == 1)
+			args.push(0);
+			
+		const uid = EntranceEffect.getUniqueId();
+		EntranceEffect.allQueries[args[1]].set(uid, this.effectID);
 
 		const initStyle = EntranceEffect.allEffects[this.effectID].keyframes[0];
-		return (<><div id ={uniqueID} className="entrance-block" style={initStyle}>{item}</div></>);
+		return <div id ={uid} className="entrance-block" style={initStyle}>{args[0]}</div>;
 	}
 }
 
 
-document.addEventListener('scroll', function(e){
-	EntranceEffect.stopFlag = true;
-	EntranceEffect.animateQueries();
-		
-})
+function timerCallBack(isPrimary){
+	console.log('aaaa1');
+	EntranceEffect.stopMutices[isPrimary].acquire();
+	console.log('aaaa2');
+	for(let [uid, effID] of EntranceEffect.allQueries[isPrimary]){
+		console.log('sss');
+		if(EntranceEffect.stopFlag)
+			break;
 
+		console.log('c');
+		var elem = document.getElementById(uid);
+		if(!elem)
+			continue;
 
-document.addEventListener('click', function(event){
-	if(!event.target.matches(".button"))
-		return;
+		console.log('bbb');
+		if(isPrimary || scrolledIntoView(elem)){
+			console.log('aaa');
+			let effect = EntranceEffect.allEffects[effID];
+			elem.animate(effect.keyframes, effect.options);
+			EntranceEffect.allQueries[isPrimary].delete(uid);
+		}
 
-	EntranceEffect.stopFlag = false;
-	EntranceEffect.timer = setInterval(EntranceEffect.animatePrimaryElements, 0.1);
-})
+	}
+	console.log('aaaa3');
+	EntranceEffect.stopMutices[isPrimary].runExclusive();
+	console.log('aaaa4');
+}

@@ -1,22 +1,28 @@
 import TimeLine from '../modules/timeline';
 import createFootNote from "../footnote";
-import { merge, wrapDiv } from '../utils';
+import { merge, wrapDiv, displayAnimationQueries } from '../utils';
 import Image from '../modules/Image';
 import Border from '../config/border';
 import TitledMediaText from '../modules/titled_media_text';
 import TitledContainer from '../modules/titled_container';
+import { EntranceEffect } from '../modules/entrance_effect';
 const About = () => {
-  window.scrollTo(0, 0);
-  var json = require('../json/timeline.json');
-  var timeline = new TimeLine(json);
-  return (
-    merge(
-      createAboutUs(), 
-      TimeLine.getTitle("Timeline"), 
-      timeline.get(), 
-      createFootNote()
-    )
-  );
+    EntranceEffect.stopAllRequest();
+    window.scrollTo(0, 0);
+    
+    var json = require('../json/timeline.json');
+    var timeline = new TimeLine(json);
+    const App = merge(
+        createAboutUs(), 
+        TimeLine.getTitle("Timeline"), 
+        timeline.get(), 
+        createFootNote()
+    );
+
+    EntranceEffect.startAllRequest();
+    EntranceEffect.debug();
+    
+    return App;
 };
   
 export default About;

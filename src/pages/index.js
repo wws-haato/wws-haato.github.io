@@ -21,10 +21,13 @@ import createFootNote from "../footnote";
 import { staffInformationLeo, staffInformationZhadar, 
     staffInformationSakazuki, staffInformationAbner, staffInformationSteve} 
 from "../modules/staff_information";
+import { EntranceEffect } from '../modules/entrance_effect';
 
 const Home = () => {
+    EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
-    return utils.merge(
+
+    const App = utils.merge(
         createLogoBanner(), 
         createAbout(), 
         createCurrentEvent(), 
@@ -33,6 +36,11 @@ const Home = () => {
         createContact(), 
         createFootNote()
     );
+
+    EntranceEffect.startAllRequest();
+    EntranceEffect.debug();
+    
+    return App;
 }
   
 export default Home;

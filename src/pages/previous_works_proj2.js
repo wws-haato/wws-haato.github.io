@@ -4,7 +4,7 @@ import InvertableColumn from "../modules/invertable_columns";
 import "../css/previous_works.css";
 import Image from "../modules/Image";
 import Youtube from "../modules/youtube";
-import { merge, wrapDiv, wrapDivRecursive, wrapDivStyled } from "../utils";
+import { displayAnimationQueries, merge, wrapDiv, wrapDivRecursive, wrapDivStyled } from "../utils";
 import { fadeInExplosiveLatched, fadeInDelayed } from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
 import Border from "../config/border";
@@ -15,21 +15,25 @@ import createFootNote from "../footnote";
 import ColourRGBA from "../config/colour_rgba";
 import ImageLinked from "../modules/Image_linked";
 import Column from "../modules/column";
+import { EntranceEffect } from "../modules/entrance_effect";
 
 
 
 const PreviousWorksProject2 = () => {
+    EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
-    return merge(
+
+    const App = merge(
         createTopBanner(), 
         createVideoDetails(), 
         createStaffDetails(), 
         wrapDiv({style:{marginTop:"70px"}}, createFootNote())
-        
-        //createDescription(), 
-        //createFeatures()
-    );
 
+    );
+    EntranceEffect.startAllRequest();
+    EntranceEffect.debug();
+    
+    return App;
 }
 
 export default PreviousWorksProject2;
@@ -82,7 +86,6 @@ function createStaffGraphic(imgPath, ...snsList){
     img.setWidth("25%");
     img.setMargin(Border.ALL, "10px");
     const pfp = img.get(imgPath);
-    console.log(snsList);
 
     var cols = new Column(snsList.length);
     cols.setRatiosEqually();
