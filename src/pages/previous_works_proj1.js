@@ -14,9 +14,10 @@ import ImageLinked from "../modules/Image_linked";
 import Column from "../modules/column";
 import PageSwithcer from "../modules/page_switcher";
 import articlesProject1 from "../articles/previous_works_proj1";
+import articlesProject2 from "../articles/previous_works_proj2";
 
 import { EntranceEffect } from "../modules/entrance_effect";
-import {merge, wrapDiv, wrapDivStyled} from "../utils";
+import {merge, wrapDiv, wrapDivStyled, wrapLanguages} from "../utils";
 import {fadeInExplosiveLatched, fadeInExplosive } from "../modules/defaults/entrance_effect";
 
 
@@ -45,13 +46,13 @@ export default PreviousWorksProject1;
 function createPageSwithcer(){
     var img = new Image();
     img.setWidth("25%");
-    img.setCorner(Border.ALL, "15px");
+    img.setCorner(Border.ALL, "2.5px");
     img.setMargin(Border.ALL, "5px");
 
     var switcher = new PageSwithcer(
         "/#/previous-works/proj2", 
         img.get("fig/previous_works/proj2.jpg"), 
-        "►See Haato's Birthday Parade ❤");
+        wrapLanguages(articlesProject2[0].title));
 
     switcher.setBackground(181, 38, 59, 1);
     return wrapDivStyled("page-switcher", {marginTop: "70px"}, 
@@ -59,20 +60,24 @@ function createPageSwithcer(){
 }
 
 
-function createSlide(title, imgPath, passage){
+function createSlide(title, imgPath, lines){
     var img = new Image();
     var cols = new Column(2);
     cols.setRatios(35, 65);
 
-    const titleItem = wrapDiv("subtitle", title);
+    const titleItem = wrapDiv("title", wrapLanguages(title));
     cols.insert(0, img.get(imgPath));
-    cols.insert(1, wrapDiv("passage", passage));
-        
-    return merge(titleItem, cols.get());
+
+    var wrapLines = lines.map(function(x){
+        return wrapDiv("line", wrapLanguages(x));});
+
+    cols.insert(1, wrapLines.shift());
+    
+    
+    return wrapDiv("passage", titleItem, cols.get(), wrapLines);
 }
 
 function createTopBanner(){
-    var img = new Image();
     var topBanner = new ProjectTopBanner();
     var slider = new Slider();
 
@@ -86,15 +91,15 @@ function createTopBanner(){
     slider.setPeriod(3000);
 
     const dir = "fig/previous_works/proj1/";
-    slider.append(createSlide("Supportive Messages", dir+"supportive_msgs.png", 
-        "We collected messages from people in order to show \
-        support to Haachama while on her leave. \
-        Over 200 of supportive messages are received at the end of the project! ")
-    );
-    slider.append(createSlide("Spot Photos", dir+"camera.png", 
-        "More then 300 photos taken from 46 countries have been received. \
-        Hope Haachama would enjoy the trip as well!")
-    );
+    var i = 0;
+    const imgPaths = ["supportive_msgs.png", "camera.png"];
+    for(let slide of articlesProject1[0].slider){
+        slider.append(createSlide(slide.title, 
+            dir+imgPaths[i++], slide.lines));
+    }
+
+    
+    
 
     topBanner.setGraphic(fadeInExplosiveLatched.get(slider.get()));
     let topBannerTexts = articlesProject1[0];

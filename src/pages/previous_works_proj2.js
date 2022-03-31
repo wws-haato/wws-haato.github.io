@@ -1,26 +1,23 @@
-import React from "react";
-import TitledContainer from '../modules/titled_container';
-import InvertableColumn from "../modules/invertable_columns";
+import "../css/page_switcher.css";
 import "../css/previous_works.css";
+
 import Image from "../modules/Image";
 import Youtube from "../modules/youtube";
-import { displayAnimationQueries, merge, wrapDiv, wrapDivRecursive, wrapDivStyled, wrapLanguages } from "../utils";
-import { fadeInExplosiveLatched, fadeInDelayed, fadeInExplosive } from "../modules/defaults/entrance_effect";
-import TitledMediaText from "../modules/titled_media_text";
+
 import Border from "../config/border";
-import Slider from "../modules/slider";
 import ProjectTopBanner from "../modules/project_top_banner";
 import ProjectDetails from "../modules/project_details";
 import createFootNote from "../footnote";
-import ColourRGBA from "../config/colour_rgba";
 import ImageLinked from "../modules/Image_linked";
 import Column from "../modules/column";
-import { EntranceEffect } from "../modules/entrance_effect";
-import PageSwithcer from "../modules/page_switcher";
-import "../css/page_switcher.css";
 
+import { EntranceEffect } from "../modules/entrance_effect";
+import {fadeInExplosive } from "../modules/defaults/entrance_effect";
+import {merge, wrapDiv,wrapDivStyled, wrapLanguages, } from "../utils";
+
+import PageSwithcer from "../modules/page_switcher";
+import articlesProject1 from "../articles/previous_works_proj1";
 import articlesProject2 from "../articles/previous_works_proj2";
-import LanguageSwitch from "../modules/language_switch";
 
 
 
@@ -55,10 +52,6 @@ function createTopBanner(){
     topBanner.setSuptitle(topBannerTexts.suptitle);
     topBanner.setTitle(topBannerTexts.title);
     topBanner.setPassage(topBannerTexts.passage);
-    //topBanner.appendTitledPassage("Haachama Birthday Project 2021", "");
-    //topBanner.appendTitledPassage("", "Original Song");
-    //topBanner.appendTitledPassage("", "Original MV");
-    //topBanner.appendTitledPassage("", "Over 100 Singing Haatons");
     return topBanner.get();
 }
 
@@ -66,13 +59,13 @@ function createTopBanner(){
 function createPageSwithcer(){
     var img = new Image();
     img.setWidth("25%");
-    img.setCorner(Border.ALL, "15px");
+    img.setCorner(Border.ALL, "2.5px");
     img.setMargin(Border.ALL, "5px");
 
     var switcher = new PageSwithcer(
         "/#/previous-works/proj1", 
         img.get("fig/previous_works/proj1.jpg"), 
-        "►See World Wide Tour Guide");
+        wrapLanguages(articlesProject1[0].title));
 
     switcher.setBackground(181, 38, 59, 1);
     return wrapDivStyled("page-switcher", {marginTop: "70px"}, 
@@ -165,42 +158,5 @@ function createStaffDetails(){
 
     }
     
-    return details.get();
-}
-
-
-
-function createDetailsBackup(){
-    var img = new Image();
-    img.setWidth("50%");
-
-    const dir = "fig/previous_works/proj1/";
-    var details = new ProjectDetails();
-    details.setContourColor(181, 38, 59, 0.8);
-    details.setContentColor(245, 245, 220, 0.6);
-    details.setSuptitle("Video");
-    details.setBackgroundImage("fig/background/3c.jpg");
-    details.emplace(ProjectDetails.SINGLE);
-
-    var youtube = new Youtube();
-    youtube.setWidth("65%");
-    youtube.setCorner(Border.ALL, "10px");
-    details.append("Watch on Youtube", youtube.get("https://youtu.be/LLuqBMnfKJY"));
-
-    details.emplace(ProjectDetails.DUAL);
-    details.append("Description", img.get(dir+"desc_img.png"),
-        "This project features spot photos all around the world.", 
-        "Participant joins as the local tour guide to show Haachama around their hometown.", 
-        "We PhotoShoped Haachama and haaton with participant's name \
-         written on the wooden board onto the photos."
-    );
-    details.append("Concept of World Wide", img.get(dir+"earth.png"), 
-        "We wanted to emphasize the word \"World-Wide.\"", 
-        "We clustered photos continent-wise to show that Haachama's fanbase uniformly distributes \
-        over the world, featuring some supportive messages from the corresponding continents.", 
-        "The strongest idol deserves our world wide support!"
-    );
-    
-
     return details.get();
 }

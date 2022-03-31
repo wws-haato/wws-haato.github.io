@@ -35,6 +35,42 @@ const articlesProject1 = [
                     }
                 ]
             }
+        ], 
+        slider: [
+            {
+                title: {
+                    en: "Supportive Messages", 
+                    jp: "応援メッセージ"
+                },
+                lines: [
+                    {
+                        en: "We collected messages to show support while on Haachama's leave. ", 
+                        jp: "はあちゃまの不在の間、私達は皆から応援メッセージを集めて、\
+                            応援してる思いをはあちゃまに届けたい。"
+                    }, 
+                    {
+                        en: "Over 200 of supportive messages are \
+                            received at the end of the project!", 
+                        jp: "企画の最後に、計200通越えの応援メッセージは寄せ集めました。"
+                    }
+                ]
+            }, 
+            {
+                title: {
+                    en: "Spot Photos", 
+                    jp: "スポットの写真"
+                },
+                lines: [
+                    {
+                        en: "More then 300 photos taken from 46 countries have been received.", 
+                        jp: "46ヶ国から撮影され、300枚以上の写真がコレクトされ、動画に紹介されました。"
+                    }, 
+                    {
+                        en: "Hope Haachama would enjoy the trip as well!", 
+                        jp: "はあちゃまがこの旅に楽しんでいただけると嬉しいです。"
+                    }
+                ]
+            }
         ]
         
     }, 
