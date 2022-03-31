@@ -19,14 +19,22 @@ import { EntranceEffect } from "../modules/entrance_effect";
 import PageSwithcer from "../modules/page_switcher";
 import "../css/page_switcher.css";
 
+import articlesProject2 from "../articles/previous_works_proj2";
+import LanguageSwitch from "../modules/language_switch";
+
 
 
 const PreviousWorksProject2 = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
-
+    var text = new LanguageSwitch({jp:"nihon", en:"muzukashi"});
     const App = merge(
         createTopBanner(), 
+        LanguageSwitch.createToggle(), 
+        text.get(),
+        text.get(),
+        text.get(),
+        text.get(),
         createVideoDetails(), 
         createStaffDetails(), 
         createPageSwithcer(), 
