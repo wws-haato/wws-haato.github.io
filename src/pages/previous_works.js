@@ -4,6 +4,8 @@ import Image from "../modules/Image";
 import { merge, wrapDiv, wrapDivRecursive, wrapLanguages} from "../utils";
 import Border from "../config/border";
 import { wrapLink } from "../utils";
+import articlesProject1 from "../articles/previous_works_proj1";
+import articlesProject2 from "../articles/previous_works_proj2";
 
 
 
@@ -25,10 +27,12 @@ function createTabs(){
     const preffix = "fig/previous_works/";
     const filenames = ["proj1.jpg", "proj2.jpg"];
     const link = "#/previous-works/proj";
-    const projNames = ["World Wide Tour Guide", "Haato's Birthday Parade ❤"];
     for(var i = 0; i < 2; i++){
         const fig = img.get(preffix+filenames[i]);
-        const image = wrapDiv(["thumbnail-container", "button"], projNames[i], fig);
+        const image = wrapDiv(["thumbnail-container", "button"], 
+            i? wrapLanguages(articlesProject1[0].title): 
+            wrapLanguages(articlesProject2[0].title), fig);
+
         cols.insert(i, wrapLink(link+(i+1).toString(), image));
     }
     

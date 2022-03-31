@@ -22,6 +22,7 @@ import { staffInformationLeo, staffInformationZhadar,
     staffInformationSakazuki, staffInformationAbner, staffInformationSteve} 
 from "../modules/staff_information";
 import { EntranceEffect } from '../modules/entrance_effect';
+import articlesHome from '../articles/article_home';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
@@ -35,7 +36,7 @@ const Home = () => {
         createCurrentEvent(), 
         createPreviousWorks(), 
         createNews(), 
-        createContact(), 
+        //createContact(), 
         createFootNote()
     );
 
@@ -53,9 +54,6 @@ export default Home;
 function createContact(){
     var titledContainer = new TitledContainer();
     titledContainer.setTitle("Contact");
-    //titledContainer.setFontColor(255, 255, 255,1);
-    //titledContainer.setTitleColor(205, 92, 92, 1);
-    //titledContainer.setBodyColor(165, 42, 42,1);
     titledContainer.setFontColor(255, 255, 255,1);
     titledContainer.setTitleColor(229, 49, 76, 1);
     titledContainer.setBodyColor(181, 38, 59, 1);
@@ -116,9 +114,7 @@ function createContact(){
 function createNews(){
     var news = new TitledNews(4);
     news.setTitle("News");
-    //news.setFontColor(255, 255, 255,1);
-    //news.setTitleColor(135,206,235,1);
-    //news.setBodyColor(65,105,255,1);
+
     news.setFontColor(255, 255, 255, 1);
     news.setTitleColor(70, 132, 219, 1);
     news.setBodyColor(60, 112, 185, 1);
@@ -147,14 +143,15 @@ function createCurrentEvent(){
     slider.setDotColor(255, 255, 255, 1);
 
     var mediaText = new TitledMediaText();
+    mediaText.initFromArticle(articlesHome[0]);
     mediaText.setTitle("Current Event");
-    mediaText.setGraphic("Name of the project", slider.get());
-    mediaText.setPassage("Haachama Birthday Project 2022", "[descriptions]");
+    mediaText.setGraphic(slider.get());
+    //mediaText.setPassage("Haachama Birthday Project 2022", "[descriptions]");
 
     mediaText.setFontColor(255, 255, 255, 1);
     mediaText.setTitleColor(70, 132, 219, 1);
     mediaText.setBodyColor(60, 112, 185, 1);
-    mediaText.setButton("Join us!", "#current-event");
+    mediaText.setButton("Join us!", "/#/current-event");
     mediaText.setLeft();
 
     return mediaText.get();
@@ -179,11 +176,8 @@ function createPreviousWorks(){
 
     var mediaText = new TitledMediaText();
     mediaText.setTitle("Previous Works");
-    mediaText.setGraphic("Watch on YouTube", slider.get());
-    mediaText.setPassage("Two Projects with 200+ participants in 2021", 
-        "In the past year, we have been making great efforts to gather as many \
-        fans as we can. We hope to show our largest support for Haachama, \
-        and will continue to further make supportive projects in 2022 as well! ");
+    mediaText.initFromArticle(articlesHome[1]);
+    mediaText.setGraphic(slider.get());
     
     mediaText.setFontColor(255, 255, 255,1);
     mediaText.setTitleColor(229, 49, 76, 1);
@@ -220,11 +214,11 @@ function createAbout(){
 
     const haatoPfp = imgLinked.get("fig/common/haato_pfp.jpg", 
         "https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg");
-   
-    const title = wrapDiv("title", "Hello from the WWS Haato community!");
-    const passage = wrapDiv("passage", 
-        "WWS Haato team, aka World Wide Support for Haato, \
-        is a non-profit project team for vtuber Akai Haato. ");
+    
+    let aboutArticle = articlesHome[2];    
+    const title = wrapDiv("title", utils.wrapLanguages(aboutArticle.title));
+    const passage = wrapDiv("passage", utils.wrapLanguages(aboutArticle.intro));
+      
     
     const button = TitledMediaText.createButton("About us", "/#/about", 
         {background: "crimson", marginTop: "10%"});

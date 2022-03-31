@@ -95,7 +95,6 @@ export default class ProjectDetails{
             for(var iend = i+duality; i < iend; i++){
                 var objs = [];
                 let item = this.items[i];
-                console.log(item);
                 if(item.title)
                     objs.push(fadeInExplosiveDelayed.get(wrapDiv("title", item.title)));
                 

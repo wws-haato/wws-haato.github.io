@@ -3,7 +3,7 @@ import InvertableColumn from "./invertable_columns";
 import {fadeInDelayed, fadeInExplosiveDelayed, 
     fadeInLeftwardsLatched, fadeInRightwardsLatched
 } from "./defaults/entrance_effect";
-import { merge, wrapDiv, wrapDivStyled, wrapDivRecursive, wrapLink} from "../utils";
+import { merge, wrapDiv, wrapDivStyled, wrapDivRecursive, wrapLink, wrapLanguages} from "../utils";
 import "../css/titled_media_text.css";
 import "../css/titled_container.css";
 
@@ -33,8 +33,8 @@ export default class TitledMediaText extends TitledContainer{
         return this.isLeft? 1:0;
     }
 
-    setGraphic(title, content){
-        this.graphic = {title: title, content: content};
+    setGraphic(content){
+        this.graphic.content=content;
     }
 
     setPassage(title, ... contents){
@@ -43,6 +43,17 @@ export default class TitledMediaText extends TitledContainer{
 
     setButton(text, link){
         this.button = {text: text, link: link};
+    }
+
+    initFromArticle(obj){
+        if(obj.graphicTitle)
+            this.graphic.title = wrapLanguages(obj.graphicTitle);
+
+        this.passage = {
+            title: wrapLanguages(obj.title), 
+            content: wrapLanguages(obj.description)
+        };
+
     }
 
 

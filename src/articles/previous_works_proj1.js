@@ -168,7 +168,7 @@ const articlesProject1 = [
         className: "project-details", 
         suptitle: {
             en: "Website", 
-            jp: "動画"
+            jp: "ウェブサイト"
         }, 
         contents: [
             [

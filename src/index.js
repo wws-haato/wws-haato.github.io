@@ -43,6 +43,6 @@ function App() {
                 </Routes>
         </Router>
     );
-    console.log(router);
+
     return router;
 }
