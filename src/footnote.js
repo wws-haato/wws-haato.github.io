@@ -1,8 +1,11 @@
 import "./css/footnote.css";
 import Column from "./modules/column";
 import Image from "./modules/Image";
-import { wrapDiv } from "./utils";
-import {fadeInDelayed, fadeInExplosive, fadeInExplosiveDelayed} from "./modules/defaults/entrance_effect";
+import articlesFootNote from "./articles/article_footnote";
+
+import { wrapDiv, wrapLanguages, wrapLink } from "./utils";
+import{fadeInExplosive, fadeInExplosiveDelayed, 
+    fadeInDelayed} from "./modules/defaults/entrance_effect";
 
 
 function createFootNoteBotton(text, link, imgPath){
@@ -10,46 +13,34 @@ function createFootNoteBotton(text, link, imgPath){
     img.setWidth("2.5VW");
     const content = wrapDiv("button", img.get(imgPath), text);
     
-    return fadeInExplosiveDelayed.get(<a href={link}>{content}</a>);
+    return fadeInExplosiveDelayed.get(wrapLink(link, content));
 }
 
 
 export default function createFootNote(){
     var cols = new Column(2);
-    cols.insert(0, createFootNoteBotton("HAACHAMA Ch. Akai Haato", 
-        "https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA", 
-        "fig/common/icons/youtube.png"));
-    
-    cols.insert(1, createFootNoteBotton("Contact us", 
-        "https://discord.gg/HqQ5n2cMBY", "fig/common/icons/contact.png"));
+    const dir = "fig/common/icons/";
+    for(var i = 0; i < 2; i++){
+        const link = i? "https://discord.gg/HqQ5n2cMBY":
+            "https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg";
 
-    const title = fadeInExplosive.get(wrapDiv("", "WWS Haato is a non-profit team"));
-    const notes = [
-        [
-            "We do NOT have an official business relationship with Cover Corp. ", 
-            "We are NOT representing Haachama or other parts of Hololive", 
-        ], 
-        [
-            "All our projects are the works of fans"
-        ], 
-        [
-            "We allow Haachama to use our works for her streams and own projects", 
-            "This may include her own monetization"
-        ]
-    ];
-
-    var passages = [];
-    
-    for(let lines of notes){
-        var args = {className: "passage"}; 
-        if(passages.length == 1)
-            args.style = {fontWeight: "bold"};
-            
-        passages.push(wrapDiv(args, lines.map(function(x){
-            return fadeInDelayed.get(wrapDiv("line", x));})));
+        cols.insert(i, createFootNoteBotton(
+            wrapLanguages(articlesFootNote.button[i]), 
+            link, i? dir+"contact.png": dir+"youtube.png"));
     }
-    
-    
-    return wrapDiv("footnote", title, passages, cols.get());
-       
+
+    var objs = [fadeInExplosive.get(wrapLanguages(articlesFootNote.suptitle))];
+    for(let lines of articlesFootNote.passage){
+        var group = [];
+        for(let line of lines){
+            var args = {className: "line"};
+            if(line.style)
+                args.style = line.style;
+
+            group.push(fadeInDelayed.get(wrapDiv(args, wrapLanguages(line))));
+        }
+        objs.push(wrapDiv("passage", group));
+    }
+    return wrapDiv("footnote", objs, cols.get());
+
 }
