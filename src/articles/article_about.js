@@ -1,4 +1,4 @@
-const articlesPreviousWorks = [
+const articlesAbout = [
     {
         en: "World Wide Support for Haato, aka WWS Haato, is a non-profit project team \
         mainly focusing on Haato projects that gather fans around the world. \
@@ -18,4 +18,4 @@ const articlesPreviousWorks = [
 ]
 
 
-export default articlesPreviousWorks;
+export default articlesAbout;
