@@ -46,6 +46,9 @@ const articlesProject2 = [
                         en: "Watch on Youtube", 
                         jp: "[JP] Watch on Youtube"
                     }, 
+                    graphicID: 1, 
+                    // graphicID=0 or simply omit: no graphic request for this cell
+                    // graphicID>0: requesting graphic
                     passage: {
                         lines: [
                             {
@@ -74,7 +77,8 @@ const articlesProject2 = [
                     title: {
                         en: "Leo Hsieh", 
                         jp: "Leo Hsieh"
-                    }
+                    },
+                    graphicID: 1
                 }, 
                 {
                     title: {
@@ -104,7 +108,8 @@ const articlesProject2 = [
                     title: {
                         en: "Zhadar", 
                         jp: "Zhadar"
-                    }
+                    },
+                    graphicID: 2
                 }, 
                 {
                     title: {
@@ -130,7 +135,8 @@ const articlesProject2 = [
                     title: {
                         en: "Sakazuki", 
                         jp: "羽の觴"
-                    }
+                    },
+                    graphicID: 3
                 }, 
                 {
                     title: {
@@ -156,7 +162,8 @@ const articlesProject2 = [
                     title: {
                         en: "Abner", 
                         jp: "Abner"
-                    }
+                    },
+                    graphicID: 4
                 }, 
                 {
                     title: {
@@ -182,7 +189,8 @@ const articlesProject2 = [
                     title: {
                         en: "Steve", 
                         jp: "Steve"
-                    }
+                    }, 
+                    graphicID: 5
                 }, 
                 {
                     title: {

@@ -1,6 +1,6 @@
 import Border from "../config/border";
 import "../css/previous_works.css";
-import { merge, wrapDiv, wrapDivStyled } from "../utils";
+import { merge, wrapDiv, wrapDivStyled, wrapLanguages } from "../utils";
 import Column from "./column";
 import {fadeInDelayed, fadeInExplosiveLatched, 
     fadeInRightwards, fadeInLatched, fadeInExplosive, fadeInExplosiveDelayed } 
@@ -18,10 +18,15 @@ export default class ProjectDetails{
         this.items = [];
         this.blockDualities = [];
         this.imgPath = "fig/background/red_chessboard.png";
+        this.graphics = new Map();
     }
 
     emplace(type){
         this.blockDualities.push(type);
+    }
+
+    setGraphic(id, graphic){
+        this.graphics.set(id, graphic);
     }
 
 
@@ -31,6 +36,24 @@ export default class ProjectDetails{
 
     setBackgroundImage(imgPath){
         this.imgPath = imgPath
+    }
+
+    appendCell(cell){
+        var obj = {};
+        if(cell.title)
+            obj.title = wrapLanguages(cell.title);
+        if(cell.graphicID)
+            obj.graphic = this.graphics.get(cell.graphicID);
+        if(cell.passage){
+            obj.passage = {}
+            if(cell.passage.title)
+                obj.passage.title = wrapLanguages(cell.passage.title);
+            if(cell.passage.lines)
+                obj.passage.lines = cell.passage.lines.map(
+                    function(line){return wrapLanguages(line);});
+        }
+            
+        this.items.push(obj);
     }
 
     append(title, graphic, ... passages){
@@ -46,7 +69,10 @@ export default class ProjectDetails{
     }
 
     setSuptitle(title){
-        this.title = title;
+        if(title.jp && title.en)
+            this.title = wrapLanguages(title);
+        else
+            this.title = title;
     }
 
 
@@ -68,27 +94,30 @@ export default class ProjectDetails{
             var mergedObjs = [];
             for(var iend = i+duality; i < iend; i++){
                 var objs = [];
-                const item = this.items[i];
+                let item = this.items[i];
+                console.log(item);
                 if(item.title)
                     objs.push(fadeInExplosiveDelayed.get(wrapDiv("title", item.title)));
                 
                 if(item.graphic)
                     objs.push(fadeInExplosiveDelayed.get(item.graphic));
 
-                if(item.passages){
-                    const lines = item.passages.map(function(x){
-                        return fadeInLatched.get(wrapDiv("line", x));});
+                if(item.passage){
+                    var passage = [];
+                    if(item.passage.title)
+                        passage.push(fadeInLatched.get(wrapDiv("title", item.passage.title)));
+
+                    if(item.passage.lines)
+                        for(let line of item.passage.lines)
+                            passage.push(fadeInLatched.get(wrapDiv("line", line)));
 
                     var args = {className: "passage", style:{}};
                     if(this.contourColor)
                         args.style.backgroundColor = this.contourColor.get();
-
-                    objs.push(wrapDiv(args, lines));
-                }
                     
-                       
+                    objs.push(wrapDiv(args, passage));
+                }
                 
-
                 mergedObjs.push(merge(objs));
             }
 

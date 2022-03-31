@@ -27,14 +27,8 @@ import LanguageSwitch from "../modules/language_switch";
 const PreviousWorksProject2 = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
-    var text = new LanguageSwitch({jp:"nihon", en:"muzukashi"});
     const App = merge(
         createTopBanner(), 
-        //LanguageSwitch.createToggle(), 
-        text.get(),
-        text.get(),
-        text.get(),
-        text.get(),
         createVideoDetails(), 
         createStaffDetails(), 
         createPageSwithcer(), 
@@ -87,24 +81,25 @@ function createPageSwithcer(){
 
 
 function createVideoDetails(){
-    var img = new Image();
-    img.setWidth("50%");
+    let videoTexts = articlesProject2[1];
     var details = new ProjectDetails();
 
     details.setContourColor(255, 255, 255, 0.2);
-    details.setSuptitle("Video");
+    details.setSuptitle(videoTexts.suptitle);
     details.setBackgroundImage("fig/background/video.jpg");
-    details.emplace(ProjectDetails.SINGLE);
 
     var youtube = new Youtube();
     youtube.setWidth("65%");
     youtube.setCorner(Border.ALL, "10px");
-    details.append("Watch on Youtube", 
-        youtube.get("https://youtu.be/aHt-fGy5BYQ"), 
-        "Happy birthday to our lovely Haato, Here's a gift with our blessing for you"
-    );
-    
 
+    details.setGraphic(1, youtube.get("https://youtu.be/aHt-fGy5BYQ"));
+    for(let content of videoTexts.contents){
+        details.emplace(content.length);
+        for(let cell of content)
+            details.appendCell(cell);
+
+    }
+    
     return details.get();
 }
 
@@ -138,67 +133,37 @@ function createStaffGraphic(imgPath, ...snsList){
 
 function createStaffDetails(){
     var details = new ProjectDetails();
-
-    //details.setContourColor(35,93,58, 0.4);
-    details.setContourColor(255,20,147, 0.6);
-    details.setSuptitle("Staff");
+    let staffTexts = articlesProject2[2];
+    details.setContourColor(255,20,147,0.6);
+    details.setSuptitle(staffTexts.suptitle);
     details.setBackgroundImage("fig/background/heart.webp");
 
-    //var iconHolder = new Column(3);
-    //iconHolder.setMargin(Boarder.ALL, "20px");
-    
     const dir = "fig/common/icons/";
-    details.emplace(ProjectDetails.DUAL);
-    details.append("Leo Hsieh",  createStaffGraphic("fig/pfp/leo.jpg", 
+    details.setGraphic(1, createStaffGraphic("fig/pfp/leo.jpg", 
         {path:dir+"twitter.png", link:"https://twitter.com/LeoHsieh57"}
     ));
-    details.append("Project Initiator",  0, 
-        "Leo Hsieh is the initiator of WWS Haato. ",
-        "He is mainly in charge of website maintainance \
-        and general coordinate affairs. ", 
-        "In this project, he also worked as the lyricist. ");
-
-    
-    details.emplace(ProjectDetails.DUAL);
-    details.append("Zhadar",  createStaffGraphic("fig/pfp/zhadar.jpg", 
+    details.setGraphic(2, createStaffGraphic("fig/pfp/zhadar.jpg", 
         {path:dir+"twitter.png", link:"https://twitter.com/HaatonZhadi"}, 
         {path:dir+"reddit.png", link:"https://www.reddit.com/user/HaatonZhadi"}
     ));
-    details.append("Social Media",  0, 
-        "Zhadar is mainly in charge of social media advertisement. ", 
-        "He also works on the overall coordination of the projects.");
-
-
-    details.emplace(ProjectDetails.DUAL);
-    details.append("Sakazuki",  createStaffGraphic("fig/pfp/saka.png", 
+    details.setGraphic(3, createStaffGraphic("fig/pfp/saka.png", 
         {path:dir+"twitter.png", link:"https://twitter.com/henry4204aaa"}, 
     ));
-    details.append("Translation Team Lead",  0, 
-        "Sakazuki is the contact person for JP Haatons.", 
-        "He also works on graphic effects and animations");
-
-
-    details.emplace(ProjectDetails.DUAL);
-    details.append("Abner",  createStaffGraphic("fig/pfp/abner.jpg", 
+    details.setGraphic(4, createStaffGraphic("fig/pfp/abner.jpg", 
         {path:dir+"twitter.png", link:"https://twitter.com/UltimateAbrod"}, 
         {path:dir+"youtube.png", link:"https://www.youtube.com/channel/UCmX9DnmswDnujsDXWnMyOhw"}
-        
     ));
-    details.append("Animation Team Lead",  0, 
-        "Abner joined the animation team to give technical supports. ", 
-        "Since then he has been the head of the graphic team.");
-
-
-    details.emplace(ProjectDetails.DUAL);
-    details.append("Steve",  createStaffGraphic("fig/pfp/steve.jpg", 
+    details.setGraphic(5, createStaffGraphic("fig/pfp/steve.jpg", 
         {path:dir+"twitter.png", link:"https://twitter.com/le_hoang_dung"}, 
-        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HoangDung007"}
-            
+        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HoangDung007"}    
     ));
 
-    details.append("Discord Server Manager",  0, 
-        "As a means to assist Abner on the video Steve joined the staff team. ", 
-        "Besides his work on graphics he is supervising the WWS discord server.");
+    for(let content of staffTexts.contents){
+        details.emplace(content.length);
+        for(let cell of content)
+            details.appendCell(cell);
+
+    }
     
     return details.get();
 }
