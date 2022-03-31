@@ -90,7 +90,7 @@ export default class ProjectTopBanner extends InvertableColumn{
             let x = this.passage.at(i);
             var objs = [];
             if(x.title)
-                objs.push(fadeInExplosiveDelayed.get(x.title));
+                objs.push(fadeInExplosiveDelayed.get(wrapDiv("title", x.title)));
             if(x.lines)
                 for(let line of x.lines)
                     objs.push(fadeInLatched.get(wrapDiv("line", line)));
