@@ -151,9 +151,7 @@ function createWebsiteDetails(){
     details.setBackgroundImage("fig/background/web.jpg");
     details.setGraphic("view-website", TitledMediaText.createButton(
         "Visit website", "https://haatotabi.tk/home", 
-        {background: "crimson", marginTop: "10%", marginBottom: "7%"}),
-        "This part of the project is done by MASS and make sure to check out their latest project!", 
-        "We present the supportive messages on the website"
+        {background: "crimson", marginTop: "10%", marginBottom: "7%"})
     );
 
     

@@ -1,12 +1,8 @@
-import TimeLine from '../modules/timeline';
 import createFootNote from "../footnote";
-import { merge, wrapDiv, displayAnimationQueries } from '../utils';
-import Image from '../modules/Image';
-import Border from '../config/border';
-import TitledMediaText from '../modules/titled_media_text';
-import TitledContainer from '../modules/titled_container';
+import { merge, wrapLanguages} from '../utils';
 import { EntranceEffect } from '../modules/entrance_effect';
 import RawParagraph from '../modules/raw_paragraph';
+import articlesPreviousWorks from "../articles/article_previous_works";
 const About = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
@@ -33,47 +29,7 @@ function createAboutUs(){
     var paragraph = new RawParagraph();
     paragraph.setSuptitle("About Us");
     paragraph.setTitle("World Wide Support for Haato");
-    paragraph.setPassage(
-        "World Wide Support for Haato, aka WWS Haato, \
-        is a non-profit project team mainly focusing on Haato projects that \
-        gather fans around the world. Our team has been set up since March, 2021, \
-        when Haato started her long break. ", 
-
-        "We have so far produced our first project \"World Wide Tour Guide\" \
-        and second project \"Haato's Birthday Parade\" \
-        will be continuing to make more supportive projects for Haachama in the future."
-    );
+    paragraph.setPassage(articlesPreviousWorks.map(
+        function(x){return wrapLanguages(x)}));
     return paragraph.get();
-}
-
-
-function createAboutUsBackup(){
-  var img = new Image();
-
-  img.setWidth("50%");
-  img.setCircle();
-
-  var mediaText = new TitledMediaText();
-  mediaText.setTitle("About Us");
-  mediaText.setGraphic("", img.get("fig/common/pfp.jpg"));
-  mediaText.setPassage("World Wide Support for Haato", 
-      "World Wide Support for Haato, aka WWS Haato, \
-      is a non-profit project team mainly focusing on Haato projects that \
-      gather fans around the world. Our team has been set up since March, 2021, \
-      when Haato started her long break. ", 
-
-      "We have so far produced our first project \"World Wide Tour Guide\" \
-      and second project \"Haato's Birthday Parade\" \
-      will be continuing to make more supportive projects for Haachama in the future."
-  );
-  
-  mediaText.setFontColor(255, 255, 255,1);
-  mediaText.setTitleColor(205, 92, 92, 1);
-  mediaText.setBodyColor(165, 42, 42,1);
-  mediaText.setRight();
-
-  
-
-  return wrapDiv({style: {marginTop: "20%"}}, mediaText.get());
-
 }

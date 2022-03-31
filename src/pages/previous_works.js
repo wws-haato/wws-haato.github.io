@@ -1,9 +1,11 @@
 import InvertableColumn from "../modules/invertable_columns";
 import "../css/previous_works.css";
 import Image from "../modules/Image";
-import { merge, wrapDiv, wrapDivRecursive} from "../utils";
+import { merge, wrapDiv, wrapDivRecursive, wrapLanguages} from "../utils";
 import Border from "../config/border";
 import { wrapLink } from "../utils";
+
+
 
 const PreviousWorks= () => {
     window.scrollTo(0, 0);
