@@ -7,6 +7,7 @@ import { NavbarDropdown } from "./modules/navbar";
 import PreviousWorks from "./pages/previous_works";
 
 import Home from "./pages";
+import CurrentEvent from "./pages/current_event";
 import PreviousWorksProject1 from "./pages/previous_works_proj1";
 import PreviousWorksProject2 from "./pages/previous_works_proj2";
 import { merge } from "./utils";
@@ -35,6 +36,7 @@ function App() {
                 <Routes>
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/about' element={<About/>} />
+                    <Route exact path='/current-event' element={<CurrentEvent />} />
                     <Route exact path='/previous-works' element={<PreviousWorks />} />
                     <Route exact path='/previous-works/proj1' element={<PreviousWorksProject1 />} />
                     <Route exact path='/previous-works/proj2' element={<PreviousWorksProject2 />} />
