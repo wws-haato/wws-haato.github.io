@@ -2,6 +2,7 @@ import "../css/navbar.css";
 import Image from "./Image";
 import {NavLink} from "react-router-dom";
 import ColourRGBA from "../config/colour_rgba";
+import LanguageSwitch from "./language_switch";
 
 
 export const NavbarDropdown = () =>{
@@ -10,9 +11,11 @@ export const NavbarDropdown = () =>{
 
 	return(
 		<nav id = "top_bar" className="dropdown">
+			{LanguageSwitch.createToggle()}
 			<button id = "menu_icon" className="dropbtn">
 				{img.get("fig/common/menu_white.png")}
 			</button>
+			
 			<div id="nav_dropdown" className="dropdown-content">
 				<NavLink to="/" activeStyle>
 					<div className="button">Home</div>

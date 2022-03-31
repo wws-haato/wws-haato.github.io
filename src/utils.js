@@ -1,5 +1,6 @@
 import "./css/footnote.css";
 import { EntranceEffect } from "./modules/entrance_effect";
+import LanguageSwitch from "./modules/language_switch";
 
 export function merge(... objs){
     return (<>{
@@ -72,4 +73,9 @@ export function scrolledIntoView(elem){
 export function isScrolled(){
     var root = document.getElementById("root");
     return root && root.getBoundingClientRect().top < 0;
+}
+
+export function wrapLanguages(obj){
+    var text = new LanguageSwitch(obj);
+    return text.get();
 }

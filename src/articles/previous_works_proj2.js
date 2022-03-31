@@ -9,26 +9,29 @@ const articlesProject2 = [
             en: "Haato's Birthday Parade ❤", 
             jp: "はあとのバースデーパレード ❤"
         }, 
-        passage: {
-            title: {
-                en: "Haachama Birthday Project 2021", 
-                jp: "[JP]Haachama Birthday Project 2021"
-            },
-            lines: [
-                {
-                    en: "Original Song", 
-                    jp: "[JP]Original Song"
+        passage: [
+            {
+                title: {
+                    en: "Haachama Birthday Project 2021", 
+                    jp: "[JP]Haachama Birthday Project 2021"
                 },
-                {
-                    en: "Original MV", 
-                    jp: "[JP]Original MV"
-                },
-                {
-                    en: "Over 100 Singing Haatons", 
-                    jp: "[JP]Over 100 Singing Haatons"
-                }
-            ]
-        }
+                lines: [
+                    {
+                        en: "Original Song", 
+                        jp: "[JP]Original Song"
+                    },
+                    {
+                        en: "Original MV", 
+                        jp: "[JP]Original MV"
+                    },
+                    {
+                        en: "Over 100 Singing Haatons", 
+                        jp: "[JP]Over 100 Singing Haatons"
+                    }
+                ]
+            }
+        ]
+        
     }, 
     {
         className: "project-details", 

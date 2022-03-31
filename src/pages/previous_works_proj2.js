@@ -4,7 +4,7 @@ import InvertableColumn from "../modules/invertable_columns";
 import "../css/previous_works.css";
 import Image from "../modules/Image";
 import Youtube from "../modules/youtube";
-import { displayAnimationQueries, merge, wrapDiv, wrapDivRecursive, wrapDivStyled } from "../utils";
+import { displayAnimationQueries, merge, wrapDiv, wrapDivRecursive, wrapDivStyled, wrapLanguages } from "../utils";
 import { fadeInExplosiveLatched, fadeInDelayed, fadeInExplosive } from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
 import Border from "../config/border";
@@ -30,7 +30,7 @@ const PreviousWorksProject2 = () => {
     var text = new LanguageSwitch({jp:"nihon", en:"muzukashi"});
     const App = merge(
         createTopBanner(), 
-        LanguageSwitch.createToggle(), 
+        //LanguageSwitch.createToggle(), 
         text.get(),
         text.get(),
         text.get(),
@@ -51,19 +51,20 @@ export default PreviousWorksProject2;
 
 
 function createTopBanner(){
+    let topBannerTexts = articlesProject2[0];
     var img = new Image();
     img.setCorner(Border.ALL, "10px");
     var topBanner = new ProjectTopBanner();
 
     const dir = "fig/previous_works/proj2/";
     topBanner.setGraphic(img.get(dir+"final_cut.gif"));
-
-    topBanner.setSuptitle("WWS Haato Project 2");
-    topBanner.setTitle("Haato's Birthday Parade ❤");
-    topBanner.appendTitledPassage("Haachama Birthday Project 2021", "");
-    topBanner.appendTitledPassage("", "Original Song");
-    topBanner.appendTitledPassage("", "Original MV");
-    topBanner.appendTitledPassage("", "Over 100 Singing Haatons");
+    topBanner.setSuptitle(topBannerTexts.suptitle);
+    topBanner.setTitle(topBannerTexts.title);
+    topBanner.setPassage(topBannerTexts.passage);
+    //topBanner.appendTitledPassage("Haachama Birthday Project 2021", "");
+    //topBanner.appendTitledPassage("", "Original Song");
+    //topBanner.appendTitledPassage("", "Original MV");
+    //topBanner.appendTitledPassage("", "Over 100 Singing Haatons");
     return topBanner.get();
 }
 

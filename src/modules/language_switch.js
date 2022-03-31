@@ -2,6 +2,7 @@ import { Mutex } from "async-mutex";
 import { merge, wrapDiv, wrapDivStyled } from "../utils";
 import UniqueIDGenerator, { UniqueIDMap } from "./unique_id_generator";
 import "../css/language_toggle.css"
+import { fadeIn } from "./defaults/entrance_effect";
 
 export default class LanguageSwitch{
     static ENGLISH = 0;
@@ -37,28 +38,32 @@ export default class LanguageSwitch{
         LanguageSwitch.uidArrayMutex.acquire();
         LanguageSwitch.uidArray.push(uids);
         LanguageSwitch.uidArrayMutex.runExclusive();
-        return wrapDiv("switchable-language", items);
+        return wrapDiv("", items);
     }
 
     static resetFlag = false;
+    static buttonUids = ["toggle-button-en", "toggle-button-jp"];
     static toggleLanguage(){
-        console.log("toggled!");
         LanguageSwitch.currLanguage = 1-LanguageSwitch.currLanguage;
+        let elems = LanguageSwitch.buttonUids.map(function(x){
+            return document.getElementById(x);});
+        
+        if(elems[0] && elems[1]){
+            elems[LanguageSwitch.currLanguage].style.display = "block";
+            elems[1-LanguageSwitch.currLanguage].style.display = "none";
+        }
+
         LanguageSwitch.uidArrayMutex.acquire();
         for(let uids of LanguageSwitch.uidArray){
-            console.log(uids);
             if(LanguageSwitch.resetFlag)
                 break;
 
-            console.log("toggled 2");
             let elems = uids.map(function(x){
                 return document.getElementById(x);});
             
-            console.log("toggled 3");
             if(!elems[0] || !elems[1])
                 continue;
             
-            console.log("toggled 4");
             elems[LanguageSwitch.currLanguage].style.display = "block";
             elems[1-LanguageSwitch.currLanguage].style.display = "none";
         }
@@ -73,8 +78,20 @@ export default class LanguageSwitch{
         LanguageSwitch.uidArray = [];
         LanguageSwitch.uidArrayMutex.runExclusive();
 
-        return <div className="toggle-container" onClick={LanguageSwitch.toggleLanguage}> {
-            LanguageSwitch.currLanguage ? "English": "Japanese"} </div>;
+        const buttons = LanguageSwitch.buttonUids.map(
+            function(x, i){
+                const args = {
+                    id: x,
+                    className:"toggle-container", 
+                    style: {display: i==LanguageSwitch.currLanguage? "block": "none"}, 
+                }
+
+                return wrapDiv(args, i? "🇺🇸English": "🇯🇵Japanese");
+            }
+        );
+
+        return <div className="toggle" 
+            onClick={LanguageSwitch.toggleLanguage}> {buttons} </div>;
 
     }
 }
