@@ -29,7 +29,8 @@ const CurrentEvent = () => {
     window.scrollTo(0, 0);
     const App = merge(
         createTopBanner(), 
-        createVideoDetails(), 
+        createVideoDetails(),
+        createTextDetails(), 
         createStaffDetails(), 
         createPageSwithcer(), 
         wrapDiv({style:{marginTop:"70px"}}, createFootNote())
@@ -50,8 +51,8 @@ function createTopBanner(){
     img.setCorner(Border.ALL, "10px");
     var topBanner = new ProjectTopBanner();
 
-    const dir = "fig/previous_works/proj2/";
-    topBanner.setGraphic(img.get(dir+"final_cut.gif"));
+    const dir = "fig/current_works/";
+    topBanner.setGraphic(img.get(dir+"placeholder1.jpg"));
     topBanner.setSuptitle(topBannerTexts.suptitle);
     topBanner.setTitle(topBannerTexts.title);
     topBanner.setPassage(topBannerTexts.passage);
@@ -103,6 +104,31 @@ function createVideoDetails(){
     return details.get();
 }
 
+function createTextDetails(){
+    let videoTexts = articlesCurrentEvent[2];
+    var details = new ProjectDetails();
+
+    details.setContourColor(255, 255, 255, 0.2);
+    details.setSuptitle(videoTexts.suptitle);
+    details.setBackgroundImage("fig/background/video.jpg");
+
+    var youtube = new Youtube();
+    youtube.setWidth("65%");
+    youtube.setCorner(Border.ALL, "10px");
+
+    details.setGraphic(1, youtube.get("https://youtu.be/aHt-fGy5BYQ"));
+    
+    for(let content of videoTexts.contents){
+        details.emplace(content.length);
+        for(let cell of content)
+            details.appendCell(cell);
+
+    }
+    
+    return details.get();
+}
+
+
 
 function createStaffGraphic(imgPath, ...snsList){
     var img = new Image();
@@ -133,7 +159,7 @@ function createStaffGraphic(imgPath, ...snsList){
 
 function createStaffDetails(){
     var details = new ProjectDetails();
-    let staffTexts = articlesCurrentEvent[2];
+    let staffTexts = articlesCurrentEvent[3];
     details.setContourColor(255,20,147,0.6);
     details.setSuptitle(staffTexts.suptitle);
     details.setBackgroundImage("fig/background/heart.webp");

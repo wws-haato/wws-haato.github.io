@@ -3,30 +3,30 @@ const articlesCurrentEvent = [
         className: "project-top-banner", 
         suptitle: {
             en: "WWS Haato Project 2", 
-            jp: "[JP]WWS Haato Project 2"
+            jp: "WWS Haato セカンドプロジェクト、始動"
         }, 
         title: {
-            en: "Haato's Birthday Parade ❤", 
-            jp: "はあとのバースデーパレード ❤"
+            en: "Haachama's diary", 
+            jp: "はあちゃま日記"
         }, 
         passage: [
             {
                 title: {
-                    en: "Haachama Birthday Project 2021", 
-                    jp: "[JP]Haachama Birthday Project 2021"
+                    en: "Haachama Birthday Project 2022", 
+                    jp: "はあちゃま誕生日プロジェクト 2022"
                 },
                 lines: [
                     {
-                        en: "Original Song", 
-                        jp: "[JP]Original Song"
+                        en: "Visual Novel", 
+                        jp: "ビジュアルノベルゲーム"
                     },
                     {
-                        en: "Original MV", 
-                        jp: "[JP]Original MV"
+                        en: "Recruiting participants", 
+                        jp: "参加者募集中"
                     },
                     {
-                        en: "Over 100 Singing Haatons", 
-                        jp: "[JP]Over 100 Singing Haatons"
+                        en: "Join us for her best brithday gift!", 
+                        jp: "一緒に最高の誕生日プレゼントを作りましょう！"
                     }
                 ]
             }
@@ -36,28 +36,130 @@ const articlesCurrentEvent = [
     {
         className: "project-details", 
         suptitle: {
-            en: "Video", 
-            jp: "[JP]Video"
+            en: "Overview", 
+            jp: "はじめに"
         }, 
         contents: [
             [
                 {
-                    title: {
+                    /*title: {
                         en: "Watch on Youtube", 
                         jp: "[JP] Watch on Youtube"
-                    }, 
-                    graphicID: 1, 
+                    },
+                    */ 
+                    graphicID: 0, 
                     // graphicID=0 or simply omit: no graphic request for this cell
                     // graphicID>0: requesting graphic
                     passage: {
                         lines: [
                             {
-                                en: "Happy birthday to our lovely Haato", 
-                                jp: "[JP]Happy birthday to our lovely Haato"
+                                en: "Haachamachama! We are team WWS Haato, dedicated to fan-based", 
+                                jp: "はあちゃまっちゃま～私たちはWWS Haatoチーム、世界中の"
                             }, 
                             {
-                                en: "Here's a gift with our blessing for you", 
-                                jp: "[JP]Here's a gift with our blessing for you"
+                                en: "projects for Haato which gathering fans all over the world!", 
+                                jp: "ファンを集めてはあちゃま関連のファンプロジェクトを中心として"
+                            },
+                            {
+                                en: "This year, as Haachama is strong enough to face the difficulties in", 
+                                jp: "活動しています。今年のはあちゃまはより強くなっていて、"
+                            },
+                            {
+                                en: "the future, we would like to present a visual novel for our strongest", 
+                                jp: "これからどんな困難でも乗り越えられると思っています。"
+                            },
+                            {
+                                en: "idol Haachama as a birthday gift in 2022!", 
+                                jp: "そんな風に最強アイドルに相応しい、ビジュアルノベル"
+                            },
+                            {
+                                en: "　　　　", 
+                                jp: "＝ノベルゲーム）を2022の誕プレとして贈りたいと思います。"
+                            },
+                            {
+                                en: "We're going to recruit particapants from different field, including ", 
+                                jp: "現在、多くの分野から参加者を募集しています。"
+                            },
+                            {
+                                en: "storywriting, programmars, illustrators, musicians and testers!", 
+                                jp: "物語を充実させるライター、ゲーム根幹のプログラミング、絵師、"
+                            },
+                            {
+                                en: "Your contribution is always welcome!", 
+                                jp: "音楽制作の人とβテスターなどを探しています！"
+                            },
+                            {
+                                en: "　　　　", 
+                                jp: "先輩達の協力を、心よりお待ちしております。"
+                            }
+                        ]
+                    }
+                }
+            ]
+        ]
+    },
+    {
+        className: "project-details", 
+        suptitle: {
+            en: "About the game", 
+            jp: "ゲーム概要"
+        }, 
+        contents: [
+            [
+                {
+                    /*title: {
+                        en: "Watch on Youtube", 
+                        jp: "[JP] Watch on Youtube"
+                    },
+                    */ 
+                    graphicID: 0, 
+                    // graphicID=0 or simply omit: no graphic request for this cell
+                    // graphicID>0: requesting graphic
+                    passage: {
+                        lines: [
+                            {
+                                en: "EN: In your ordinary life, a strange message was sent to you...", 
+                                jp: "変わりの無い生活を送る最中に、一通の変なメッセージが君のもとに届きました。"
+                            }, 
+                            {
+                                en: "┌─────────────────────────────────────────┐", 
+                                jp: "┌──────────────────────────────────────────┐"
+                            }, 
+                            {
+                                en: "│Want to know the secret of an idol’s daily life? You’re invited to 　 	│", 
+                                jp: "│アイドル極秘の日常生活を知りたいですか？リアルで体験できる　│"
+                            }, 
+                            {
+                                en: "│ Haachama world and with a chance to experience it in reality!  	　	│", 
+                                jp: "│チャンスが、このはあちゃまワールドからの招待状にありますよ！│"
+                            }, 
+                            {
+                                en: "│ Click here to　　 >>> Become HAACHAMA NOW <<<	 	　　　　	│", 
+                                jp: "│ 　　　　　　>>> 今すぐはあちゃまになります <<<	　　	　　　　	│"
+                            }, 
+                            {
+                                en: "└─────────────────────────────────────────┘", 
+                                jp: "└──────────────────────────────────────────┘"
+                            }, 
+                            {
+                                en: "Your curiosity forced you to touch the mysteries of Haachama's world,", 
+                                jp: "好奇心に駆けられて、キミははあちゃまワールドのミステリーを触れました。"
+                            },
+                            {
+                                en: "and the story begins -- What will you do when you're Haachama?", 
+                                jp: "物語はここから始まるーキミがはあちゃまだったら、どうします？"
+                            },
+                            {
+                                en: "Can you overcome the challenges and troubles, making your", 
+                                jp: "襲ってくる難関を乗り越えて、波乱万丈の生活を楽しみながら、"
+                            },
+                            {
+                                en: "2022 birthday live successful and enjoying your life as well?", 
+                                jp: "2022の誕生日ライブは果たして成功になれるのか？"
+                            },
+                            {
+                                en: "Now it's time to CHANGE the world.", 
+                                jp: "世界を変わる鍵は、キミの手にいます。"
                             }
                         ]
                     }
