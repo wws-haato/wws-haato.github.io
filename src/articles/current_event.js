@@ -2,8 +2,8 @@ const articlesCurrentEvent = [
     {
         className: "project-top-banner", 
         suptitle: {
-            en: "WWS Haato Project 2", 
-            jp: "WWS Haato セカンドプロジェクト、始動"
+            en: "WWS Haato Project 3", 
+            jp: "WWS Haato サードプロジェクト、始動"
         }, 
         title: {
             en: "Haachama's diary", 
