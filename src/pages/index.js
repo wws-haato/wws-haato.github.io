@@ -12,7 +12,7 @@ import Slider from "../modules/slider";
 import { wrapDiv} from "../utils";
 import { fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched, fadeInUpwards, fadeInUpwardsDelayed } from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
-import TitledNews from "../modules/titled_news";
+import TitledNews, { NewsContents } from "../modules/titled_news";
 import { NewsConfig } from "../modules/titled_news";
 import TitledContainer from "../modules/titled_container";
 import InvertableColumn from "../modules/invertable_columns";
@@ -21,6 +21,7 @@ import createFootNote from "../footnote";
 
 import { EntranceEffect } from '../modules/entrance_effect';
 import articlesHome from '../articles/article_home';
+import articlesNews from '../articles/article_news';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
@@ -109,20 +110,7 @@ function createContact(){
 }
 
 function createNews(){
-    var news = new TitledNews(4);
-    news.setTitle("News");
-
-    news.setFontColor(255, 255, 255, 1);
-    news.setTitleColor(70, 132, 219, 1);
-    news.setBodyColor(60, 112, 185, 1);
-
-    var img = new Image();
-    img.setWidth("50%");
-
-    for(var i = 0; i < 21; ++i)
-        news.append(new NewsConfig("2022/01/01", "title"+i.toString(), "fig/common/place_holder.png", "para"));
-
-    return news.get();
+    return NewsContents.generateHomeTabs(4);
 }
 
 

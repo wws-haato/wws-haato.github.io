@@ -7,13 +7,14 @@ export default class Youtube{
      * @param {string} link youtube link
      */
     static resolveYoutubeLink(link){
-        link = link.replace("youtu.be", "youtube.com");
-        if(!link.includes("embed")){
-            const index = link.lastIndexOf("/");
-            link = link.substring(0, index).concat(
-                "/embed", link.substring(index, link.length));
+        var relLink = link;
+        relLink = relLink.replace("youtu.be", "youtube.com");
+        if(!relLink.includes("embed")){
+            const index = relLink.lastIndexOf("/");
+            relLink = relLink.substring(0, index).concat(
+                "/embed", relLink.substring(index, relLink.length));
         }
-        return link;
+        return relLink;
     }
     constructor(){
         this.width = "100%";
@@ -41,8 +42,8 @@ export default class Youtube{
      * @param {string} link youtube link
      */
     get(link){
-        link = Youtube.resolveYoutubeLink(link);
-        <link rel="preload" href={link} as="document"></link>
+        const relLink = Youtube.resolveYoutubeLink(link);
+        console.log(relLink, link);
         return (
             <div className="w3-container" style={{width:this.width, margin: "auto", position: "static"}}>
             <div className="video-wrapper" style={{width:"100%"}}>
@@ -51,7 +52,7 @@ export default class Youtube{
                     margin: this.margin.get(), 
                     padding: this.padding.get(), 
                     borderRadius: this.corner.get()
-                }} src={link}></iframe>
+                }} src={relLink}></iframe>
             </div>
             </div>
         );

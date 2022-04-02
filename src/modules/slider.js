@@ -125,6 +125,9 @@ export default class Slider{
 
 
     callBackJump(id){
+        if(this.items.length == 1)
+            return;
+
         const now = Date.now();
         let currUid = this.items[this.activeId].uid;
         let nextUid = this.items[id].uid;
@@ -190,9 +193,11 @@ export default class Slider{
             items.push(wrapDiv(divArgs, this.items[i].item));
         }
 
-        const buttonStyle = {width: this.imgWidth};
-        items.push(wrapDivStyled("left-button", buttonStyle, this.getClick(1)));
-        items.push(wrapDivStyled("right-button", buttonStyle, this.getClick(0)));
+        if(this.items.length > 1){
+            const buttonStyle = {width: this.imgWidth};
+            items.push(wrapDivStyled("left-button", buttonStyle, this.getClick(1)));
+            items.push(wrapDivStyled("right-button", buttonStyle, this.getClick(0)));
+        }
         items.push(this.createDotBar());
 
         var divArgs = [

@@ -55,7 +55,7 @@ a:hover, a:visited, a:link, a:active
 
 
 .titled-news .passage{
-    font-size: 2VW;
+    font-size: 1VW;
     width: 100%;
     margin-top: 10px;
     text-align: justify;
@@ -75,13 +75,13 @@ a:hover, a:visited, a:link, a:active
     color:white;
     display: inline-block;
     text-align: left;
-    font-size: 2.5VW;
+    font-size: 1.6VW;
     width: 100%;
 }
 
 @media screen and (max-width: 780px) {
     .titled-news .title{
-        font-size: 4VW;
+        font-size: 2.4VW;
     }
 }
 
