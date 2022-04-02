@@ -31,3 +31,15 @@
     margin-top: 1.2VW;
     margin-bottom: 1.2VW;
 }
+
+@media screen and (max-width: 780px) {
+    .raw-paragraph .passage {
+        font-size: 3.2VW;
+    }    
+    .raw-paragraph .title{
+        font-size: 4.5VW;
+    }
+    .raw-paragraph{
+        font-size: 6VW;
+    }
+}

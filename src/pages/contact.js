@@ -105,12 +105,12 @@ function createStaffs(){
     slider.setClickWidth("4VW");
     slider.setBarColor(229, 49, 76, 1);
     slider.setDotColor(255,255,255,1);
-    slider.setWidth("95%");
+    slider.setWidth("100%");
 
     const leftTitle = fadeInDelayed.get(wrapDiv("title", 
         wrapLanguages({en: "Staff", jp: "スタッフ"})));
     const leftContent = fadeInExplosiveDelayed.get(slider.get());
     cols.insert(0, wrapDiv("titled-media-text", leftTitle), leftContent);
 
-    return titledContainer.get(cols.get());
+    return titledContainer.get(leftContent);
 }

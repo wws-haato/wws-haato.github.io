@@ -41,6 +41,10 @@ export function wrapDivStyled(name, style,  ... obj){
     return <div className={name} style={style}>{merge(obj)}</div>;
 }
 
+export function wrapStyle(style,  ... obj){
+    return <div style={style}>{merge(obj)}</div>;
+}
+
 
 export function wrapDivRecursive(args, ... objs){
     if(!args.length)

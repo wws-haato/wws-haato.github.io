@@ -1,16 +1,17 @@
-import {wrapDiv, wrapLanguages} from "../utils";
+import {wrapDiv, wrapLanguages, wrapStyle} from "../utils";
 import "../css/staff_information.css";
 import Column from "./column";
 import Image from "./Image";
 import Border from "../config/border";
 import ImageLinked from "./Image_linked";
+import InvertableColumn from "./invertable_columns";
 
 
-export default class StaffInformation extends Column{
+export default class StaffInformation extends InvertableColumn{
     constructor(){
-        super(2);
-        this.setRatios(3, 7);
-        this.setColumnInterval("0px");
+        super();
+        //this.setRatios(25, 75);
+        //this.setColumnInterval("0px");
         this.utc = 0;
         this.discord = ""
         this.languages = []
@@ -46,7 +47,7 @@ export default class StaffInformation extends Column{
         imgLinked.setWaterMark(img.get("fig/common/icons/ext_link.png"));
 
         var socialPfps = new Column(this.socialMedias.length);
-        const margin = (100-30*this.socialMedias.length)/2;
+        const margin = (100-15*this.socialMedias.length)/2;
 
         socialPfps.setColumnInterval("5px");
         socialPfps.setMargin(Border.LEFT, margin.toString()+'%');
@@ -55,10 +56,10 @@ export default class StaffInformation extends Column{
         for(let sns of this.socialMedias)
             socialPfps.insert(colID++, imgLinked.get(sns.path, sns.link));
         
-        img.setWidth("75%");
+        img.setWidth("45%");
         img.setCircle();
         img.setMargin(Border.BOTTOM, "5px");
-        this.insert(0, img.get(this.imgPath), socialPfps.get());
+        this.insert(0, img.get(this.imgPath),  socialPfps.get());
 
         var textInfos = [];
         textInfos.push(wrapDiv("title", "Discord"));

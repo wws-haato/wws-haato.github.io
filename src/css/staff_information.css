@@ -1,5 +1,5 @@
 .staff-information{
-    width: 90%;
+    width: 65%;
     transition: 0.3s ease-out;
     font-size: 4VW;
     text-align: left;
@@ -27,11 +27,19 @@
 
 @media screen and (max-width: 780px) {
     .staff-information .passage{
-        font-size: 2.4VW;
-        padding-left: 2.4VW;
+        font-size: 3.2VW;
+        margin-bottom: 0;
+        padding-left: 15VW;
+        
     }
     
     .staff-information .title{
-        font-size: 3.2VW;
+        font-size: 4.2VW;
+        padding-left: 10VW;
+        margin-top: 10px;
+    }
+
+    .staff-information{
+        width: 90%;
     }
 }
