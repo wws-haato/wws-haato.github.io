@@ -12,6 +12,7 @@ import PreviousWorksProject1 from "./pages/previous_works_proj1";
 import PreviousWorksProject2 from "./pages/previous_works_proj2";
 import { merge } from "./utils";
 import Contact from "./pages/contact";
+import News from "./pages/news";
 
 var rootElement = document.getElementById("root");
 rootElement.style.overflow = "hidden";
@@ -42,6 +43,7 @@ function App() {
                     <Route exact path='/previous-works/proj1' element={<PreviousWorksProject1 />} />
                     <Route exact path='/previous-works/proj2' element={<PreviousWorksProject2 />} />
                     <Route exact path='/contact' element={<Contact />} />
+                    <Route exact path='/news' element={<News />} />
                 </Routes>
         </Router>
     );

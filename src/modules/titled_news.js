@@ -1,5 +1,5 @@
 import TitledContainer from "./titled_container";
-import { merge, wrapDiv, wrapDivStyled, wrapStyle, wrapLanguages} from "../utils";
+import { merge, wrapDiv, wrapDivStyled, wrapStyle, wrapLanguages, wrapLink} from "../utils";
 import "../css/titled_news.css";
 import Slider from "./slider";
 import Column from "./column";
@@ -13,6 +13,8 @@ import UniqueIDGenerator from "./unique_id_generator";
 import Youtube from "./youtube";
 import articlesNews from "../articles/article_news";
 import { ThemeConsumer } from "styled-components";
+import SliderPage from "./slider_page";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -37,6 +39,11 @@ export class MediaNews extends Column{
 
     setConfig(config){
         this.config = config;
+        this.aid = config.aid;
+    }
+
+    triggerOnclick(aid){
+        NewsContents.newsPages.setActiveID(aid);
     }
 
     get(fontColor, animate){
@@ -51,8 +58,9 @@ export class MediaNews extends Column{
         }
 
         super.insert(0, graphic);
-        super.insert(1,  wrapDiv("titled-news", date, title));
-
+        var navLink = <NavLink to="/news" activeStyle>{
+            wrapDiv("titled-news", date, title)}</NavLink>
+        super.insert(1, <div onClick={this.triggerOnclick.bind(this, this.aid)}>{navLink}</div>);
         return super.get();
     }
 }
@@ -116,11 +124,12 @@ export default class TitledNews extends TitledContainer{
 export class NewsConfig{
     static uidGen = new UniqueIDGenerator("news-config-uid");
 
-    constructor(date, title, graphic){
+    constructor(date, title, graphic, aid){
         this.uniqueID = NewsConfig.uidGen.generateUniqueID();
         this.date = date;
         this.title = title;
         this.graphic = graphic;
+        this.aid = aid;
     }
 
 }
@@ -148,19 +157,59 @@ export class NewsContents{
         return new NewsContents(x);}).sort(
             function(a, b) {return b.encode - a.encode;});
 
-    static generateHomeTabs(nDisps){
-        var news = new TitledNews(nDisps);
+    
+    static createNewsPages(){
+        var newsPages =  new SliderPage();
+        for(let news of NewsContents.allNews){
+            const config = merge(news.getDate(), news.getTitle(), 
+                news.getGraphic(), news.getPassage()); 
+
+            newsPages.append(config);
+        }
+
+        return newsPages;
+    }
+    static newsPages = NewsContents.createNewsPages();
+    static genrationMutex = new Mutex();
+    static generateHomeTabs(){
+        NewsContents.genrationMutex.acquire();
+        if(!NewsContents.newsPages.items.length)
+            for(let news of NewsContents.allNews){
+                const config = merge(news.getDate(), news.getTitle(), 
+                    news.getGraphic(), news.getPassage()); 
+
+                NewsContents.newsPages.append(config);
+            }
+                
+        NewsContents.genrationMutex.runExclusive();
+        var news = new TitledNews(4);
         news.setTitle("News");
         news.setFontColor(255, 255, 255, 1);
-        news.setTitleColor(70, 132, 219, 1);
-        news.setBodyColor(60, 112, 185, 1);
-
-        for(let content of NewsContents.allNews)
+        news.setTitleColor(229, 49, 76, 1);
+        news.setBodyColor(181, 38, 59, 1);
+        
+        for(var i = 0; i < NewsContents.allNews.length; i++){
+            let content = NewsContents.allNews[i];
             news.append(new NewsConfig(content.getDate(), 
-                content.getTitle(), content.getGraphic()));
-        
-        
+                content.getTitle(), content.getGraphic(), i));
+        }
+        news.setRight();
         return news.get();
+    }
+
+    static generatePageTabs(){
+        NewsContents.genrationMutex.acquire();
+        if(!NewsContents.newsPages.items.length)
+            for(let news of NewsContents.allNews){
+                const config = merge(news.getDate(), news.getTitle(), 
+                    news.getGraphic(), news.getPassage()); 
+
+                NewsContents.newsPages.append(config);
+            }
+                
+        NewsContents.genrationMutex.runExclusive();
+        
+        return NewsContents.newsPages.get();
     }
 
     /**
@@ -196,7 +245,7 @@ export class NewsContents{
         if(!this.passage)
             this.passage = wrapDiv("passage", this.article.passage.map(
                 function(line){return wrapDiv("line", wrapLanguages(line));}));
-        
+    
         return this.passage; 
     }
 

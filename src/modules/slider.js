@@ -33,6 +33,11 @@ export default class Slider{
         this.uid = Slider.uidGen.generateUniqueID();
     }
 
+    setActiveID(aid){
+        this.activeId = aid;
+        //console.log("aid", this.activeId);
+    }
+
 
     setPadding(i ,val){
         if(!this.padding)
@@ -98,7 +103,7 @@ export default class Slider{
         var dots = [];
         for(var i = 0; i < this.items.length; ++i)
             dots.push(<span id ={this.items[i].uid+"-dot"} className="dot" style={
-                {color: dot, background: dot, opacity: i? "0.5": "1"}}
+                {color: dot, background: dot, opacity: i==this.activeId? "1": "0.5"}}
                 onClick={this.callBackJump.bind(this, i)}></span>);
         
         return wrapDivStyled("bar", {color: bar, background: bar}, dots);
@@ -167,6 +172,13 @@ export default class Slider{
         this.callBackJump(nextActiveId);
     }
 
+    hideBar(){
+        this.barHidden = true;
+    }
+    hideArrow(){
+        this.arrowHidden = true;
+    }
+
 
     get(){
         if(this.period > 0)
@@ -178,7 +190,7 @@ export default class Slider{
                 {
                     className: "slide", 
                     style: {
-                        display: i? "none": "block", 
+                        display: i==this.activeId? "block": "none", 
                         margin: "auto"
                     }, 
                     id: this.items[i].uid
@@ -193,12 +205,13 @@ export default class Slider{
             items.push(wrapDiv(divArgs, this.items[i].item));
         }
 
-        if(this.items.length > 1){
+        if(this.items.length > 1 && !this.arrowHidden){
             const buttonStyle = {width: this.imgWidth};
             items.push(wrapDivStyled("left-button", buttonStyle, this.getClick(1)));
             items.push(wrapDivStyled("right-button", buttonStyle, this.getClick(0)));
         }
-        items.push(this.createDotBar());
+        if(!this.barHidden)
+            items.push(this.createDotBar());
 
         var divArgs = [
             {

@@ -43,7 +43,6 @@ export default class Youtube{
      */
     get(link){
         const relLink = Youtube.resolveYoutubeLink(link);
-        console.log(relLink, link);
         return (
             <div className="w3-container" style={{width:this.width, margin: "auto", position: "static"}}>
             <div className="video-wrapper" style={{width:"100%"}}>

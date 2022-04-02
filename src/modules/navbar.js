@@ -23,6 +23,9 @@ export const NavbarDropdown = () =>{
 				<NavLink to="/about" activeStyle>
 					<div className="button">About</div>
 				</NavLink>
+				<NavLink to="news" activeStyle>
+					<div className="button">News</div>
+				</NavLink>
 				<NavLink to="/current-event" activeStyle>
 					<div className="button">Current Event</div>
 				</NavLink>
@@ -32,6 +35,7 @@ export const NavbarDropdown = () =>{
 				<NavLink to="/contact" activeStyle>
 					<div className="button">Contact</div>
 				</NavLink>
+
 			</div>
 		</nav>
 	);

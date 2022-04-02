@@ -32,9 +32,9 @@ const Home = () => {
         arrow.get(), 
         createLogoBanner(), 
         createAbout(), 
+        createNews(), 
         createCurrentEvent(), 
         createPreviousWorks(), 
-        createNews(), 
         createFootNote("0px")
     );
 
@@ -110,7 +110,7 @@ function createContact(){
 }
 
 function createNews(){
-    return NewsContents.generateHomeTabs(4);
+    return NewsContents.generateHomeTabs();
 }
 
 
@@ -157,6 +157,8 @@ function createPreviousWorks(){
 
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
+    slider.setBarColor(70, 132, 219, 1);
+    slider.setDotColor(255, 255, 255, 1);
     slider.setBarColor(229, 49, 76, 1);
     slider.setDotColor(255,255,255,1);
     slider.setPeriod(3000);
