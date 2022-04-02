@@ -51,9 +51,9 @@ export class MediaNews extends Column{
         }
 
         super.insert(0, graphic);
-        super.insert(1, date, title);
+        super.insert(1,  wrapDiv("titled-news", date, title));
 
-        return wrapDiv("titled-news", super.get());
+        return super.get();
     }
 }
 
@@ -178,6 +178,9 @@ export class NewsContents{
 
             loader.setCorner(Border.ALL, "10px");
             this.graphic = loader.get(this.article.graphic.path);
+            if(this.article.graphic.type != "youtube"){
+                this.graphic = wrapStyle({aspectRatio: "16 / 9", overflow:"hidden"}, this.graphic);
+            }
         }
         return this.graphic;
     }

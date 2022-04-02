@@ -30,7 +30,7 @@ function createTabs(){
     for(var i = 0; i < 2; i++){
         const fig = img.get(preffix+filenames[i]);
         const image = wrapDiv(["thumbnail-container", "button"], 
-            i? wrapLanguages(articlesProject1[0].title): 
+            !i? wrapLanguages(articlesProject1[0].title): 
             wrapLanguages(articlesProject2[0].title), fig);
 
         cols.insert(i, wrapLink(link+(i+1).toString(), image));

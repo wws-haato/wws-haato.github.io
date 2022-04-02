@@ -29,7 +29,7 @@ const articlesNews = [
              * place the picture under the folder "public/fig/news" 
              * and paste the filename of the picture here 
              */
-            path: "https://youtu.be/i3EBEbdSyTE"
+            path: "https://youtu.be/LLuqBMnfKJY"
         }, 
         passage: [
             /**
@@ -93,12 +93,50 @@ const articlesNews = [
     {
         date: {year: 2021, month: 6, day: 23}, 
         title: {
-            en: "Final video of World Wide Tour Guide has been released!", 
+            en: "Song preview for Grand Birthday Chorus has been released!", 
             jp: "グランドバースデーコーラスの曲プレビューが公開されました！"
         }, 
         graphic: {
             type: "youtube", 
             path: "https://youtu.be/EzELsQyLP2s"
+        }, 
+        passage: [
+            {
+                en: "The project is finally finished, \
+                    please check the final video, hope you enjoy!", 
+                jp: "The project is finally finished, \
+                    please check the final video, hope you enjoy!", 
+            }
+        ]
+    }, 
+    {
+        date: {year: 2021, month: 8, day: 10}, 
+        title: {
+            en: "Final video release of Haato's Birthday Parade ❤! ", 
+            jp: "[JP]Final video release of Haato's Birthday Parade ❤！"
+        }, 
+        graphic: {
+            type: "youtube", 
+            path: "https://youtu.be/aHt-fGy5BYQ"
+        }, 
+        passage: [
+            {
+                en: "The project is finally finished, \
+                    please check the final video, hope you enjoy!", 
+                jp: "The project is finally finished, \
+                    please check the final video, hope you enjoy!", 
+            }
+        ]
+    }, 
+    {
+        date: {year: 2022, month: 4, day: 3}, 
+        title: {
+            en: "New project Haachama's initiated!", 
+            jp: "[JP]Final video release of Haato's Birthday Parade ❤！"
+        }, 
+        graphic: {
+            type: "picture", 
+            path: "fig/common/place_holder.png"
         }, 
         passage: [
             {

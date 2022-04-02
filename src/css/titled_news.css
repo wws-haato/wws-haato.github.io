@@ -77,6 +77,7 @@ a:hover, a:visited, a:link, a:active
     text-align: left;
     font-size: 1.6VW;
     width: 100%;
+    margin: 10px;
 }
 
 @media screen and (max-width: 780px) {
