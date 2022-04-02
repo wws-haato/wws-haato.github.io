@@ -40,7 +40,7 @@ const articlesNews = [
             {
                 /**
                  * this is the scope of a single line
-                 * same format as described in title scope(line 7 of the entire sheet)
+                 * same format as described in title scope(line 13 of the entire sheet)
                  */
                 en: "The project is finally finished, \
                     please check the final product", 
