@@ -7,13 +7,9 @@ const About = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
     
-    //var json = require('../json/timeline.json');
-    //var timeline = new TimeLine(json);
     const App = merge(
         createAboutUs(), 
-        //TimeLine.getTitle("Timeline"), 
-        //timeline.get(), 
-        createFootNote()
+        createFootNote("0px")
     );
 
     EntranceEffect.startAllRequest();

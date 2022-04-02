@@ -31,7 +31,7 @@ const PreviousWorksProject1 = () => {
         createVideoDetails(), 
         createWebsiteDetails(), 
         createPageSwithcer(), 
-        wrapDiv({style:{marginTop:"70px"}}, createFootNote())
+        createFootNote("70px")
     );
 
     EntranceEffect.startAllRequest();

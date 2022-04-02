@@ -3,7 +3,7 @@ import Column from "./modules/column";
 import Image from "./modules/Image";
 import articlesFootNote from "./articles/article_footnote";
 
-import { wrapDiv, wrapLanguages, wrapLink } from "./utils";
+import { wrapDiv, wrapDivStyled, wrapLanguages, wrapLink } from "./utils";
 import{fadeInExplosive, fadeInExplosiveDelayed, 
     fadeInDelayed} from "./modules/defaults/entrance_effect";
 
@@ -17,7 +17,7 @@ function createFootNoteBotton(text, link, imgPath){
 }
 
 
-export default function createFootNote(){
+export default function createFootNote(topMargin){
     var cols = new Column(2);
     const dir = "fig/common/icons/";
     for(var i = 0; i < 2; i++){
@@ -41,6 +41,6 @@ export default function createFootNote(){
         }
         objs.push(wrapDiv("passage", group));
     }
-    return wrapDiv("footnote", objs, cols.get());
+    return wrapDivStyled("footnote", {marginTop: topMargin}, objs, cols.get());
 
 }

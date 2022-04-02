@@ -31,8 +31,7 @@ const CurrentEvent = () => {
         createTopBanner(), 
         createOverview(),
         createAboutTheGame(), 
-        wrapDiv({style:{marginTop:"70px"}}, createFootNote())
-
+        createFootNote("70px")
     );
     EntranceEffect.startAllRequest();
     EntranceEffect.debug();

@@ -36,8 +36,7 @@ const Home = () => {
         createCurrentEvent(), 
         createPreviousWorks(), 
         createNews(), 
-        //createContact(), 
-        createFootNote()
+        createFootNote("0px")
     );
 
     EntranceEffect.startAllRequest();
