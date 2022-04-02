@@ -1,4 +1,4 @@
-import {wrapDiv} from "../utils";
+import {wrapDiv, wrapLanguages} from "../utils";
 import "../css/staff_information.css";
 import Column from "./column";
 import Image from "./Image";
@@ -16,7 +16,6 @@ export default class StaffInformation extends Column{
         this.languages = []
         this.imgPath = ""
         this.socialMedias = []
-        //this.setMargin(Boarder.LEFT, "5%");
     }
 
     setImagePath(path){
@@ -64,9 +63,9 @@ export default class StaffInformation extends Column{
         var textInfos = [];
         textInfos.push(wrapDiv("title", "Discord"));
         textInfos.push(wrapDiv("passage", this.discord));
-        textInfos.push(wrapDiv("title", "Time Zone"));
+        textInfos.push(wrapDiv("title", wrapLanguages({en: "Time Zone", jp: "タイムゾーン"})));
         textInfos.push(wrapDiv("passage", "UTC"+(this.utc < 0? '':'+')+ this.utc.toString()));
-        textInfos.push(wrapDiv("title", "Languages"));
+        textInfos.push(wrapDiv("title", wrapLanguages({en: "Languages", jp: "言語"})));
 
         var languages = "";
         for(var i = 0; i < this.languages.length; ++i){
@@ -97,7 +96,7 @@ function getStaffInformationLeo(){
     staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
         "https://twitter.com/LeoHsieh57");
 
-    return staffInfo.get();
+    return staffInfo;
 }
 
 function getStaffInformationZhadar(){
@@ -112,7 +111,7 @@ function getStaffInformationZhadar(){
     staffInfo.appendSocialMedia("fig/common/icons/reddit.png", 
         "https://www.reddit.com/user/HaatonZhadi");
 
-    return staffInfo.get();
+    return staffInfo;
 }
 
 function getStaffInformationSakazuki(){
@@ -126,7 +125,7 @@ function getStaffInformationSakazuki(){
     staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
         "https://twitter.com/henry4204aaa");
 
-    return staffInfo.get();
+    return staffInfo;
 }
 
 
@@ -142,7 +141,7 @@ function getStaffInformationAbner(){
     staffInfo.appendSocialMedia("fig/common/icons/youtube.png", 
         "https://www.youtube.com/channel/UCmX9DnmswDnujsDXWnMyOhw");
 
-    return staffInfo.get();
+    return staffInfo;
 }
 
 
@@ -158,7 +157,7 @@ function getStaffInformationSteve(){
     staffInfo.appendSocialMedia("fig/common/icons/reddit.png", 
         "https://www.reddit.com/user/HoangDung007");
 
-    return staffInfo.get();
+    return staffInfo;
 }
 
 

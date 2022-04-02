@@ -18,9 +18,7 @@ import TitledContainer from "../modules/titled_container";
 import InvertableColumn from "../modules/invertable_columns";
 import { fadeInDelayed } from "../modules/defaults/entrance_effect";
 import createFootNote from "../footnote";
-import { staffInformationLeo, staffInformationZhadar, 
-    staffInformationSakazuki, staffInformationAbner, staffInformationSteve} 
-from "../modules/staff_information";
+
 import { EntranceEffect } from '../modules/entrance_effect';
 import articlesHome from '../articles/article_home';
 
@@ -306,7 +304,8 @@ class ScrollIndicator extends Image{
         args.id = ScrollIndicator.uid;
         args.style = ScrollIndicator.keyframes[1];
 
-        ScrollIndicator.timer = setInterval(this.timerCallBack.bind(this), ScrollIndicator.duration);
+        ScrollIndicator.timer = setInterval(
+                this.timerCallBack.bind(this), ScrollIndicator.duration*1.2);
 
         return wrapDiv(["scroll-indicator", args], this.item);
     }

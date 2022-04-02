@@ -21,7 +21,7 @@ export default function createFootNote(topMargin){
     var cols = new Column(2);
     const dir = "fig/common/icons/";
     for(var i = 0; i < 2; i++){
-        const link = i? "https://discord.gg/HqQ5n2cMBY":
+        const link = i? "/#/contact":
             "https://www.youtube.com/channel/UC1CfXB_kRs3C-zaeTG3oGyg";
 
         cols.insert(i, createFootNoteBotton(
