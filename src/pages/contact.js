@@ -1,5 +1,5 @@
 import createFootNote from "../footnote";
-import { merge, wrapLanguages, wrapDiv, wrapDivStyled} from '../utils';
+import { merge, wrapLanguages, wrapDiv, wrapDivStyled, wrapStyle} from '../utils';
 import { EntranceEffect } from '../modules/entrance_effect';
 import RawParagraph from '../modules/raw_paragraph';
 import articlesContact from "../articles/article_contact";
@@ -22,7 +22,9 @@ const Contact = () => {
     
     const App = merge(
         createDescription(), 
-        createStaffs()
+        createSocialMedia(), 
+        createStaffs(), 
+        createFootNote(0)
     );
 
     EntranceEffect.startAllRequest();
@@ -40,19 +42,11 @@ function createDescription(){
     //paragraph.setTitle("World Wide Support for Haato");
     paragraph.setPassage(articlesContact.description.map(
         function(x){return wrapLanguages(x)}));
-    return wrapDivStyled("", {marginBottom: "0%"}, paragraph.get());
+    return wrapStyle({marginBottom: "5%"}, paragraph.get());
 }
 
 
-function createStaffs(){
-    var titledContainer = new TitledContainer();
-    titledContainer.setTitle("Information");
-    titledContainer.setFontColor(255, 255, 255,1);
-    titledContainer.setTitleColor(229, 49, 76, 1);
-    titledContainer.setBodyColor(181, 38, 59, 1);
-    titledContainer.setRight();
-    
-    var cols = new InvertableColumn();
+function createSocialMedia(){
     var img = new ImageLinked();
     var waterMark = new Image();
     waterMark.setWidth("50%");
@@ -66,7 +60,6 @@ function createStaffs(){
 
     var iconHolderRow = new InvertableColumn();
     iconHolderRow.setMargin(Border.ALL, "20px");
-    
 
     const preffix = "fig/common/icons/";
     const paths = ["discord.png", "twitter.png", "email.png", "github.png"];
@@ -84,16 +77,36 @@ function createStaffs(){
 
 
     //"titled-media-text"
-    const passage = fadeInDelayed.get(wrapDiv("passage", 
-        wrapLanguages(articlesContact.informationPassage)));
-
-    const subtitle = fadeInDelayed.get(wrapDiv("title", 
-        wrapLanguages({en: "Social Media", jp: "SNS"})));
-
-    const icons = fadeInExplosiveDelayed.get(wrapDivStyled("", {margin: "0 20%"}, iconHolderRow.get()));
+    var items = [];
     
-    cols.insert(1, wrapDiv("titled-media-text", subtitle, icons, passage));
 
+    items.push(fadeInDelayed.get(wrapDiv("title", 
+        wrapLanguages({en: "Official accounts", jp: "公式アカウント"}))));
+
+    items.push(fadeInExplosiveDelayed.get(
+        wrapStyle({margin: "0 20%"}, iconHolderRow.get())));
+        
+    items.push(fadeInDelayed.get(wrapDiv("passage", 
+        wrapLanguages(articlesContact.informationPassage))));
+
+    var titledContainer = new TitledContainer();
+    titledContainer.setTitle("SNS");
+    titledContainer.setFontColor(255, 255, 255, 1);
+    titledContainer.setTitleColor(70, 132, 219, 1);
+    titledContainer.setBodyColor(60, 112, 185, 1);
+    titledContainer.setLeft();
+
+    return titledContainer.get(wrapDiv("titled-media-text",items));
+    
+}
+
+function createStaffs(){
+    var titledContainer = new TitledContainer();
+    titledContainer.setTitle("Staff");
+    titledContainer.setFontColor(255, 255, 255,1);
+    titledContainer.setTitleColor(229, 49, 76, 1);
+    titledContainer.setBodyColor(181, 38, 59, 1);
+    titledContainer.setRight();
 
     var slider = new Slider();
     slider.append(staffInformationLeo.get());
@@ -106,11 +119,8 @@ function createStaffs(){
     slider.setBarColor(229, 49, 76, 1);
     slider.setDotColor(255,255,255,1);
     slider.setWidth("100%");
-
-    const leftTitle = fadeInDelayed.get(wrapDiv("title", 
-        wrapLanguages({en: "Staff", jp: "スタッフ"})));
+    
     const leftContent = fadeInExplosiveDelayed.get(slider.get());
-    cols.insert(0, wrapDiv("titled-media-text", leftTitle), leftContent);
 
     return titledContainer.get(leftContent);
 }
