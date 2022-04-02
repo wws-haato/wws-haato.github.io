@@ -134,25 +134,21 @@ function createCurrentEvent(){
     var img = new Image();
     img.setWidth("50%");
 
-    for(var i = 0; i < 3; ++i)
-        slider.append(img.get("fig/common/place_holder.png"));
-    //slider.append(img.get("fig/common/place_holder2.png"));
-    //slider.append(img.get("fig/common/place_holder3.png"));
-    //I'm thinking about which drawing should be placed here to fit our current project, I'll delete template afterward.
+    slider.append(img.get("fig/common/place_holder2.png"));
+    slider.append(img.get("fig/common/place_holder3.png"));
+   
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
     slider.setBarColor(70, 132, 219, 1);
     slider.setDotColor(255, 255, 255, 1);
 
     var mediaText = new TitledMediaText();
-    mediaText.initFromArticle(articlesHome[0]);
     mediaText.setTitle("Current Event");
-    mediaText.setGraphic("Haachama's Diary", slider.get());
-    mediaText.setPassage("Haachama Birthday Project 2022", 
-        "This year, we are going to present an Original Game (Visual Novel) \
-        to show our support to Haachama. You will experience Haachama's daily life (imagined) \
-        and your ultimate goal is to have a fulfilling life, \
-        and succeed your birthday live this year.");
+
+    //TitledMediaText.setPassage has been deprecated
+    //please use TitledMediaText.initFromArticle instead
+    mediaText.setGraphic(slider.get());
+    mediaText.initFromArticle(articlesHome[0]);
 
     mediaText.setFontColor(255, 255, 255, 1);
     mediaText.setTitleColor(70, 132, 219, 1);
