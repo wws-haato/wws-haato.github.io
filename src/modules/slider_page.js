@@ -14,5 +14,9 @@ export default class SliderPage extends Slider{
         //this.hideArrow();
         //this.hideBar();
     }
+
+    insert(id, item){
+        this.items[id].item = item;
+    }
     
 }

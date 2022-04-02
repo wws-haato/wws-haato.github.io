@@ -172,16 +172,6 @@ export class NewsContents{
     static newsPages = NewsContents.createNewsPages();
     static genrationMutex = new Mutex();
     static generateHomeTabs(){
-        NewsContents.genrationMutex.acquire();
-        if(!NewsContents.newsPages.items.length)
-            for(let news of NewsContents.allNews){
-                const config = merge(news.getDate(), news.getTitle(), 
-                    news.getGraphic(), news.getPassage()); 
-
-                NewsContents.newsPages.append(config);
-            }
-                
-        NewsContents.genrationMutex.runExclusive();
         var news = new TitledNews(4);
         news.setTitle("News");
         news.setFontColor(255, 255, 255, 1);
@@ -198,17 +188,13 @@ export class NewsContents{
     }
 
     static generatePageTabs(){
-        NewsContents.genrationMutex.acquire();
-        if(!NewsContents.newsPages.items.length)
-            for(let news of NewsContents.allNews){
-                const config = merge(news.getDate(), news.getTitle(), 
-                    news.getGraphic(), news.getPassage()); 
+        var id = 0;
+        for(let news of NewsContents.allNews){
+            const config = merge(news.getDate(), news.getTitle(), 
+                news.getGraphic(), news.getPassage()); 
 
-                NewsContents.newsPages.append(config);
-            }
-                
-        NewsContents.genrationMutex.runExclusive();
-        
+            NewsContents.newsPages.insert(id++, config);
+        }
         return NewsContents.newsPages.get();
     }
 
@@ -235,18 +221,12 @@ export class NewsContents{
     }
 
     getTitle(){
-        if (!this.title)
-            this.title = wrapLanguages(this.article.title);
-        
-        return this.title;
+        return wrapLanguages(this.article.title);
     }
 
     getPassage(){
-        if(!this.passage)
-            this.passage = wrapDiv("passage", this.article.passage.map(
-                function(line){return wrapDiv("line", wrapLanguages(line));}));
-    
-        return this.passage; 
+        return wrapDiv("passage", this.article.passage.map(
+            function(line){return wrapDiv("line", wrapLanguages(line));}));
     }
 
     getDate(){
