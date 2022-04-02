@@ -23,7 +23,6 @@ export default class RawParagraph{
             this.lines = lines[0]; //in case passing arr directly
         else
             this.lines = lines;
-        console.log(this.lines);
     }
 
     get(){

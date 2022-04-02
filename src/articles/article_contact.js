@@ -15,8 +15,8 @@ const articlesContact = {
         {
             en: "If Discord does not serve as a proper platform according to your need,  \
                 we also provide official email, twitter and github as alternative contact means. ", 
-            jp: "今までに、初めての企画「ワールドワイドはあちゃまツアーガイド」[TL NOT COMPLETED]を完遂することができましたが、\
-                これからは、もっとはあちゃまを応援する企画を引き続き作り上げるつもりです。"
+            jp: "[DeepL]Discordが必要に応じて適切なプラットフォームとして機能しない場合は、\
+                また、代替の連絡手段として、公式の電子メール、Twitter、およびgithubを提供しています。"
         }
     ], 
     informationPassage:{
