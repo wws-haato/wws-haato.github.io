@@ -3,7 +3,7 @@ const articlesProject2 = [
         className: "project-top-banner", 
         suptitle: {
             en: "WWS Haato Project 2", 
-            jp: "WWS はあと　プロジェクト2"
+            jp: "WWS Haato セカンドプロジェクト"
         }, 
         title: {
             en: "Haato's Birthday Parade ❤", 
@@ -26,7 +26,7 @@ const articlesProject2 = [
                     },
                     {
                         en: "Over 100 Singing Haatons", 
-                        jp: "100匹以上の歌うはあとん"
+                        jp: "100人以上のはあとんが合唱"
                     }
                 ]
             }
@@ -37,14 +37,14 @@ const articlesProject2 = [
         className: "project-details", 
         suptitle: {
             en: "Video", 
-            jp: "ビデオ"
+            jp: "動画"
         }, 
         contents: [
             [
                 {
                     title: {
                         en: "Watch on Youtube", 
-                        jp: "ユーチューブで見る"
+                        jp: "Youtubeで見る"
                     }, 
                     graphicID: 1, 
                     // graphicID=0 or simply omit: no graphic request for this cell
@@ -53,11 +53,11 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "Happy birthday to our lovely Haato", 
-                                jp: "愛しいはあとへハッピーバースデー"
+                                jp: "愛おしいはあと様、お誕生日おめでとう"
                             }, 
                             {
                                 en: "Here's a gift with our blessing for you", 
-                                jp: "私たちの祝福を込めた贈り物です"
+                                jp: "私達が祝福を込めた贈り物ですよ"
                             }
                         ]
                     }
@@ -83,21 +83,21 @@ const articlesProject2 = [
                 {
                     title: {
                         en: "Project Initiator", 
-                        jp: "プロジェクトの発案者"
+                        jp: "企画発起人"
                     }, 
                     passage: {
                         lines: [
                             {
                                 en: "Leo is the initiator of WWS Haato.", 
-                                jp: "LeoさんはWWS Haato企画の発案者."
+                                jp: "LeoさんはWWS Haatoの創始者です"
                             }, 
                             {
                                 en: "He is mainly in charge of website maintainance and general coordinate affairs.", 
-                                jp: "主にウェブサイトのメンテナンスとコーディネート全般をする担当."
+                                jp: "サイトのメンテ作業と総合事務担当です"
                             }, 
                             {
                                 en: "In this project, he also worked as the lyricist.", 
-                                jp: "今回の企画では、彼は作詞家としても活躍した."
+                                jp: "この企画に作詞者としても努めておりました"
                             }
                         ]
                     }
@@ -120,11 +120,11 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "Zhadar is mainly in charge of social media advertisement.", 
-                                jp: "Zhadarさんは、主にソーシャルメディア広告をする担当."
+                                jp: "Zhadarさんは、主にソーシャルメディアでのプロモーション、宣伝活動を行っております"
                             }, 
                             {
                                 en: "He also works on the overall coordination of the projects.", 
-                                jp: "また、プロジェクトの全体的なコーディネートにも担当しています."
+                                jp: "彼は同時に総合事務担当として努めました"
                             }
                         ]
                     }
@@ -147,11 +147,15 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "Sakazuki is the contact person for JP Haatons.", 
-                                jp: "羽の觴さんは日本はあとんの窓口となります."
+                                jp: "日本のはあとんと先輩達に連絡を取る人です"
                             }, 
                             {
                                 en: "He also works on graphic effects and animations.", 
-                                jp: "また、グラフィックエフェクトやアニメーションも手掛けています."
+                                jp: "今回はグラフィックエフェクト、"
+                            },
+                            {
+                                en: "　", 
+                                jp: "アニメーションの制作にも活躍しました"
                             }
                         ]
                     }
@@ -174,11 +178,11 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "Abner joined the animation team to give technical supports.", 
-                                jp: "Abnerさんがアニメーションチームに参加し、技術的なサポートを行う."
+                                jp: "Abnerさんは、アニメーションチームに　　加わって、技術面での支援を行いました"
                             }, 
                             {
                                 en: "Since then he has been the head of the graphic team.", 
-                                jp: "以来、グラフィックチームの責任者を務める."
+                                jp: "それから彼はグラフィックチームのリーダーとして努めていただきました"
                             }
                         ]
                     }
@@ -195,17 +199,17 @@ const articlesProject2 = [
                 {
                     title: {
                         en: "Discord Server Manager", 
-                        jp: "ディスコードサーバーの運営者"
+                        jp: "Discordサーバ管理者"
                     }, 
                     passage: {
                         lines: [
                             {
                                 en: "As a means to assist Abner on the video Steve joined the staff team.", 
-                                jp: "Steveさんは、Abnerさんのビデオ制作を手伝うため、スタッフチームに加わった。."
+                                jp: "Abnerさんに力を添えるため、Steveさんは　スタッフチームに加わりました"
                             }, 
                             {
                                 en: "Besides his work on graphics he is supervising the WWS discord server.", 
-                                jp: "グラフィックの役以外に、WWSのディスコードサーバーの監修も行っています。"
+                                jp: "グラフィックの支援とWWS discordサーバの監督をしておりました"
                             }
                         ]
                     }
