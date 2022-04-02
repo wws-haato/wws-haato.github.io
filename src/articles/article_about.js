@@ -9,7 +9,8 @@ const articlesAbout = [
             はあとちゃんが長期休みに入る2021年の3月に立ち上げました。"
     }, 
     {
-        en: "We have so far produced our.", 
+        en: "We have so far produced our first project \"World Wide Tour Guide\" \
+            and will be continuing to make more supportive projects for Haachama in the future.", 
         jp: "今までに、初めての企画「ワールドワイドはあちゃまツアーガイド」[TL NOT COMPLETED]を完遂することができましたが、\
             これからは、もっとはあちゃまを応援する企画を引き続き作り上げるつもりです。"
     }

@@ -19,7 +19,11 @@ export default class RawParagraph{
 
 
     setPassage(... lines){
-        this.lines = lines;
+        if(lines.length == 1 && lines[0].length)
+            this.lines = lines[0]; //in case passing arr directly
+        else
+            this.lines = lines;
+        console.log(this.lines);
     }
 
     get(){
