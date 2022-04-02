@@ -13,6 +13,8 @@ export default class SliderPage extends Slider{
         super();
         //this.hideArrow();
         //this.hideBar();
+        this.setBarColor(229, 49, 76, 1);
+        this.setClickWidth("5VW");
     }
 
     insert(id, item){

@@ -12,7 +12,7 @@ const News = () => {
     console.log("reload!!!");
     
     const App = merge(
-        wrapDiv("raw-paragraph", NewsContents.generatePageTabs()) 
+        NewsContents.generatePageTabs() 
     );
 
     EntranceEffect.startAllRequest();

@@ -1,0 +1,66 @@
+.news-page{
+    width: 100%;
+    font-size: 2.8VW;
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+    text-shadow: 0px 0px 5px #eeff00;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.news-page .date{
+    font-size: 3.2VW;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.news-page .title{
+    margin-left: 10%;
+    width: 80%;
+}
+
+.news-page .passage{
+    font-size: 2.4VW;
+    margin-left: 10%;
+    width: 80%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.news-page .passage .line{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.news-page .graphic{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 780px) {
+    .news-page .passage .line{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .news-page .title{
+        font-size: 3.6VW;
+        margin-left: 5%;
+        width: 90%;
+    }
+    
+    .news-page .passage{
+        margin-left: 5%;
+        width: 90%;
+        font-size: 2.8VW;
+    }
+
+    .news-page .date{
+        font-size: 4.2VW;
+    }
+}

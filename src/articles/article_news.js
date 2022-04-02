@@ -8,7 +8,7 @@ const articlesNews = [
          */
         date: {year: 2021, month: 4, day: 11}, 
         title: {
-            en: "Final video of World Wide Tour Guide has been released.", 
+            en: "Final Video of World Wide Tour Guide has been Released.", 
             /**
              * add ' \' (space+\) at the end of a string , 
              * if it's is too long that a new line is needed (see the jp: bellow as ref) 
@@ -56,9 +56,8 @@ const articlesNews = [
     {
         date: {year: 2021, month: 6, day: 12}, 
         title: {
-            en: "New project Grand Birthday Chorus has been initiated!", 
-            jp: "ワールドワイドツアーガイドの \
-                最終ビデオが公開されました。"
+            en: "Grand Birthday Chorus has been Initiated!", 
+            jp: "[JP] Grand Birthday Chorus has been Initiated!"
         }, 
         graphic: {
             type: "youtube", 
@@ -93,7 +92,7 @@ const articlesNews = [
     {
         date: {year: 2021, month: 6, day: 23}, 
         title: {
-            en: "Song preview for Grand Birthday Chorus has been released!", 
+            en: "Song Preview for Grand Birthday Chorus has been Released!", 
             jp: "グランドバースデーコーラスの曲プレビューが公開されました！"
         }, 
         graphic: {
@@ -104,7 +103,7 @@ const articlesNews = [
             {
                 en: "The project is finally finished, \
                     please check the final video, hope you enjoy!", 
-                jp: "The project is finally finished, \
+                jp: "[JP]The project is finally finished, \
                     please check the final video, hope you enjoy!", 
             }
         ]
@@ -123,7 +122,7 @@ const articlesNews = [
             {
                 en: "The project is finally finished, \
                     please check the final video, hope you enjoy!", 
-                jp: "The project is finally finished, \
+                jp: "[JP]The project is finally finished, \
                     please check the final video, hope you enjoy!", 
             }
         ]
@@ -142,7 +141,7 @@ const articlesNews = [
             {
                 en: "The project is finally finished, \
                     please check the final video, hope you enjoy!", 
-                jp: "The project is finally finished, \
+                jp: "[JP]The project is finally finished, \
                     please check the final video, hope you enjoy!", 
             }
         ]

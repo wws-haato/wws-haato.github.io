@@ -1,6 +1,7 @@
 import TitledContainer from "./titled_container";
 import { merge, wrapDiv, wrapDivStyled, wrapStyle, wrapLanguages, wrapLink} from "../utils";
 import "../css/titled_news.css";
+import "../css/news_page.css";
 import Slider from "./slider";
 import Column from "./column";
 import Image from "./Image";
@@ -190,12 +191,15 @@ export class NewsContents{
     static generatePageTabs(){
         var id = 0;
         for(let news of NewsContents.allNews){
-            const config = merge(news.getDate(), news.getTitle(), 
-                news.getGraphic(), news.getPassage()); 
+            const config = merge(
+                wrapDiv("date", news.getDate()), 
+                wrapDiv("title", news.getTitle()), 
+                wrapDiv("graphic", news.getGraphic()), 
+                news.getPassage()); 
 
             NewsContents.newsPages.insert(id++, config);
         }
-        return NewsContents.newsPages.get();
+        return wrapDiv("news-page", NewsContents.newsPages.get());
     }
 
     /**
