@@ -3,7 +3,7 @@ const articlesNews = [
         /**
          * please type ONLY numbers here, instead of abbreviations(Mar. 4th, etc)
          * numbers are required for the code to sort out all news in descending date order
-         * that being said, you can actually list the news int random order for your convenience
+         * that being said, you can actually list the news in random order for your convenience
          * it will later be converted into month abbriviations in the code
          */
         date: {year: 2021, month: 4, day: 11}, 
