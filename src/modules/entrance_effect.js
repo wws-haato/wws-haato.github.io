@@ -1,5 +1,6 @@
 import { Mutex } from "async-mutex";
 import { scrolledIntoView } from "../utils";
+import UniqueIDGenerator from "./unique_id_generator";
 
 
 /** internal stuff**/
@@ -23,15 +24,16 @@ export class ProtectedArray extends Array{
 
 
 export class EntranceEffect{
-	static idMutex = new Mutex();
-	static uid = 0;
-	static allEffects = new ProtectedArray();
 	static PRIMARY = 1;
 	static SCROLL = 0;
+
+	static allEffects = new ProtectedArray();
 	static allQueries = [new Map(), new Map()];
 
 	static stopFlag = false;
 	static stopMutices = [new Mutex(), new Mutex()];
+
+	static uidGen = new UniqueIDGenerator("entrance-effect");
 
 	static timerCallBack(isPrimary){
 		EntranceEffect.stopMutices[isPrimary].acquire();
@@ -78,17 +80,9 @@ export class EntranceEffect{
 		console.log("primary:\t"+EntranceEffect.allQueries[1].size.toString());
 		console.log("scroll:\t"+EntranceEffect.allQueries[0].size.toString());
 	}
-
-	static getUniqueId(){
-        EntranceEffect.idMutex.acquire();
-        const uid = EntranceEffect.uid++;
-        EntranceEffect.idMutex.runExclusive();
-        return "entrance-query-"+uid.toString();
-    }
-
 	
 	static timers = [
-		setInterval(EntranceEffect.timerCallBack, 10,  EntranceEffect.PRIMARY), 
+		setInterval(EntranceEffect.timerCallBack, 10, EntranceEffect.PRIMARY), 
 		setInterval(EntranceEffect.timerCallBack, 10, EntranceEffect.SCROLL) 
 	];
 	
@@ -104,7 +98,7 @@ export class EntranceEffect{
 			args[0] = EntranceEffect.SCROLL;
 		}
 			
-		const uid = EntranceEffect.getUniqueId();
+		const uid = EntranceEffect.uidGen.generateUniqueID();
 		EntranceEffect.allQueries[args[0]].set(uid, this.effectID);
 
 		const initStyle = EntranceEffect.allEffects[this.effectID].keyframes[0];

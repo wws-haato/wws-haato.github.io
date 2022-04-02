@@ -4,19 +4,12 @@ import { getRawNumberAndSuffix, scrolledIntoView, wrapDiv, wrapDivStyled} from "
 import { Mutex } from "async-mutex";
 import ColourRGBA from "../config/colour_rgba";
 import Border from "../config/border";
+import UniqueIDGenerator from "./unique_id_generator";
 
 
 export default class Slider{
-    static idMutex = new Mutex();
-    static uid = 0;
+    static uidGen = new UniqueIDGenerator("slider-uid");
     static imgPath = "fig/common/icons/slider_click.png";
-
-    static getUniqueId(){
-        Slider.idMutex.acquire();
-        const uid = Slider.uid++;
-        Slider.idMutex.runExclusive();
-        return "slider-uid-"+uid.toString();
-    }
 
     static timers = [];
 
@@ -37,7 +30,7 @@ export default class Slider{
         this.dotColor = new ColourRGBA(255, 255, 255, 1);
         this.period = -1;
         this.lastAnimatedTime = -1;
-        this.uid = Slider.getUniqueId();
+        this.uid = Slider.uidGen.generateUniqueID();
     }
 
 
@@ -57,7 +50,7 @@ export default class Slider{
     }
 
     append(item){
-        this.items.push({uid: Slider.getUniqueId(), item:item});
+        this.items.push({uid: Slider.uidGen.generateUniqueID(), item:item});
     }
 
     setPeriod(period){
