@@ -4,8 +4,8 @@ import Image from "../modules/Image";
 import { merge, wrapDiv, wrapDivRecursive, wrapLanguages} from "../utils";
 import Border from "../config/border";
 import { wrapLink } from "../utils";
-import articlesProject1 from "../articles/previous_works_proj1";
-import articlesProject2 from "../articles/previous_works_proj2";
+import articlesProject1 from "../articles/article_proj1";
+import articlesProject2 from "../articles/article_proj2";
 
 
 

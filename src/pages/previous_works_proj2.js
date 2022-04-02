@@ -16,8 +16,8 @@ import {fadeInExplosive } from "../modules/defaults/entrance_effect";
 import {merge, wrapDiv,wrapDivStyled, wrapLanguages, } from "../utils";
 
 import PageSwithcer from "../modules/page_switcher";
-import articlesProject1 from "../articles/previous_works_proj1";
-import articlesProject2 from "../articles/previous_works_proj2";
+import articlesProject1 from "../articles/article_proj1";
+import articlesProject2 from "../articles/article_proj2";
 
 
 

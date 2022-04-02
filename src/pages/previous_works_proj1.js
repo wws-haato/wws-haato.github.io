@@ -13,8 +13,8 @@ import createFootNote from "../footnote";
 import ImageLinked from "../modules/Image_linked";
 import Column from "../modules/column";
 import PageSwithcer from "../modules/page_switcher";
-import articlesProject1 from "../articles/previous_works_proj1";
-import articlesProject2 from "../articles/previous_works_proj2";
+import articlesProject1 from "../articles/article_proj1";
+import articlesProject2 from "../articles/article_proj2";
 
 import { EntranceEffect } from "../modules/entrance_effect";
 import {merge, wrapDiv, wrapDivStyled, wrapLanguages} from "../utils";

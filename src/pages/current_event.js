@@ -19,7 +19,7 @@ import { EntranceEffect } from "../modules/entrance_effect";
 import PageSwithcer from "../modules/page_switcher";
 import "../css/page_switcher.css";
 
-import articlesCurrentEvent from "../articles/current_event";
+import articlesCurrentEvent from "../articles/article_current_event";
 import LanguageSwitch from "../modules/language_switch";
 
 
