@@ -120,24 +120,15 @@ function createNews(){
 
 
 function createCurrentEvent(){
-    var slider = new Slider();
     var img = new Image();
-    img.setWidth("50%");
-
-    slider.append(img.get("fig/common/place_holder2.png"));
-    slider.append(img.get("fig/common/place_holder3.png"));
-   
-    slider.setClickWidth("4VW");
-    slider.setWidth("100%"); 
-    slider.setBarColor(229, 49, 76, 1);
-    slider.setDotColor(255, 255, 255, 1);
+    img.setWidth("85%");
 
     var mediaText = new TitledMediaText();
     mediaText.setTitle("Current Event");
 
     //TitledMediaText.setPassage has been deprecated
     //please use TitledMediaText.initFromArticle instead
-    mediaText.setGraphic(slider.get());
+    mediaText.setGraphic(img.get("fig/current_event/haachama_vn_thumb.jpg"));
     mediaText.initFromArticle(articlesHome[0]);
 
     mediaText.setFontColor(255, 255, 255, 1);

@@ -15,6 +15,9 @@ export default class ColourRGBA{
 	get(){
 		return "rgba("+this.r+','+this.g+','+this.b+','+this.a+')';
 	}
+	getA(a){
+		return "rgba("+this.r+','+this.g+','+this.b+','+a.toString()+')';
+	}
 
 	/**
 	* @param {ColourRGBA} rgba 

@@ -195,7 +195,7 @@ const articlesCurrentEvent = [
                         jp: ""
                     },
                     // graphicID=0 or simply omit: no graphic request for this cell
-                    graphicID: "screenwriters",
+                    graphicID: "screen-writer",
                     passage: {
                         lines: [
                             {
@@ -219,7 +219,7 @@ const articlesCurrentEvent = [
                         jp: ""
                     },
                     // graphicID=0 or simply omit: no graphic request for this cell
-                    graphicID: "writers",
+                    graphicID: "writer",
                     passage: {
                         lines: [
                             {
@@ -238,7 +238,7 @@ const articlesCurrentEvent = [
                         jp: ""
                     },
                     // graphicID=0 or simply omit: no graphic request for this cell
-                    graphicID: "Editors",
+                    graphicID: "editor",
                     passage: {
                         lines: [
                             {
@@ -256,7 +256,7 @@ const articlesCurrentEvent = [
                     },
                     // graphicID=0 or simply omit: no graphic request for this cell
                     // graphicID>0: requesting graphic
-                    graphicID: "Translators", 
+                    graphicID: "translator", 
                     passage: {
                         lines: [
                             {
@@ -289,7 +289,7 @@ const articlesCurrentEvent = [
                         jp: ""
                     },
                     // graphicID=0 or simply omit: no graphic request for this cell
-                    graphicID: "screenwriters",
+                    graphicID: "illustrator",
                     passage: {
                         lines: [
                             {
@@ -310,7 +310,7 @@ const articlesCurrentEvent = [
                         jp: ""
                     },
                     // graphicID=0 or simply omit: no graphic request for this cell
-                    graphicID: "Musicians",
+                    graphicID: "musician",
                     passage: {
                         lines: [
                             {
@@ -337,7 +337,7 @@ const articlesCurrentEvent = [
                         jp: ""
                     },
                     // graphicID=0 or simply omit: no graphic request for this cell
-                    graphicID: "Animators",
+                    graphicID: "animator",
                     passage: {
                         lines: [
                             {

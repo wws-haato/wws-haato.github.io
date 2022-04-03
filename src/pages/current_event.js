@@ -102,18 +102,20 @@ function createDescription(){
 
 function createProgramming(){
     let videoTexts = articlesCurrentEvent[2];
-    console.log(videoTexts);
     var details = new ProjectDetails();
 
     details.setContourColor(181, 38, 59, 0.6);
     details.setSuptitle(videoTexts.suptitle);
     details.setBackgroundImage("fig/background/red_chessboard.png");
 
-    var youtube = new Youtube();
-    youtube.setWidth("65%");
-    youtube.setCorner(Border.ALL, "10px");
+    const args = {marginTop: "20px", marginBottom: "30px", 
+        backgroundColor: details.contourColor.getA(0.85)};
+    const button = wrapLanguages({en: "Join as Programmer!", jp: ""});
 
-    details.setGraphic("programmers", youtube.get("https://youtu.be/aHt-fGy5BYQ"));
+    var img = new Image();
+    img.setWidth("15%");
+    details.setGraphic("programmer", TitledMediaText.createButton(
+        merge(img.get(dir+"prog_w.png"), button), "", args));
     
     for(let content of videoTexts.contents){
         console.log(content);
@@ -136,12 +138,24 @@ function createStoryboard(){
     details.setSuptitle(videoTexts.suptitle);
     details.setBackgroundImage("fig/background/green.png");
 
-    var youtube = new Youtube();
-    youtube.setWidth("65%");
-    youtube.setCorner(Border.ALL, "10px");
+    const args = {marginTop: "20px", marginBottom: "30px", 
+        backgroundColor: details.contourColor.getA(0.85)};
 
-    details.setGraphic("programmers", youtube.get("https://youtu.be/aHt-fGy5BYQ"));
-    
+    var img = new Image();
+    img.setWidth("15%");
+    details.setGraphic("screen-writer", TitledMediaText.createButton(
+        merge(img.get(dir+"writer_w.png"), 
+        wrapLanguages({en: "Join as Screen Writer!", jp: ""})), "", args));
+    details.setGraphic("writer", TitledMediaText.createButton(
+        merge(img.get(dir+"writer_w.png"), 
+        wrapLanguages({en: "Join as Writer!", jp: ""})), "", args));
+    details.setGraphic("editor", TitledMediaText.createButton(
+        merge(img.get(dir+"edit_w.png"), 
+        wrapLanguages({en: "Join as Editor!", jp: ""})), "", args));
+    details.setGraphic("translator", TitledMediaText.createButton(
+        merge(img.get(dir+"edit_w.png"), 
+        wrapLanguages({en: "Join as Translator!", jp: ""})), "", args));
+
     for(let content of videoTexts.contents){
         console.log(content);
         details.emplace(content.length);
@@ -163,11 +177,20 @@ function createArtists(){
     details.setSuptitle(videoTexts.suptitle);
     details.setBackgroundImage("fig/background/red_chessboard.png");
 
-    var youtube = new Youtube();
-    youtube.setWidth("65%");
-    youtube.setCorner(Border.ALL, "10px");
+    const args = {marginTop: "20px", marginBottom: "30px", 
+    backgroundColor: details.contourColor.getA(0.85)};
 
-    details.setGraphic("programmers", youtube.get("https://youtu.be/aHt-fGy5BYQ"));
+    var img = new Image();
+    img.setWidth("15%");
+    details.setGraphic("illustrator", TitledMediaText.createButton(
+        merge(img.get(dir+"artist_w.png"), 
+        wrapLanguages({en: "Join as Illustrator!", jp: ""})), "", args));
+    details.setGraphic("musician", TitledMediaText.createButton(
+        merge(img.get(dir+"music.png"), 
+        wrapLanguages({en: "Join as Musician!", jp: ""})), "", args));
+    details.setGraphic("animator", TitledMediaText.createButton(
+        merge(img.get(dir+"movie_w.png"), 
+        wrapLanguages({en: "Join as Animator!", jp: ""})), "", args));
     
     for(let content of videoTexts.contents){
         console.log(content);
