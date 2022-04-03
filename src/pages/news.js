@@ -1,9 +1,7 @@
 import createFootNote from "../footnote";
 import { merge, wrapDiv, wrapLanguages} from '../utils';
 import { EntranceEffect } from '../modules/entrance_effect';
-import RawParagraph from '../modules/raw_paragraph';
-import articlesAbout from "../articles/article_about";
-import SliderPage from "../modules/slider_page";
+
 
 import NewsDataBase from "../modules/titled_news";
 

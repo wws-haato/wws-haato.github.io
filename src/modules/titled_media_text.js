@@ -16,7 +16,10 @@ export default class TitledMediaText extends TitledContainer{
         style = {className:"button", style:style};
         const button = wrapDiv(["titled-media-text", style], text);
         
-       return wrapLink(link, button);
+        if(!link)
+            return button;
+            
+        return wrapLink(link, button);
     }
 
     constructor(isLeft){

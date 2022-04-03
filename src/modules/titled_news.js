@@ -7,12 +7,14 @@ import Column from "./column";
 import Image from "./Image";
 import Border from "../config/border";
 import { Mutex } from "async-mutex";
-import { fadeInExplosive } from "./defaults/entrance_effect";
+import { fadeIn, fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsDelayed} from "./defaults/entrance_effect";
 import { fadeInRightwards } from "./defaults/entrance_effect";
 import InvertableColumn from "./invertable_columns";
 import Youtube from "./youtube";
 import { NavLink } from "react-router-dom";
 import articlesNews from "../articles/article_news";
+import UniqueIDGenerator from "./unique_id_generator";
+import TitledMediaText from "./titled_media_text";
 
 var pageSlider = new Slider(); 
 
@@ -45,7 +47,7 @@ class NewsContent extends Column{
     }
 
     getTitle(){
-        return  wrapDiv("title", wrapLanguages(this.title));
+        return wrapDiv("title", wrapLanguages(this.title));
     }
 
     getPassage(){
@@ -84,10 +86,14 @@ class NewsContent extends Column{
 
 
 export default class NewsDataBase extends TitledContainer{
+    static uidGen = new UniqueIDGenerator("news-database-uid");
     static allNews = articlesNews.map(function(article){
         return new NewsContent(article);}
 
     ).sort(function(a, b) {return b.comparableId-a.comparableId;});
+
+    static keyframes = [{opacity: 0}, { opacity: 1}]; 
+    static options = {duration: 600, fill: 'forwards', easing: 'ease-out'};
     
     constructor(){
         super();
@@ -95,7 +101,42 @@ export default class NewsDataBase extends TitledContainer{
             NewsDataBase.allNews.push(false);
 
         pageSlider.resize(articlesNews.length);
-        this.setTitle("News");
+        pageSlider.hideArrow();
+        pageSlider.hideBar();
+        this.setTitle("News")
+
+        this.lastButtonId = NewsDataBase.uidGen.generateUniqueID();
+        this.nextButtonId = NewsDataBase.uidGen.generateUniqueID();
+
+    }
+
+    createPageSwitch(aid){
+        aid+=articlesNews.length;
+        aid%=articlesNews.length;
+        let tgtNews = NewsDataBase.allNews[aid];
+        var pageSwitch = <div onClick={this.onclick.bind(this, aid)}>{
+            merge(tgtNews.getDate(), tgtNews.getTitle())}</div>;
+
+        return pageSwitch;
+    }
+
+    onClick(aid){
+        pageSlider.callBackJump(aid);
+    }
+
+    onMouse(noneUid, dispUid){
+        var elem = document.getElementById(noneUid);
+        if(elem)
+            elem.style.display = "none";
+        
+        elem = document.getElementById(dispUid);
+        if(elem){
+            elem.style.display = "block";
+            //elem.style = NewsDataBase.keyframes[0];
+            elem.animate(NewsDataBase.keyframes, NewsDataBase.options);
+        }
+
+        elem = document.getElementById(dispUid);
     }
 
     getHomeTabs(){
@@ -119,16 +160,63 @@ export default class NewsDataBase extends TitledContainer{
 
         return super.get(slider.get());
     }
+
+    createPageSwitches(aid){
+        var cols = new Column(3);
+        cols.setRatios(2, 6, 2); 
+        
+
+        var colId = 0;
+        var queryObjs = [];
+        const srcUid = NewsDataBase.uidGen.generateUniqueID();
+        let srcNews = NewsDataBase.allNews[aid];
+        queryObjs.push(wrapDiv({className: "mid-title", id: srcUid}, 
+            srcNews.getDate(), srcNews.getTitle()))
+
+
+        const style = {backgroundColor: "crimson", marginTop: 0};
+        var lastButton = TitledMediaText.createButton(
+            wrapLanguages({en: "Last", jp:"戻る"}), "", style);
+        var nextButton = TitledMediaText.createButton(
+            wrapLanguages({en: "Next", jp:"次へ"}), "", style);
+
+        for(let i of [aid-1, aid+1]){
+            i+=articlesNews.length;
+            i%=articlesNews.length;
+            
+            const tgtUid = NewsDataBase.uidGen.generateUniqueID();
+            let tgtNews = NewsDataBase.allNews[i];
+
+            queryObjs.push(wrapDiv({className: "mid-title", id: tgtUid, 
+                style:{display: "none"}}, tgtNews.getDate(), tgtNews.getTitle()))
+            
+            cols.insert(colId, <div id = {colId? this.nextButtonId: this.lastButtonId} 
+                onMouseEnter={this.onMouse.bind(this, srcUid, tgtUid)} 
+                onMouseLeave={this.onMouse.bind(this, tgtUid, srcUid)} 
+                onClick={this.onClick.bind(this, i)}>{colId? nextButton: lastButton}</div>);
+
+            colId+=2;
+        }
+
+        //nextTitle = NewsDataBase.allNews[nextAid].getDate();
+        cols.insert(1, merge(queryObjs));
+
+        return cols.get();
+
+    }
     
     getPageTabs(){
         for(var i = 0; i < articlesNews.length; i++){
             let news = NewsDataBase.allNews[i];
-            const graphic = wrapStyle(
-                {width: "50%", marginLeft: "25%"}, news.getGraphic());
-            const config = merge(news.getDate(), 
-                news.getTitle(), graphic, news.getPassage()); 
 
-            pageSlider.insert(i, config);
+            var objs = [];
+            objs.push(fadeIn.get(news.getDate()));
+            objs.push(fadeIn.get(news.getTitle()));
+            objs.push(fadeInExplosiveDelayed.get(wrapDiv("graphic", news.getGraphic())));
+            objs.push(fadeInRightwardsDelayed.get(news.getPassage()));
+            objs.push(fadeInExplosiveLatched.get(this.createPageSwitches(i)))
+
+            pageSlider.insert(i, merge(objs));
         }
         return wrapDiv("news-page", pageSlider.get());
     }
