@@ -27,7 +27,7 @@ const PreviousWorksProject2 = () => {
     const App = merge(
         createTopBanner(), 
         createVideoDetails(), 
-        createStaffDetails(), 
+        createDescriptionDetails(), 
         createPageSwithcer(), 
         createFootNote("70px")
     );
@@ -123,7 +123,7 @@ function createStaffGraphic(imgPath, ...snsList){
     return merge(pfp, wrapDiv({style:{width:"35%", margin: "5px auto"}}, cols.get()));
 }
 
-function createStaffDetails(){
+function createDescriptionDetails(){
     var details = new ProjectDetails();
     let staffTexts = articlesProject2[2];
     details.setContourColor(255,20,147,0.6);
@@ -134,6 +134,29 @@ function createStaffDetails(){
     details.setGraphic(1, createStaffGraphic("fig/pfp/leo.jpg", 
         {path:dir+"twitter.png", link:"https://twitter.com/LeoHsieh57"}
     ));
+    details.setGraphic(2, createStaffGraphic("fig/pfp/zhadar.jpg", 
+        {path:dir+"twitter.png", link:"https://twitter.com/HaatonZhadi"}, 
+        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HaatonZhadi"}
+    ));
+    details.setGraphic(3, createStaffGraphic("fig/pfp/saka.png", 
+        {path:dir+"twitter.png", link:"https://twitter.com/henry4204aaa"}, 
+    ));
+    details.setGraphic(4, createStaffGraphic("fig/pfp/abner.jpg", 
+        {path:dir+"twitter.png", link:"https://twitter.com/UltimateAbrod"}, 
+        {path:dir+"youtube.png", link:"https://www.youtube.com/channel/UCmX9DnmswDnujsDXWnMyOhw"}
+    ));
+    details.setGraphic(5, createStaffGraphic("fig/pfp/steve.jpg", 
+        {path:dir+"twitter.png", link:"https://twitter.com/le_hoang_dung"}, 
+        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HoangDung007"}    
+    ));
+
+
+    var img = new Image();
+    img.setWidth("65%");
+    img.setMargin(Border.ALL, "10px");
+    img.setCorner(Border.ALL, "10px");
+    details.setGraphic("org", img.get("fig/previous_works/proj2/haachama.png"));
+    details.setGraphic("lyrics", img.get("fig/previous_works/proj2/haaton.png"));
     details.setGraphic(2, createStaffGraphic("fig/pfp/zhadar.jpg", 
         {path:dir+"twitter.png", link:"https://twitter.com/HaatonZhadi"}, 
         {path:dir+"reddit.png", link:"https://www.reddit.com/user/HaatonZhadi"}

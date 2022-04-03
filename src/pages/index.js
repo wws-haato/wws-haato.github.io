@@ -22,6 +22,7 @@ import createFootNote from "../footnote";
 import { EntranceEffect } from '../modules/entrance_effect';
 import articlesHome from '../articles/article_home';
 import articlesNews from '../articles/article_news';
+import Border from '../config/border';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
@@ -122,6 +123,7 @@ function createNews(){
 function createCurrentEvent(){
     var img = new Image();
     img.setWidth("85%");
+    img.setCorner(Border.ALL, "10px");
 
     var mediaText = new TitledMediaText();
     mediaText.setTitle("Current Event");
