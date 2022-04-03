@@ -4,16 +4,16 @@ import { EntranceEffect } from '../modules/entrance_effect';
 import RawParagraph from '../modules/raw_paragraph';
 import articlesAbout from "../articles/article_about";
 import SliderPage from "../modules/slider_page";
-import TitledNews, { NewsContents } from "../modules/titled_news";
+
+import NewsDataBase from "../modules/titled_news";
+
 
 const News = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
     console.log("reload!!!");
+    const App = news.getPageTabs();
     
-    const App = merge(
-        NewsContents.generatePageTabs() 
-    );
 
     EntranceEffect.startAllRequest();
     EntranceEffect.debug();
@@ -22,6 +22,7 @@ const News = () => {
 };
   
 export default News;
+var news = new NewsDataBase();
 
 
 

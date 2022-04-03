@@ -13,7 +13,7 @@ import { wrapDiv} from "../utils";
 import { fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched, fadeInUpwards, fadeInUpwardsDelayed } from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
 import TitledNews, { NewsContents } from "../modules/titled_news";
-import { NewsConfig } from "../modules/titled_news";
+import NewsDataBase, { NewsConfig } from "../modules/titled_news";
 import TitledContainer from "../modules/titled_container";
 import InvertableColumn from "../modules/invertable_columns";
 import { fadeInDelayed } from "../modules/defaults/entrance_effect";
@@ -110,7 +110,12 @@ function createContact(){
 }
 
 function createNews(){
-    return NewsContents.generateHomeTabs();
+    var news = new NewsDataBase();
+    news.setBodyColor(60, 112, 185, 1); 
+    news.setTitleColor(70, 132, 219, 1);
+    news.setLeft();
+
+    return news.getHomeTabs();
 }
 
 
@@ -124,7 +129,7 @@ function createCurrentEvent(){
    
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
-    slider.setBarColor(70, 132, 219, 1);
+    slider.setBarColor(229, 49, 76, 1);
     slider.setDotColor(255, 255, 255, 1);
 
     var mediaText = new TitledMediaText();
@@ -136,10 +141,10 @@ function createCurrentEvent(){
     mediaText.initFromArticle(articlesHome[0]);
 
     mediaText.setFontColor(255, 255, 255, 1);
-    mediaText.setTitleColor(70, 132, 219, 1);
-    mediaText.setBodyColor(60, 112, 185, 1);
+    mediaText.setTitleColor(229, 49, 76, 1);
+    mediaText.setBodyColor(181, 38, 59, 1);
     mediaText.setButton("Join us!", "/#/current-event");
-    mediaText.setLeft();
+    mediaText.setRight();
 
     return mediaText.get();
 }
@@ -158,9 +163,7 @@ function createPreviousWorks(){
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
     slider.setBarColor(70, 132, 219, 1);
-    slider.setDotColor(255, 255, 255, 1);
-    slider.setBarColor(229, 49, 76, 1);
-    slider.setDotColor(255,255,255,1);
+    slider.setDotColor(255, 255, 255,1);
     slider.setPeriod(3000);
 
     var mediaText = new TitledMediaText();
@@ -169,10 +172,13 @@ function createPreviousWorks(){
     mediaText.setGraphic(slider.get());
     
     mediaText.setFontColor(255, 255, 255,1);
-    mediaText.setTitleColor(229, 49, 76, 1);
-    mediaText.setBodyColor(181, 38, 59, 1);
+    mediaText.setBodyColor(60, 112, 185, 1); 
+    mediaText.setTitleColor(70, 132, 219, 1);
+    mediaText.setLeft();
+    //mediaText.setTitleColor(229, 49, 76, 1);
+    //mediaText.setBodyColor(181, 38, 59, 1);
     mediaText.setButton("View all", "/#/previous-works");
-    mediaText.setRight();
+    //mediaText.setRight();
 
     
 

@@ -1,8 +1,7 @@
 import { Mutex } from "async-mutex";
-import { merge, wrapDiv, wrapDivStyled } from "../utils";
-import UniqueIDGenerator, { UniqueIDMap } from "./unique_id_generator";
+import { wrapDiv } from "../utils";
+import UniqueIDGenerator from "./unique_id_generator";
 import "../css/language_toggle.css"
-import { fadeIn } from "./defaults/entrance_effect";
 
 export default class LanguageSwitch{
     static ENGLISH = 0;
@@ -86,7 +85,7 @@ export default class LanguageSwitch{
                     style: {display: i==LanguageSwitch.currLanguage? "block": "none"}, 
                 }
 
-                return wrapDiv(args, i? "🇺🇸English": "🇯🇵Japanese");
+                return wrapDiv(args, i? "🇺🇸English": "🇯🇵日本語");
             }
         );
 

@@ -1,6 +1,6 @@
 import "../css/slider.css";
 import Image from "./Image";
-import { getRawNumberAndSuffix, scrolledIntoView, wrapDiv, wrapDivStyled} from "../utils";
+import { getRawNumberAndSuffix, merge, scrolledIntoView, wrapDiv, wrapDivStyled} from "../utils";
 import { Mutex } from "async-mutex";
 import ColourRGBA from "../config/colour_rgba";
 import Border from "../config/border";
@@ -33,9 +33,18 @@ export default class Slider{
         this.uid = Slider.uidGen.generateUniqueID();
     }
 
-    setActiveID(aid){
+    empty(){
+        return !this.items.length;
+    }
+
+    resize(size){
+        while(this.items.length<size)
+            this.items.push({uid: Slider.uidGen.generateUniqueID(), item: 0});
+    }
+
+
+    setActiveId(aid){
         this.activeId = aid;
-        //console.log("aid", this.activeId);
     }
 
 
@@ -46,6 +55,9 @@ export default class Slider{
         this.padding.set(i, val);
     }
 
+    insert(id, item){
+        this.items[id].item = item;
+    }
 
     setCorner(i, val){
         if(!this.corners)
@@ -54,8 +66,13 @@ export default class Slider{
         this.corners.set(i, val);
     }
 
-    append(item){
-        this.items.push({uid: Slider.uidGen.generateUniqueID(), item:item});
+    append(... item){
+        var obj;
+        if(item.length && item[0].length)
+            obj = item[0];
+        else
+            obj = item;
+        this.items.push({uid: Slider.uidGen.generateUniqueID(), item: merge(obj)});
     }
 
     setPeriod(period){

@@ -48,8 +48,8 @@ function createTopBanner(){
     img.setCorner(Border.ALL, "10px");
     var topBanner = new ProjectTopBanner();
 
-    const dir = "fig/current_works/";
-    topBanner.setGraphic(img.get(dir+"placeholder1.jpg"));
+    const dir = "fig/current_event/";
+    topBanner.setGraphic(img.get(dir+"haachama_vn_thumb.jpg"));
     topBanner.setSuptitle(topBannerTexts.suptitle);
     topBanner.setTitle(topBannerTexts.title);
     topBanner.setPassage(topBannerTexts.passage);
