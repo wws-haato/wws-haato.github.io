@@ -10,7 +10,10 @@ const News = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
     console.log("reload!!!");
-    const App = news.getPageTabs();
+    const App = merge(
+        news.getPageTabs(),
+        createFootNote("70px")
+    );
     
 
     EntranceEffect.startAllRequest();

@@ -53,6 +53,7 @@
 
 .news-page .button {
     transition-duration: 0.6s ease-in;
+    bottom: 0;
 }
 
 .news-page .button :hover {
