@@ -11,8 +11,8 @@ const articlesAbout = [
     {
         en: "We have so far produced our first project \"World Wide Tour Guide\" \
             and will be continuing to make more supportive projects for Haachama in the future.", 
-        jp: "今までに、初めての企画「ワールドワイドはあちゃまツアーガイド」[TL NOT COMPLETED]を完遂することができましたが、\
-            これからは、もっとはあちゃまを応援する企画を引き続き作り上げるつもりです。"
+        jp: "今までに、最初の企画となる「ワールドワイドはあちゃまツアーガイド」を完遂することができましたが、\
+            これからも、はあちゃまを応援する企画を引き続き作り出すことを目指しています。"
     }
 ]
 

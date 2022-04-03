@@ -95,11 +95,11 @@ const articlesProject1 = [
                         lines: [
                             {
                                 en: "Our best wishes for the strongest idol", 
-                                jp: "[JP]Our best wishes for the strongest idol"
+                                jp: "最強アイドルに、私たちの祝福を"
                             }, 
                             {
                                 en: "From everywhere around the world", 
-                                jp: "[JP]From everywhere around the world"
+                                jp: "世界中からお届けいたします。"
                             }
                         ]
                     }
