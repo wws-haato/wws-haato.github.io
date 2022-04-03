@@ -1,6 +1,6 @@
 import Border from "../config/border";
 import "../css/previous_works.css";
-import { merge, wrapDiv, wrapDivStyled, wrapLanguages } from "../utils";
+import { merge, wrapDiv, wrapDivStyled, wrapLanguages, wrapStyle } from "../utils";
 import Column from "./column";
 import {fadeInDelayed, fadeInExplosiveLatched, 
     fadeInRightwards, fadeInLatched, fadeInExplosive, fadeInExplosiveDelayed } 
@@ -50,7 +50,13 @@ export default class ProjectDetails{
                 obj.passage.title = wrapLanguages(cell.passage.title);
             if(cell.passage.lines)
                 obj.passage.lines = cell.passage.lines.map(
-                    function(line){return wrapLanguages(line);});
+                    function(line){
+                        var obj = wrapLanguages(line);
+                        if(line.style)
+                            obj = wrapStyle(line.style, obj);
+                        return obj;
+                    }
+                );
         }
             
         this.items.push(obj);
@@ -109,6 +115,7 @@ export default class ProjectDetails{
                     if(item.passage.lines)
                         for(let line of item.passage.lines)
                             passage.push(fadeInLatched.get(wrapDiv("line", line)));
+                        
 
                     var args = {className: "passage", style:{}};
                     if(this.contourColor)
