@@ -23,7 +23,7 @@ const articlesHome = [
         className: "titled-media-text", 
         title: {
             en: "Two Projects with 200+ participants in 2021", 
-            jp: "[DeepL]2021年に200人以上の参加者がいる2つのプロジェクト"
+            jp: "二つの企画で計200名以上の参加者が協力しました"
         },
         graphicTitle: {
             en: "Watch on YouTube", 
@@ -33,20 +33,21 @@ const articlesHome = [
             en: "In the past year, we have been making great efforts to gather as many fans as we can. \
                 We hope to show our largest support for Haachama, \
                 and will continue to further make supportive projects in 2022 as well!", 
-            jp: "[DeepL]昨年は、できるだけ多くのファンを集めるために多大な努力を払ってきました。 \
-                私たちは、Haachamaに対する最大のサポートを示したいと思っています。\
-                そして2022年もさらに支援プロジェクトを作り続けます！"
+            jp: "私たちは去年に、できる限りに多くのファンを集めていただきました。 \
+            私たちは、はあちゃまへの応援を全身全霊で示したいと思っています、\
+            そして今年も引き続き応援企画を開催ことに決まりました！"
         }
     }, 
     {
         //2 welcome!!
         title: {
             en: "Hello from the WWS Haato community!", 
-            jp: "[DeepL]WWS Haatoコミュニティからこんにちは！"
+            jp: "WWS Haatoコミュニティからこんにちは！"
         },
         intro: {
             en: "WWS Haato team, aka World Wide Support for Haato, is a non-profit project team for vtuber Akai Haato.", 
-            jp: "[DeepL]WWS Haatoチーム、別名World Wide Support for Haatoは、vtuber 赤井はあとの非営利プロジェクトチームです。"
+            jp: "WWS Haatoチーム、いわゆるWorld Wide Support for Haato \
+            （はあと様へのワールドワイドの応援）は、Vtuber赤井はあとのためのボランティア団体です"
         }
     }
 ]

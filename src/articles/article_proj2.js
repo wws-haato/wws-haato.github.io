@@ -89,15 +89,15 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "Leo is the initiator of WWS Haato.", 
-                                jp: "LeoさんはWWS Haatoの創始者です"
+                                jp: "LeoさんはWWS Haatoの創始者です。"
                             }, 
                             {
                                 en: "He is mainly in charge of website maintainance and general coordinate affairs.", 
-                                jp: "サイトのメンテ作業と総合事務担当です"
+                                jp: "サイトのメンテ作業と総合事務担当で、"
                             }, 
                             {
                                 en: "In this project, he also worked as the lyricist.", 
-                                jp: "この企画に作詞者としても努めておりました"
+                                jp: "この度は作詞者として、努めておりました。"
                             }
                         ]
                     }
@@ -120,7 +120,7 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "Zhadar is mainly in charge of social media advertisement.", 
-                                jp: "Zhadarさんは、主にソーシャルメディアでのプロモーション、宣伝活動を行っております"
+                                jp: "Zhadarさんは、主にソーシャルメディアでのプロモーション、宣伝活動を行っています。"
                             }, 
                             {
                                 en: "He also works on the overall coordination of the projects.", 
@@ -147,7 +147,7 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "Sakazuki is the contact person for JP Haatons.", 
-                                jp: "日本のはあとんと先輩達に連絡を取る人です"
+                                jp: "日本の先輩達に連絡を取る人です。"
                             }, 
                             {
                                 en: "He also works on graphic effects and animations.", 
@@ -155,7 +155,7 @@ const articlesProject2 = [
                             },
                             {
                                 en: "　", 
-                                jp: "アニメーションの制作にも活躍しました"
+                                jp: "アニメーションの制作にも活躍しました。"
                             }
                         ]
                     }
@@ -178,11 +178,11 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "Abner joined the animation team to give technical supports.", 
-                                jp: "Abnerさんは、アニメーションチームに　　加わって、技術面での支援を行いました"
+                                jp: "Abnerさんは、アニメーションチームに　　加わって、技術面での支援を行います。"
                             }, 
                             {
                                 en: "Since then he has been the head of the graphic team.", 
-                                jp: "それから彼はグラフィックチームのリーダーとして努めていただきました"
+                                jp: "それから彼はグラフィックチームのリーダーとして努めていただきました。"
                             }
                         ]
                     }
@@ -205,11 +205,11 @@ const articlesProject2 = [
                         lines: [
                             {
                                 en: "As a means to assist Abner on the video Steve joined the staff team.", 
-                                jp: "Abnerさんに力を添えるため、Steveさんは　スタッフチームに加わりました"
+                                jp: "Abnerさんに力を添えるため、Steveさんは　スタッフチームに加わりました。"
                             }, 
                             {
                                 en: "Besides his work on graphics he is supervising the WWS discord server.", 
-                                jp: "グラフィックの支援とWWS discordサーバの監督をしておりました"
+                                jp: "グラフィックの支援とWWS discordサーバの監督をしておりました。"
                             }
                         ]
                     }

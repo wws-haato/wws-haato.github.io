@@ -17,7 +17,7 @@ const articlesNews = [
              * be sure to enclose the entire string by "". 
              */
             jp: "ワールドワイドツアーガイドの \
-                最終ビデオが公開されました。"
+                動画が公開されました。"
         }, 
         graphic: {
             /**
@@ -44,11 +44,11 @@ const articlesNews = [
                  */
                 en: "The project is finally finished, \
                     please check the final product", 
-                jp: "[JP]The project is finally finished, please check the final product"
+                jp: "企画は成し遂げました。成果をどうぞご覧ください。"
             }, // <------ each of the lines has to be seperated by a comma
             {
                 en: "We deeply appreciate all participants! See you next project!!", 
-                jp: "[JP]We deeply appreciate all participants! See you next project!!"
+                jp: "参加者の皆様に感謝申し上げます。また次の企画に会いましょう！"
             }  // <------ except for the last line, a comma is not needed
         ]
     }, // <------ seperate news with commas liek this. similarly, no comma for the last news
@@ -57,7 +57,7 @@ const articlesNews = [
         date: {year: 2021, month: 6, day: 12}, 
         title: {
             en: "Grand Birthday Chorus has been Initiated!", 
-            jp: "[JP] Grand Birthday Chorus has been Initiated!"
+            jp: "グランドバースデーコーラス、始動！"
         }, 
         graphic: {
             type: "youtube", 
@@ -67,13 +67,13 @@ const articlesNews = [
             {
                 en: "Note: the project has been completed, \
                     please visit Previous Works page to see the final production!", 
-                jp: "[JP]Note: the project has been completed, \
-                    please visit Previous Works page to see the final production!", 
+                jp: "備考：企画は仕上がりました。 \
+                    Previous Worksに完成した作品が見られます！", 
             }, 
             {
                 en: "We are team WWS Haato, \
                     focusing on Haato projects gathering fans all over the world!", 
-                jp: "はあちゃまっちゃま～私達はWWSはあとチームです！世界中のファンを集めて、\
+                jp: "私達はWWSはあとチームです！世界中のファンを集めて、\
                     赤井はあと関連のファンプロジェクトを中心にして活動しております。"
             }, 
             {
@@ -93,7 +93,7 @@ const articlesNews = [
         date: {year: 2021, month: 6, day: 23}, 
         title: {
             en: "Song Preview for Grand Birthday Chorus has been Released!", 
-            jp: "グランドバースデーコーラスの曲プレビューが公開されました！"
+            jp: "グランドバースデーコーラスのプレビューが公開したした！"
         }, 
         graphic: {
             type: "youtube", 
@@ -103,8 +103,8 @@ const articlesNews = [
             {
                 en: "The project is finally finished, \
                     please check the final video, hope you enjoy!", 
-                jp: "[JP]The project is finally finished, \
-                    please check the final video, hope you enjoy!", 
+                jp: "備考：企画はやっと成功しました。 \
+                    完成した動画を、どうぞ楽しんでください。", 
             }
         ]
     }, 
@@ -112,7 +112,7 @@ const articlesNews = [
         date: {year: 2021, month: 8, day: 10}, 
         title: {
             en: "Final video release of Haato's Birthday Parade ❤! ", 
-            jp: "[JP]Final video release of Haato's Birthday Parade ❤！"
+            jp: "はあとのバースデーパレード ❤　動画リリース！"
         }, 
         graphic: {
             type: "youtube", 
@@ -122,8 +122,8 @@ const articlesNews = [
             {
                 en: "The project is finally finished, \
                     please check the final video, hope you enjoy!", 
-                jp: "[JP]The project is finally finished, \
-                    please check the final video, hope you enjoy!", 
+                jp: "企画は無事に完遂させました。 \
+                    リリースした動画を、どうぞ楽しんでください！", 
             }
         ]
     }, 
@@ -131,7 +131,7 @@ const articlesNews = [
         date: {year: 2022, month: 4, day: 3}, 
         title: {
             en: "New project Haachama's initiated!", 
-            jp: "[JP]Final video release of Haato's Birthday Parade ❤！"
+            jp: "新企画が始まりました！"
         }, 
         graphic: {
             type: "picture", 
@@ -139,10 +139,10 @@ const articlesNews = [
         }, 
         passage: [
             {
-                en: "The project is finally finished, \
-                    please check the final video, hope you enjoy!", 
-                jp: "[JP]The project is finally finished, \
-                    please check the final video, hope you enjoy!", 
+                en: "We're happy to announce the new project begins, \
+                    please check Current Event for more information!", 
+                jp: "遂に新企画が立ち上げることを皆様にお知らせします！ \
+                    Current Event（進行中イベント）でもご確認ください！", 
             }
         ]
     }

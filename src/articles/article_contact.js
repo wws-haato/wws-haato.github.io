@@ -3,27 +3,27 @@ const articlesContact = {
         {
             en: "The team is composed of 5 staffs from 4 different timezones with 6 available laguages in total. \
                 Please check the following staff information if you have the need to contact certain staff(s).", 
-            jp: "[DeepL]チームは、4つの異なるタイムゾーンの5人のスタッフで構成され、合計6つの利用可能な言語があります。 \
-                特定のスタッフに連絡する必要がある場合は、以下のスタッフ情報を確認してください。"
+            jp: "私たちのチームは、4つのタイムゾーンからの5人のスタッフで構成され、計6ヶ国語を対応することができます。 \
+                特定のスタッフに連絡する必要がある場合は、以下のスタッフ情報を参照してください。"
         },
         {
             en: "For project contributors, we recommand you to reach us via our Discord server, \
                 where all the staff are available. ", 
-            jp: "[DeepL]プロジェクトの貢献者の場合、Discordサーバーを介して私たちに連絡することをお勧めします \
-                すべてのスタッフが利用できる場所。"
+            jp: "企画に寄稿をいただいた方に、Discordサーバーに参加することをお勧めします。 \
+                すべてのスタッフが連絡取れますのでとても便利です。"
         }, 
         {
             en: "If Discord does not serve as a proper platform according to your need,  \
                 we also provide official email, twitter and github as alternative contact means. ", 
-            jp: "[DeepL]Discordが必要に応じて適切なプラットフォームとして機能しない場合は、\
-                また、代替の連絡手段として、公式の電子メール、Twitter、およびgithubを提供しています。"
+            jp: "事情でDiscord経由での連絡が取りづらい場合は、\
+                代わりに公式メール、Twitter、またはgithubでの連絡も可能です。"
         }
     ], 
     informationPassage:{
         en: "All staffs are available in the Discord server. \
             Please consider Discord as your preferred contact platform. ", 
-        jp: "スタッフのみんながDiscordサーバーにいます。\
-            お問い合わせはなるべくDiscordでお願いします。"
+        jp: "スタッフのみんながDiscordサーバーにお待ちしております。\
+            お問い合わせする時は、可能であればDiscordで連絡してください。"
     }
 }
 
