@@ -21,9 +21,10 @@ const Contact = () => {
     window.scrollTo(0, 0);
     
     const App = merge(
-        createDescription(), 
-        createSocialMedia(), 
+        createColaborators(), 
         createStaffs(), 
+        createBussiness(), 
+        createSocialMedia(), 
         createFootNote(0)
     );
 
@@ -36,67 +37,60 @@ const Contact = () => {
 export default Contact;
 
 
-function createDescription(){
+function createColaborators(){
     var paragraph = new RawParagraph();
     paragraph.setSuptitle("Contact");
-    //paragraph.setTitle("World Wide Support for Haato");
-    paragraph.setPassage(articlesContact.description.map(
+    paragraph.setTitle(wrapLanguages(articlesContact.participants.title));
+    paragraph.setPassage(articlesContact.participants.passage.map(
+        function(x){return wrapLanguages(x)}));
+    return wrapStyle({marginBottom: "5%"}, paragraph.get());
+}
+
+
+function createBussiness(){
+    var paragraph = new RawParagraph();
+    //paragraph.setSuptitle("Contact");
+    paragraph.setTitle(wrapLanguages(articlesContact.bussiness.title));
+    paragraph.setPassage(articlesContact.bussiness.passage.map(
         function(x){return wrapLanguages(x)}));
     return wrapStyle({marginBottom: "5%"}, paragraph.get());
 }
 
 
 function createSocialMedia(){
-    var img = new ImageLinked();
-    var waterMark = new Image();
-    waterMark.setWidth("50%");
-
-    img.setWidth("100%");
-    img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
-
-    var iconHolder = new Column(2);
-    iconHolder.setMargin(Border.ALL, "0px");
-    iconHolder.setColumnInterval("5px");
-
-    var iconHolderRow = new InvertableColumn();
-    iconHolderRow.setMargin(Border.ALL, "20px");
-
-    const preffix = "fig/common/icons/";
-    const paths = ["discord.png", "twitter.png", "email.png", "github.png"];
-    var links = [];
-    links.push("https://discord.gg/HqQ5n2cMBY");
-    links.push("https://twitter.com/WWS_Haato");
-    links.push("mailto:wws.haato@gmail.com")
-    links.push("https://github.com/wws-haato");
-    for(var i = 0; i < 4; i++){
-        const colID = i%2;
-        iconHolder.insert(colID, img.get(preffix+paths[i], links[i]));
-        if(colID)
-            iconHolderRow.insert((i-colID)/2, iconHolder.get());
-    }
-
-
-    //"titled-media-text"
+    var img = new Image();
+    img.setWidth("60%");
+    img.setMargin(Border.ALL, "10px");
+    img.setMargin(Border.BOTTOM, "0px");
+    img.setCircle();
+    
     var items = [];
     
 
-    items.push(fadeInDelayed.get(wrapDiv("title", 
-        wrapLanguages({en: "Official accounts", jp: "公式アカウント"}))));
+    var cols = new InvertableColumn();
+    cols.insert(0, fadeInExplosiveDelayed.get(img.get("fig/common/pfp.jpg")));
 
-    items.push(fadeInExplosiveDelayed.get(
-        wrapStyle({margin: "0 20%"}, iconHolderRow.get())));
-        
-    items.push(fadeInDelayed.get(wrapDiv("passage", 
-        wrapLanguages(articlesContact.informationPassage))));
+    var imgLink = new ImageLinked(); 
+    imgLink.setWidth("35%");
+    img.setMargin(Border.ALL, "0px");
+    img.setCorner(Border.ALL, "0");
+    imgLink.setMargin(Border.TOP, "20px");
+    imgLink.setWaterMark(img.get("fig/common/icons/ext_link.png"));
+
+    items.push(fadeInDelayed.get(imgLink.get("fig/common/icons/email.webp", "mailto:wws.haato@gmail.com")));
+    items.push(fadeInDelayed.get(wrapDiv("title", "wws.haato@gmail.com")));
+    cols.insert(1, merge(items));
+    //cols.setPadding(Border.LEFT, "10px");
 
     var titledContainer = new TitledContainer();
-    titledContainer.setTitle("SNS");
+    titledContainer.setTitle("Email");
     titledContainer.setFontColor(255, 255, 255, 1);
     titledContainer.setTitleColor(70, 132, 219, 1);
     titledContainer.setBodyColor(60, 112, 185, 1);
     titledContainer.setLeft();
 
-    return titledContainer.get(wrapDiv("titled-media-text",items));
+    return titledContainer.get(wrapDiv("titled-media-text",
+        wrapStyle({width: "80%", marginLeft: "10%"}, cols.get())));
     
 }
 
