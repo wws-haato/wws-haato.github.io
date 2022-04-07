@@ -31,6 +31,13 @@ const articlesNews = [
              */
             path: "https://youtu.be/LLuqBMnfKJY"
         }, 
+        external: {
+            link: "/#/previous-works/proj1", 
+            text: {
+                en: "View Project 1", 
+                jp: ""
+            }
+        }, 
         passage: [
             /**
              * in passage scope, arbitrary number (at least 1) of lines can be inserted
@@ -63,12 +70,20 @@ const articlesNews = [
             type: "youtube", 
             path: "https://youtu.be/Y0Pz0AQ6mOQ"
         }, 
+        external: {
+            link: "/#/previous-works/proj2", 
+            text: {
+                en: "View Project 2", 
+                jp: ""
+            }
+        }, 
         passage: [
             {
                 en: "Note: the project has been completed, \
                     please visit Previous Works page to see the final production!", 
                 jp: "備考：企画は仕上がりました。 \
                     Previous Worksに完成した作品が見られます！", 
+                style:{fontWeight:"bold"}
             }, 
             {
                 en: "We are team WWS Haato, \
@@ -84,7 +99,7 @@ const articlesNews = [
                     企画を参加したい人は二通りあります：歌声の投稿、もしくはMV製作の素材で応募できます。"
             },
             {
-                en: "You can participate in both parts of the project!", 
+                en: "You can participate in both parts of the project! Please check the following link to see details", 
                 jp: "もちろん、両方とも企画に参加するのも大歓迎です！"
             }
         ]
@@ -98,6 +113,13 @@ const articlesNews = [
         graphic: {
             type: "youtube", 
             path: "https://youtu.be/EzELsQyLP2s"
+        }, 
+        external: {
+            link: "/#/previous-works/proj2", 
+            text: {
+                en: "View Project 2", 
+                jp: ""
+            }
         }, 
         passage: [
             {
@@ -118,6 +140,13 @@ const articlesNews = [
             type: "youtube", 
             path: "https://youtu.be/aHt-fGy5BYQ"
         }, 
+        external: {
+            link: "/#/previous-works/proj2", 
+            text: {
+                en: "View Project 2", 
+                jp: ""
+            }
+        }, 
         passage: [
             {
                 en: "The project is finally finished, \
@@ -130,12 +159,19 @@ const articlesNews = [
     {
         date: {year: 2022, month: 4, day: 3}, 
         title: {
-            en: "New project Haachama's initiated!", 
+            en: "New project Haachama's ??? initiated!", 
             jp: "新企画が始まりました！"
         }, 
         graphic: {
             type: "picture", 
-            path: "fig/common/place_holder.png"
+            path: "fig/current_event/haachama_vn_thumb.jpg"
+        }, 
+        external: {
+            link: "/#/current-event", 
+            text: {
+                en: "Join us!", 
+                jp: ""
+            }
         }, 
         passage: [
             {

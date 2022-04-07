@@ -28,6 +28,22 @@ class NewsContent extends Column{
         this.comparableId = createComparableId(this.date);
         this.title = article.title;
         this.passage = article.passage;
+
+        if(article.external){
+            this.external = article.external;
+            console.log(article.external);
+        }
+    }
+
+    getExternal(){
+        if(!this.external)
+            return 0;
+
+        const style = {backgroundColor: "crimson", marginTop: "0px"};
+        var button = TitledMediaText.createButton(
+            wrapLanguages(this.external.text), this.external.link, style);
+        
+        return fadeInExplosiveDelayed.get(wrapDiv("external", button));
     }
 
     getGraphic(){
@@ -51,8 +67,13 @@ class NewsContent extends Column{
     }
 
     getPassage(){
-        return wrapDiv("passage", this.passage.map(
-            function(line){return wrapDiv("line", wrapLanguages(line));}));
+        return wrapDiv("passage", this.passage.map(function(line){
+            var args = {className: "line"};
+            if(line.style)
+                args.style = line.style;
+
+            return wrapDiv(args, wrapLanguages(line));
+        }));
     }
 
     getDate(){
@@ -121,6 +142,8 @@ export default class NewsDataBase extends TitledContainer{
     }
 
     onClick(aid){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
         pageSlider.callBackJump(aid);
     }
 
@@ -210,11 +233,18 @@ export default class NewsDataBase extends TitledContainer{
             let news = NewsDataBase.allNews[i];
 
             var objs = [];
+            const style = {backgroundColor: "crimson", marginTop: 0};
             objs.push(fadeIn.get(news.getDate()));
             objs.push(fadeIn.get(news.getTitle()));
             objs.push(fadeInExplosiveDelayed.get(wrapDiv("graphic", news.getGraphic())));
             objs.push(fadeInRightwardsDelayed.get(news.getPassage()));
-            objs.push(fadeInExplosiveLatched.get(this.createPageSwitches(i)))
+            
+            var external = news.getExternal();
+            if(external)
+                objs.push(external);    
+
+            objs.push(fadeInExplosiveLatched.get(this.createPageSwitches(i)));
+            
 
             pageSlider.insert(i, merge(objs));
         }

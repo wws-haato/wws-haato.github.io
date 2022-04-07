@@ -16,7 +16,7 @@ export default class ImageLinked extends Image{
         return(
             <a href={link}>
                 <div className="img-hover">
-                    <div className="centered-img" style={{width: "100%"}}>
+                    <div className="centered-img" style={{width: "100%", margin: this.margin.get()}}>
                         <img src={path} alt="..." class="centered-img" 
                         style={{width: this.width, borderRadius: this.corner.get()}}>
                             

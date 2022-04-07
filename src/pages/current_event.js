@@ -32,9 +32,8 @@ const CurrentEvent = () => {
         createTopBanner(), 
         createDescription(),
         createProgramming(), 
-        createStoryboard(), 
+        createWriters(), 
         createArtists(), 
-        //createAboutTheGame(), 
         createFootNote("70px")
     );
     EntranceEffect.startAllRequest();
@@ -44,6 +43,7 @@ const CurrentEvent = () => {
 }
 
 export default CurrentEvent;
+
 
 const dir = "fig/current_event/";
 function createTopBanner(){
@@ -64,12 +64,12 @@ function createDescription(){
     let videoTexts = articlesCurrentEvent[1];
     var details = new ProjectDetails();
 
-    details.setContourColor(0, 82, 33, 0.4);
+    details.setContourColor(0, 102, 204, 0.6);
     details.setSuptitle(videoTexts.suptitle);
-    details.setBackgroundImage("fig/background/green.png");
+    details.setBackgroundImage("fig/background/blue.png");
 
-    var notiImg = new Image();
-    notiImg.setWidth("35%");
+    var img = new Image();
+    img.setWidth("35%");
 
     var slider = new Slider();
     slider.hideBar();
@@ -81,14 +81,26 @@ function createDescription(){
             args.style = line.style;
         
         slider.append(wrapDiv(["passage", args], 
-            notiImg.get(dir+"notification.png"), wrapLanguages(line)));
+            img.get(dir+"notification.png"), wrapLanguages(line)));
     }
-        
-    details.setGraphic("secret-note", slider.get());
-    notiImg.setWidth("50%");
-    notiImg.setMargin(Border.ALL, "20px");
 
-    details.setGraphic("vn", notiImg.get(dir+"vn.png"));
+    details.setGraphic("secret-note", slider.get());
+
+    img.setWidth("50%");
+    details.setGraphic("vn", img.get(dir+"vn.png"));
+
+    var discord = new ImageLinked();
+    discord.setWidth("120px");
+    discord.setMargin(Border.TOP, "10px");
+
+    
+    discord.setWaterMark(img.get("fig/common/icons/ext_link.png"));
+
+    
+    details.setGraphic("discord", discord.get(
+        "fig/common/icons/discord.png", "https://discord.gg/HqQ5n2cMBY"));
+    
+    
     for(let content of videoTexts.contents){
         details.emplace(content.length);
         for(let cell of content)
@@ -104,12 +116,12 @@ function createProgramming(){
     let videoTexts = articlesCurrentEvent[2];
     var details = new ProjectDetails();
 
-    details.setContourColor(181, 38, 59, 0.6);
+    details.setContourColor(106, 13, 173, 0.4);
     details.setSuptitle(videoTexts.suptitle);
-    details.setBackgroundImage("fig/background/red_chessboard.png");
+    details.setBackgroundImage("fig/background/purple.png");
 
     const args = {marginTop: "20px", marginBottom: "30px", 
-        backgroundColor: details.contourColor.getA(0.85)};
+        backgroundColor: details.contourColor.getA(0.6)};
     const button = wrapLanguages({en: "Join as Programmer!", jp: ""});
 
     var img = new Image();
@@ -129,17 +141,17 @@ function createProgramming(){
 }
 
 
-function createStoryboard(){
+function createWriters(){
     let videoTexts = articlesCurrentEvent[3];
     console.log(videoTexts);
     var details = new ProjectDetails();
 
-    details.setContourColor(0, 82, 33, 0.4);
+    details.setContourColor(181, 38, 59, 0.4);
     details.setSuptitle(videoTexts.suptitle);
-    details.setBackgroundImage("fig/background/green.png");
+    details.setBackgroundImage("fig/background/red.png");
 
     const args = {marginTop: "20px", marginBottom: "30px", 
-        backgroundColor: details.contourColor.getA(0.85)};
+        backgroundColor: details.contourColor.getA(0.6)};
 
     var img = new Image();
     img.setWidth("15%");
@@ -173,12 +185,12 @@ function createArtists(){
     console.log(videoTexts);
     var details = new ProjectDetails();
 
-    details.setContourColor(181, 38, 59, 0.6);
+    details.setContourColor(186, 0, 0,0.4);
     details.setSuptitle(videoTexts.suptitle);
-    details.setBackgroundImage("fig/background/red_chessboard.png");
+    details.setBackgroundImage("fig/background/pink.png");
 
     const args = {marginTop: "20px", marginBottom: "30px", 
-    backgroundColor: details.contourColor.getA(0.85)};
+    backgroundColor: details.contourColor.getA(0.6)};
 
     var img = new Image();
     img.setWidth("15%");

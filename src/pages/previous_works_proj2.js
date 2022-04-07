@@ -28,6 +28,7 @@ const PreviousWorksProject2 = () => {
         createTopBanner(), 
         createVideoDetails(), 
         createDescriptionDetails(), 
+        createMeaningOfLyrics(),
         createPageSwithcer(), 
         createFootNote("70px")
     );
@@ -76,9 +77,10 @@ function createVideoDetails(){
     let videoTexts = articlesProject2[1];
     var details = new ProjectDetails();
 
-    details.setContourColor(255, 255, 255, 0.2);
+    details.setContourColor(0, 102, 204, 0.6);
+    details.setBackgroundImage("fig/background/blue.png");
+
     details.setSuptitle(videoTexts.suptitle);
-    details.setBackgroundImage("fig/background/video.jpg");
 
     var youtube = new Youtube();
     youtube.setWidth("65%");
@@ -96,82 +98,53 @@ function createVideoDetails(){
 }
 
 
-function createStaffGraphic(imgPath, ...snsList){
-    var img = new Image();
-    img.setCircle();
-    img.setWidth("25%");
-    img.setMargin(Border.ALL, "10px");
-    const pfp = img.get(imgPath);
-
-    var cols = new Column(snsList.length);
-    cols.setRatiosEqually();
-
-    const margin = (100-30*snsList.length)/2;
-    cols.setMargin(Border.LEFT, margin.toString()+"%");
-    cols.setMargin(Border.RIGHT, margin.toString()+"%");
-    cols.setColumnInterval("5px");
-    
-    img = new Image();
-    img.setWidth("50%");
-    var snsIcon = new ImageLinked();
-    snsIcon.setWaterMark(img.get("fig/common/icons/ext_link.png"));
-
-    var colID = 0;
-    for(let sns of snsList)
-        cols.insert(colID++, snsIcon.get(sns.path, sns.link));
-    
-    return merge(pfp, wrapDiv({style:{width:"35%", margin: "5px auto"}}, cols.get()));
-}
-
 function createDescriptionDetails(){
     var details = new ProjectDetails();
     let staffTexts = articlesProject2[2];
-    details.setContourColor(255,20,147,0.6);
-    details.setSuptitle(staffTexts.suptitle);
-    details.setBackgroundImage("fig/background/heart.webp");
 
-    const dir = "fig/common/icons/";
-    details.setGraphic(1, createStaffGraphic("fig/pfp/leo.jpg", 
-        {path:dir+"twitter.png", link:"https://twitter.com/LeoHsieh57"}
-    ));
-    details.setGraphic(2, createStaffGraphic("fig/pfp/zhadar.jpg", 
-        {path:dir+"twitter.png", link:"https://twitter.com/HaatonZhadi"}, 
-        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HaatonZhadi"}
-    ));
-    details.setGraphic(3, createStaffGraphic("fig/pfp/saka.png", 
-        {path:dir+"twitter.png", link:"https://twitter.com/henry4204aaa"}, 
-    ));
-    details.setGraphic(4, createStaffGraphic("fig/pfp/abner.jpg", 
-        {path:dir+"twitter.png", link:"https://twitter.com/UltimateAbrod"}, 
-        {path:dir+"youtube.png", link:"https://www.youtube.com/channel/UCmX9DnmswDnujsDXWnMyOhw"}
-    ));
-    details.setGraphic(5, createStaffGraphic("fig/pfp/steve.jpg", 
-        {path:dir+"twitter.png", link:"https://twitter.com/le_hoang_dung"}, 
-        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HoangDung007"}    
-    ));
+    details.setSuptitle(staffTexts.suptitle);
+    details.setContourColor(106, 13, 173, 0.4);
+    details.setBackgroundImage("fig/background/purple.png");
+
+    const dir = "fig/previous_works/proj2/";
 
 
     var img = new Image();
-    img.setWidth("65%");
+    img.setWidth("50%");
     img.setMargin(Border.ALL, "10px");
     img.setCorner(Border.ALL, "10px");
-    details.setGraphic("org", img.get("fig/previous_works/proj2/haachama.png"));
-    details.setGraphic("lyrics", img.get("fig/previous_works/proj2/haaton.png"));
-    details.setGraphic(2, createStaffGraphic("fig/pfp/zhadar.jpg", 
-        {path:dir+"twitter.png", link:"https://twitter.com/HaatonZhadi"}, 
-        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HaatonZhadi"}
-    ));
-    details.setGraphic(3, createStaffGraphic("fig/pfp/saka.png", 
-        {path:dir+"twitter.png", link:"https://twitter.com/henry4204aaa"}, 
-    ));
-    details.setGraphic(4, createStaffGraphic("fig/pfp/abner.jpg", 
-        {path:dir+"twitter.png", link:"https://twitter.com/UltimateAbrod"}, 
-        {path:dir+"youtube.png", link:"https://www.youtube.com/channel/UCmX9DnmswDnujsDXWnMyOhw"}
-    ));
-    details.setGraphic(5, createStaffGraphic("fig/pfp/steve.jpg", 
-        {path:dir+"twitter.png", link:"https://twitter.com/le_hoang_dung"}, 
-        {path:dir+"reddit.png", link:"https://www.reddit.com/user/HoangDung007"}    
-    ));
+    details.setGraphic("org", img.get(dir+"haachama.png"));
+    details.setGraphic("singing-haatons", img.get(dir+"haaton.png"));
+
+    for(let content of staffTexts.contents){
+        details.emplace(content.length);
+        for(let cell of content)
+            details.appendCell(cell);
+
+    }
+    
+    return details.get();
+}
+
+
+function createMeaningOfLyrics(){
+    var details = new ProjectDetails();
+    let staffTexts = articlesProject2[3];
+
+    details.setSuptitle(staffTexts.suptitle);
+    details.setContourColor(181, 38, 59, 0.4);
+    details.setBackgroundImage("fig/background/red.png");
+
+    const dir = "fig/previous_works/proj2/";
+
+
+    var img = new Image();
+    img.setWidth("75%");
+    img.setMargin(Border.ALL, "10px");
+    img.setCorner(Border.ALL, "10px");
+    details.setGraphic("beast", img.get(dir+"beast.png"));
+    details.setGraphic("zorga", img.get(dir+"zorga.png"));
+    details.setGraphic("pineapple", img.get(dir+"pineapple.png"));
 
     for(let content of staffTexts.contents){
         details.emplace(content.length);

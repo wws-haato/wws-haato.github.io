@@ -68,14 +68,14 @@ const articlesProject2 = [
     {
         className: "project-details", 
         suptitle: {
-            en: "Description", 
+            en: "Originality", 
             jp: "jp"
         }, 
         contents: [
             [
                 {
                     title: {
-                        en: "Originality", 
+                        en: "100% Fan-made", 
                         jp: ""
                     }, 
                     graphicID: "org", 
@@ -86,14 +86,15 @@ const articlesProject2 = [
                                 jp: ""
                             }, 
                             {
-                                en: "Everything was self produced with the help of many Haatons. \
-                                In particular, it includes the following elements: ", 
-                                jp: ""
-                            }, 
+                                en: "Everything was self produced with the help of many Haatons.", 
+                                jp: "", 
+                                style:{fontWeight: "bold"}
+                            },
                             {
-                                en: " - original lyrics", 
+                                en: " In particular, it includes \
+                                original lyrics, melodies, animations and 2 lead singers with 100 back singers", 
                                 jp: ""
-                            }, 
+                            }/*
                             {
                                 en: " - original melody played by Haatons on real instruments", 
                                 jp: ""
@@ -109,37 +110,89 @@ const articlesProject2 = [
                             {
                                 en: "- 2 lead singers and over 100 background singers", 
                                 jp: ""
+                            }*/
+                        ]
+                    }
+                }
+            ]
+        ]
+    }, 
+    {
+        className: "project-details", 
+        suptitle: {
+            en: "Meaning of Lyrics", 
+            jp: "jp"
+        }, 
+        contents: [
+            [
+                {
+                    title: {
+                        en: "Verse1(?)", 
+                        jp: ""
+                    }, 
+                    graphicID: "beast", 
+                    passage: {
+                        lines: [
+                            {
+                                en: "The lyrics are reflecting the past year of Haachama. ", 
+                                jp: ""
+                            },
+                            {
+                                en: "At the beginning, she arrives back in Japan after ending her studies overseas. ", 
+                                jp: ""
+                            },
+                            {
+                                en: "She remembers all the things that happened and is thankful \
+                                    for everyone who stands by her side. ", 
+                                jp: ""
                             }
                         ]
                     }
                 }, 
                 {
                     title: {
-                        en: "Meaning of Lyrics", 
+                        en: "Verse2(?)", 
                         jp: ""
                     }, 
-                    graphicID: "lyrics", 
+                    graphicID: "zorga", 
                     passage: {
                         lines: [
                             {
-                                en: "The lyrics are reflecting the past year of Haachama. \
-                                    At first she arrives back in Japan after ending her studies overseas. \
-                                    She remembers all the good and bad things that happened and is thankful \
-                                    for everyone who stands by her side. ", 
+                                en: "Haachama thinks back to the start of her VTuber career. ", 
                                 jp: ""
                             }, 
                             {
-                                en: "Haachama thinks back to the start of her VTuber career. \
-                                    Back when she discovered an entire new world and had a dream to make it to the very top. \
-                                    In between Haatons sing for Haachama, expressing their love and support.", 
+                                en: "Back when she discovered an entire new world \
+                                    and had a dream to make it to the very top. ", 
                                 jp: ""
                             }, 
+                            {
+                                en: "In between Haatons sing for Haachama, \
+                                expressing their love and support.", 
+                                jp: ""
+                            }
+                        ]
+                    }
+                }
+            ], 
+            [
+                {
+                    title: {
+                        en: "Bridge", 
+                        jp: ""
+                    }, 
+                    graphicID: "pineapple", 
+                    passage: {
+                        lines: [
                             {
                                 en: "Near the end, when the duet between the two lead singers starts, \
-                                    the lyrics are referencing the Haato x Haachama lore arc, \
-                                    which had a huge impact on Haachamas content in 2021. \
-                                    In the final section, after finding peace with herself, \
-                                    Haachama is picking up the lines from Haatons and sings with them together.", 
+                                the lyrics are referencing the Haato x Haachama lore arc, \
+                                which had a huge impact on Haachamas content in 2021.", 
+                                jp: ""
+                            }, 
+                            {
+                                en: " In the final section, after finding peace with herself, \
+                                    Haachama is picking up the lines from Haatons and sings with them together. ", 
                                 jp: ""
                             }
                         ]

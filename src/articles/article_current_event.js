@@ -125,19 +125,20 @@ const articlesCurrentEvent = [
                         jp: ""
                     },
                     // graphicID=0 or simply omit: no graphic request for this cell
-                    //graphicID: "vn",
+                    graphicID: "discord",
                     passage: {
                         lines: [
                             {
-                                en: "We are looking for storywriting, programmars, \
-                                    illustrators, musicians and testers! ", 
+                                en: "We are looking for writing, programmars, \
+                                    and artists! \
+                                    If you have interests, please checkout following sections! ", 
                                 jp: ""
                             },
                             {
-                                en: "If you have interest to be a part of the project, \
-                                    please checkout the following sections!", 
-                                jp: ""
-                            },
+                                en: "Please note that it is requird for all participants to join our Discord server", 
+                                jp: "", 
+                                style: {fontWeight: "bold"}
+                            }
                         ]
                     }
                 }, 

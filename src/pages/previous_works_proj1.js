@@ -115,8 +115,10 @@ function createVideoDetails(){
     const dir = "fig/previous_works/proj1/";
     var details = new ProjectDetails();
 
+    //details.setContourColor(0, 102, 204, 0.6);
+    //details.setBackgroundImage("fig/background/3c.jpg");
     details.setContourColor(0, 102, 204, 0.6);
-    details.setBackgroundImage("fig/background/3c.jpg");
+    details.setBackgroundImage("fig/background/blue.png");
 
     let videoTexts = articlesProject1[1];
     details.setSuptitle(videoTexts.suptitle);
@@ -147,11 +149,11 @@ function createVideoDetails(){
 
 function createWebsiteDetails(){
     var details = new ProjectDetails();
-    details.setContourColor(23, 81, 185, 0.8);
-    details.setBackgroundImage("fig/background/web.jpg");
+    details.setContourColor(106, 13, 173, 0.4);
+    details.setBackgroundImage("fig/background/purple.png");
     details.setGraphic("view-website", TitledMediaText.createButton(
         "Visit website", "https://haatotabi.tk/home", 
-        {background: "crimson", marginTop: "10%", marginBottom: "7%"})
+        {background: details.contourColor.getA(0.6), marginTop: "10%", marginBottom: "7%"})
     );
 
     
@@ -163,7 +165,7 @@ function createWebsiteDetails(){
     const dir = "fig/common/icons/";
 
     img.setWaterMark(waterMark.get(dir+"ext_link.png"));
-    details.setGraphic("mass", img.get(dir+"mass.png"));
+    details.setGraphic("mass", img.get(dir+"mass.png", "https://twitter.com/ManoSquad"));
 
     let videoTexts = articlesProject1[2];
     details.setSuptitle(videoTexts.suptitle);
