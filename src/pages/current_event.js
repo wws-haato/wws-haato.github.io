@@ -74,14 +74,16 @@ function createDescription(){
     var slider = new Slider();
     slider.hideBar();
     slider.setClickWidth("5VW");
+
+    var notifyCnt = 0;
     for(let line of videoTexts.contents[0][1].graphicPassage){
-        console.log(line);
         var args = {className: "line"};
         if(line.style) 
             args.style = line.style;
+        
 
-        slider.append(wrapDiv(["passage", args], 
-            img.get(dir+"notification.png"), wrapLanguages(line)));
+        const fileName = "notification_" +(++notifyCnt).toString()+".png";
+        slider.append(wrapDiv(["passage", args], img.get(dir+fileName), wrapLanguages(line)));
     }
 
     details.setGraphic("secret-note", slider.get());
