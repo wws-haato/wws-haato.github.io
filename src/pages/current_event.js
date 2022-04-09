@@ -122,7 +122,7 @@ function createProgramming(){
 
     const args = {marginTop: "20px", marginBottom: "30px", 
         backgroundColor: details.contourColor.getA(0.6)};
-    const button = wrapLanguages({en: "Join as Programmer!", jp: ""});
+    const button = wrapLanguages({en: "Join as Programmer!", jp: "プログラマーとして参加！"});
 
     var img = new Image();
     img.setWidth("15%");
@@ -157,16 +157,16 @@ function createWriters(){
     img.setWidth("15%");
     details.setGraphic("screen-writer", TitledMediaText.createButton(
         merge(img.get(dir+"writer_w.png"), 
-        wrapLanguages({en: "Join as Screen Writer!", jp: ""})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Screen Writer!", jp: "脚本家として参加！"})), "paste-link-here", args));
     details.setGraphic("writer", TitledMediaText.createButton(
         merge(img.get(dir+"writer_w.png"), 
-        wrapLanguages({en: "Join as Writer!", jp: ""})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Writer!", jp: "ライターとして参加！"})), "paste-link-here", args));
     details.setGraphic("editor", TitledMediaText.createButton(
         merge(img.get(dir+"edit_w.png"), 
-        wrapLanguages({en: "Join as Editor!", jp: ""})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Editor!", jp: "エディターとして参加！"})), "paste-link-here", args));
     details.setGraphic("translator", TitledMediaText.createButton(
         merge(img.get(dir+"edit_w.png"), 
-        wrapLanguages({en: "Join as Translator!", jp: ""})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Translator!", jp: "通訳者として参加！"})), "paste-link-here", args));
 
     for(let content of videoTexts.contents){
         console.log(content);
@@ -196,13 +196,13 @@ function createArtists(){
     img.setWidth("15%");
     details.setGraphic("illustrator", TitledMediaText.createButton(
         merge(img.get(dir+"artist_w.png"), 
-        wrapLanguages({en: "Join as Illustrator!", jp: ""})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Illustrator!", jp: "イラストレーターとして参加！"})), "paste-link-here", args));
     details.setGraphic("musician", TitledMediaText.createButton(
         merge(img.get(dir+"music.png"), 
-        wrapLanguages({en: "Join as Musician!", jp: ""})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Musician!", jp: "ミュージシャンとして参加！"})), "paste-link-here", args));
     details.setGraphic("animator", TitledMediaText.createButton(
         merge(img.get(dir+"movie_w.png"), 
-        wrapLanguages({en: "Join as Animator!", jp: ""})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Animator!", jp: "アニメーターとして参加！"})), "paste-link-here", args));
     
     for(let content of videoTexts.contents){
         console.log(content);

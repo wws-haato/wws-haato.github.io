@@ -108,7 +108,7 @@ const articlesNews = [
         date: {year: 2021, month: 6, day: 23}, 
         title: {
             en: "Song Preview for Grand Birthday Chorus has been Released!", 
-            jp: "グランドバースデーコーラスのプレビューが公開したした！"
+            jp: "グランドバースデーコーラスのプレビューを公開したした！"
         }, 
         graphic: {
             type: "youtube", 

@@ -118,7 +118,7 @@ function getStaffInformationZhadar(){
 function getStaffInformationSakazuki(){
     var staffInfo = new StaffInformation();
     staffInfo.setDiscord("羽の觴#4204");
-    staffInfo.setTimeZone(8);
+    staffInfo.setTimeZone(9);
     staffInfo.setImagePath("fig/pfp/saka.png");
     staffInfo.appendLanguage("Chinese");
     staffInfo.appendLanguage("English");
