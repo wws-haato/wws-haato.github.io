@@ -148,7 +148,7 @@ function createWriters(){
     console.log(videoTexts);
     var details = new ProjectDetails();
 
-    details.setContourColor(181, 38, 59, 0.4);
+    details.setContourColor(181, 0, 0, 0.4);
     details.setSuptitle(videoTexts.suptitle);
     details.setBackgroundImage("fig/background/red.png");
 
@@ -187,7 +187,7 @@ function createArtists(){
     console.log(videoTexts);
     var details = new ProjectDetails();
 
-    details.setContourColor(186, 0, 0,0.4);
+    details.setContourColor(186, 38, 59,0.4);
     details.setSuptitle(videoTexts.suptitle);
     details.setBackgroundImage("fig/background/pink.png");
 

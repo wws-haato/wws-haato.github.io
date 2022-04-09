@@ -186,7 +186,7 @@ export default class NewsDataBase extends TitledContainer{
 
     createPageSwitches(aid){
         var cols = new Column(3);
-        cols.setRatios(2, 6, 2); 
+        cols.setRatios(25, 50, 25); 
         
 
         var colId = 0;
@@ -199,9 +199,9 @@ export default class NewsDataBase extends TitledContainer{
 
         const style = {backgroundColor: "crimson", marginTop: 0};
         var lastButton = TitledMediaText.createButton(
-            wrapLanguages({en: "Last", jp:"戻る"}), "", style);
-        var nextButton = TitledMediaText.createButton(
             wrapLanguages({en: "Next", jp:"次へ"}), "", style);
+        var nextButton = TitledMediaText.createButton(
+            wrapLanguages({en: "Previous", jp:"戻る"}), "", style);
 
         for(let i of [aid-1, aid+1]){
             i+=articlesNews.length;
