@@ -69,31 +69,31 @@ const articlesProject2 = [
         className: "project-details", 
         suptitle: {
             en: "Originality", 
-            jp: "jp"
+            jp: "オリジナリティ"
         }, 
         contents: [
             [
                 {
                     title: {
                         en: "100% Fan-made", 
-                        jp: ""
+                        jp: "全部はファンメイド"
                     }, 
                     graphicID: "org", 
                     passage: {
                         lines: [
                             {
                                 en: "For this project we created an original birthday song and music video for Haachama. ", 
-                                jp: ""
+                                jp: "この企画に、私たちははあちゃまの誕生日に向けて、オリジナル曲とMVを作りました。"
                             }, 
                             {
                                 en: "Everything was self produced with the help of many Haatons.", 
-                                jp: "", 
+                                jp: "数多くのはあとん達の協力によって、一つ一つ積み上げた成果です。", 
                                 style:{fontWeight: "bold"}
                             },
                             {
                                 en: " In particular, it includes \
                                 original lyrics, melodies, animations and 2 lead singers with 100 back singers", 
-                                jp: ""
+                                jp: "具体的に言うと、作詞、作曲、アニメーション、リーディング歌手と100人くらいが歌ったことです。"
                             }/*
                             {
                                 en: " - original melody played by Haatons on real instruments", 
@@ -127,49 +127,50 @@ const articlesProject2 = [
             [
                 {
                     title: {
-                        en: "Verse1(?)", 
-                        jp: ""
+                        en: "Verse1", 
+                        jp: "Aメロ"
                     }, 
                     graphicID: "beast", 
                     passage: {
                         lines: [
                             {
                                 en: "The lyrics are reflecting the past year of Haachama. ", 
-                                jp: ""
+                                jp: "歌詞は、過去一年間のはあちゃまを振り返ったことです"
                             },
                             {
                                 en: "At the beginning, she arrives back in Japan after ending her studies overseas. ", 
-                                jp: ""
+                                jp: "はじめに、彼女は海外の留学生活を終えて、やっと日本に戻ることができました。"
                             },
                             {
                                 en: "She remembers all the things that happened and is thankful \
                                     for everyone who stands by her side. ", 
-                                jp: ""
+                                jp: "今まで起きたことは記憶に鮮明で、これまで彼女を支えていた皆に感謝の気持ちでいっぱい。"
                             }
                         ]
                     }
                 }, 
                 {
                     title: {
-                        en: "Verse2(?)", 
-                        jp: ""
+                        en: "Verse2", 
+                        jp: "Bメロ"
                     }, 
                     graphicID: "zorga", 
                     passage: {
                         lines: [
                             {
                                 en: "Haachama thinks back to the start of her VTuber career. ", 
-                                jp: ""
+                                jp: "最初にVTuber始まった頃のことを思い出して、"
                             }, 
                             {
                                 en: "Back when she discovered an entire new world \
                                     and had a dream to make it to the very top. ", 
-                                jp: ""
+                                jp: "真っ新な世界を見つかって、中に踏み込んで、 \
+                                　その世界の頂点に立つことが憧れていた。"
                             }, 
                             {
                                 en: "In between Haatons sing for Haachama, \
                                 expressing their love and support.", 
-                                jp: ""
+                                jp: "はあとん達の合唱は、はあちゃまへの愛と応援する気持ちです。"
                             }
                         ]
                     }
@@ -179,7 +180,7 @@ const articlesProject2 = [
                 {
                     title: {
                         en: "Bridge", 
-                        jp: ""
+                        jp: "ブリッジ・Cメロ"
                     }, 
                     graphicID: "pineapple", 
                     passage: {
@@ -188,12 +189,14 @@ const articlesProject2 = [
                                 en: "Near the end, when the duet between the two lead singers starts, \
                                 the lyrics are referencing the Haato x Haachama lore arc, \
                                 which had a huge impact on Haachamas content in 2021.", 
-                                jp: ""
+                                jp: "終盤に、二人のリーディング歌手がデュエットをしてるパートの歌詞は \
+                                はあとｘはあちゃまのネタを表現する手法です。はあちゃまが2021年に放送した内容は、 \
+                                この共存(COEXIST)のネタに大きく左右されました。"
                             }, 
                             {
                                 en: " In the final section, after finding peace with herself, \
                                     Haachama is picking up the lines from Haatons and sings with them together. ", 
-                                jp: ""
+                                jp: "最後に平和が訪れ、はあちゃまはやっとはあとん達の誘いを受けて、皆と一緒に歌うことになりました。"
                             }
                         ]
                     }

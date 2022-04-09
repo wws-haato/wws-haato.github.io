@@ -35,7 +35,7 @@ const articlesNews = [
             link: "/#/previous-works/proj1", 
             text: {
                 en: "View Project 1", 
-                jp: ""
+                jp: "最初のプロジェクトを見る"
             }
         }, 
         passage: [
@@ -74,7 +74,7 @@ const articlesNews = [
             link: "/#/previous-works/proj2", 
             text: {
                 en: "View Project 2", 
-                jp: ""
+                jp: "セカンドプロジェクトを見る"
             }
         }, 
         passage: [
@@ -118,7 +118,7 @@ const articlesNews = [
             link: "/#/previous-works/proj2", 
             text: {
                 en: "View Project 2", 
-                jp: ""
+                jp: "セカンドプロジェクトを見る"
             }
         }, 
         passage: [
@@ -144,7 +144,7 @@ const articlesNews = [
             link: "/#/previous-works/proj2", 
             text: {
                 en: "View Project 2", 
-                jp: ""
+                jp: "セカンドプロジェクトを見る"
             }
         }, 
         passage: [
@@ -157,7 +157,7 @@ const articlesNews = [
         ]
     }, 
     {
-        date: {year: 2022, month: 4, day: 3}, 
+        date: {year: 2022, month: 4, day: 9}, 
         title: {
             en: "New project Haachama's ??? initiated!", 
             jp: "新企画が始まりました！"
@@ -170,7 +170,7 @@ const articlesNews = [
             link: "/#/current-event", 
             text: {
                 en: "Join us!", 
-                jp: ""
+                jp: "参加する！"
             }
         }, 
         passage: [

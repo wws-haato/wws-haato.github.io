@@ -6,8 +6,9 @@ const articlesCurrentEvent = [
             jp: "WWS Haato サードプロジェクト、始動"
         }, 
         title: {
-            en: "Haachama's diary", 
-            jp: "はあちゃま日記"
+            en: "Visual Novel Game", 
+            jp: "ビジュアルノベル"
+            /*Prepared title: Haato's diary ; はあと様の日記*/
         }, 
         passage: [
             {

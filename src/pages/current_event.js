@@ -79,7 +79,7 @@ function createDescription(){
         var args = {className: "line"};
         if(line.style) 
             args.style = line.style;
-        
+
         slider.append(wrapDiv(["passage", args], 
             img.get(dir+"notification.png"), wrapLanguages(line)));
     }
@@ -127,7 +127,7 @@ function createProgramming(){
     var img = new Image();
     img.setWidth("15%");
     details.setGraphic("programmer", TitledMediaText.createButton(
-        merge(img.get(dir+"prog_w.png"), button), "paste-link-here", args));
+        merge(img.get(dir+"prog_w.png"), button), "https://docs.google.com/document/d/1SKYBfeHDxwa8UZiwHAMpe015WePY8ZTRS0I_JZSzu2g/edit", args));
     
     for(let content of videoTexts.contents){
         console.log(content);
@@ -157,16 +157,16 @@ function createWriters(){
     img.setWidth("15%");
     details.setGraphic("screen-writer", TitledMediaText.createButton(
         merge(img.get(dir+"writer_w.png"), 
-        wrapLanguages({en: "Join as Screen Writer!", jp: "脚本家として参加！"})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Screen Writer!", jp: "脚本家として参加！"})), "https://docs.google.com/document/d/1_gG53_xZx3fnT_cRRYkShcj4AvQAlkxz9hobkak-cAI/edit#bookmark=id.hn0zkkg5d3t4", args));
     details.setGraphic("writer", TitledMediaText.createButton(
         merge(img.get(dir+"writer_w.png"), 
-        wrapLanguages({en: "Join as Writer!", jp: "ライターとして参加！"})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Writer!", jp: "ライターとして参加！"})), "https://docs.google.com/document/d/1_gG53_xZx3fnT_cRRYkShcj4AvQAlkxz9hobkak-cAI/edit#bookmark=id.kv4appch547w", args));
     details.setGraphic("editor", TitledMediaText.createButton(
         merge(img.get(dir+"edit_w.png"), 
-        wrapLanguages({en: "Join as Editor!", jp: "エディターとして参加！"})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Editor!", jp: "エディターとして参加！"})), "https://docs.google.com/document/d/1_gG53_xZx3fnT_cRRYkShcj4AvQAlkxz9hobkak-cAI/edit#bookmark=id.37pk0dl67mx9", args));
     details.setGraphic("translator", TitledMediaText.createButton(
         merge(img.get(dir+"edit_w.png"), 
-        wrapLanguages({en: "Join as Translator!", jp: "通訳者として参加！"})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Translator!", jp: "通訳者として参加！"})), "https://docs.google.com/document/d/1_gG53_xZx3fnT_cRRYkShcj4AvQAlkxz9hobkak-cAI/edit#bookmark=id.lf3wdla3arst", args));
 
     for(let content of videoTexts.contents){
         console.log(content);
@@ -196,13 +196,13 @@ function createArtists(){
     img.setWidth("15%");
     details.setGraphic("illustrator", TitledMediaText.createButton(
         merge(img.get(dir+"artist_w.png"), 
-        wrapLanguages({en: "Join as Illustrator!", jp: "イラストレーターとして参加！"})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Illustrator!", jp: "イラストレーターとして参加！"})), "https://docs.google.com/document/d/1JZHOJBkrlpORwxdqTAq3Y-PPTuG1c-0ocDLGsapKj1c/edit#bookmark=id.rxu1r34gru2a", args));
     details.setGraphic("musician", TitledMediaText.createButton(
         merge(img.get(dir+"music.png"), 
-        wrapLanguages({en: "Join as Musician!", jp: "ミュージシャンとして参加！"})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Musician!", jp: "ミュージシャンとして参加！"})), "https://docs.google.com/document/d/1JZHOJBkrlpORwxdqTAq3Y-PPTuG1c-0ocDLGsapKj1c/edit#bookmark=id.syrv8ge3uqto", args));
     details.setGraphic("animator", TitledMediaText.createButton(
         merge(img.get(dir+"movie_w.png"), 
-        wrapLanguages({en: "Join as Animator!", jp: "アニメーターとして参加！"})), "paste-link-here", args));
+        wrapLanguages({en: "Join as Animator!", jp: "アニメーターとして参加！"})), "https://docs.google.com/document/d/1JZHOJBkrlpORwxdqTAq3Y-PPTuG1c-0ocDLGsapKj1c/edit#bookmark=id.dmlzktr6hb5u", args));
     
     for(let content of videoTexts.contents){
         console.log(content);

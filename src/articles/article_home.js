@@ -7,8 +7,9 @@ const articlesHome = [
             jp: "バースデープロジェクト2022"
         },
         graphicTitle: {
-            en: "Name of the project", 
-            jp: "プロジェクトの名前"
+            en: "Visual Novel", 
+            jp: "ビジュアルノベル"
+            /*Here the Game title don't forget */
         }, 
         description: {
             en: "This year, as Haachama is strong enough to face the difficulties in the future, \
