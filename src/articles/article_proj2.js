@@ -121,7 +121,7 @@ const articlesProject2 = [
         className: "project-details", 
         suptitle: {
             en: "Meaning of Lyrics", 
-            jp: "jp"
+            jp: "歌詞の趣意（意味）"
         }, 
         contents: [
             [

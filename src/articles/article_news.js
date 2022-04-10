@@ -157,10 +157,10 @@ const articlesNews = [
         ]
     }, 
     {
-        date: {year: 2022, month: 4, day: 9}, 
+        date: {year: 2022, month: 4, day: 10}, 
         title: {
-            en: "New project Haachama's ??? initiated!", 
-            jp: "新企画が始まりました！"
+            en: "\"Haato's Diary\" New project initiated!", 
+            jp: "「はあと様の日記」新企画が始まりました！"
         }, 
         graphic: {
             type: "picture", 

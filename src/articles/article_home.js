@@ -7,16 +7,25 @@ const articlesHome = [
             jp: "バースデープロジェクト2022"
         },
         graphicTitle: {
-            en: "Visual Novel", 
-            jp: "ビジュアルノベル"
-            /*Here the Game title don't forget */
+            en: "Haato's Diary", 
+            jp: "はあと様の日記"
+            /*Here the Game title, done */
         }, 
         description: {
-            en: "This year, as Haachama is strong enough to face the difficulties in the future, \
-                We're going to recruit particapants from different field. \
-                We sincerely look forward to your participation!", 
-            jp: "今年のはあちゃまはより強くなっていて、これからどんな困難でも乗り越えられると思っています。\
-                現在、多くの分野から参加者を募集しています。先輩達の協力を、心よりお待ちしております。"
+            en: "As Haachama is strong enough to face the difficulties that lie ahead in the future, \
+                we want to gift her something special for her birthday. \
+                This year we present our own visual novel where players can walk the path of our strongest idol, \
+                interact with others and become a star! \
+                We're going to recruit participants from different fields, including \
+                story writers, programmers, illustrators, musicians and testers! \
+                Your contribution is always welcome!",
+            jp: "今年のはあちゃまはより強くなっていて、この先にどんな困難があっても乗り越えられると考えています。\
+                そんな彼女に、何か特別な誕生日プレゼントを贈りたいと思っています。 \
+                今年にプレゼントとする、ビジュアルノベルの中に、プレイヤーは最強アイドルの物語を紡いで、 \
+                他の人々と触れ合って、世界中に輝く一等星に目指そう！ \
+                現在、多くの分野から参加者を募集しています。 \
+                ライター、プログラマー、イラストレーター、ミュージシャンとテスターの人を探しています！ \
+                先輩達の協力を、心よりお待ちしております。"
         }
     }, 
     {

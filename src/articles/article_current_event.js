@@ -6,9 +6,9 @@ const articlesCurrentEvent = [
             jp: "WWS Haato サードプロジェクト、始動"
         }, 
         title: {
-            en: "Visual Novel Game", 
-            jp: "ビジュアルノベル"
-            /*Prepared title: Haato's diary ; はあと様の日記*/
+            en: "Haato's Diary", 
+            jp: "はあと様の日記"
+            /*Spoilers replaced*/
         }, 
         passage: [
             {
@@ -62,7 +62,7 @@ const articlesCurrentEvent = [
                             },
                            
                             {
-                                en: "We're looking for particapants to complete \
+                                en: "We're looking for participants to complete \
                                     the project together! Your contribution is always welcome!", 
                                 jp: "現在、多くの分野から参加者を募集しています。\
                                     物語を充実させるライター、ゲーム根幹のプログラミング、\
@@ -132,7 +132,7 @@ const articlesCurrentEvent = [
                     passage: {
                         lines: [
                             {
-                                en: "We are looking for writing, programmars, \
+                                en: "We are looking for writers, programmers, \
                                     and artists! \
                                     If you have interests, please checkout following sections! ", 
                                 jp: "ライター、プログラマーとアーティスト募集しています！ \
