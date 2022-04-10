@@ -48,7 +48,7 @@ function createTopBanner(){
     var topBanner = new ProjectTopBanner();
 
     const dir = "fig/previous_works/proj2/";
-    topBanner.setGraphic(img.get(dir+"final_cut.gif"));
+    topBanner.setGraphic(img.get(dir+"compressed.gif"));
     topBanner.setSuptitle(topBannerTexts.suptitle);
     topBanner.setTitle(topBannerTexts.title);
     topBanner.setPassage(topBannerTexts.passage);
