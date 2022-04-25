@@ -168,8 +168,8 @@ const articlesCurrentEvent = [
                     passage: {
                         lines: [
                             {
-                                en: "We’re planning to produce this game with Python, probably building with Pygame", 
-                                jp: "この企画において、Pythonで開発（特にPygameを用いて）する予定になっております。"
+                                en: "We’re planning to produce this game with Python, probably building with Ren'Py", 
+                                jp: "この企画において、Pythonで開発（特にRen'Pyを用いて）する予定になっております。"
                             },
                             {
                                 en: "Also, we’ll set the project on Github, using Git for version control. \
