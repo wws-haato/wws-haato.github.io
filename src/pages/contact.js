@@ -12,7 +12,7 @@ import InvertableColumn from "../modules/invertable_columns";
 import Slider from "../modules/slider";
 import { fadeIn, fadeInDelayed, fadeInExplosiveDelayed} from "../modules/defaults/entrance_effect";
 import { staffInformationLeo, staffInformationZhadar, 
-    staffInformationSakazuki, staffInformationAbner, staffInformationSteve} 
+    staffInformationSakazuki, staffInformationAbner, staffInformationSteve, staffInformationIce, staffInformationSaku, staffInformationConkos} 
 from "../modules/staff_information";
 
 
@@ -103,10 +103,13 @@ function createStaffs(){
     titledContainer.setRight();
 
     var slider = new Slider();
-    slider.append(staffInformationLeo.get());
     slider.append(staffInformationZhadar.get());
     slider.append(staffInformationSakazuki.get());
     slider.append(staffInformationAbner.get());
+    slider.append(staffInformationIce.get());
+    slider.append(staffInformationSaku.get());
+    slider.append(staffInformationConkos.get());
+    slider.append(staffInformationLeo.get());
     //slider.append(staffInformationSteve.get());
 
     slider.setClickWidth("4VW");

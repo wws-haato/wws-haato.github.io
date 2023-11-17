@@ -75,7 +75,7 @@ export default class StaffInformation extends InvertableColumn{
 
         var languages = "";
         for(var i = 0; i < this.languages.length; ++i){
-            if(i == this.languages.length-1)
+            if(i && i == this.languages.length-1)
                 languages += " & ";
             else if(i)
                 languages += ", ";
@@ -151,6 +151,53 @@ function getStaffInformationAbner(){
 }
 
 
+function getStaffInformationIce(){
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("icephoenixlala");
+    staffInfo.setTimeZone(11);
+    staffInfo.setImagePath("fig/pfp/ice.jpg");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
+        "https://twitter.com/IcePhoenixLala");
+
+    return staffInfo;
+}
+
+function getStaffInformationSaku(){
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("sakuya_shihara");
+    staffInfo.setTimeZone("PST");
+    staffInfo.setImagePath("fig/pfp/saku.jpg");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendLanguage("Japanese");
+    staffInfo.appendLanguage("Korean");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
+        "https://twitter.com/sakuya_shihara");
+    staffInfo.appendSocialMedia("fig/common/icons/youtube.png", 
+        "https://www.youtube.com/channel/UC4VqLwnxITjcpWoabZj6PRA");
+
+    return staffInfo;
+}
+
+function getStaffInformationConkos(){
+    var staffInfo = new StaffInformation();
+    staffInfo.setDiscord("conkos");
+    staffInfo.setTimeZone("PST");
+    staffInfo.setImagePath("fig/pfp/conkos.jpg");
+    staffInfo.appendLanguage("English");
+    staffInfo.appendLanguage("Spanish");
+    staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
+        "https://twitter.com/original_bonkos");
+    staffInfo.appendSocialMedia("fig/common/icons/youtube.png", 
+        "https://www.youtube.com/channel/UC5GzrfngohSzsM_i16Cqd8A");
+
+    return staffInfo;
+}
+
+
+
+
+
 /*function getStaffInformationSteve(){
     var staffInfo = new StaffInformation();
     staffInfo.setDiscord("števe#0456");
@@ -172,4 +219,7 @@ export const staffInformationLeo = getStaffInformationLeo();
 export const staffInformationZhadar = getStaffInformationZhadar();
 export const staffInformationSakazuki = getStaffInformationSakazuki();
 export const staffInformationAbner = getStaffInformationAbner();
+export const staffInformationIce = getStaffInformationIce();
+export const staffInformationSaku = getStaffInformationSaku();
+export const staffInformationConkos = getStaffInformationConkos();
 //export const staffInformationSteve = getStaffInformationSteve();
