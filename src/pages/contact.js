@@ -107,7 +107,7 @@ function createStaffs(){
     slider.append(staffInformationZhadar.get());
     slider.append(staffInformationSakazuki.get());
     slider.append(staffInformationAbner.get());
-    slider.append(staffInformationSteve.get());
+    //slider.append(staffInformationSteve.get());
 
     slider.setClickWidth("4VW");
     slider.setBarColor(229, 49, 76, 1);

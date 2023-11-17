@@ -146,7 +146,7 @@ function getStaffInformationAbner(){
 }
 
 
-function getStaffInformationSteve(){
+/*function getStaffInformationSteve(){
     var staffInfo = new StaffInformation();
     staffInfo.setDiscord("števe#0456");
     staffInfo.setTimeZone(7);
@@ -159,7 +159,7 @@ function getStaffInformationSteve(){
         "https://www.reddit.com/user/HoangDung007");
 
     return staffInfo;
-}
+}*/
 
 
 
@@ -167,4 +167,4 @@ export const staffInformationLeo = getStaffInformationLeo();
 export const staffInformationZhadar = getStaffInformationZhadar();
 export const staffInformationSakazuki = getStaffInformationSakazuki();
 export const staffInformationAbner = getStaffInformationAbner();
-export const staffInformationSteve = getStaffInformationSteve();
+//export const staffInformationSteve = getStaffInformationSteve();
