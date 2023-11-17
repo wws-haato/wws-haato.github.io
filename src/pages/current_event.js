@@ -2,6 +2,7 @@ import React from "react";
 import TitledContainer from '../modules/titled_container';
 import InvertableColumn from "../modules/invertable_columns";
 import "../css/previous_works.css";
+import "../css/red_banner.css";
 import Image from "../modules/Image";
 import Youtube from "../modules/youtube";
 import { displayAnimationQueries, merge, wrapDiv, wrapDivRecursive, wrapDivStyled, wrapLanguages, wrapStyle } from "../utils";
@@ -56,8 +57,16 @@ function createTopBanner(){
     topBanner.setSuptitle(topBannerTexts.suptitle);
     topBanner.setTitle(topBannerTexts.title);
     topBanner.setPassage(topBannerTexts.passage);
+
+    link = "https://wws-haato.itch.io/haatos-diary";
+    var link = <a href={link}> itch.io</a>;
+
+    let announement = wrapDivStyled("red-banner", {marginTop: "10%"}, 
+        "This project is finished. The following information is outdeted. \
+        Please check the game on ", link, ", thank you!");
     
-    return topBanner.get();
+        
+    return merge(announement, topBanner.get());
 }
 
 function createDescription(){

@@ -1,0 +1,17 @@
+.red-banner {
+    background-color:red;
+    border-radius: 5px;
+    font-size: 48px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+@media screen and (max-width: 780px) {
+    .red-banner {
+        padding: 40px;
+    }
+    
+}
