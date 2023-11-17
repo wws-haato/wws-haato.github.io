@@ -15,3 +15,7 @@ Check https://wws-haato.github.io/ to visit the homepage.
 
     npm start
 
+### Publish
+
+    npm run deploy
+
