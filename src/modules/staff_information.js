@@ -12,7 +12,7 @@ export default class StaffInformation extends InvertableColumn{
         super();
         //this.setRatios(25, 75);
         //this.setColumnInterval("0px");
-        this.utc = 0;
+        this.timeZone = 0;
         this.discord = ""
         this.languages = []
         this.imgPath = ""
@@ -23,8 +23,8 @@ export default class StaffInformation extends InvertableColumn{
         this.imgPath = path
     }
 
-    setTimeZone(utc){
-        this.utc = utc;
+    setTimeZone(timeZone){
+        this.timeZone = timeZone;
     }
 
     setDiscord(discord){
@@ -64,8 +64,13 @@ export default class StaffInformation extends InvertableColumn{
         var textInfos = [];
         textInfos.push(wrapDiv("title", "Discord"));
         textInfos.push(wrapDiv("passage", this.discord));
+
         textInfos.push(wrapDiv("title", wrapLanguages({en: "Time Zone", jp: "タイムゾーン"})));
-        textInfos.push(wrapDiv("passage", "UTC"+(this.utc < 0? '':'+')+ this.utc.toString()));
+        var time = this.timeZone;
+        if (typeof(time) == typeof(0))
+            time = "UTC" + (time < 0? '': '+') + time.toString();
+
+        textInfos.push(wrapDiv("passage", time));
         textInfos.push(wrapDiv("title", wrapLanguages({en: "Languages", jp: "言語"})));
 
         var languages = "";
@@ -88,8 +93,8 @@ export default class StaffInformation extends InvertableColumn{
 
 function getStaffInformationLeo(){
     var staffInfo = new StaffInformation();
-    staffInfo.setDiscord("Leo Hsieh#0227");
-    staffInfo.setTimeZone(8);
+    staffInfo.setDiscord("leohsieh");
+    staffInfo.setTimeZone("EST");
     staffInfo.setImagePath("fig/pfp/leo.jpg");
     staffInfo.appendLanguage("Chinese");
     staffInfo.appendLanguage("English");
@@ -102,7 +107,7 @@ function getStaffInformationLeo(){
 
 function getStaffInformationZhadar(){
     var staffInfo = new StaffInformation();
-    staffInfo.setDiscord("Zhadar#9618");
+    staffInfo.setDiscord("zhadar.");
     staffInfo.setTimeZone(1);
     staffInfo.setImagePath("fig/pfp/zhadar.jpg");
     staffInfo.appendLanguage("German");
@@ -117,7 +122,7 @@ function getStaffInformationZhadar(){
 
 function getStaffInformationSakazuki(){
     var staffInfo = new StaffInformation();
-    staffInfo.setDiscord("羽の觴#4204");
+    staffInfo.setDiscord("feathergrail");
     staffInfo.setTimeZone(9);
     staffInfo.setImagePath("fig/pfp/saka.png");
     staffInfo.appendLanguage("Chinese");
@@ -132,7 +137,7 @@ function getStaffInformationSakazuki(){
 
 function getStaffInformationAbner(){
     var staffInfo = new StaffInformation();
-    staffInfo.setDiscord("UltimateAbRod#0949");
+    staffInfo.setDiscord("ab.rod");
     staffInfo.setTimeZone(-6);
     staffInfo.setImagePath("fig/pfp/abner.jpg");
     staffInfo.appendLanguage("Spanish");
