@@ -109,7 +109,7 @@ function createStaffs(){
     slider.append(staffInformationIce.get());
     slider.append(staffInformationSaku.get());
     slider.append(staffInformationConkos.get());
-    slider.append(staffInformationLeo.get());
+    //slider.append(staffInformationLeo.get());
     //slider.append(staffInformationSteve.get());
 
     slider.setClickWidth("4VW");

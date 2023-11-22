@@ -6,9 +6,10 @@ const articlesContact = {
         }, 
         passage: [
             {
-                en: "The team consists of 5 members from 4 different timezones with 6 available laguages in total.", 
-                jp: "私たちのチームは、4つのタイムゾーンから5人のスタッフで構成され、計6ヶ国語を対応することができます。 \
-                    "
+                en: "Our core planning team consists of 6 members from all over the world. \
+                    For our projects we usually coordinate several dozen participants.", 
+                jp: "私たちの中核の企画チームは、世界中から6人のメンバーで構成されています。\
+                    通常、プロジェクトには数十人の参加者を調整しています。"
             },
             {
                 en: "Please check the following information, if you want to contact certain staff members. ", 

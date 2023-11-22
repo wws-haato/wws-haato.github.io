@@ -51,6 +51,26 @@ const articlesHome = [
             jp: "WWS Haatoチーム、いわゆるWorld Wide Support for Haato \
             （はあと様へのワールドワイドの応援）は、Vtuber赤井はあとのためのボランティア団体です"
         }
+    }, 
+    {
+        //3 latest work!!
+        className: "titled-media-text", 
+        title: {
+            en: "1.5 year VN developement for 2023", 
+            jp: "2023年のための1.5年間のビジュアルノベル開発"
+        },
+        graphicTitle: {
+            en: "Theme Song MV", 
+            jp: "テーマソングMV"
+        }, 
+        description: {
+            en: "In 2022 and 2023 we created our own Visual Novel with Haato as the heroine. \
+            It includes 16 unique story lines, over 100 selfmade original \
+            soundtracks and many special scenario illustrations.", 
+            jp: "2022年と2023年に、私たちは自製のビジュアルノベルを制作しました。主人公ははあとです。\
+            これには16のユニークなストーリーライン、100以上の独自のオリジナルサウンドトラック、\
+            そして多くの特別なシナリオイラストが含まれています。"
+        }
     }
 ]
 
