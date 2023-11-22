@@ -62,7 +62,7 @@ function createTopBanner(){
     var link = <a href={link}> itch.io</a>;
 
     let announement = wrapDivStyled("red-banner", {marginTop: "10%"}, 
-        "This project is finished. The following information is outdeted. \
+        "This project is finished. The following information is outdated. \
         Please check the game on ", link, ", thank you!");
     
         
