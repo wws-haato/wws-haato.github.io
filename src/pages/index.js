@@ -130,13 +130,13 @@ function createCurrentEvent(){
 
     //TitledMediaText.setPassage has been deprecated
     //please use TitledMediaText.initFromArticle instead
-    mediaText.setGraphic(img.get("fig/current_event/haachama_vn_thumb.jpg"));
+    mediaText.setGraphic(img.get("fig/index/GroupPortrait.png"));
     mediaText.initFromArticle(articlesHome[0]);
 
     mediaText.setFontColor(255, 255, 255, 1);
     mediaText.setTitleColor(229, 49, 76, 1);
     mediaText.setBodyColor(181, 38, 59, 1);
-    mediaText.setButton("Join us!", "/#/current-event");
+    //mediaText.setButton("Join us!", "/#/current-event");
     mediaText.setRight();
 
     return mediaText.get();

@@ -3,25 +3,21 @@ const articlesHome = [
         //0 current event 
         className: "titled-media-text", 
         title: {
-            en: "Haachama Birthday Project 2022", 
-            jp: "バースデープロジェクト2022"
+            en: "WWS Haato is taking a break", 
+            jp: "WWS Haatoは休憩中です。"
         },
         graphicTitle: {
-            en: "Haato's Diary", 
-            jp: "はあと様の日記"
+            en: "See you soon!", 
+            jp: "See you soon!"
             /*Here the Game title, done */
         }, 
         description: {
-            en: "This year we present our own visual novel where players can walk the path of our strongest idol, \
-                interact with others and become a star! \
-                We're going to recruit participants from different fields, including \
-                story writers, programmers, illustrators, musicians and testers! \
-                Your contribution is always welcome!",
-            jp: "私たちは今年にプレゼントとするビジュアルノベルの中に、プレイヤーは最強アイドルの物語を紡いで、 \
-                他の人々と触れ合って、世界中に輝く一等星に目指そう！ \
-                現在、多くの分野から参加者を募集しています。 \
-                ライター、プログラマー、イラストレーター、ミュージシャンとテスターの人を探しています！ \
-                先輩達の協力を、心よりお待ちしております。"
+            en: "After working for 1,5 years on our Visual Novel and releasing it on 10th August 2023, \
+                we are currently taking a break from any new projects. \
+                We are excited to work with everyone again in 2024. ",
+            jp: "1.5年間の制作の末、2023年8月10日にビジュアルノベルをリリースしました。\
+                現在は新しいプロジェクトから一時休憩中です。\
+                2024年にみなさんと再び働けることを楽しみにしています。お会いできる日を楽しみにしています！"
         }
     }, 
     {
