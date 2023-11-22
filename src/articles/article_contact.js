@@ -1,5 +1,5 @@
 const articlesContact = {
-    participants: {
+    /*participants: {
         title: {
             en: "For Project Participants", 
             jp: "企画の参加者に向けの情報："
@@ -34,6 +34,38 @@ const articlesContact = {
                 jp: "ビジネスに関する、企業様向けの連絡はこちらのメールでお問い合わせください。"
             }
         ]
+    }, */
+    participants: {
+        className: "titled-media-text", 
+        title: {
+            en: "For Project Participants", 
+            jp: ""
+        },
+        graphicTitle: {
+            en: "Our SNS Accounts", 
+            jp: ""
+        }, 
+        description: {
+            en: "Our core planning team consists of 6 members from all over the world. \
+            For our projects we usually coordinate several dozen participants.\
+            Please contact us via Twitter or Discord", 
+            jp: ""
+        }
+    }, 
+    bussiness: {
+        className: "titled-media-text", 
+        title: {
+            en: "For Business Enquiry", 
+            jp: ""
+        },
+        graphicTitle: {
+            en: "wws.haato@gmail.com", 
+            jp: ""
+        }, 
+        description: {
+            en: "For business enquiries please send us an Email", 
+            jp: "ビジネスに関する、企業様向けの連絡はこちらのメールでお問い合わせください。"
+        }
     }
 }
 

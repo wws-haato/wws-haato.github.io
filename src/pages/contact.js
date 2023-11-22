@@ -14,6 +14,7 @@ import { fadeIn, fadeInDelayed, fadeInExplosiveDelayed} from "../modules/default
 import { staffInformationLeo, staffInformationZhadar, 
     staffInformationSakazuki, staffInformationAbner, staffInformationSteve, staffInformationIce, staffInformationSaku, staffInformationConkos} 
 from "../modules/staff_information";
+import TitledMediaText from "../modules/titled_media_text";
 
 
 const Contact = () => {
@@ -21,10 +22,9 @@ const Contact = () => {
     window.scrollTo(0, 0);
     
     const App = merge(
-        createColaborators(), 
+        createHeader(), 
         createStaffs(), 
         createBussiness(), 
-        createSocialMedia(), 
         createFootNote(0)
     );
 
@@ -37,23 +37,47 @@ const Contact = () => {
 export default Contact;
 
 
-function createColaborators(){
+function createHeader(){
     var paragraph = new RawParagraph();
     paragraph.setSuptitle("Contact");
-    paragraph.setTitle(wrapLanguages(articlesContact.participants.title));
-    paragraph.setPassage(articlesContact.participants.passage.map(
-        function(x){return wrapLanguages(x)}));
     return wrapStyle({marginBottom: "5%"}, paragraph.get());
 }
 
 
 function createBussiness(){
-    var paragraph = new RawParagraph();
-    //paragraph.setSuptitle("Contact");
-    paragraph.setTitle(wrapLanguages(articlesContact.bussiness.title));
-    paragraph.setPassage(articlesContact.bussiness.passage.map(
-        function(x){return wrapLanguages(x)}));
-    return wrapStyle({marginBottom: "5%"}, paragraph.get());
+    var mediaText = new TitledMediaText();
+    mediaText.setTitle("Email");
+    mediaText.initFromArticle(articlesContact.bussiness);
+    
+    mediaText.setFontColor(255, 255, 255,1);
+    mediaText.setBodyColor(60, 112, 185, 1); 
+    mediaText.setTitleColor(70, 132, 219, 1);
+    mediaText.setLeft();
+
+    var img = new Image();
+    img.setWidth("65%");
+
+    var imgLink = new ImageLinked(); 
+    imgLink.setWidth("25%");
+    img.setMargin(Border.ALL, "0px");
+    img.setCorner(Border.ALL, "0");
+    //imgLink.setMargin(Border.TOP, "20px");
+    imgLink.setWaterMark(img.get("fig/common/icons/ext_link.png"));
+
+    var items = []
+    items.push(fadeInDelayed.get(imgLink.get("fig/common/icons/email.webp", "mailto:wws.haato@gmail.com")));
+
+    mediaText.setGraphic(merge(items));
+    //cols.insert(1, merge(items));
+
+    //mediaText.setTitleColor(229, 49, 76, 1);
+    //mediaText.setBodyColor(181, 38, 59, 1);
+    //mediaText.setButton("View all", "/#/previous-works");
+    //mediaText.setRight();
+
+    
+
+    return mediaText.get();
 }
 
 
@@ -95,7 +119,25 @@ function createSocialMedia(){
 }
 
 function createStaffs(){
-    var titledContainer = new TitledContainer();
+    var img = new Image();
+    img.setWidth("85%");
+    img.setCorner(Border.ALL, "10px");
+
+    var mediaText = new TitledMediaText();
+    mediaText.setTitle("Social Media");
+
+    //TitledMediaText.setPassage has been deprecated
+    //please use TitledMediaText.initFromArticle instead
+    //mediaText.setGraphic(img.get("fig/index/GroupPortrait.png"));
+    mediaText.initFromArticle(articlesContact.participants);
+
+    mediaText.setFontColor(255, 255, 255, 1);
+    mediaText.setTitleColor(229, 49, 76, 1);
+    mediaText.setBodyColor(181, 38, 59, 1);
+    //mediaText.setButton("Join us!", "/#/current-event");
+    mediaText.setRight();
+
+    /*var titledContainer = new TitledContainer();
     titledContainer.setTitle("Staff");
     titledContainer.setFontColor(255, 255, 255,1);
     titledContainer.setTitleColor(229, 49, 76, 1);
@@ -115,9 +157,11 @@ function createStaffs(){
     slider.setClickWidth("4VW");
     slider.setBarColor(229, 49, 76, 1);
     slider.setDotColor(255,255,255,1);
-    slider.setWidth("100%");
-    
-    const leftContent = fadeInExplosiveDelayed.get(slider.get());
+    slider.setWidth("100%");*/
 
-    return titledContainer.get(leftContent);
+    return mediaText.get();
+    
+    //const leftContent = fadeInExplosiveDelayed.get(slider.get());
+
+    //return titledContainer.get(leftContent);
 }
