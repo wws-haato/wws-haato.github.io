@@ -160,7 +160,7 @@ const articlesNews = [
         date: {year: 2022, month: 4, day: 10}, 
         title: {
             en: "\"Haato's Diary\" New project initiated!", 
-            jp: "「はあと様の日記」新企画が始まりました！"
+            jp: "「はあとの日記」新企画が始まりました！"
         }, 
         graphic: {
             type: "picture", 
@@ -179,6 +179,30 @@ const articlesNews = [
                     please check Current Event for more information!", 
                 jp: "遂に新企画が立ち上げることを皆様にお知らせします！ \
                     Current Event（進行中イベント）でもご確認ください！", 
+            }
+        ]
+    }, 
+    {
+        date: {year: 2023, month: 8, day: 10}, 
+        title: {
+            en: "\"Haato's Diary\" Visual Novel released!", 
+            jp: "「はあとの日記」ビジュアルノベルがリリースされました！"
+        }, 
+        graphic: {
+            type: "picture", 
+            path: "fig/news/diary-cover.png"
+        }, 
+        external: {
+            link: "https://wws-haato.itch.io/haatos-diary", 
+            text: {
+                en: "Download the game here!", 
+                jp: "ゲームをダウンロード！"
+            }
+        }, 
+        passage: [
+            {
+                en: "We're happy to announce the release of our Visual Novel!", 
+                jp: "「ビジュアルノベル」のリリースをお知らせいたします！", 
             }
         ]
     }
