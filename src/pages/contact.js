@@ -131,11 +131,31 @@ function createStaffs(){
     //mediaText.setGraphic(img.get("fig/index/GroupPortrait.png"));
     mediaText.initFromArticle(articlesContact.participants);
 
+    var sns_list = [];
+    sns_list.push({img: "fig/common/icons/twitter.png", url: "https://twitter.com/WWS_Haato"});
+    sns_list.push({img: "fig/common/icons/discord.png", url: "https://discord.com/invite/nv2kDhq4AJ"});
+
+    var icons = new Column(sns_list.length);
+    const margin = (100 - 15 * sns_list.length) / 2;
+
+    icons.setColumnInterval("5px");
+    icons.setMargin(Border.LEFT, margin.toString()+'%');
+    icons.setMargin(Border.RIGHT, margin.toString()+'%');
+
+    var imgLinked = new ImageLinked();
+    imgLinked.setWidth("100%");
+    imgLinked.setWaterMark(img.get("fig/common/icons/ext_link.png"));
+
+    var colId = 0;
+    for(let sns of sns_list)
+        icons.insert(colId++, imgLinked.get(sns.img, sns.url))
+
     mediaText.setFontColor(255, 255, 255, 1);
     mediaText.setTitleColor(229, 49, 76, 1);
     mediaText.setBodyColor(181, 38, 59, 1);
     //mediaText.setButton("Join us!", "/#/current-event");
     mediaText.setRight();
+    mediaText.setGraphic(icons.get());
 
     /*var titledContainer = new TitledContainer();
     titledContainer.setTitle("Staff");
