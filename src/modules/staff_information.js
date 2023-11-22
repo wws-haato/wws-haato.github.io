@@ -113,7 +113,7 @@ function getStaffInformationZhadar(){
     staffInfo.appendLanguage("German");
     staffInfo.appendLanguage("English");
     staffInfo.appendSocialMedia("fig/common/icons/twitter.png", 
-        "https://twitter.com/HaatonZhadi");
+        "https://twitter.com/_Zhadar_");
     staffInfo.appendSocialMedia("fig/common/icons/reddit.png", 
         "https://www.reddit.com/user/HaatonZhadi");
 
