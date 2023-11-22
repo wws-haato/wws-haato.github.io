@@ -205,6 +205,30 @@ const articlesNews = [
                 jp: "「ビジュアルノベル」のリリースをお知らせいたします！", 
             }
         ]
+    }, 
+    {
+        date: {year: 2023, month: 8, day: 13}, 
+        title: {
+            en: "\"Haato's diary\" OST - 101 tracks released", 
+            jp: "「はあとの日記」OST - 101トラックがリリースされました！"
+        }, 
+        graphic: {
+            type: "youtube", 
+            path: "https://youtu.be/tRLvKY_WZwU?si=fSGkMX2DfZXP_F_z"
+        }, 
+        external: {
+            link: "https://soundcloud.com/wws-haato/worried-haato", 
+            text: {
+                en: "Download the OST!", 
+                jp: "OSTをダウンロード！"
+            }
+        }, 
+        passage: [
+            //{
+                //en: "We're happy to announce the release of our Visual Novel!", 
+                //jp: "「ビジュアルノベル」のリリースをお知らせいたします！", 
+            //}
+        ]
     }
     
 ]
