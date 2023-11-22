@@ -11,7 +11,7 @@ export const NavbarDropdown = () =>{
 
 	return(
 		<nav id = "top_bar" className="dropdown">
-			{LanguageSwitch.createToggle()}
+			{/*LanguageSwitch.createToggle()}*/}
 			<button id = "menu_icon" className="dropbtn">
 				{img.get("fig/common/menu_white.png")}
 			</button>
