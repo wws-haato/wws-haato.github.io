@@ -51,7 +51,7 @@ const articlesHome = [
             jp: "WWS Haatoコミュニティからこんにちは！"
         },
         intro: {
-            en: "WWS Haato team, aka World Wide Support for Haato, is a non-profit project team for vtuber Akai Haato.", 
+            en: "World Wide Support for Haato, aka WWS Haato, is a fanbased non-profit project team for Vtuber Akai Haato.", 
             jp: "WWS Haatoチーム、いわゆるWorld Wide Support for Haato \
             （はあと様へのワールドワイドの応援）は、Vtuber赤井はあとのためのボランティア団体です"
         }
